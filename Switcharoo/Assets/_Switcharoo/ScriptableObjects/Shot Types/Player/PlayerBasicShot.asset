@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBasicShot
   m_EditorClassIdentifier: 
   m_fireRate: 5
+  m_isPlayer: 1
+  m_ammo: 10
   m_bulletPrefab: {fileID: 318290044110178628, guid: 955458cb5835fa448a1ce078ebb2fcb7,
     type: 3}
