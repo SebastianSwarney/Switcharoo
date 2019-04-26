@@ -62,18 +62,24 @@ public class PlayerController : MonoBehaviour
 
     #region Dash Properties
     [Header("Dash Properties")]
-    public float dashDistance;
-    public float dashTime;
-    public float groundDashCooldown;
-    public AnimationCurve dashCurve;
+    public float m_dashDistance;
+    public float m_dashTime;
+    public float m_groundDashCooldown;
+    public AnimationCurve m_dashCurve;
 
-    bool canDash = true;
-    bool dashing;
+    //bool m_canDash = true;
+    bool m_dashing;
 
-    float dashSpeed;
-    float dashingTime;
-    float groundDashTimer;
-    bool canDashGround;
+    float m_dashSpeed;
+    float m_dashingTime;
+    float m_groundDashTimer;
+    bool m_canDashGround;
+    [Space]
+    #endregion
+
+    #region Shoot Properties
+    [Header("Shooting Properties")]
+    private ShootController m_shootController;
     [Space]
     #endregion
 
@@ -92,6 +98,8 @@ public class PlayerController : MonoBehaviour
         m_gravity = -(2 * m_maxJumpHeight) / Mathf.Pow(m_timeToJumpApex, 2);
         m_maxJumpVelocity = Mathf.Abs(m_gravity) * m_timeToJumpApex;
         m_minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(m_gravity) * m_minJumpHeight);
+
+        m_shootController = GetComponent<ShootController>();
 
     }
 
@@ -269,7 +277,7 @@ public class PlayerController : MonoBehaviour
     #region Dash Code
     public void OnDashInputDown()
     {
-        if (!dashing)
+        if (!m_dashing)
         {
             StartCoroutine(Dash());
         }
@@ -277,23 +285,23 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        dashing = true;
+        m_dashing = true;
 
         m_velocity = Vector3.zero;
 
         Vector3 initialPosition = transform.position;
 
-        float dashTargetX = (m_directionalInput.x > 0) ? transform.position.x + dashDistance : transform.position.x - dashDistance; //possibly change this as the velocity x smoothing variable may have been the problem
+        float dashTargetX = (m_directionalInput.x > 0) ? transform.position.x + m_dashDistance : transform.position.x - m_dashDistance; //possibly change this as the velocity x smoothing variable may have been the problem
 
         Vector3 dashTarget = new Vector3(dashTargetX, transform.position.y, transform.position.z);
 
         float t = 0;
 
-        while (t < dashTime)
+        while (t < m_dashTime)
         {
             t += Time.deltaTime;
 
-            float progress = dashCurve.Evaluate(t / dashTime);
+            float progress = m_dashCurve.Evaluate(t / m_dashTime);
 
             Vector3 targetPosition = Vector3.Lerp(initialPosition, dashTarget, progress);
 
@@ -306,7 +314,14 @@ public class PlayerController : MonoBehaviour
 
         m_velocityXSmoothing = 0; //figure out how to do this somewhere else
 
-        dashing = false;
+        m_dashing = false;
+    }
+    #endregion
+
+    #region Shoot Code
+    public void OnShootInputHold()
+    {
+        m_shootController.Shoot(m_crosshair);
     }
     #endregion
 
@@ -318,7 +333,7 @@ public class PlayerController : MonoBehaviour
 
     void CalculateVelocity()
     {
-        if (!dashing)
+        if (!m_dashing)
         {
             float targetVelocityX = m_directionalInput.x * m_moveSpeed;
             m_velocity.x = Mathf.SmoothDamp(m_velocity.x, targetVelocityX, ref m_velocityXSmoothing, (controller.collisions.below) ? m_accelerationTimeGrounded : m_accelerationTimeAirborne);

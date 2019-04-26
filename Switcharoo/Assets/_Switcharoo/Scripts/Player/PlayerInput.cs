@@ -37,5 +37,10 @@ public class PlayerInput : MonoBehaviour
 		{
 			m_playerController.OnJumpInputUp();
 		}
+
+		if (Input.GetMouseButton(0))
+		{
+			m_playerController.OnShootInputHold();
+		}
 	}
 }
