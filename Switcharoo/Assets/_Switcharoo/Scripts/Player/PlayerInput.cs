@@ -42,5 +42,10 @@ public class PlayerInput : MonoBehaviour
 		{
 			m_playerController.OnShootInputHold();
 		}
+
+		if (Input.GetMouseButtonDown(2))
+		{
+			m_playerController.OnReloadInputDown();
+		}
 	}
 }

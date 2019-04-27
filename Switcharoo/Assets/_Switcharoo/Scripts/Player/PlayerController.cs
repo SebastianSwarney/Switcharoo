@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     #region Shoot Properties
     [Header("Shooting Properties")]
-    private ShootController m_shootController;
+    private ShootController_Player m_shootController;
     [Space]
     #endregion
 
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
         m_maxJumpVelocity = Mathf.Abs(m_gravity) * m_timeToJumpApex;
         m_minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(m_gravity) * m_minJumpHeight);
 
-        m_shootController = GetComponent<ShootController>();
+        m_shootController = GetComponent<ShootController_Player>();
 
     }
 
@@ -322,6 +322,11 @@ public class PlayerController : MonoBehaviour
     public void OnShootInputHold()
     {
         m_shootController.Shoot(m_crosshair);
+    }
+
+    public void OnReloadInputDown()
+    {
+        m_shootController.Reload();
     }
     #endregion
 
