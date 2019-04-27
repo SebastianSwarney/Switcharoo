@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class ShotType_Base : ScriptableObject
 {
-    public float m_fireRate;
+	[Header("Base Properties")]
+	public float m_fireRate;
+	public float m_baseDamage;
 
-	public float m_damage;
-
-	public BulletType_Base m_bulletType;
+	public Bullet_Base m_bulletType;
 
     public abstract void Shoot(Transform p_bulletOrigin);
 }

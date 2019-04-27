@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Bullet_Base : MonoBehaviour
 {
-    public float m_moveSpeed = 10;
+	public Sprite[] m_chargeSprites;
+
+	public float m_moveSpeed = 10;
 
 	private SpriteRenderer m_spriteRenderer;
-
 	private BoxCollider2D m_collider;
 
-	private void OnEnable()
+	public virtual void OnEnable()
 	{
 		m_spriteRenderer = GetComponent<SpriteRenderer>();
 		m_collider = GetComponent<BoxCollider2D>();
 	}
-
-	private void Update() 
-    {
-        transform.Translate(transform.right * m_moveSpeed * Time.deltaTime, Space.World);
-    }
 
 	public void InitializeParameters(Sprite p_sprite)
 	{

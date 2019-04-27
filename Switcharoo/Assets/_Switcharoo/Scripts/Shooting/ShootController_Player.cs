@@ -99,5 +99,4 @@ public class ShootController_Player : MonoBehaviour
 
 		return ShotType_Player.ChargePercent._0;
 	}
-
 }

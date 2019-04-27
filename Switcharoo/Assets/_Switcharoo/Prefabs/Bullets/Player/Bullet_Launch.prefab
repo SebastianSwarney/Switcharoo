@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 318290044110178635}
   - component: {fileID: 318290044110178634}
-  - component: {fileID: 318290044110178629}
   - component: {fileID: 504732419026082140}
+  - component: {fileID: -5114918403831490374}
+  - component: {fileID: 6400184362384343306}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet_Launch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 318290044110178628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,26 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &318290044110178629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318290044110178628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf6adb9f31a2d344eb7f9e3aa7c337a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_bulletObject: {fileID: 0}
-  m_chargeSprites:
-  - {fileID: 21300000, guid: ccc42257c145a49409e53b5023526c0e, type: 3}
-  - {fileID: 21300000, guid: 2fb5371a591dc3b4d8d77ce0a898cf1d, type: 3}
-  - {fileID: 21300000, guid: bfa5a0fa093534f4f8034798487a288d, type: 3}
-  - {fileID: 21300000, guid: 7589694c6558a414aa09e12a8586f766, type: 3}
-  - {fileID: 21300000, guid: 7a10ba8ad815fb840a42a7363d9637b6, type: 3}
-  m_moveSpeed: 20
 --- !u!61 &504732419026082140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,3 +108,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5114918403831490374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318290044110178628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02a22cd5e4caae4db67fb185de93ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_chargeSprites:
+  - {fileID: 21300000, guid: ccc42257c145a49409e53b5023526c0e, type: 3}
+  m_moveSpeed: 20
+--- !u!50 &6400184362384343306
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318290044110178628}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

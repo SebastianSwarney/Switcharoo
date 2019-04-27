@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Shot Types/Player Shot Types/Shotgun")]
 public class ShotType_Player_Shotgun : ShotType_Player
 {
+	[Header("Shotgun Properties")]
 	public float m_maxBulletSpacing;
 	public float m_minBulletSpacing;
 	public int m_amountOfBulletsPerShot;
@@ -60,7 +61,7 @@ public class ShotType_Player_Shotgun : ShotType_Player
 		{
 			Quaternion bulletSpaceQuaternion = Quaternion.Euler(0, 0, (i * angleBetweenBullets) - (angleBetweenBullets * (m_amountOfBulletsPerShot / 2)));
 
-			GameObject newBullet = ObjectPooler.instance.NewObject(m_bulletType.m_bulletObject, p_bulletOrigin);
+			GameObject newBullet = ObjectPooler.instance.NewObject(m_bulletType.gameObject, p_bulletOrigin);
 
 			newBullet.transform.rotation = p_bulletOrigin.rotation * bulletSpaceQuaternion;
 
