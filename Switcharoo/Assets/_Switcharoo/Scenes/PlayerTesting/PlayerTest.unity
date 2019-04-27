@@ -666,10 +666,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905962495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aef1bfd8a5caf54ba00e0aceab277a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7962646cbed78dc449eef36d34f4fc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_shotType: {fileID: 11400000, guid: 9ffa46272173c3240b9fa139db7b256a, type: 2}
+  m_shotTypePlayer: {fileID: 11400000, guid: e148e2a8a94141649ad0c1b2ab3828a2, type: 2}
+  m_chargeUpTime: 1
+  m_ammoCount: 0
+  m_nextTimeToFire: 0
+  m_chargeValue: 0
 --- !u!1001 &4661171504036958735
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -328,6 +328,16 @@ public class PlayerController : MonoBehaviour
     {
         m_shootController.Reload();
     }
+
+	public void OnChargeInputHold()
+	{
+		m_shootController.ChargeUpShot();
+	}
+
+	public void OnChargeInputUp()
+	{
+		m_shootController.FireChargedShot(m_crosshair);
+	}
     #endregion
 
     private void PhysicsSeekTo(Vector3 targetPosition)

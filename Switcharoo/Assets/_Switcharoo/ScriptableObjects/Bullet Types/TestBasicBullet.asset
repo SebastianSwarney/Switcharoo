@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929b0289d209f5e48b5788ae689f71d7, type: 3}
+  m_Name: TestBasicBullet
+  m_EditorClassIdentifier: 
+  m_bulletObject: {fileID: 318290044110178628, guid: 955458cb5835fa448a1ce078ebb2fcb7,
+    type: 3}
+  m_chargeSprites:
+  - {fileID: 21300000, guid: ccc42257c145a49409e53b5023526c0e, type: 3}
+  - {fileID: 21300000, guid: 2fb5371a591dc3b4d8d77ce0a898cf1d, type: 3}
+  - {fileID: 21300000, guid: bfa5a0fa093534f4f8034798487a288d, type: 3}
+  - {fileID: 21300000, guid: 7589694c6558a414aa09e12a8586f766, type: 3}
+  - {fileID: 21300000, guid: 7a10ba8ad815fb840a42a7363d9637b6, type: 3}

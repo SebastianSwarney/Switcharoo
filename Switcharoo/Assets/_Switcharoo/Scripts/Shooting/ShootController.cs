@@ -17,7 +17,7 @@ public class ShootController : MonoBehaviour
         }
     }
 
-    public virtual bool CanShoot()
+    public bool CanShoot()
     {
         if (Time.time >= m_nextTimeToFire)
         {
