@@ -15,8 +15,22 @@ public class Bullet_Launch : Bullet_Base
 		Launch();
 	}
 
+	private void Update()
+	{
+		RotateToMovement();
+	}
+
 	private void Launch()
 	{
 		m_rigidbody.AddForce(transform.right * m_moveSpeed, ForceMode2D.Impulse);
+	}
+
+	private void RotateToMovement()
+	{
+		if (m_rigidbody.velocity != Vector2.zero)
+		{
+			float angle = Mathf.Atan2(m_rigidbody.velocity.y, m_rigidbody.velocity.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		}
 	}
 }

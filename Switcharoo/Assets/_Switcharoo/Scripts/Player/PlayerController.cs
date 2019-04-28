@@ -5,6 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class PlayerController : MonoBehaviour
 {
+	public enum MovementControllState {MovementEnabled, MovementDisabled}
+
+	public PlayerState m_states;
+
+	public enum PlayerRole { Runner, Gunner }
+
+	public PlayerData[] m_players;
+
     #region Jump Properties
     [Header("Jump Properties")]
     public float m_maxJumpHeight = 4;
@@ -31,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [Header("Aim Properties")]
     public Transform m_crosshair;
     public float m_crosshairDst;
+	public Vector3 m_aimDirection;
 
     Vector3 m_lastPos;
     [Space]
@@ -80,10 +89,13 @@ public class PlayerController : MonoBehaviour
     #region Shoot Properties
     [Header("Shooting Properties")]
     private ShootController_Player m_shootController;
-    [Space]
-    #endregion
+	[Space]
+	#endregion
 
-    Vector3 m_velocity;
+	public MovementAbility_Base m_movementAbility;
+
+	[HideInInspector]
+    public Vector3 m_velocity;
 
     Controller2D controller;
 
@@ -105,10 +117,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        CalculateVelocity();
+        //CalculateVelocity();
         m_HandleWallSliding();
         InputBuffering();
         Aim();
+
+		UpdatePlayerStates();
 
         controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
@@ -135,6 +149,24 @@ public class PlayerController : MonoBehaviour
         m_aimInput = p_input;
     }
 
+	private void UpdatePlayerStates()
+	{
+		switch (m_states.m_movementControllState)
+		{
+			case MovementControllState.MovementEnabled:
+
+				CalculateVelocity();
+
+				break;
+
+			case MovementControllState.MovementDisabled:
+
+
+
+				break;
+		}
+	}
+
     #region Aim Code
     void Aim()
     {
@@ -144,7 +176,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * m_crosshairDst;
 
-        if (m_aimInput.normalized.magnitude != 0)
+		m_aimDirection = m_crosshair.position - transform.position;
+
+		if (m_aimInput.normalized.magnitude != 0)
         {
             m_crosshair.rotation = Quaternion.Euler(0, 0, aimDegrees);
             m_crosshair.position = transform.position + pCircle;
@@ -327,7 +361,9 @@ public class PlayerController : MonoBehaviour
     public void OnReloadInputDown()
     {
         m_shootController.Reload();
-    }
+
+		SwapPlayers();
+	}
 
 	public void OnChargeInputHold()
 	{
@@ -340,19 +376,65 @@ public class PlayerController : MonoBehaviour
 	}
     #endregion
 
-    private void PhysicsSeekTo(Vector3 targetPosition)
+	public void OnMovementAbilityInputDown()
+	{
+		m_movementAbility.UseAbility(this);
+	}
+
+    private void PhysicsSeekTo(Vector3 p_targetPosition)
     {
-        Vector3 deltaPosition = targetPosition - transform.position;
+        Vector3 deltaPosition = p_targetPosition - transform.position;
         m_velocity = deltaPosition / Time.deltaTime;
     }
 
     void CalculateVelocity()
     {
-        if (!m_dashing)
-        {
-            float targetVelocityX = m_directionalInput.x * m_moveSpeed;
-            m_velocity.x = Mathf.SmoothDamp(m_velocity.x, targetVelocityX, ref m_velocityXSmoothing, (controller.collisions.below) ? m_accelerationTimeGrounded : m_accelerationTimeAirborne);
-            m_velocity.y += m_gravity * Time.deltaTime;
-        }
-    }
+		float targetVelocityX = m_directionalInput.x * m_moveSpeed;
+		m_velocity.x = Mathf.SmoothDamp(m_velocity.x, targetVelocityX, ref m_velocityXSmoothing, (controller.collisions.below) ? m_accelerationTimeGrounded : m_accelerationTimeAirborne);
+		m_velocity.y += m_gravity * Time.deltaTime;
+	}
+
+	private void SwapPlayers()
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			m_players[i].Swap();
+
+			if (m_players[i].m_currentRole == PlayerRole.Gunner)
+			{
+				m_shootController.m_shotTypePlayer = m_players[i].m_shotType;
+			}
+
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_movementAbility = m_players[i].m_movementAbility;
+			}
+		}
+	}
+
+	[System.Serializable]
+	public struct PlayerState
+	{
+		public MovementControllState m_movementControllState;
+	}
+
+	[System.Serializable]
+	public struct PlayerData
+	{
+		public PlayerRole m_currentRole;
+		public ShotType_Player m_shotType;
+		public MovementAbility_Base m_movementAbility;
+
+		public void Swap()
+		{
+			if (m_currentRole == PlayerRole.Gunner)
+			{
+				m_currentRole = PlayerRole.Runner;
+			}
+			else
+			{
+				m_currentRole = PlayerRole.Gunner;
+			}
+		}
+	}
 }
