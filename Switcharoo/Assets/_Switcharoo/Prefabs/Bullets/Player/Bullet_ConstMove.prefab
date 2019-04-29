@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 318290044110178635}
   - component: {fileID: 318290044110178634}
   - component: {fileID: 504732419026082140}
+  - component: {fileID: -1996426917697744598}
   - component: {fileID: 7315616157899850491}
   m_Layer: 0
   m_Name: Bullet_ConstMove
@@ -107,6 +108,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &-1996426917697744598
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318290044110178628}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &7315616157899850491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +148,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7589694c6558a414aa09e12a8586f766, type: 3}
   - {fileID: 21300000, guid: 7a10ba8ad815fb840a42a7363d9637b6, type: 3}
   m_moveSpeed: 20
+  m_damage: 0
+  m_damageTargetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
