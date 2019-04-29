@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3ba1c85768286249a771a5971977c5d, type: 3}
-  m_Name: Aerial_Fast
+  m_Script: {fileID: 11500000, guid: eb1c7c8dd37591741b18cdf44e8b2e5a, type: 3}
+  m_Name: ShotType_Enemy_Single_Automatic
   m_EditorClassIdentifier: 
-  m_speed: 4
+  m_fireRate: 30
+  m_baseDamage: 4
+  m_bulletSpeed: 50
+  m_bulletType: {fileID: 7315616157899850491, guid: 6834496e6d0e4d044867d5b54ece3703,
+    type: 3}

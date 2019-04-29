@@ -7,13 +7,14 @@ using UnityEngine;
 ///The shooting behaviour used for enemies with guns
 ///<Summary>
 
-[CreateAssetMenu(fileName = "Shoot", menuName = "Scriptable Objects/AttackType/Shoot", order = 0)]
-public class AttackType_Shoot : AttackType_Base
+[CreateAssetMenu(fileName = "Shoot", menuName = "AttackType/Shoot/InstantAim", order = 0)]
+public abstract class AttackType_Shoot : AttackType_Base
 {
     [Header("Shoot-Only variables")]
     public float m_distanceFromPlayer;
     public ShotType_Base m_shotType;
     public float m_shootIntervalTime, m_shootBreakTime;
+    public MovementType_Base m_shootingMovement;
 
     ///<Summary>
     ///Where all the attack logic is
@@ -39,18 +40,26 @@ public class AttackType_Shoot : AttackType_Base
                     {
                         p_gun.Shoot(p_bulletOrigin);
                         p_aiController.SwapShooting(true, m_shootIntervalTime);
+                        
+                        //Different movement for when they are shooting
+                        if (!m_shootingMovement.PostionReached(p_enemyObject, p_targetPos, m_targetStoppingDistance))
+                        {
+                            m_shootingMovement.ConvertRelativePosition(p_enemyObject, p_targetPos);
+                            m_shootingMovement.MoveToPosition(p_rb, p_enemyObject.transform.position, p_targetPos);
+                        }
                     }
                     else
                     {
                         p_aiController.SwapShooting(false, m_shootBreakTime);
+                        ///If they've havent reached the position, move to it still
+                        if (!m_attackMovement.PostionReached(p_enemyObject, p_targetPos, m_targetStoppingDistance))
+                        {
+                            m_attackMovement.ConvertRelativePosition(p_enemyObject, p_targetPos);
+                            m_attackMovement.MoveToPosition(p_rb, p_enemyObject.transform.position, p_targetPos);
+                        }
                     }
 
-                    ///If they've havent reached the position, move to it still
-                    if (!m_attackMovement.PostionReached(p_enemyObject, p_targetPos, m_targetStoppingDistance))
-                    {
-                        m_attackMovement.ConvertRelativePosition(p_enemyObject, p_targetPos);
-                        m_attackMovement.MoveToPosition(p_rb, p_enemyObject.transform.position, p_targetPos);
-                    }
+
                 }
 
                 ///If the player gets out of range, end the attack
@@ -87,7 +96,7 @@ public class AttackType_Shoot : AttackType_Base
     }
 
     //Aim the gun
-    void AimAtTarget(Transform p_bulletOrigin, Vector3 p_targetPos)
+    public virtual void AimAtTarget(Transform p_bulletOrigin, Vector3 p_targetPos)
     {
         Vector3 dir = p_targetPos - p_bulletOrigin.transform.position;
 
