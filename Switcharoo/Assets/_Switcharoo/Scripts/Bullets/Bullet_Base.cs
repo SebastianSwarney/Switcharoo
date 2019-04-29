@@ -17,12 +17,14 @@ public class Bullet_Base : MonoBehaviour
 		m_collider = GetComponent<BoxCollider2D>();
 	}
 
-	public void InitializeParameters(Sprite p_sprite)
+	public void InitializeParameters(Sprite p_sprite, float p_moveSpeed)
 	{
 		m_spriteRenderer.sprite = p_sprite;
 
 		Vector2 colliderSize = m_spriteRenderer.sprite.bounds.size;
 		m_collider.size = colliderSize;
 		m_collider.offset = new Vector2(colliderSize.x / 2, 0);
+
+		m_moveSpeed = p_moveSpeed;
 	}
 }

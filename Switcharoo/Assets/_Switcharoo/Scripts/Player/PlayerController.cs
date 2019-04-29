@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [Header("Aim Properties")]
     public Transform m_crosshair;
     public float m_crosshairDst;
+	[HideInInspector]
 	public Vector3 m_aimDirection;
 
     Vector3 m_lastPos;
@@ -92,7 +93,11 @@ public class PlayerController : MonoBehaviour
 	[Space]
 	#endregion
 
-	public MovementAbility_Base m_movementAbility;
+	#region Movement Ability Properties
+	[Header("Movement Ability Properties")]
+	[SerializeField]
+	private MovementAbility_Base m_movementAbility;
+	#endregion
 
 	[HideInInspector]
     public Vector3 m_velocity;
@@ -113,11 +118,12 @@ public class PlayerController : MonoBehaviour
 
         m_shootController = GetComponent<ShootController_Player>();
 
-    }
+		UpdatePickups();
+
+	}
 
     void Update()
     {
-        //CalculateVelocity();
         m_HandleWallSliding();
         InputBuffering();
         Aim();
@@ -400,6 +406,14 @@ public class PlayerController : MonoBehaviour
 		{
 			m_players[i].Swap();
 
+			UpdatePickups();
+		}
+	}
+
+	private void UpdatePickups()
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
 			{
 				m_shootController.m_shotTypePlayer = m_players[i].m_shotType;

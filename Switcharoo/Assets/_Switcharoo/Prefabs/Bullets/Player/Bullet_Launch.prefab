@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_chargeSprites:
   - {fileID: 21300000, guid: ccc42257c145a49409e53b5023526c0e, type: 3}
-  m_moveSpeed: 20
+  m_moveSpeed: 100
 --- !u!50 &6400184362384343306
 Rigidbody2D:
   serializedVersion: 4
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}

@@ -620,7 +620,7 @@ MonoBehaviour:
   m_players:
   - m_currentRole: 0
     m_shotType: {fileID: 11400000, guid: eaac47b15806fb74db9135c219cc236f, type: 2}
-    m_movementAbility: {fileID: 11400000, guid: 27ae8a013923fbd458be4bf068ad93c4,
+    m_movementAbility: {fileID: 11400000, guid: be28721a359685c4aa60cb7c281a48db,
       type: 2}
   - m_currentRole: 1
     m_shotType: {fileID: 11400000, guid: e148e2a8a94141649ad0c1b2ab3828a2, type: 2}
@@ -669,7 +669,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_movementAbility: {fileID: 11400000, guid: 27ae8a013923fbd458be4bf068ad93c4, type: 2}
+  m_movementAbility: {fileID: 0}
   m_velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1905962501
 MonoBehaviour:
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7962646cbed78dc449eef36d34f4fc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_shotTypePlayer: {fileID: 11400000, guid: eaac47b15806fb74db9135c219cc236f, type: 2}
+  m_shotTypePlayer: {fileID: 0}
   m_chargeUpTime: 1
   m_ammoCount: 0
   m_nextTimeToFire: 0

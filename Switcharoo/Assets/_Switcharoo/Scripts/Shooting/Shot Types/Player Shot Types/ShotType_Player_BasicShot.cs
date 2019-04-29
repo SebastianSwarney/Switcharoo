@@ -51,6 +51,6 @@ public class ShotType_Player_BasicShot : ShotType_Player
 	private void ShootBasicShot(Transform p_bulletOrigin, Sprite p_bulletSprite)
 	{
 		GameObject newBullet = ObjectPooler.instance.NewObject(m_bulletType.gameObject, p_bulletOrigin);
-		newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_bulletSprite);
+		newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_bulletSprite, m_bulletSpeed);
 	}
 }

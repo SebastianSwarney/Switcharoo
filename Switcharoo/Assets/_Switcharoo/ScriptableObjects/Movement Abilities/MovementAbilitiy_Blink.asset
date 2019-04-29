@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MovementAbilitiy_Blink
   m_EditorClassIdentifier: 
   m_blinkDistance: 10
-  m_blinkTime: 1
+  m_blinkTime: 0.2
   m_blinkAmount: 3
-  m_pauseBetweenBlinkTime: 1
+  m_pauseBetweenBlinkTime: 0.2
   m_blinkCurve:
     serializedVersion: 2
     m_Curve:

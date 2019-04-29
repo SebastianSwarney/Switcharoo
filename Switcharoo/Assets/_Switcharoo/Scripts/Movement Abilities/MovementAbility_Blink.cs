@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Movement Abilities/Blink")]
 public class MovementAbility_Blink : MovementAbility_Base
 {
+	[Header("Blink Properties")]
 	public float m_blinkDistance;
 	public float m_blinkTime;
 	public int m_blinkAmount;
 	public float m_pauseBetweenBlinkTime;
-
 	public AnimationCurve m_blinkCurve;
 
 	public override void UseAbility(PlayerController p_playerRefrence)
