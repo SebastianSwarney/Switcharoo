@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 174bfc47e3c86ab41be35ff7f714509d, type: 3}
-  m_Name: AttackType_Collide
+  m_Script: {fileID: 11500000, guid: 05daf48dd1fc0004abfa670227704d88, type: 3}
+  m_Name: AttackType_Shoot
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: d0d9bc1c69076ed40994698a4cf0bc8c, type: 2}
   m_attackRadius: 10
   m_tellTime: 2
-  m_targetStoppingDistance: 0.1
-  m_playerMoveDistanceReaction: 6
-  m_targetOvershootPlayerDistance: 3
+  m_targetStoppingDistance: 1
+  m_playerMoveDistanceReaction: 3
+  m_distanceFromPlayer: 3
+  m_shotType: {fileID: 11400000, guid: 9ffa46272173c3240b9fa139db7b256a, type: 2}
+  m_shootIntervalTime: 5
+  m_shootBreakTime: 2

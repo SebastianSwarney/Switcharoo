@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ba1c85768286249a771a5971977c5d, type: 3}
   m_Name: Aerial_Fast
   m_EditorClassIdentifier: 
-  m_speed: 0
-  m_rb: {fileID: 0}
-  m_enemyObject: {fileID: 0}
+  m_speed: 4
