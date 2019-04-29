@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a37a63533f2c04ebc44903ff868d92, type: 3}
-  m_Name: PlayerBasicShot
+  m_Script: {fileID: 11500000, guid: 360b0469212ccd74db600f777095777f, type: 3}
+  m_Name: PlayerTestShot
   m_EditorClassIdentifier: 
   m_fireRate: 5
-  m_isPlayer: 1
-  m_ammo: 10
-  m_bulletPrefab: {fileID: 318290044110178628, guid: 955458cb5835fa448a1ce078ebb2fcb7,
+  m_baseDamage: 10
+  m_bulletSpeed: 20
+  m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
     type: 3}
+  m_totalAmmo: 10
+  chargeDamageIncreaseFactor: 20

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public abstract class ShotType_Base : ScriptableObject
 {
-    public float m_fireRate;
-    public bool m_isPlayer = false;
-    public int m_ammo;
-    public GameObject m_bulletPrefab;
+	[Header("Base Properties")]
+	public float m_fireRate;
+	public float m_baseDamage;
+	public float m_bulletSpeed;
 
-    public abstract void Shoot(Transform p_bulletOrgin);
+	public Bullet_Base m_bulletType;
+
+    public abstract void Shoot(Transform p_bulletOrigin);
 }

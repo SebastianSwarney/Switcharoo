@@ -369,7 +369,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -499,8 +499,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602634650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.7, z: 0}
-  m_LocalScale: {x: 13.725, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -7.5, z: 0}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -615,6 +615,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae551ec8784aa234986dd03d6e8a0fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_states:
+    m_movementControllState: 0
+  m_players:
+  - m_currentRole: 0
+    m_shotType: {fileID: 11400000, guid: eaac47b15806fb74db9135c219cc236f, type: 2}
+    m_movementAbility: {fileID: 11400000, guid: be28721a359685c4aa60cb7c281a48db,
+      type: 2}
+  - m_currentRole: 1
+    m_shotType: {fileID: 11400000, guid: e148e2a8a94141649ad0c1b2ab3828a2, type: 2}
+    m_movementAbility: {fileID: 11400000, guid: 27ae8a013923fbd458be4bf068ad93c4,
+      type: 2}
   m_maxJumpHeight: 4
   m_minJumpHeight: 1
   m_timeToJumpApex: 0.4
@@ -623,6 +634,7 @@ MonoBehaviour:
   m_moveSpeed: 6
   m_crosshair: {fileID: 157393975}
   m_crosshairDst: 2
+  m_aimDirection: {x: 0, y: 0, z: 0}
   m_wallSlideSpeedMax: 3
   m_wallStickTime: 0.25
   m_wallJumpClimb: {x: 0, y: 0}
@@ -657,6 +669,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_movementAbility: {fileID: 0}
+  m_velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1905962501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,10 +680,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905962495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aef1bfd8a5caf54ba00e0aceab277a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7962646cbed78dc449eef36d34f4fc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_shotType: {fileID: 11400000, guid: 9ffa46272173c3240b9fa139db7b256a, type: 2}
+  m_shotTypePlayer: {fileID: 0}
+  m_chargeUpTime: 1
+  m_ammoCount: 0
+  m_nextTimeToFire: 0
+  m_chargeValue: 0
 --- !u!1001 &4661171504036958735
 PrefabInstance:
   m_ObjectHideFlags: 0
