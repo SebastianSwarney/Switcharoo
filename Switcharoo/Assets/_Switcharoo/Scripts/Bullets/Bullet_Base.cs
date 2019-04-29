@@ -7,6 +7,11 @@ public class Bullet_Base : MonoBehaviour
 	public Sprite[] m_chargeSprites;
 
 	public float m_moveSpeed = 10;
+	public float m_damage;
+
+	public LayerMask m_damageTargetMask;
+
+	public LayerMask m_obstacleMask;
 
 	private SpriteRenderer m_spriteRenderer;
 	private BoxCollider2D m_collider;
@@ -21,10 +26,17 @@ public class Bullet_Base : MonoBehaviour
 	{
 		m_spriteRenderer.sprite = p_sprite;
 
+		/*
 		Vector2 colliderSize = m_spriteRenderer.sprite.bounds.size;
 		m_collider.size = colliderSize;
 		m_collider.offset = new Vector2(colliderSize.x / 2, 0);
+		*/
 
 		m_moveSpeed = p_moveSpeed;
+	}
+
+	public void DealDamage(Health p_damageTarget)
+	{
+		p_damageTarget.TakeDamage(m_damage);
 	}
 }
