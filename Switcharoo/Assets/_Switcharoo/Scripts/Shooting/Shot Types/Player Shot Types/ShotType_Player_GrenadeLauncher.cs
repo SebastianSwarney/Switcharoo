@@ -20,5 +20,7 @@ public class ShotType_Player_GrenadeLauncher : ShotType_Player
 		GameObject newBullet = ObjectPooler.instance.NewObject(m_bulletType.gameObject, p_bulletOrigin);
 
 		newBullet.GetComponent<Bullet_Base>().InitializeParameters(m_bulletType.m_chargeSprites[0], m_bulletSpeed);
+
+		newBullet.GetComponent<Bullet_Launch>().Launch(); //Find a better way to do this that does not invovle setting launch in this script becuase there might be other grenade launchers
 	}
 }

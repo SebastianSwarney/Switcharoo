@@ -13,17 +13,14 @@ public class Bullet_Launch : Bullet_Base
 		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	private void Start()
+	public override void Update()
 	{
-		Launch();
-	}
+		base.Update();
 
-	private void Update()
-	{
 		RotateToMovement();
 	}
 
-	private void Launch()
+	public void Launch()
 	{
 		m_rigidbody.AddForce(transform.right * m_moveSpeed, ForceMode2D.Impulse);
 	}
@@ -35,5 +32,10 @@ public class Bullet_Launch : Bullet_Base
 			float angle = Mathf.Atan2(m_rigidbody.velocity.y, m_rigidbody.velocity.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		m_contactBehaviour.OnContact(this, collision.collider, m_obstacleMask, m_damageTargetMask);
 	}
 }

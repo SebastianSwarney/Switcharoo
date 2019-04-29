@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class Bullet_ConstMove : Bullet_Base
 {
-    private void Update()
-    {
+	public override void Update()
+	{
+		base.Update();
+
 		Move();
-    }
+	}
 
 	private void Move()
 	{
 		transform.Translate(transform.right * m_moveSpeed * Time.deltaTime, Space.World);
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (m_damageTargetMask == (m_damageTargetMask | (1 << collision.gameObject.layer)))
-		{
-			collision.gameObject.GetComponent<Health>().TakeDamage(m_damage);
-		}
-
-		if (m_obstacleMask == (m_obstacleMask | (1 << collision.gameObject.layer)))
-		{
-			ObjectPooler.instance.ReturnToPool(gameObject);
-		}
+		m_contactBehaviour.OnContact(this, collision, m_obstacleMask, m_damageTargetMask);
 	}
 }

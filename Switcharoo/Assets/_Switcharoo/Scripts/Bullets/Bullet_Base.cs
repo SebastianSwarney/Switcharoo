@@ -6,12 +6,17 @@ public class Bullet_Base : MonoBehaviour
 {
 	public Sprite[] m_chargeSprites;
 
-	public float m_moveSpeed = 10;
+	public float m_moveSpeed;
 	public float m_damage;
 
 	public LayerMask m_damageTargetMask;
 
 	public LayerMask m_obstacleMask;
+
+	public float m_timeUntillDeactivate = 60;
+	private float m_deactivateTimer;
+
+	public BulletContactBehaviour_Base m_contactBehaviour;
 
 	private SpriteRenderer m_spriteRenderer;
 	private BoxCollider2D m_collider;
@@ -22,21 +27,26 @@ public class Bullet_Base : MonoBehaviour
 		m_collider = GetComponent<BoxCollider2D>();
 	}
 
+	public virtual void Update()
+	{
+		RemoveAfterTime();
+	}
+
+	private void RemoveAfterTime()
+	{
+		m_deactivateTimer += Time.deltaTime;
+
+		if (m_deactivateTimer >= m_timeUntillDeactivate)
+		{
+			m_deactivateTimer = 0;
+
+			ObjectPooler.instance.ReturnToPool(gameObject);
+		}
+	}
+
 	public void InitializeParameters(Sprite p_sprite, float p_moveSpeed)
 	{
 		m_spriteRenderer.sprite = p_sprite;
-
-		/*
-		Vector2 colliderSize = m_spriteRenderer.sprite.bounds.size;
-		m_collider.size = colliderSize;
-		m_collider.offset = new Vector2(colliderSize.x / 2, 0);
-		*/
-
 		m_moveSpeed = p_moveSpeed;
-	}
-
-	public void DealDamage(Health p_damageTarget)
-	{
-		p_damageTarget.TakeDamage(m_damage);
 	}
 }
