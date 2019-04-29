@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5987d042062988246a771a0fc3a4374f, type: 3}
   m_Name: BulletContanctBehaviour_Explode
   m_EditorClassIdentifier: 
+  m_contactVisual: {fileID: 4010860640334181053, guid: 793db57e00090d945b6f02c92bd5f8a7,
+    type: 3}
   m_explosionRadius: 0
