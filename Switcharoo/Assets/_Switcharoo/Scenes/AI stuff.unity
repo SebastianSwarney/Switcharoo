@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shotType: {fileID: 0}
-  m_ammoCount: 1000000
+  m_nextTimeToFire: 0
 --- !u!114 &1609610869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1830744799}
-  m_attackType: {fileID: 11400000, guid: d42eb65b7ae8f3f44b28bbb766e8d619, type: 2}
+  m_attackType: {fileID: 11400000, guid: 86fc38f1d4d1fac45b042fd6ef8eae37, type: 2}
   m_movementType: {fileID: 11400000, guid: d0d9bc1c69076ed40994698a4cf0bc8c, type: 2}
   m_bulletOrigin: {fileID: 2108234317}
   m_currentAttackState: 2
