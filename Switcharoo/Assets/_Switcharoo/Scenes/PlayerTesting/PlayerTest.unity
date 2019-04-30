@@ -499,7 +499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602634650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7, z: 0}
+  m_LocalPosition: {x: 0, y: -7.5, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -605,7 +605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643999899}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -13.49, y: -7, z: 0}
+  m_LocalPosition: {x: -13.5, y: -7, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -621,6 +621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1905962497}
   - component: {fileID: 1905962496}
+  - component: {fileID: 1905962502}
   - component: {fileID: 1905962498}
   - component: {fileID: 1905962499}
   - component: {fileID: 1905962500}
@@ -746,7 +747,7 @@ MonoBehaviour:
   m_wallJumpClimb: {x: 0, y: 0}
   m_wallJumpOff: {x: 0, y: 0}
   m_wallLeap: {x: 0, y: 0}
-  m_graceTime: 0.5
+  m_graceTime: 0.1
   m_bufferTime: 0.5
   m_dashDistance: 4
   m_dashTime: 0.5
@@ -794,6 +795,27 @@ MonoBehaviour:
   m_ammoCount: 0
   m_nextTimeToFire: 0
   m_chargeValue: 0
+--- !u!50 &1905962502
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905962495}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &4661171504036958735
 PrefabInstance:
   m_ObjectHideFlags: 0

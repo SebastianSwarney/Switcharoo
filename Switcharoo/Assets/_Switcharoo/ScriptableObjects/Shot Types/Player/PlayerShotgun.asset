@@ -22,4 +22,4 @@ MonoBehaviour:
   m_maxBulletSpacing: 180
   m_minBulletSpacing: 10
   m_amountOfBulletsPerShot: 5
-  m_bulletSpeedIncreaseAmount: 5
+  m_bulletSpeedIncreaseAmount: 10

@@ -111,41 +111,26 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<Controller2D>();
+		m_shootController = GetComponent<ShootController_Player>();
 
-        m_gravity = -(2 * m_maxJumpHeight) / Mathf.Pow(m_timeToJumpApex, 2);
-        m_maxJumpVelocity = Mathf.Abs(m_gravity) * m_timeToJumpApex;
-        m_minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(m_gravity) * m_minJumpHeight);
-
-        m_shootController = GetComponent<ShootController_Player>();
-
+		CalculateJump();
 		UpdatePickups();
-
 	}
 
     void Update()
     {
-        m_HandleWallSliding();
+        HandleWallSliding();
         InputBuffering();
         Aim();
-
 		UpdatePlayerStates();
 
         controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
-        if (controller.collisions.above || controller.collisions.below)
-        {
-            if (controller.collisions.slidingDownMaxSlope)
-            {
-                m_velocity.y += controller.collisions.slopeNormal.y * -m_gravity * Time.deltaTime;
-            }
-            else
-            {
-                m_velocity.y = 0;
-            }
-        }
+		CalculateGroundPhysics();
     }
 
-    public void SetDirectionalInput(Vector2 p_input)
+	#region Input Code
+	public void SetDirectionalInput(Vector2 p_input)
     {
         m_directionalInput = p_input;
     }
@@ -154,27 +139,10 @@ public class PlayerController : MonoBehaviour
     {
         m_aimInput = p_input;
     }
+	#endregion
 
-	private void UpdatePlayerStates()
-	{
-		switch (m_states.m_movementControllState)
-		{
-			case MovementControllState.MovementEnabled:
-
-				CalculateVelocity();
-
-				break;
-
-			case MovementControllState.MovementDisabled:
-
-
-
-				break;
-		}
-	}
-
-    #region Aim Code
-    void Aim()
+	#region Aim Code
+	void Aim()
     {
         float theta = Mathf.Atan2(m_aimInput.y, m_aimInput.x);
 
@@ -279,7 +247,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Wall Sliding Code
-    void m_HandleWallSliding()
+    void HandleWallSliding()
     {
         m_wallDirX = (controller.collisions.left) ? -1 : 1;
         m_wallSliding = false;
@@ -356,10 +324,16 @@ public class PlayerController : MonoBehaviour
 
         m_dashing = false;
     }
-    #endregion
 
-    #region Shoot Code
-    public void OnShootInputHold()
+	private void PhysicsSeekTo(Vector3 p_targetPosition)
+	{
+		Vector3 deltaPosition = p_targetPosition - transform.position;
+		m_velocity = deltaPosition / Time.deltaTime;
+	}
+	#endregion
+
+	#region Shoot Code
+	public void OnShootInputHold()
     {
         m_shootController.Shoot(m_crosshair);
     }
@@ -380,26 +354,47 @@ public class PlayerController : MonoBehaviour
 	{
 		m_shootController.FireChargedShot(m_crosshair);
 	}
-    #endregion
+	#endregion
 
+	#region Movement Ability Code
 	public void OnMovementAbilityInputDown()
 	{
 		m_movementAbility.UseAbility(this);
 	}
+	#endregion
 
-    private void PhysicsSeekTo(Vector3 p_targetPosition)
-    {
-        Vector3 deltaPosition = p_targetPosition - transform.position;
-        m_velocity = deltaPosition / Time.deltaTime;
-    }
+	#region Physics Calculation Code
+	private void CalculateJump()
+	{
+		m_gravity = -(2 * m_maxJumpHeight) / Mathf.Pow(m_timeToJumpApex, 2);
+		m_maxJumpVelocity = Mathf.Abs(m_gravity) * m_timeToJumpApex;
+		m_minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(m_gravity) * m_minJumpHeight);
+	}
 
-    void CalculateVelocity()
+	void CalculateVelocity()
     {
 		float targetVelocityX = m_directionalInput.x * m_moveSpeed;
 		m_velocity.x = Mathf.SmoothDamp(m_velocity.x, targetVelocityX, ref m_velocityXSmoothing, (controller.collisions.below) ? m_accelerationTimeGrounded : m_accelerationTimeAirborne);
 		m_velocity.y += m_gravity * Time.deltaTime;
 	}
 
+	private void CalculateGroundPhysics()
+	{
+		if (controller.collisions.above || controller.collisions.below)
+		{
+			if (controller.collisions.slidingDownMaxSlope)
+			{
+				m_velocity.y += controller.collisions.slopeNormal.y * -m_gravity * Time.deltaTime;
+			}
+			else
+			{
+				m_velocity.y = 0;
+			}
+		}
+	}
+	#endregion
+
+	#region Swaping Code
 	private void SwapPlayers()
 	{
 		for (int i = 0; i < m_players.Length; i++)
@@ -408,28 +403,6 @@ public class PlayerController : MonoBehaviour
 
 			UpdatePickups();
 		}
-	}
-
-	private void UpdatePickups()
-	{
-		for (int i = 0; i < m_players.Length; i++)
-		{
-			if (m_players[i].m_currentRole == PlayerRole.Gunner)
-			{
-				m_shootController.m_shotTypePlayer = m_players[i].m_shotType;
-			}
-
-			if (m_players[i].m_currentRole == PlayerRole.Runner)
-			{
-				m_movementAbility = m_players[i].m_movementAbility;
-			}
-		}
-	}
-
-	[System.Serializable]
-	public struct PlayerState
-	{
-		public MovementControllState m_movementControllState;
 	}
 
 	[System.Serializable]
@@ -451,4 +424,75 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
+	#endregion
+
+	#region Pickups Code
+	private void UpdatePickups()
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Gunner)
+			{
+				m_shootController.m_shotTypePlayer = m_players[i].m_shotType;
+			}
+
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_movementAbility = m_players[i].m_movementAbility;
+			}
+		}
+	}
+
+	public void SetWeaponPickup(ShotType_Player p_newWeapon)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Gunner)
+			{
+				m_players[i].m_shotType = p_newWeapon;
+			}
+		}
+
+		UpdatePickups();
+	}
+
+	public void SetMovementPickup(MovementAbility_Base p_newMovementAbility)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_players[i].m_movementAbility = p_newMovementAbility;
+			}
+		}
+
+		UpdatePickups();
+	}
+	#endregion
+
+	#region Player State Code
+	[System.Serializable]
+	public struct PlayerState
+	{
+		public MovementControllState m_movementControllState;
+	}
+
+	private void UpdatePlayerStates()
+	{
+		switch (m_states.m_movementControllState)
+		{
+			case MovementControllState.MovementEnabled:
+
+				CalculateVelocity();
+
+				break;
+
+			case MovementControllState.MovementDisabled:
+
+
+
+				break;
+		}
+	}
+	#endregion
 }
