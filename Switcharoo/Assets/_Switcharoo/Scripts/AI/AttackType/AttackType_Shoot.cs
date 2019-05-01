@@ -12,9 +12,10 @@ public abstract class AttackType_Shoot : AttackType_Base
 {
     [Header("Shoot-Only variables")]
     public float m_distanceFromPlayer;
-    public ShotType_Base m_shotType;
+    public ShotPattern_Base m_shotType;
     public float m_shootIntervalTime, m_shootBreakTime;
     public MovementType_Base m_shootingMovement;
+	public ShootController.WeaponComposition m_weaponComposition;
 
     ///<Summary>
     ///Where all the attack logic is
@@ -91,7 +92,7 @@ public abstract class AttackType_Shoot : AttackType_Base
     //Initialize the attack
     public override void StartAttack(AiController p_aiController, Rigidbody2D p_rb, GameObject p_player, GameObject p_enemyObject, ShootController p_gun)
     {
-        p_gun.m_shotType = m_shotType;
+        p_gun.m_currentWeaponComposition = m_weaponComposition;
         p_aiController.m_currentAttackState = AttackState.Start;
     }
 

@@ -726,11 +726,19 @@ MonoBehaviour:
     m_movementControllState: 0
   m_players:
   - m_currentRole: 0
-    m_shotType: {fileID: 11400000, guid: eaac47b15806fb74db9135c219cc236f, type: 2}
+    weaponComposition:
+      m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
+      m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
+        type: 3}
+      m_damageType: {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
     m_movementAbility: {fileID: 11400000, guid: be28721a359685c4aa60cb7c281a48db,
       type: 2}
   - m_currentRole: 1
-    m_shotType: {fileID: 11400000, guid: e148e2a8a94141649ad0c1b2ab3828a2, type: 2}
+    weaponComposition:
+      m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
+      m_bulletType: {fileID: -5114918403831490374, guid: b4b0c38343fb9f04a832102ecf6c56c8,
+        type: 3}
+      m_damageType: {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
     m_movementAbility: {fileID: 11400000, guid: 27ae8a013923fbd458be4bf068ad93c4,
       type: 2}
   m_maxJumpHeight: 4
@@ -787,14 +795,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905962495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7962646cbed78dc449eef36d34f4fc95, type: 3}
+  m_Script: {fileID: 11500000, guid: 4aef1bfd8a5caf54ba00e0aceab277a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_shotTypePlayer: {fileID: 0}
-  m_chargeUpTime: 1
-  m_ammoCount: 0
+  m_currentWeaponComposition:
+    m_shotPattern: {fileID: 0}
+    m_bulletType: {fileID: 0}
+    m_damageType: {fileID: 0}
   m_nextTimeToFire: 0
-  m_chargeValue: 0
+  m_ammoCount: 0
 --- !u!50 &1905962502
 Rigidbody2D:
   serializedVersion: 4
