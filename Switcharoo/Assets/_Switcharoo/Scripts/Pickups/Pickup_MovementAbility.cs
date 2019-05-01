@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Pickup_MovementAbility : Pickup_Base
 {
-	public ShotType_Player m_movementAbilityPickup;
+	public MovementAbility_Base m_movementAbilityPickup;
 
 	public override void SetPickup(PlayerController p_playerRefrence)
 	{
-		p_playerRefrence.SetWeaponPickup(m_movementAbilityPickup);
+		p_playerRefrence.SetMovementPickup(m_movementAbilityPickup);
 	}
 }

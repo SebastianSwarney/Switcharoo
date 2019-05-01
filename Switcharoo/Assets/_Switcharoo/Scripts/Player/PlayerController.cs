@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     #region Shoot Properties
     [Header("Shooting Properties")]
-    private ShootController_Player m_shootController;
+    private ShootController m_shootController;
 	[Space]
 	#endregion
 
@@ -111,13 +111,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<Controller2D>();
-		m_shootController = GetComponent<ShootController_Player>();
+		m_shootController = GetComponent<ShootController>();
 
 		CalculateJump();
 		UpdatePickups();
+		m_shootController.Reload();
+
 	}
 
-    void Update()
+	void Update()
     {
         HandleWallSliding();
         InputBuffering();
@@ -340,19 +342,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnReloadInputDown()
     {
-        m_shootController.Reload();
-
 		SwapPlayers();
-	}
 
-	public void OnChargeInputHold()
-	{
-		m_shootController.ChargeUpShot();
-	}
-
-	public void OnChargeInputUp()
-	{
-		m_shootController.FireChargedShot(m_crosshair);
+		m_shootController.Reload();
 	}
 	#endregion
 
@@ -409,7 +401,10 @@ public class PlayerController : MonoBehaviour
 	public struct PlayerData
 	{
 		public PlayerRole m_currentRole;
-		public ShotType_Player m_shotType;
+		//public ShotPattern_Base m_shotType;
+
+		public ShootController.WeaponComposition weaponComposition;
+
 		public MovementAbility_Base m_movementAbility;
 
 		public void Swap()
@@ -433,7 +428,7 @@ public class PlayerController : MonoBehaviour
 		{
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
 			{
-				m_shootController.m_shotTypePlayer = m_players[i].m_shotType;
+				m_shootController.m_currentWeaponComposition = m_players[i].weaponComposition;
 			}
 
 			if (m_players[i].m_currentRole == PlayerRole.Runner)
@@ -443,8 +438,10 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void SetWeaponPickup(ShotType_Player p_newWeapon)
+
+	public void SetWeaponPickup(ShotPattern_Base p_newWeapon)
 	{
+		/*
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
@@ -452,6 +449,7 @@ public class PlayerController : MonoBehaviour
 				m_players[i].m_shotType = p_newWeapon;
 			}
 		}
+		*/
 
 		UpdatePickups();
 	}

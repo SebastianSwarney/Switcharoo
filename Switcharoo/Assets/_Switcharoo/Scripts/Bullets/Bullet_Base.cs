@@ -4,28 +4,17 @@ using UnityEngine;
 
 public class Bullet_Base : MonoBehaviour
 {
-	public Sprite[] m_chargeSprites;
-
 	public float m_moveSpeed;
 	public float m_damage;
 
 	public LayerMask m_damageTargetMask;
-
 	public LayerMask m_obstacleMask;
 
-	public float m_timeUntillDeactivate = 60;
+	[SerializeField]
+	private float m_timeUntillDeactivate = 60;
 	private float m_deactivateTimer;
 
-	public BulletContactBehaviour_Base m_contactBehaviour;
-
-	private SpriteRenderer m_spriteRenderer;
-	private BoxCollider2D m_collider;
-
-	public virtual void OnEnable()
-	{
-		m_spriteRenderer = GetComponent<SpriteRenderer>();
-		m_collider = GetComponent<BoxCollider2D>();
-	}
+	public DamageType_Base m_damageType;
 
 	public virtual void Update()
 	{
@@ -44,9 +33,8 @@ public class Bullet_Base : MonoBehaviour
 		}
 	}
 
-	public void InitializeParameters(Sprite p_sprite, float p_moveSpeed)
+	public virtual void InitializeParameters(DamageType_Base p_damageType)
 	{
-		m_spriteRenderer.sprite = p_sprite;
-		m_moveSpeed = p_moveSpeed;
+		m_damageType = p_damageType;
 	}
 }

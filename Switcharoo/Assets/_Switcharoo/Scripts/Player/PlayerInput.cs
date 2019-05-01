@@ -48,15 +48,6 @@ public class PlayerInput : MonoBehaviour
 			m_playerController.OnReloadInputDown();
 		}
 
-		if (Input.GetMouseButton(1))
-		{
-			m_playerController.OnChargeInputHold();
-		}
-		if (Input.GetMouseButtonUp(1))
-		{
-			m_playerController.OnChargeInputUp();
-		}
-
 		if (Input.GetMouseButtonDown(2))
 		{
 			m_playerController.OnMovementAbilityInputDown();

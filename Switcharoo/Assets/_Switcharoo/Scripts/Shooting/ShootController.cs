@@ -4,36 +4,73 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
-    public ShotType_Base m_shotType;
+	/*
+    public ShotPattern_Base m_shotPattern;
+	public Bullet_Base m_bulletType;
+	public DamageType_Base m_damageType;
+	*/
+
+	public WeaponComposition m_currentWeaponComposition;
 
 	[HideInInspector]
     public float m_nextTimeToFire;
 
-    public void Shoot(Transform p_bulletOrigin)
+	public int m_ammoCount;
+
+	private bool isPlayer;
+
+	public void Shoot(Transform p_bulletOrigin)
     {
         if (CanShoot())
         {
-            m_shotType.Shoot(p_bulletOrigin);
+            m_currentWeaponComposition.m_shotPattern.Shoot(p_bulletOrigin, m_currentWeaponComposition.m_bulletType, m_currentWeaponComposition.m_damageType);
         }
     }
 
-	public void FireChargedShot(Transform p_bulletOrigin, ShotType_Base.ChargePercent p_percentCharged)
+	public void Reload()
 	{
-		if (CanShoot())
+		if (m_currentWeaponComposition.m_shotPattern.m_ammoCount > 0)
 		{
-			m_shotType.ChargeShoot(p_bulletOrigin, p_percentCharged);
+			isPlayer = true;
 		}
+
+		m_ammoCount = m_currentWeaponComposition.m_shotPattern.m_ammoCount;
 	}
 
 	public bool CanShoot()
-    {
-        if (Time.time >= m_nextTimeToFire)
-        {
-            m_nextTimeToFire = Time.time + 1f / m_shotType.m_fireRate;
+	{
+		if (isPlayer)
+		{
+			if (Time.time >= m_nextTimeToFire && m_ammoCount > 0)
+			{
+				m_nextTimeToFire = Time.time + 1f / m_currentWeaponComposition.m_shotPattern.m_fireRate;
 
-            return true;
-        }
+				m_ammoCount--;
 
-        return false;
+				return true;
+			}
+
+			return false;
+
+		}
+		else
+		{
+			if (Time.time >= m_nextTimeToFire)
+			{
+				m_nextTimeToFire = Time.time + 1f / m_currentWeaponComposition.m_shotPattern.m_fireRate;
+
+				return true;
+			}
+
+			return false;
+		} 
+	}
+
+	[System.Serializable]
+	public struct WeaponComposition
+	{
+		public ShotPattern_Base m_shotPattern;
+		public Bullet_Base m_bulletType;
+		public DamageType_Base m_damageType;
 	}
 }

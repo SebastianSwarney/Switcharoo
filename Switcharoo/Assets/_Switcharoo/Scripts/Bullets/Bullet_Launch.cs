@@ -6,10 +6,8 @@ public class Bullet_Launch : Bullet_Base
 {
 	private Rigidbody2D m_rigidbody;
 
-	public override void OnEnable()
+	public void OnEnable()
 	{
-		base.OnEnable();
-
 		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
@@ -18,6 +16,13 @@ public class Bullet_Launch : Bullet_Base
 		base.Update();
 
 		RotateToMovement();
+	}
+
+	public override void InitializeParameters(DamageType_Base p_damageType)
+	{
+		base.InitializeParameters(p_damageType);
+
+		Launch();
 	}
 
 	public void Launch()
@@ -36,6 +41,6 @@ public class Bullet_Launch : Bullet_Base
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		m_contactBehaviour.OnContact(this, collision.collider, m_obstacleMask, m_damageTargetMask);
+		m_damageType.OnContact(this, collision.collider, m_obstacleMask, m_damageTargetMask);
 	}
 }

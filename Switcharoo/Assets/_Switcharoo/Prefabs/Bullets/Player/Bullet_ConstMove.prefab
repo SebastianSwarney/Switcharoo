@@ -155,5 +155,5 @@ MonoBehaviour:
   m_obstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  m_contactBehaviour: {fileID: 11400000, guid: 8878f4432bf69074dafb4ad6ad4d3206, type: 2}
   m_timeUntillDeactivate: 60
+  m_contactBehaviour: {fileID: 11400000, guid: c965413e02369404da481d4ccaf3fdc3, type: 2}
