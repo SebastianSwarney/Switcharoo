@@ -17,7 +17,15 @@ public class ShootController : MonoBehaviour
         }
     }
 
-    public bool CanShoot()
+	public void FireChargedShot(Transform p_bulletOrigin, ShotType_Base.ChargePercent p_percentCharged)
+	{
+		if (CanShoot())
+		{
+			m_shotType.ChargeShoot(p_bulletOrigin, p_percentCharged);
+		}
+	}
+
+	public bool CanShoot()
     {
         if (Time.time >= m_nextTimeToFire)
         {
