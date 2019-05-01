@@ -7,15 +7,14 @@ using UnityEngine;
 ///The shooting behaviour used for enemies with guns
 ///<Summary>
 
-[CreateAssetMenu(fileName = "Shoot", menuName = "AttackType/Shoot/InstantAim", order = 0)]
-public abstract class AttackType_Shoot : AttackType_Base
+[CreateAssetMenu(fileName = "AI_AttackType_Shoot - Instant Aim", menuName = "AI/AttackType/Shoot/InstantAim", order = 0)]
+public class AI_AttackType_Shoot : AI_AttackType_Base
 {
     [Header("Shoot-Only variables")]
     public float m_distanceFromPlayer;
     public ShotPattern_Base m_shotType;
     public float m_shootIntervalTime, m_shootBreakTime;
-    public MovementType_Base m_shootingMovement;
-	public ShootController.WeaponComposition m_weaponComposition;
+    public AI_MovementType_Base m_shootingMovement;
 
     ///<Summary>
     ///Where all the attack logic is
