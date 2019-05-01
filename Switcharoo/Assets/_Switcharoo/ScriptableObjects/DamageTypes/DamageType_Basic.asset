@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ba4c5b6db826b478620216dbcb0362, type: 3}
-  m_Name: ShotPattern_Scatter
+  m_Script: {fileID: 11500000, guid: a5eb56ab7c6a6ff47998550d29434227, type: 3}
+  m_Name: DamageType_Basic
   m_EditorClassIdentifier: 
-  m_fireRate: 3
-  m_ammoCount: 1000
-  m_bulletSpacing: 30
-  m_amountOfBulletsPerShot: 5
+  m_contactVisual: {fileID: 0}
+  m_damageAmount: 0

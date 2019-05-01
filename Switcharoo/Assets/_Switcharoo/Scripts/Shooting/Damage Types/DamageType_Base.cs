@@ -6,6 +6,9 @@ public abstract class DamageType_Base : ScriptableObject
 {
 	public BulletContactVisual_Base m_contactVisual;
 
+	[Header("Base Damage Properties")]
+	public float m_damageAmount;
+
 	public abstract void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, LayerMask p_obstacleMask, LayerMask p_damageTargetMask);
 
 	public bool CheckCollisionLayer(LayerMask p_layerMask, Collider2D p_collision)

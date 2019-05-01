@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ba4c5b6db826b478620216dbcb0362, type: 3}
-  m_Name: ShotPattern_Scatter
+  m_Script: {fileID: 11500000, guid: cb3048f71e841f740a3c572e81b7fd09, type: 3}
+  m_Name: ShotPattern_Linear
   m_EditorClassIdentifier: 
-  m_fireRate: 3
+  m_fireRate: 5
   m_ammoCount: 1000
-  m_bulletSpacing: 30
-  m_amountOfBulletsPerShot: 5
+  m_maxBulletSpread: 0

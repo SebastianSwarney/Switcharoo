@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Damage Types/Explode")]
 public class DamageType_Explode : DamageType_Base
 {
 	[Header("Explosion Properites")]
 	public float m_explosionRadius;
 
 	public override void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
+	{
+		Explode(p_bulletRefrence, p_collision, p_obstacleMask, p_damageTargetMask);
+	}
+
+	private void Explode(Bullet_Base p_bulletRefrence, Collider2D p_collision, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
 	{
 		if (CheckCollisionLayer(p_obstacleMask, p_collision) || CheckCollisionLayer(p_damageTargetMask, p_collision))
 		{
@@ -20,11 +25,10 @@ public class DamageType_Explode : DamageType_Base
 
 			foreach (Collider2D collider in colliders)
 			{
-				collider.GetComponent<Health>().TakeDamage(p_bulletRefrence.m_damage);
+				collider.GetComponent<Health>().TakeDamage(m_damageAmount);
 			}
 
 			ObjectPooler.instance.ReturnToPool(p_bulletRefrence.gameObject);
 		}
-
 	}
 }

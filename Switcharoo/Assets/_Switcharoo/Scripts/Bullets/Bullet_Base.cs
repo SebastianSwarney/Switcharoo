@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet_Base : MonoBehaviour
 {
 	public float m_moveSpeed;
-	public float m_damage;
 
 	public LayerMask m_damageTargetMask;
 	public LayerMask m_obstacleMask;
