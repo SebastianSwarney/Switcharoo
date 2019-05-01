@@ -11,6 +11,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 {
     [Header("Ground Type Variables")]
     public bool m_canJump;
+    public float m_jumpTurnDistance;
     public float m_gravityValue, m_jumpHeight;
 
     ///<Summary>
@@ -50,41 +51,43 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
 
 
-    public override bool WallInFront(Rigidbody2D p_rb, Transform p_enemyObject, float p_raycastLength, int p_forwardDir, LayerMask p_wallLayer)
+    public override bool WallInFront(AiController p_aiCont,Rigidbody2D p_rb, Vector2 p_boxcastPos, Vector2 p_raycastDimensions, int p_forwardDir, LayerMask p_hitLayer, bool p_isGrounded)
     {
-        if (!m_canJump) return false;
-
-        if (Physics2D.Raycast(p_enemyObject.position, p_enemyObject.right * p_forwardDir, p_raycastLength, p_wallLayer))
+        RaycastHit2D[] hit = Physics2D.BoxCastAll(p_boxcastPos, p_raycastDimensions, 0, Vector2.right * p_forwardDir, p_raycastDimensions.x / 2, p_hitLayer);
+        Debug.DrawLine(p_rb.gameObject.transform.position, p_boxcastPos);
+        foreach (RaycastHit2D rayHit in hit)
         {
-            float jumpForce = Mathf.Sqrt(2f * m_gravityValue * m_jumpHeight);
-            p_rb.velocity = new Vector3(p_rb.velocity.x, jumpForce, 0);
-            return true;
+            if (rayHit.transform.gameObject == p_rb.gameObject) continue;
+            if (rayHit)
+            {
+                if (m_canJump)
+                {
+                    if (p_isGrounded)
+                    {
+                        float jumpForce = Mathf.Sqrt(2f * m_gravityValue * m_jumpHeight);
+                        p_rb.velocity = new Vector3(p_rb.velocity.x, jumpForce, 0);
+                        return false;
+                    }else{
+                        float distToObj = Vector3.Distance(p_rb.transform.position, rayHit.point);
+                        
+                        if(distToObj < m_jumpTurnDistance){
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+
+                return true;
+            }
         }
         return false;
 
     }
 
-    public override bool EnemyInFront(Rigidbody2D p_rb, Transform p_enemyObject, float p_raycastLength, int p_forwardDir, LayerMask p_enemyLayer)
+    public override bool IsGrounded(Rigidbody2D p_rb, Vector2 p_boxcastPos, Vector2 p_raycastDimensions, LayerMask p_hitLayer)
     {
-        if (Physics2D.Raycast(p_enemyObject.position, p_enemyObject.right * p_forwardDir, p_raycastLength, p_enemyLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+        RaycastHit2D hit = Physics2D.BoxCast(p_boxcastPos, p_raycastDimensions, 0, -Vector3.up, p_raycastDimensions.y/2, p_hitLayer);
 
-    public override bool IsGrounded(Rigidbody2D p_rb, Transform p_enemyObject, float p_raycastLength, LayerMask p_wallLayer)
-    {
-        if (Physics2D.Raycast(p_enemyObject.position, -p_enemyObject.up, p_raycastLength, p_wallLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return hit;
     }
 }

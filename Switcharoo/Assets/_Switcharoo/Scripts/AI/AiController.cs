@@ -7,12 +7,12 @@ using UnityEngine;
 ///The brain of the AI. This is essentially an empty shell that requires components to function
 public class AiController : MonoBehaviour
 {
-
+    public Enemy_Base m_enemyType;
+    [Space(10)]
     public GameObject target;
 
     #region Components on the Enemy
-    public AI_AttackType_Base m_attackType;
-    public AI_MovementType_Base m_movementType;
+
     Rigidbody2D m_rb;
     ShootController m_gun;
 
@@ -36,12 +36,24 @@ public class AiController : MonoBehaviour
     #endregion
 
     #region Move Variables
-    int m_currentForward = 1;
+    public int m_currentForward = 1;
     public LayerMask m_wallLayer;
-    public Vector3  m_enemyDimensions;
+    public LayerMask m_movementFlipLayer;
 
-    bool m_isJumping;
+    public float m_stuckMoveTime = 3;
+    float m_stuckTimer;
+    public bool m_isStuck;
 
+
+
+
+    public bool m_isGrounded;
+
+    #endregion
+
+    #region Managing Variables
+    [HideInInspector]
+    public AI_Spawner_Manager_Base m_spawnerManager;
     #endregion
 
     void Awake()
@@ -53,16 +65,41 @@ public class AiController : MonoBehaviour
     {
         CheckState();
     }
+
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
+    void OnEnable()
+    {
+        if (m_enemyType == null)
+        {
+            Debug.Log("Error: " + gameObject.name + " has no assigned enemy type");
+            Debug.Break();
+        }
+    }
     void CheckState()
     {
+        if (m_isStuck)
+        {
+            m_stuckTimer += Time.deltaTime;
+            if (m_stuckTimer > m_stuckMoveTime)
+            {
+                FlipEnemy(m_currentForward * -1);
+                m_isStuck = false;
+            }
+        }
+        else
+        {
+            m_stuckTimer = 0;
+        }
         if (target != null)
         {
             //If the attack is finished, and no longer running
             if (m_currentAttackState == AI_AttackType_Base.AttackState.Finished)
             {
                 //Restart the attack
-                m_attackType.StartAttack(this, m_rb, target, gameObject, m_gun);
-                m_attackTargetPos = m_attackType.SetAttackTargetPosition(gameObject, target);
+                m_enemyType.m_attackType.StartAttack(this, m_rb, target, gameObject, m_gun);
+                m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(gameObject, target);
             }
 
             //If the attack is running
@@ -70,7 +107,7 @@ public class AiController : MonoBehaviour
             {
 
                 //If the attack has ceased
-                if (m_attackType.AttackFinished(this, m_rb, m_attackTargetPos, target, gameObject, m_bulletOrigin, m_gun))
+                if (m_enemyType.m_attackType.AttackFinished(this, m_rb, m_attackTargetPos, target, gameObject, m_bulletOrigin, m_gun))
                 {
                     //If the player is no lnger in the radius, set the target to null
                     if (!PlayerInRadius())
@@ -83,13 +120,14 @@ public class AiController : MonoBehaviour
                     //If the player has moved a set amount of distance (set in the attack type), recalculate the attackTarget Position
                     if (PlayerMoved())
                     {
-                        m_attackTargetPos = m_attackType.SetAttackTargetPosition(gameObject, target);
+                        m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(gameObject, target);
                     }
                 }
             }
         }
-    
-        else{
+
+        else
+        {
             PerformIdleMovement();
         }
     }
@@ -130,9 +168,8 @@ public class AiController : MonoBehaviour
     ///If the player has moved a set distance from a spot
     bool PlayerMoved()
     {
-        if (Vector3.Distance(target.transform.position, m_delayedPlayerPosition) > m_attackType.m_playerMoveDistanceReaction)
+        if (Vector3.Distance(target.transform.position, m_delayedPlayerPosition) > m_enemyType.m_attackType.m_playerMoveDistanceReaction)
         {
-            print("Player Moved");
             m_delayedPlayerPosition = target.transform.position;
             return true;
         }
@@ -151,8 +188,18 @@ public class AiController : MonoBehaviour
 
 
     #region Move Functions
-    void PerformIdleMovement(){
-        m_movementType.MoveToPosition(m_rb, transform.position,transform.right * m_currentForward);
+    void PerformIdleMovement()
+    {
+        m_enemyType.m_idleMovementType.PerformIdleMovement(m_rb, transform, m_currentForward);
+        Vector2 wallBoxcastPos = new Vector2(transform.position.x + (m_enemyType.m_enemyDimensions.x / 2) * m_currentForward, transform.position.y);
+        Vector2 floorBoxcastPos = transform.position;//new Vector2(transform.position.x, transform.position.y - m_enemyDimensions.y/2);
+        m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(m_rb, floorBoxcastPos, m_enemyType.m_groundCheckDimensions, m_wallLayer);
+        if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, wallBoxcastPos, m_enemyType.m_enemyDimensions, m_currentForward, m_movementFlipLayer, m_isGrounded))
+        {
+
+            FlipEnemy(m_currentForward * -1);
+            m_isStuck = false;
+        }
 
     }
 
@@ -164,4 +211,12 @@ public class AiController : MonoBehaviour
         m_currentForward = p_newXDir;
     }
 
+    void OnDisable()
+    {
+        if (m_spawnerManager != null)
+        {
+            m_spawnerManager.m_currentEnemiesInRoom.Remove(this);
+        }
+
+    }
 }

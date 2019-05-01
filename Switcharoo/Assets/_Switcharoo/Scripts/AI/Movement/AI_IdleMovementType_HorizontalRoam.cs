@@ -7,6 +7,6 @@ public class AI_IdleMovementType_HorizontalRoam : AI_IdleMovementType_Base
 {
     public override void PerformIdleMovement(Rigidbody2D p_rb, Transform p_enemyObject, int p_forwardDir)
     {
-        p_rb.velocity = p_enemyObject.right * p_forwardDir * m_movementType.m_speed;
+        m_movementType.MoveToPosition(p_rb, p_enemyObject.position, (p_enemyObject.right * p_forwardDir) + p_enemyObject.position);
     }
 }

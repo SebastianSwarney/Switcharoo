@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9ae2c848a8a9b488b42c35675c4bc4, type: 3}
-  m_Name: AI_MovementType_Grounded
+  m_Script: {fileID: 11500000, guid: c45a2af66605f134cb0df43e226d6c3f, type: 3}
+  m_Name: AI_IdleMovement_HorizontalRoam_Jump
   m_EditorClassIdentifier: 
-  m_speed: 3
-  m_canJump: 0
-  m_gravityValue: 0
-  m_jumpHeight: 0
+  m_movementType: {fileID: 11400000, guid: aafd2fc2224c3b949845907982c2c6e0, type: 2}

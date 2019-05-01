@@ -43,19 +43,13 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
 
 
-    public override bool WallInFront(Rigidbody2D p_rb, Transform p_enemyObject, float p_raycastLength, int p_forwardDir, LayerMask p_wallLayer)
+    public override bool WallInFront(AiController p_aiCont,Rigidbody2D p_rb, Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, int p_forwardDir, LayerMask p_wallLayer, bool p_isGrounded)
     {
         Debug.Log("Do Nothing");
         return false;
     }
 
-    public override bool EnemyInFront(Rigidbody2D p_rb, Transform p_enemyObject, float p_raycastLength, int p_forwardDir, LayerMask p_enemyLayer)
-    {
-        Debug.Log("Do Nothing");
-        return false;
-    }
-
-    public override bool IsGrounded(Rigidbody2D p_rb, Transform p_enemyObject, float p_raycastLength, LayerMask p_wallLayer)
+    public override bool IsGrounded(Rigidbody2D p_rb, Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, LayerMask p_wallLayer)
     {
         return false;
     }
