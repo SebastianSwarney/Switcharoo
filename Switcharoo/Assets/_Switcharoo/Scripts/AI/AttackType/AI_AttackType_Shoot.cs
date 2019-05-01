@@ -15,6 +15,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
     public ShotPattern_Base m_shotType;
     public float m_shootIntervalTime, m_shootBreakTime;
     public AI_MovementType_Base m_shootingMovement;
+	public ShootController.WeaponComposition m_weaponComposition;
 
     ///<Summary>
     ///Where all the attack logic is
