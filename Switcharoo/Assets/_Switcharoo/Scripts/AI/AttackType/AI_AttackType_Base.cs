@@ -5,10 +5,10 @@ using UnityEngine;
 ///<Summary>
 ///The scriptable object that is used for the different attack types
 ///New attack types inherit from this script, allowing for new different attack types
-public abstract class AttackType_Base : ScriptableObject
+public abstract class AI_AttackType_Base : ScriptableObject
 {
     public enum AttackState { Start, Perform, Finished }
-    public MovementType_Base m_attackMovement;
+    public AI_MovementType_Base m_attackMovement;
     public float m_attackRadius;
     public float m_tellTime;
     public float m_targetStoppingDistance;

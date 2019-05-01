@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Shot Types/Enemy Shot Types/Single Shot")]
+[CreateAssetMenu(menuName = "Shot Types/AI/Single Shot")]
 public class ShotType_Player_Single : ShotType_Base
 {
     public override void Shoot(Transform p_bulletOrigin)

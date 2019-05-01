@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c9ae2c848a8a9b488b42c35675c4bc4, type: 3}
-  m_Name: AI_Movement_Grounded_Fast
+  m_Name: AI_MovementType_Grounded
   m_EditorClassIdentifier: 
-  m_speed: 6
+  m_speed: 0
+  m_canJump: 0
+  m_gravityValue: 0
+  m_jumpHeight: 0

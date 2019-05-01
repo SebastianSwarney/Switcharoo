@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Shoot - Slow Aim", menuName = "AttackType/Shoot/Slow Aim", order = 0)]
-public class AttackType_Shoot_SlowAim : AttackType_Shoot
+[CreateAssetMenu(fileName = "AI_AttackType_Shoot - Slow Aim", menuName = "AI/AttackType/Shoot/Slow Aim", order = 0)]
+public class AI_AttackType_Shoot_SlowAim : AI_AttackType_Shoot
 {
     [Header("Slow Aim variables")]
     public float m_aimSpeed;

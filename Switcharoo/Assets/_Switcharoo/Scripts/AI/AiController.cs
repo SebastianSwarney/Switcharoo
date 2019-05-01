@@ -11,8 +11,8 @@ public class AiController : MonoBehaviour
     public GameObject target;
 
     #region Components on the Enemy
-    public AttackType_Base m_attackType;
-    public MovementType_Base m_movementType;
+    public AI_AttackType_Base m_attackType;
+    public AI_MovementType_Base m_movementType;
     Rigidbody2D m_rb;
     ShootController m_gun;
 
@@ -21,7 +21,7 @@ public class AiController : MonoBehaviour
 
     #region Attack Variables
     [Header("Attack State")]
-    public AttackType_Base.AttackState m_currentAttackState = AttackType_Base.AttackState.Finished;
+    public AI_AttackType_Base.AttackState m_currentAttackState = AI_AttackType_Base.AttackState.Finished;
 
     Vector3 m_attackTargetPos;
 
@@ -34,6 +34,16 @@ public class AiController : MonoBehaviour
 
     bool m_isShooting;
     #endregion
+
+    #region Move Variables
+    int m_currentForward = 1;
+    public LayerMask m_wallLayer;
+    public Vector3  m_enemyDimensions;
+
+    bool m_isJumping;
+
+    #endregion
+
     void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
@@ -41,16 +51,14 @@ public class AiController : MonoBehaviour
     }
     private void Update()
     {
-        CheckAttackState();
+        CheckState();
     }
-
-    #region Attacking Functions
-    void CheckAttackState()
+    void CheckState()
     {
         if (target != null)
         {
             //If the attack is finished, and no longer running
-            if (m_currentAttackState == AttackType_Base.AttackState.Finished)
+            if (m_currentAttackState == AI_AttackType_Base.AttackState.Finished)
             {
                 //Restart the attack
                 m_attackType.StartAttack(this, m_rb, target, gameObject, m_gun);
@@ -80,7 +88,15 @@ public class AiController : MonoBehaviour
                 }
             }
         }
+    
+        else{
+            PerformIdleMovement();
+        }
     }
+
+
+    #region Attacking Functions
+
 
     ///<Summary>
     ///Checks the shooting pattern, to see if the ai can currently shoot
@@ -132,4 +148,20 @@ public class AiController : MonoBehaviour
     }
 
     #endregion
+
+
+    #region Move Functions
+    void PerformIdleMovement(){
+        m_movementType.MoveToPosition(m_rb, transform.position,transform.right * m_currentForward);
+
+    }
+
+    #endregion
+
+
+    public void FlipEnemy(int p_newXDir)
+    {
+        m_currentForward = p_newXDir;
+    }
+
 }

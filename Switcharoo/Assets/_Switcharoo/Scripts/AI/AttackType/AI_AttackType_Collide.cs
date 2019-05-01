@@ -8,8 +8,8 @@ using UnityEngine;
 ///The behviour that performs the melee enemies
 ///<Summary>
 
-[CreateAssetMenu(fileName = "Collide", menuName = "Scriptable Objects/AttackType/Collide", order = 0)]
-public class AttackType_Collide : AttackType_Base
+[CreateAssetMenu(fileName = "AI_AttackType_Collide", menuName = "AI/AttackType/Collide", order = 0)]
+public class AI_AttackType_Collide : AI_AttackType_Base
 {
     [Header("Melee-Only Variables")]
     public float m_targetOvershootPlayerDistance;   //Used for if the target overshoots the player, and the player jumps over them
