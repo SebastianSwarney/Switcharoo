@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ba4c5b6db826b478620216dbcb0362, type: 3}
-  m_Name: ShotPattern_Scatter
+  m_Script: {fileID: 11500000, guid: 54fc2828e2ce55b4a8094684597395f1, type: 3}
+  m_Name: TrailType_Explode
   m_EditorClassIdentifier: 
-  m_fireRate: 2
-  m_ammoCount: 1000
-  m_bulletSpacing: 30
-  m_amountOfBulletsPerShot: 5
+  m_trailDamageAmount: 10
+  m_explosionRadius: 5
+  m_amountOfExplosionsPerUse: 3
+  m_testmask:
+    serializedVersion: 2
+    m_Bits: 16

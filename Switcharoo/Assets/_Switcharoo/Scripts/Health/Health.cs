@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 	public bool m_isDead;
 	public float m_maxHealth;
 	public float m_currentHealth;
+	public bool m_onFire;
 
 	private void Start()
 	{
@@ -42,5 +43,4 @@ public class Health : MonoBehaviour
 			m_isDead = true;
 		}
 	}
-
 }

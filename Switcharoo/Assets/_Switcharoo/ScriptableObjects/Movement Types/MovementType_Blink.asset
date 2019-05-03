@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb28e0914e18314886fae9c3334d309, type: 3}
-  m_Name: MovementAbilitiy_Blink
+  m_Script: {fileID: 11500000, guid: 10b4262e4919e3a49ab9e2bc8ba0d8c0, type: 3}
+  m_Name: MovementType_Blink
   m_EditorClassIdentifier: 
+  m_movementTime: 0.2
   m_blinkDistance: 10
-  m_blinkTime: 0.2
   m_blinkAmount: 3
   m_pauseBetweenBlinkTime: 0.2
   m_blinkCurve:

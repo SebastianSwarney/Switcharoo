@@ -15,11 +15,9 @@ public class DamageType_Basic : DamageType_Base
 		if (CheckCollisionLayer(p_damageTargetMask, p_collision))
 		{
 			p_collision.GetComponent<Health>().TakeDamage(m_damageAmount);
-
-			ObjectPooler.instance.ReturnToPool(p_bulletRefrence.gameObject);
 		}
 
-		if (CheckCollisionLayer(p_obstacleMask, p_collision))
+		if (CheckCollisionLayer(p_obstacleMask, p_collision) || CheckCollisionLayer(p_damageTargetMask, p_collision))
 		{
 			ObjectPooler.instance.ReturnToPool(p_bulletRefrence.gameObject);
 		}
