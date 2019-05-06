@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 	#region Movement Ability Properties
 	[Header("Movement Ability Properties")]
 	[SerializeField]
-	private MovementAbility_Base m_movementAbility;
+	private MovementAbilityComposition m_currentMovementAbilityComposition;
 	#endregion
 
 	[HideInInspector]
@@ -351,7 +351,19 @@ public class PlayerController : MonoBehaviour
 	#region Movement Ability Code
 	public void OnMovementAbilityInputDown()
 	{
-		m_movementAbility.UseAbility(this);
+		m_currentMovementAbilityComposition.UseAbility(this);
+	}
+
+	[System.Serializable]
+	public struct MovementAbilityComposition
+	{
+		public MovementType_Base m_movementType;
+		public TrailType_Base m_trailType;
+
+		public void UseAbility(PlayerController p_player)
+		{
+			m_movementType.UseAbility(p_player, m_trailType);
+		}
 	}
 	#endregion
 
@@ -401,11 +413,10 @@ public class PlayerController : MonoBehaviour
 	public struct PlayerData
 	{
 		public PlayerRole m_currentRole;
-		//public ShotPattern_Base m_shotType;
 
-		public ShootController.WeaponComposition weaponComposition;
+		public ShootController.WeaponComposition m_weaponComposition;
 
-		public MovementAbility_Base m_movementAbility;
+		public MovementAbilityComposition m_movementAbilityComposition;
 
 		public void Swap()
 		{
@@ -428,32 +439,56 @@ public class PlayerController : MonoBehaviour
 		{
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
 			{
-				m_shootController.m_currentWeaponComposition = m_players[i].weaponComposition;
+				m_shootController.m_currentWeaponComposition = m_players[i].m_weaponComposition;
 			}
 
 			if (m_players[i].m_currentRole == PlayerRole.Runner)
 			{
-				m_movementAbility = m_players[i].m_movementAbility;
+				m_currentMovementAbilityComposition = m_players[i].m_movementAbilityComposition;
 			}
 		}
 	}
 
-
-	public void SetWeaponPickup(ShotPattern_Base p_newWeapon)
+	public void SetShotPatternPickup(ShotPattern_Base p_newShotPattern)
 	{
-		/*
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
 			{
-				m_players[i].m_shotType = p_newWeapon;
+				m_players[i].m_weaponComposition.m_shotPattern = p_newShotPattern;
 			}
 		}
-		*/
 
 		UpdatePickups();
 	}
 
+	public void SetBulletTypePickup(Bullet_Base p_newBulletType)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Gunner)
+			{
+				m_players[i].m_weaponComposition.m_bulletType = p_newBulletType;
+			}
+		}
+
+		UpdatePickups();
+	}
+
+	public void SetDamageTypePickup(DamageType_Base p_newDamageType)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Gunner)
+			{
+				m_players[i].m_weaponComposition.m_damageType = p_newDamageType;
+			}
+		}
+
+		UpdatePickups();
+	}
+
+	/*
 	public void SetMovementPickup(MovementAbility_Base p_newMovementAbility)
 	{
 		for (int i = 0; i < m_players.Length; i++)
@@ -466,6 +501,7 @@ public class PlayerController : MonoBehaviour
 
 		UpdatePickups();
 	}
+	*/
 	#endregion
 
 	#region Player State Code

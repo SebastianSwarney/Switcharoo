@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 318290044110178634}
   - component: {fileID: 504732419026082140}
   - component: {fileID: -1996426917697744598}
-  - component: {fileID: 7315616157899850491}
+  - component: {fileID: 4770555201825618356}
   m_Layer: 0
-  m_Name: Bullet_ConstMove
+  m_Name: Bullet_Ricochet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7315616157899850491
+--- !u!114 &4770555201825618356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 318290044110178628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e55b72753b4983e44b723729a731aafe, type: 3}
+  m_Script: {fileID: 11500000, guid: e6312bd2d5c10ce458f61114a12feb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 20
@@ -150,3 +150,4 @@ MonoBehaviour:
     m_Bits: 256
   m_timeUntillDeactivate: 60
   m_damageType: {fileID: 0}
+  m_amountOfRicochets: 3
