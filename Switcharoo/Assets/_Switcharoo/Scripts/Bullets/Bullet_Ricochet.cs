@@ -7,8 +7,9 @@ public class Bullet_Ricochet : Bullet_Base
 	public int m_amountOfRicochets;
 	private int m_ricochetCount;
 
-	private void OnEnable()
+	public override void OnEnable()
 	{
+		base.OnEnable();
 		m_ricochetCount = 0;
 	}
 

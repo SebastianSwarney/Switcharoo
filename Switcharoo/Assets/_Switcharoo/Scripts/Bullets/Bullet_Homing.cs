@@ -11,8 +11,9 @@ public class Bullet_Homing : Bullet_Base
 
 	public float m_rotateSpeed = 100f;
 
-	public void OnEnable()
+	public override void OnEnable()
 	{
+		base.OnEnable();
 		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
 

@@ -15,6 +15,11 @@ public class Bullet_Base : MonoBehaviour
 
 	public DamageType_Base m_damageType;
 
+	public virtual void OnEnable()
+	{
+		m_deactivateTimer = 0;
+	}
+
 	public virtual void Update()
 	{
 		RemoveAfterTime();
