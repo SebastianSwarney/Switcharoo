@@ -45,7 +45,7 @@ public class AI_Spawner : MonoBehaviour
         for (int x = 0; x < m_allEnemies.Count; x++)
         {
             print("New Percent: " + m_allEnemies[x].m_spawnChance / changePercent);
-            m_adjustedAllEnemies.Add(new EnemySpawns(m_allEnemies[x].m_enemyPrefab, m_allEnemies[x].m_spawnChance / changePercent, m_allEnemies[x].m_spawnDir));
+            m_adjustedAllEnemies.Add(new EnemySpawns(m_allEnemies[x].m_enemyPrefab, m_allEnemies[x].m_spawnChance / changePercent, m_allEnemies[x].m_spawnDir, m_allEnemies[x].m_enemyPatrolPoint));
         }
     }
 
@@ -63,6 +63,7 @@ public class AI_Spawner : MonoBehaviour
                 AiController aiCont = ObjectPooler.instance.NewObject(enemy.m_enemyPrefab, transform, true, false, false).GetComponent<AiController>();
                 aiCont.m_currentForward = (enemy.m_spawnDir == EnemySpawns.SpawnDir.Left) ? -1 : 1;
                 aiCont.m_spawnerManager = m_spawnManager;
+                aiCont.m_patrolPoints = enemy.m_enemyPatrolPoint;
                 aiCont.gameObject.SetActive(true);
                 
 
@@ -80,6 +81,7 @@ public class AI_Spawner : MonoBehaviour
     /// the forced spawn does not have to be in the list of enemies that can spawn here
     public void ForceSpawnEnemy(GameObject m_forcedSpawn)
     {
+        Debug.Log("Forcing a spawn will result in an enemy without patrol points");
         AiController aiCont = ObjectPooler.instance.NewObject(m_forcedSpawn, transform, true, false, false).GetComponent<AiController>();
         aiCont.m_currentForward = (m_spawnManager.m_player.transform.position.x > transform.position.x) ? -1 : 1;
         aiCont.gameObject.SetActive(true);
@@ -123,17 +125,19 @@ public class AI_Spawner : MonoBehaviour
         public float m_spawnChance;
         public SpawnDir m_spawnDir;
 
+        public List<Transform> m_enemyPatrolPoint;
+
         public void AdjustSpawnChance(float p_newSpawnChance)
         {
             m_spawnChance = p_newSpawnChance;
-            print("m_SpawnChance: " + m_spawnChance + " | New spawn: " + p_newSpawnChance);
         }
 
-        public EnemySpawns(GameObject p_enemy, float p_newChance, SpawnDir p_spawnDir)
+        public EnemySpawns(GameObject p_enemy, float p_newChance, SpawnDir p_spawnDir, List<Transform> p_patrolPoints)
         {
             m_enemyPrefab = p_enemy;
             m_spawnChance = p_newChance;
             m_spawnDir = p_spawnDir;
+            m_enemyPatrolPoint = p_patrolPoints;
         }
     }
 }

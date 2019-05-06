@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9ae2c848a8a9b488b42c35675c4bc4, type: 3}
-  m_Name: AI_MovementType_Grounded
+  m_Script: {fileID: 11500000, guid: 5d3b34016700f2d48ac26b79f937423c, type: 3}
+  m_Name: AI_IdleMovement_Patrol - Aerial
   m_EditorClassIdentifier: 
-  m_speed: 3
-  m_usesPathfinding: 0
-  m_checkWallDistance: 4
-  m_canJump: 0
-  m_jumpTurnDistance: 0
-  m_gravityValue: 0
-  m_jumpHeight: 0
+  m_movementType: {fileID: 11400000, guid: 8f45e1ddb1b705e4e9a0db67930f3fa9, type: 2}

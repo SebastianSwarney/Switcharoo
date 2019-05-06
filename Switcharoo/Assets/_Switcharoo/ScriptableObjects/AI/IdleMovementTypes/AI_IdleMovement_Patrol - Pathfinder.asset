@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 174bfc47e3c86ab41be35ff7f714509d, type: 3}
-  m_Name: AI_AttackType_Collide - Slow
+  m_Script: {fileID: 11500000, guid: 5d3b34016700f2d48ac26b79f937423c, type: 3}
+  m_Name: AI_IdleMovement_Patrol - Pathfinder
   m_EditorClassIdentifier: 
-  m_attackMovement: {fileID: 0}
-  m_attackRadius: 0
-  m_tellTime: 0
-  m_targetStoppingDistance: 0
-  m_playerMoveDistanceReaction: 0
-  m_targetOvershootPlayerDistance: 0
+  m_movementType: {fileID: 11400000, guid: bd9bf3053fe98f54bb10b85d7d22ebb3, type: 2}

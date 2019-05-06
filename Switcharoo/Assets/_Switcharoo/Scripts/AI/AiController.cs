@@ -10,6 +10,7 @@ public class AiController : MonoBehaviour
     public Enemy_Base m_enemyType;
     [Space(10)]
     public GameObject target;
+    public string playerTag = "Player";
 
     #region Components on the Enemy
 
@@ -17,6 +18,12 @@ public class AiController : MonoBehaviour
     ShootController m_gun;
 
     public Transform m_bulletOrigin;
+
+    [HideInInspector]
+    public bool m_isPooled = false;
+    Vector3 m_hardSetPos;
+
+    public CircleCollider2D m_detectionRange;
     #endregion
 
     #region Attack Variables
@@ -44,10 +51,21 @@ public class AiController : MonoBehaviour
     float m_stuckTimer;
     public bool m_isStuck;
 
+    public List<Transform> m_patrolPoints;
+    Queue<Transform> m_patrolPointOrder;
+    public Transform currentPatrolPoint;
 
-
-
+    [HideInInspector]
     public bool m_isGrounded;
+
+    #endregion
+
+    #region PAthfinding Variables
+
+
+    [HideInInspector]
+    public Ai_Pathfinding_Agent m_agent;
+    public float m_patrolStoppingDistance;
 
     #endregion
 
@@ -56,14 +74,26 @@ public class AiController : MonoBehaviour
     public AI_Spawner_Manager_Base m_spawnerManager;
     #endregion
 
+
     void Awake()
     {
+        m_patrolPointOrder = new Queue<Transform>();
         m_rb = GetComponent<Rigidbody2D>();
         m_gun = GetComponent<ShootController>();
+        m_agent = GetComponent<Ai_Pathfinding_Agent>();
+
+        if (!m_isPooled)
+        {
+            m_hardSetPos = transform.position;
+            //gameObject.SetActive(false);
+        }
     }
+
     private void Update()
     {
+
         CheckState();
+
     }
 
     /// <summary>
@@ -76,6 +106,22 @@ public class AiController : MonoBehaviour
             Debug.Log("Error: " + gameObject.name + " has no assigned enemy type");
             Debug.Break();
         }
+        m_detectionRange.radius = m_enemyType.m_attackType.m_attackRadius;
+        if (!m_isPooled)
+        {
+            transform.position = m_hardSetPos;
+        }
+        foreach (Transform patrolPoint in m_patrolPoints)
+        {
+
+            m_patrolPointOrder.Enqueue(patrolPoint);
+        }
+        if (m_patrolPointOrder.Count > 0)
+        {
+            currentPatrolPoint = m_patrolPointOrder.Dequeue();
+
+        }
+
     }
     void CheckState()
     {
@@ -94,12 +140,27 @@ public class AiController : MonoBehaviour
         }
         if (target != null)
         {
+
+            //Check if the enemy is grounded
+            Vector2 wallBoxcastPos = new Vector2(transform.position.x + (m_enemyType.m_enemyDimensions.x / 2) * m_currentForward, transform.position.y);
+            Vector2 floorBoxcastPos = transform.position;
+            m_isGrounded = m_enemyType.m_attackType.m_attackMovement.IsGrounded(m_rb, floorBoxcastPos, m_enemyType.m_groundCheckDimensions, m_wallLayer);
+
+
             //If the attack is finished, and no longer running
             if (m_currentAttackState == AI_AttackType_Base.AttackState.Finished)
             {
-                //Restart the attack
-                m_enemyType.m_attackType.StartAttack(this, m_rb, target, gameObject, m_gun);
-                m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(gameObject, target);
+                if (!PlayerInRadius())
+                {
+                    Debug.Log("Player Gone");
+                    target = null;
+                }
+                else
+                {
+                    //Restart the attack
+                    m_enemyType.m_attackType.StartAttack(this, m_rb, target, gameObject, m_gun);
+                    m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, target);
+                }
             }
 
             //If the attack is running
@@ -112,6 +173,7 @@ public class AiController : MonoBehaviour
                     //If the player is no lnger in the radius, set the target to null
                     if (!PlayerInRadius())
                     {
+                        Debug.Log("Player Gone 2");
                         target = null;
                     }
                 }
@@ -120,7 +182,7 @@ public class AiController : MonoBehaviour
                     //If the player has moved a set amount of distance (set in the attack type), recalculate the attackTarget Position
                     if (PlayerMoved())
                     {
-                        m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(gameObject, target);
+                        m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, target);
                     }
                 }
             }
@@ -181,7 +243,11 @@ public class AiController : MonoBehaviour
     ///TODO: Create the following function
     bool PlayerInRadius()
     {
-        return false;
+        if(Vector3.Distance(transform.position,target.transform.position) < m_enemyType.m_attackType.m_attackRadius){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     #endregion
@@ -190,10 +256,30 @@ public class AiController : MonoBehaviour
     #region Move Functions
     void PerformIdleMovement()
     {
-        m_enemyType.m_idleMovementType.PerformIdleMovement(m_rb, transform, m_currentForward);
+
+        //If there exists patrol points
+        if (m_patrolPoints.Count > 0)
+        {
+            if (CloseToPoint(currentPatrolPoint.position))
+            {
+                currentPatrolPoint = NewPatrolPoint();
+            }
+
+            m_enemyType.m_idleMovementType.PerformIdleMovement(m_agent, m_rb, transform, m_currentForward, currentPatrolPoint.position, m_isGrounded);
+
+        }
+        else
+        {
+            m_enemyType.m_idleMovementType.PerformIdleMovement(m_agent, m_rb, transform, m_currentForward, transform.position, m_isGrounded);
+        }
+
+
+
+        //Check for walls infront, and check if gronded
         Vector2 wallBoxcastPos = new Vector2(transform.position.x + (m_enemyType.m_enemyDimensions.x / 2) * m_currentForward, transform.position.y);
-        Vector2 floorBoxcastPos = transform.position;//new Vector2(transform.position.x, transform.position.y - m_enemyDimensions.y/2);
+        Vector2 floorBoxcastPos = transform.position;
         m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(m_rb, floorBoxcastPos, m_enemyType.m_groundCheckDimensions, m_wallLayer);
+
         if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, wallBoxcastPos, m_enemyType.m_enemyDimensions, m_currentForward, m_movementFlipLayer, m_isGrounded))
         {
 
@@ -203,7 +289,28 @@ public class AiController : MonoBehaviour
 
     }
 
+
+    bool CloseToPoint(Vector3 p_targetPoint)
+    {
+        if (Vector3.Distance(transform.position, p_targetPoint) < m_patrolStoppingDistance)
+        {
+            int newDir = (int)Mathf.Sign(p_targetPoint.x - transform.position.x);
+            FlipEnemy(newDir);
+
+            return true;
+        }
+        return false;
+    }
+
+    Transform NewPatrolPoint()
+    {
+
+        m_patrolPointOrder.Enqueue(currentPatrolPoint);
+        return m_patrolPointOrder.Dequeue();
+
+    }
     #endregion
+
 
 
     public void FlipEnemy(int p_newXDir)
@@ -215,8 +322,31 @@ public class AiController : MonoBehaviour
     {
         if (m_spawnerManager != null)
         {
-            m_spawnerManager.m_currentEnemiesInRoom.Remove(this);
+            if (m_isPooled)
+            {
+                m_spawnerManager.m_currentEnemiesInRoom.Remove(this);
+                m_patrolPoints.Clear();
+            }
         }
 
+    }
+
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(target != null){
+            return;
+        }
+        if (other.gameObject.tag == playerTag)
+        {
+            
+            float dis = Vector3.Distance(transform.position, other.gameObject.transform.position);
+            print("Player Detected | Dis: " + dis);
+            if ( dis< m_enemyType.m_attackType.m_attackRadius)
+            {
+                print("Player in range");
+                target = other.gameObject;
+            }
+        }
     }
 }

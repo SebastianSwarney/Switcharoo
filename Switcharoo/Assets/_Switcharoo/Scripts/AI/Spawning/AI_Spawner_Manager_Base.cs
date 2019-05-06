@@ -17,6 +17,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     public int m_currentAiCount;
 
     public List<AiController> m_currentEnemiesInRoom;
+
     void Awake()
     {
         foreach (AI_Spawner spawner in m_spawnersInRoom)
@@ -36,6 +37,9 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     //Sets up all the spawners, when the object is enabled
     public virtual void InitializeAllSpawners()
     {
+        foreach(AiController placedEnemy in m_currentEnemiesInRoom){
+            placedEnemy.gameObject.SetActive(true);
+        }
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.gameObject.SetActive(true);

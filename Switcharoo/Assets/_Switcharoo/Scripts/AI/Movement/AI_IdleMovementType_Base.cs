@@ -13,5 +13,5 @@ public abstract class AI_IdleMovementType_Base : ScriptableObject
 {
     public AI_MovementType_Base m_movementType;
 
-    public abstract void PerformIdleMovement(Rigidbody2D p_rb, Transform p_enemyObject, int p_forwardDir);
+    public abstract void PerformIdleMovement(Ai_Pathfinding_Agent p_agent,Rigidbody2D p_rb, Transform p_enemyObject, int p_forwardDir, Vector3 m_targetPos, bool p_isGrounded);
 }

@@ -13,7 +13,7 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
     ///<Summary>
     ///Returns the target position in a positon that the enemy can reach
-    public override Vector3 ConvertRelativePosition(GameObject p_enemyObject, Vector3 p_convertPos)
+    public override Vector3 ConvertRelativePosition(Ai_Pathfinding_Agent p_agent,GameObject p_enemyObject, Vector3 p_convertPos)
     {
         return p_convertPos;
     }
@@ -22,7 +22,7 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
     ///<Summary>
     ///Moves the enemy to a given position
-    public override void MoveToPosition(Rigidbody2D p_rb, Vector3 p_startPos, Vector3 p_targetPosition)
+    public override void MoveToPosition(Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent,Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
     {
         ///Removes gravity, to allow for flight
         p_rb.gravityScale = 0;
@@ -32,7 +32,7 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
     ///<Summary>
     ///Determines if the postion has been reached
-    public override bool PostionReached(GameObject p_enemyObject, Vector3 p_targetPos, float p_stoppingDistance)
+    public override bool PostionReached(Ai_Pathfinding_Agent p_agent,GameObject p_enemyObject, Vector3 p_targetPos, float p_stoppingDistance)
     {
         if (Vector3.Distance(p_targetPos, p_enemyObject.transform.position) <= p_stoppingDistance)
         {
@@ -45,7 +45,7 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
     public override bool WallInFront(AiController p_aiCont,Rigidbody2D p_rb, Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, int p_forwardDir, LayerMask p_wallLayer, bool p_isGrounded)
     {
-        Debug.Log("Do Nothing");
+        
         return false;
     }
 
@@ -53,4 +53,6 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
     {
         return false;
     }
+
+
 }
