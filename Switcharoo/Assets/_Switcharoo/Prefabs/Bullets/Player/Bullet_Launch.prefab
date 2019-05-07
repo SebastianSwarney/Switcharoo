@@ -142,10 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 30
-  m_damage: 0
   m_damageTargetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16
   m_obstacleMask:
     serializedVersion: 2
     m_Bits: 256

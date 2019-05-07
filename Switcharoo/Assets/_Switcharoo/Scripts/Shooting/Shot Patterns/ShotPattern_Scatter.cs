@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Shot Patterns/Scatter")]
 public class ShotPattern_Scatter : ShotPattern_Base
 {
+	[Header("Scatter Properties")]
 	public float m_bulletSpacing;
 	public int m_amountOfBulletsPerShot;
 
