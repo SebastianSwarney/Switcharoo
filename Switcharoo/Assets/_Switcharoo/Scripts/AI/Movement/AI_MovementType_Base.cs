@@ -20,4 +20,6 @@ public abstract class AI_MovementType_Base : ScriptableObject {
     public abstract bool IsGrounded(Rigidbody2D p_rb,  Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, LayerMask p_wallLayer);
 
     public abstract void VisualTellMovement(Rigidbody2D p_rb);
+
+    public abstract void StopMoving(Rigidbody2D p_rb);
 }

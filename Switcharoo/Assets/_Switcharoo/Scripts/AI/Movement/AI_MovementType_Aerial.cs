@@ -58,4 +58,9 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
     {
         p_rb.velocity = Vector3.zero;
     }
+
+    public override void StopMoving(Rigidbody2D p_rb)
+    {
+        p_rb.velocity = Vector3.zero;
+    }
 }

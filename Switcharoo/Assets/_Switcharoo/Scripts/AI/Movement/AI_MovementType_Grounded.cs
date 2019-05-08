@@ -49,7 +49,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
         return false;
     }
 
-
+    
 
     public override bool WallInFront(AiController p_aiCont, Rigidbody2D p_rb, Vector2 p_castPos, float p_circleCastRad, int p_forwardDir, LayerMask p_hitLayer, bool p_isGrounded)
     {
@@ -102,5 +102,10 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
     public override void VisualTellMovement(Rigidbody2D p_rb)
     {
         //p_rb.velocity = new Vector3(p_rb.velocity.x/2,p_rb.velocity.y,0f);
+    }
+
+    public override void StopMoving(Rigidbody2D p_rb)
+    {
+        p_rb.velocity = new Vector3(0f, p_rb.velocity.y,0f);
     }
 }

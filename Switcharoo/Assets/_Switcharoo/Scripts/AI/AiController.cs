@@ -56,7 +56,7 @@ public class AiController : MonoBehaviour
     Queue<Transform> m_patrolPointOrder;
     public Transform currentPatrolPoint;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_isGrounded;
 
     #endregion
@@ -112,9 +112,14 @@ public class AiController : MonoBehaviour
         {
             transform.position = m_hardSetPos;
         }
+        InitiateAi();
+    }
+
+    public void InitiateAi()
+    {
+        m_patrolPointOrder.Clear();
         foreach (Transform patrolPoint in m_patrolPoints)
         {
-
             m_patrolPointOrder.Enqueue(patrolPoint);
         }
         if (m_patrolPointOrder.Count > 0)
@@ -122,7 +127,6 @@ public class AiController : MonoBehaviour
             currentPatrolPoint = m_patrolPointOrder.Dequeue();
 
         }
-
     }
     void CheckState()
     {
@@ -140,8 +144,8 @@ public class AiController : MonoBehaviour
         {
             m_stuckTimer = 0;
         }
-        
-        
+
+
         if (target != null)
         {
 
@@ -247,9 +251,12 @@ public class AiController : MonoBehaviour
     ///TODO: Create the following function
     bool PlayerInRadius()
     {
-        if(Vector3.Distance(transform.position,target.transform.position) < m_enemyType.m_attackType.m_attackRadius){
+        if (Vector3.Distance(transform.position, target.transform.position) < m_enemyType.m_attackType.m_attackRadius)
+        {
             return true;
-        }else{
+        }
+        else
+        {
             return false;
         }
     }
@@ -264,7 +271,7 @@ public class AiController : MonoBehaviour
         //If there exists patrol points
         if (m_patrolPoints.Count > 0)
         {
-            if (CloseToPoint(currentPatrolPoint.position))
+            if (CloseToPoint(currentPatrolPoint.position) && m_isGrounded)
             {
                 currentPatrolPoint = NewPatrolPoint();
             }
@@ -281,11 +288,11 @@ public class AiController : MonoBehaviour
 
         //Check for walls infront, and check if gronded
         Vector2 circleCastPos = new Vector2(transform.position.x - m_circleCastOffset.x, transform.position.y - m_circleCastOffset.y);
-        
+
         Vector2 floorBoxcastPos = transform.position;
         m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(m_rb, floorBoxcastPos, m_enemyType.m_groundCheckDimensions, m_wallLayer);
 
-        if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, circleCastPos,m_circleCastRad, m_currentForward, m_movementFlipLayer, m_isGrounded))
+        if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, circleCastPos, m_circleCastRad, m_currentForward, m_movementFlipLayer, m_isGrounded))
         {
 
             FlipEnemy(m_currentForward * -1);
@@ -339,17 +346,16 @@ public class AiController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(target != null){
+        if (target != null)
+        {
             return;
         }
         if (other.gameObject.tag == playerTag)
         {
-            
+
             float dis = Vector3.Distance(transform.position, other.gameObject.transform.position);
-            print("Player Detected | Dis: " + dis);
-            if ( dis< m_enemyType.m_attackType.m_attackRadius)
+            if (dis < m_enemyType.m_attackType.m_attackRadius)
             {
-                print("Player in range");
                 target = other.gameObject;
             }
         }

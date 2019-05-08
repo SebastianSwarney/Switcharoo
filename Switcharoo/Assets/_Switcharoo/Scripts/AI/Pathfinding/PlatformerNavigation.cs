@@ -245,12 +245,23 @@ public class PlatformerNavigation : MonoBehaviour
                 for (int x = xPos.y; x > xPos.x - 1; x--)
                 {
                     if (x == p_currentNode.m_gridPos.x || x >= m_gridSize.x || x < 0) continue;
+
+
                     //Check the m_nodeGrid underneath, to assign a platform connection
                     for (int y = p_currentNode.m_gridPos.y + 1; y > 0; y--)
                     {
+
+                        //If theres a gap between two terrain pieces on the same level
                         if(skipOther && y == p_currentNode.m_gridPos.y && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Walkable ||
                         skipOther && y == p_currentNode.m_gridPos.y && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Platform){
                             p_currentNode.m_connectedTo.Add(new Node.NodeConnection(m_nodeGrid[x, y], (x < p_currentNode.m_gridPos.x) ? Node.NodeConnection.ConnectionType.Left : Node.NodeConnection.ConnectionType.Right));
+                            continue;
+                        }
+
+                        if(skipOther && y == p_currentNode.m_gridPos.y-1 && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Walkable ||
+                        skipOther && y == p_currentNode.m_gridPos.y-1 && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Platform){
+                            p_currentNode.m_connectedTo.Add(new Node.NodeConnection(m_nodeGrid[x, y], Node.NodeConnection.ConnectionType.Below));
+                            m_nodeGrid[x,y].m_connectedTo.Add(new Node.NodeConnection(p_currentNode, Node.NodeConnection.ConnectionType.Above));
                             continue;
                         }
                         if (y >= m_gridSize.y || skipOther) continue;

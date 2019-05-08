@@ -66,7 +66,7 @@ public class AI_Spawner : MonoBehaviour
                 aiCont.m_patrolPoints = enemy.m_enemyPatrolPoint;
                 aiCont.gameObject.SetActive(true);
                 aiCont.transform.position = this.transform.position;
-
+                aiCont.InitiateAi();
 
 
                 m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);

@@ -16,3 +16,4 @@ MonoBehaviour:
   m_usesPathfinding: 1
   m_checkWallDistance: 1
   m_jumpHeight: 2.5
+  m_recalculateDistance: 2
