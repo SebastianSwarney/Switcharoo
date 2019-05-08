@@ -2692,7 +2692,7 @@ MonoBehaviour:
         type: 3}
       m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
-      m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
+      m_movementType: {fileID: 11400000, guid: 171e52338bb7bb744a9bd93b9a7dcba4, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
   m_maxJumpHeight: 4
   m_minJumpHeight: 1
@@ -2741,6 +2741,7 @@ MonoBehaviour:
     m_movementType: {fileID: 0}
     m_trailType: {fileID: 0}
   m_velocity: {x: 0, y: 0, z: 0}
+  controller: {fileID: 0}
 --- !u!114 &1905962501
 MonoBehaviour:
   m_ObjectHideFlags: 0

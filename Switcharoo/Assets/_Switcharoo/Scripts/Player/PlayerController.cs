@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     [Header("Aim Properties")]
     public Transform m_crosshair;
     public float m_crosshairDst;
-	[HideInInspector]
+	//[HideInInspector]
 	public Vector3 m_aimDirection;
 
     Vector3 m_lastPos;
@@ -102,7 +102,8 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector]
     public Vector3 m_velocity;
 
-    Controller2D controller;
+	[HideInInspector]
+    public Controller2D controller;
 
     Vector2 m_directionalInput;
 
@@ -246,6 +247,16 @@ public class PlayerController : MonoBehaviour
             m_velocity.y = m_minJumpVelocity;
         }
     }
+
+	public void JumpMaxVelocity()
+	{
+		m_velocity.y = m_maxJumpVelocity;
+	}
+
+	public void JumpMinVelocity()
+	{
+		m_velocity.y = m_minJumpVelocity;
+	}
     #endregion
 
     #region Wall Sliding Code
