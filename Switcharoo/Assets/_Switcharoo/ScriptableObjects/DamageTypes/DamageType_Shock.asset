@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd378aff8dbc052458806a758513aa57, type: 3}
   m_Name: DamageType_Shock
   m_EditorClassIdentifier: 
-  m_contactVisual: {fileID: 4010860640334181053, guid: 793db57e00090d945b6f02c92bd5f8a7,
-    type: 3}
-  m_damageAmount: 10
   m_shockRadius: 5
   m_shockChainAmount: 3
+  m_shockDamage: 10

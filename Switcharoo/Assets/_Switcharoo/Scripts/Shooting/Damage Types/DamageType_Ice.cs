@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageType_Ice : DamageType_Base
 {
-	public override void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
+	public override void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, float p_damageBase, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
 	{
 		throw new System.NotImplementedException();
 	}

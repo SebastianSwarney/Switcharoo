@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: ShotPattern_Linear
   m_EditorClassIdentifier: 
   m_fireRate: 5
+  m_baseDamage: 15
+  m_baseBulletSpeed: 15
   m_ammoCount: 1000
   m_maxBulletSpread: 0

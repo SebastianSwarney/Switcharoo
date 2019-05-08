@@ -9,12 +9,12 @@ public class ShotPattern_Burst : ShotPattern_Base
 	public float m_bulletsPerBurst;
 	public float m_burstDelay;
 
-	public override void Shoot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType)
+	public override void Shoot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		p_bulletOrigin.GetComponentInParent<ShootController>().StartCoroutine(BurstShot(p_bulletOrigin, p_bulletType, p_damageType));
+		p_bulletOrigin.GetComponentInParent<ShootController>().StartCoroutine(BurstShot(p_bulletOrigin, p_bulletType, p_damageType, p_damageTargetMask, p_obstacleMask));
 	}
 
-	IEnumerator BurstShot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType)
+	IEnumerator BurstShot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		int amountOfBulletsShot = 0;
 
@@ -24,7 +24,7 @@ public class ShotPattern_Burst : ShotPattern_Base
 
 			newBullet.transform.rotation = p_bulletOrigin.rotation;
 
-			newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_damageType);
+			newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_damageType, m_baseBulletSpeed, m_baseDamage, p_damageTargetMask, p_obstacleMask);
 
 			amountOfBulletsShot++;
 

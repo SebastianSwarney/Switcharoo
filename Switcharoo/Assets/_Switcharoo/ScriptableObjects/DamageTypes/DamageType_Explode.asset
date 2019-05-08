@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9384fb053d26f0419ec5addde9faa51, type: 3}
   m_Name: DamageType_Explode
   m_EditorClassIdentifier: 
-  m_contactVisual: {fileID: 4010860640334181053, guid: 793db57e00090d945b6f02c92bd5f8a7,
-    type: 3}
   m_explosionRadius: 5
+  m_explosionDamage: 10

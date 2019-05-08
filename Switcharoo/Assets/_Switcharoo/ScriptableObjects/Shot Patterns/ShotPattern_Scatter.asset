@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ba4c5b6db826b478620216dbcb0362, type: 3}
   m_Name: ShotPattern_Scatter
   m_EditorClassIdentifier: 
-  m_fireRate: 2
+  m_fireRate: 1
+  m_baseDamage: 30
+  m_baseBulletSpeed: 20
   m_ammoCount: 1000
   m_bulletSpacing: 30
   m_amountOfBulletsPerShot: 5
