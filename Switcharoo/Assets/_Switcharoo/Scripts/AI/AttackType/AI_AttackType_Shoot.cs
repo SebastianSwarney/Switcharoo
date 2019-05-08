@@ -43,20 +43,21 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
                         p_aiController.SwapShooting(true, m_shootIntervalTime);
                         
                         //Different movement for when they are shooting
-                        if (!m_shootingMovement.PostionReached(p_enemyObject, p_targetPos, m_targetStoppingDistance))
+                        if (!m_shootingMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
                         {
-                            m_shootingMovement.ConvertRelativePosition(p_enemyObject, p_targetPos);
-                            m_shootingMovement.MoveToPosition(p_rb, p_enemyObject.transform.position, p_targetPos);
+                            m_shootingMovement.ConvertRelativePosition(p_aiController.m_agent,p_enemyObject, p_targetPos);
+                            Debug.Log("Target Pos: " + p_targetPos);
+                            m_shootingMovement.MoveToPosition(p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
                         }
                     }
                     else
                     {
                         p_aiController.SwapShooting(false, m_shootBreakTime);
                         ///If they've havent reached the position, move to it still
-                        if (!m_attackMovement.PostionReached(p_enemyObject, p_targetPos, m_targetStoppingDistance))
+                        if (!m_attackMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
                         {
-                            m_attackMovement.ConvertRelativePosition(p_enemyObject, p_targetPos);
-                            m_attackMovement.MoveToPosition(p_rb, p_enemyObject.transform.position, p_targetPos);
+                            p_targetPos = m_attackMovement.ConvertRelativePosition(p_aiController.m_agent,p_enemyObject, p_targetPos);
+                            m_attackMovement.MoveToPosition(p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
                         }
                     }
 
@@ -80,12 +81,12 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
 
 
     //Generates the target to move to during the attack
-    public override Vector3 SetAttackTargetPosition(GameObject p_enemyObject, GameObject p_player)
+    public override Vector3 SetAttackTargetPosition(AiController p_aiCont,GameObject p_enemyObject, GameObject p_player)
     {
         Vector3 dir = (p_player.transform.position - p_enemyObject.transform.position).normalized;
 
         Vector3 targetPos = p_player.transform.position - dir * m_distanceFromPlayer;
-        return m_attackMovement.ConvertRelativePosition(p_enemyObject, targetPos);
+        return m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent, p_enemyObject, targetPos);
     }
 
 

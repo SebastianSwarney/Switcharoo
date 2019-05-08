@@ -32,10 +32,10 @@ public class AI_AttackType_Collide : AI_AttackType_Base
                 //If the player is in range, set a position that is in their direction
                 if (PlayerInRange(p_player, p_enemyObject))
                 {
-                    m_attackMovement.MoveToPosition(p_rb, p_enemyObject.transform.position, p_targetPos);
+                    m_attackMovement.MoveToPosition(p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
 
                     //If the enemy reaches that position, end the current attack
-                    if (m_attackMovement.PostionReached(p_enemyObject, p_targetPos, m_targetStoppingDistance))
+                    if (m_attackMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
                     {
                         p_aiController.m_currentAttackState = AttackState.Finished;
                     }
@@ -57,10 +57,10 @@ public class AI_AttackType_Collide : AI_AttackType_Base
 
     ///<Summary>
     ///Generates a target position that is a little behind the player, allowing for that overshooting
-    public override Vector3 SetAttackTargetPosition(GameObject p_enemyObject, GameObject p_player)
+    public override Vector3 SetAttackTargetPosition(AiController p_aiCont,GameObject p_enemyObject, GameObject p_player)
     {
-        Vector3 playerPos = m_attackMovement.ConvertRelativePosition(p_enemyObject, p_player.transform.position);
-        Vector3 enemyPos = m_attackMovement.ConvertRelativePosition(p_enemyObject, p_enemyObject.transform.position);
+        Vector3 playerPos = m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent,p_enemyObject, p_player.transform.position);
+        Vector3 enemyPos = m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent,p_enemyObject, p_enemyObject.transform.position);
         Vector3 dir = (playerPos - enemyPos).normalized;
         dir = playerPos + dir * m_targetOvershootPlayerDistance;
 

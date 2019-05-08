@@ -25,7 +25,7 @@ public abstract class AI_AttackType_Base : ScriptableObject
     
     
     ///Used to get a postion for the movement that occurs during an attack
-    public abstract Vector3 SetAttackTargetPosition(GameObject p_enemyObject, GameObject p_player);
+    public abstract Vector3 SetAttackTargetPosition(AiController p_aiCont, GameObject p_enemyObject, GameObject p_player);
 
     #endregion
     

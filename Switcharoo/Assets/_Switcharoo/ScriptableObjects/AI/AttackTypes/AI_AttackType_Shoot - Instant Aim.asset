@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05daf48dd1fc0004abfa670227704d88, type: 3}
   m_Name: AI_AttackType_Shoot - Instant Aim
   m_EditorClassIdentifier: 
-  m_attackMovement: {fileID: 0}
-  m_attackRadius: 0
-  m_tellTime: 0
-  m_targetStoppingDistance: 0
-  m_playerMoveDistanceReaction: 0
-  m_distanceFromPlayer: 0
+  m_attackMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
+  m_attackRadius: 10
+  m_tellTime: 2
+  m_targetStoppingDistance: 0.1
+  m_playerMoveDistanceReaction: 2
+  m_distanceFromPlayer: 5
   m_shotType: {fileID: 0}
-  m_shootIntervalTime: 0
-  m_shootBreakTime: 0
-  m_shootingMovement: {fileID: 0}
+  m_shootIntervalTime: 4
+  m_shootBreakTime: 2
+  m_shootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
+  m_weaponComposition:
+    m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
+    m_bulletType: {fileID: 7315616157899850491, guid: 6834496e6d0e4d044867d5b54ece3703,
+      type: 3}
+    m_damageType: {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
