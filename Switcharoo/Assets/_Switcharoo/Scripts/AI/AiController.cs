@@ -46,7 +46,8 @@ public class AiController : MonoBehaviour
     public int m_currentForward = 1;
     public LayerMask m_wallLayer;
     public LayerMask m_movementFlipLayer;
-
+    public float m_circleCastRad;
+    public Vector2 m_circleCastOffset;
     public float m_stuckMoveTime = 3;
     float m_stuckTimer;
     public bool m_isStuck;
@@ -131,6 +132,7 @@ public class AiController : MonoBehaviour
             if (m_stuckTimer > m_stuckMoveTime)
             {
                 FlipEnemy(m_currentForward * -1);
+                print("Fliped : stcuk?");
                 m_isStuck = false;
             }
         }
@@ -138,6 +140,8 @@ public class AiController : MonoBehaviour
         {
             m_stuckTimer = 0;
         }
+        
+        
         if (target != null)
         {
 
@@ -276,11 +280,12 @@ public class AiController : MonoBehaviour
 
 
         //Check for walls infront, and check if gronded
-        Vector2 wallBoxcastPos = new Vector2(transform.position.x + (m_enemyType.m_enemyDimensions.x / 2) * m_currentForward, transform.position.y);
+        Vector2 circleCastPos = new Vector2(transform.position.x - m_circleCastOffset.x, transform.position.y - m_circleCastOffset.y);
+        
         Vector2 floorBoxcastPos = transform.position;
         m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(m_rb, floorBoxcastPos, m_enemyType.m_groundCheckDimensions, m_wallLayer);
 
-        if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, wallBoxcastPos, m_enemyType.m_enemyDimensions, m_currentForward, m_movementFlipLayer, m_isGrounded))
+        if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, circleCastPos,m_circleCastRad, m_currentForward, m_movementFlipLayer, m_isGrounded))
         {
 
             FlipEnemy(m_currentForward * -1);

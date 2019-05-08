@@ -25,7 +25,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
         {
             case AttackState.Start:
                 //Starts the visual tell
-                VisualTell(p_aiController);
+                VisualTell(p_aiController, p_rb);
                 break;
 
             case AttackState.Perform:

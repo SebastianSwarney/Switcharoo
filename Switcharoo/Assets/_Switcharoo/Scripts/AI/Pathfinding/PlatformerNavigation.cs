@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 public class PlatformerNavigation : MonoBehaviour
 {
-    public bool displayGizmos = false;
+    public bool displayGizmos = false, displayPaths = false;
 
     public Vector2 m_gridWorldSize;
     public float m_nodeRadius;
@@ -28,6 +28,7 @@ public class PlatformerNavigation : MonoBehaviour
     }
     private void Update()
     {
+        if(!displayPaths)return;
         foreach (Node p_newNode in m_nodeGrid)
         {
             foreach (Node.NodeConnection connect in p_newNode.m_connectedTo)

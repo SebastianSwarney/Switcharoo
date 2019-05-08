@@ -34,7 +34,7 @@ public abstract class AI_AttackType_Base : ScriptableObject
     ///The moment before an attack, the visual tell
     ///After this runs, the attack will commence
     ///Visual Tell animations may be done here
-    public void VisualTell(AiController p_aiController)
+    public void VisualTell(AiController p_aiController, Rigidbody2D p_rb)
     {
         float percent = p_aiController.m_visualTellTimer / m_tellTime;
 
@@ -45,6 +45,7 @@ public abstract class AI_AttackType_Base : ScriptableObject
             Debug.Log("Visual tell done");
         }else{
             p_aiController.m_visualTellTimer += Time.deltaTime;
+            m_attackMovement.VisualTellMovement(p_rb);
         }
     }
 

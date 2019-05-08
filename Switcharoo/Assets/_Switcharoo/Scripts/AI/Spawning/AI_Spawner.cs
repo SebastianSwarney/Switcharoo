@@ -14,6 +14,7 @@ public class AI_Spawner : MonoBehaviour
     Coroutine m_spawnEnemies;
 
 
+
     void InitateSpawning()
     {
         CheckSpawnChances();
@@ -44,7 +45,6 @@ public class AI_Spawner : MonoBehaviour
 
         for (int x = 0; x < m_allEnemies.Count; x++)
         {
-            print("New Percent: " + m_allEnemies[x].m_spawnChance / changePercent);
             m_adjustedAllEnemies.Add(new EnemySpawns(m_allEnemies[x].m_enemyPrefab, m_allEnemies[x].m_spawnChance / changePercent, m_allEnemies[x].m_spawnDir, m_allEnemies[x].m_enemyPatrolPoint));
         }
     }
@@ -65,7 +65,9 @@ public class AI_Spawner : MonoBehaviour
                 aiCont.m_spawnerManager = m_spawnManager;
                 aiCont.m_patrolPoints = enemy.m_enemyPatrolPoint;
                 aiCont.gameObject.SetActive(true);
-                
+                aiCont.transform.position = this.transform.position;
+
+
 
                 m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
                 return;
