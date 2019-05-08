@@ -15,10 +15,10 @@ TagManager:
   - 
   - Obstacle
   - Enemies
-  - 
-  - 
-  - 
-  - 
+  - Enemy0
+  - Enemy1
+  - Player0
+  - Player1
   - 
   - 
   - 
