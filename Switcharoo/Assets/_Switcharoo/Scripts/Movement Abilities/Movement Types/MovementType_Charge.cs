@@ -37,7 +37,9 @@ public class MovementType_Charge : MovementType_Base
 
 			PhysicsSeekTo(p_playerRefrence, targetPosition);
 
-			Vector2 hitBoxTargetPosition = new Vector2(targetPosition.x + m_chargeHitBoxSize.x / 2, targetPosition.y);
+			float hitBoxTargetX = (p_playerRefrence.controller.collisions.faceDir > 0) ? p_playerRefrence.transform.position.x + (p_playerRefrence.controller.col.bounds.size.x / 2) + m_chargeHitBoxSize.x / 2 : p_playerRefrence.transform.position.x - (p_playerRefrence.controller.col.bounds.size.x / 2) - m_chargeHitBoxSize.x / 2;
+
+			Vector2 hitBoxTargetPosition = new Vector2(hitBoxTargetX, p_playerRefrence.transform.position.y);
 
 			Collider2D[] colliders = Physics2D.OverlapBoxAll(hitBoxTargetPosition, m_chargeHitBoxSize, 0f);
 
