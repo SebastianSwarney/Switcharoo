@@ -39,6 +39,14 @@ public class AI_Spawner : MonoBehaviour
         {
             m_adjustedAllEnemies = m_allEnemies;
             return;
+        }else if (totalPercent == 0)
+        {
+            float percent = 1f / m_allEnemies.Count;
+            for (int x = 0; x < m_allEnemies.Count; x++)
+            {
+                m_adjustedAllEnemies.Add(new EnemySpawns(m_allEnemies[x].m_enemyPrefab, percent, m_allEnemies[x].m_spawnDir, m_allEnemies[x].m_enemyPatrolPoint));
+            }
+            return;
         }
 
         float changePercent = totalPercent / 1;
@@ -64,8 +72,10 @@ public class AI_Spawner : MonoBehaviour
                 aiCont.m_currentForward = (enemy.m_spawnDir == EnemySpawns.SpawnDir.Left) ? -1 : 1;
                 aiCont.m_spawnerManager = m_spawnManager;
                 aiCont.m_patrolPoints = enemy.m_enemyPatrolPoint;
+                aiCont.m_agent.m_navGrid = m_spawnManager.m_currentNavGrid;
                 aiCont.gameObject.SetActive(true);
                 aiCont.transform.position = this.transform.position;
+                aiCont.m_isPooled = true;
                 aiCont.InitiateAi();
 
 
@@ -117,6 +127,8 @@ public class AI_Spawner : MonoBehaviour
 
         }
     }
+
+
 
     [System.Serializable]
     public struct EnemySpawns

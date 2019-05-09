@@ -7,7 +7,7 @@ public class PlatformerNavigation : MonoBehaviour
     public bool displayGizmos = false, displayPaths = false;
 
     public Vector2 m_gridWorldSize;
-    public float m_nodeRadius;
+    public float m_nodeRadius = .5f;
     Node[,] m_nodeGrid;
     float m_nodeDiameter;
     Vector2Int m_gridSize;
@@ -28,7 +28,7 @@ public class PlatformerNavigation : MonoBehaviour
     }
     private void Update()
     {
-        if(!displayPaths)return;
+        if (!displayPaths) return;
         foreach (Node p_newNode in m_nodeGrid)
         {
             foreach (Node.NodeConnection connect in p_newNode.m_connectedTo)
@@ -40,7 +40,7 @@ public class PlatformerNavigation : MonoBehaviour
     public void CreateGrid()
     {
         m_nodeDiameter = m_nodeRadius * 2;
-        m_gridSize = new Vector2Int(Mathf.RoundToInt(m_gridWorldSize.x / m_nodeDiameter),Mathf.RoundToInt(m_gridWorldSize.y / m_nodeDiameter));
+        m_gridSize = new Vector2Int(Mathf.RoundToInt(m_gridWorldSize.x / m_nodeDiameter), Mathf.RoundToInt(m_gridWorldSize.y / m_nodeDiameter));
         m_nodeGrid = new Node[m_gridSize.x, m_gridSize.y];
         Vector2 p_worldBottomLeft = transform.position - Vector3.right * m_gridWorldSize.x / 2 - Vector3.up * m_gridWorldSize.y / 2;
         int count = 0;
@@ -252,16 +252,18 @@ public class PlatformerNavigation : MonoBehaviour
                     {
 
                         //If theres a gap between two terrain pieces on the same level
-                        if(skipOther && y == p_currentNode.m_gridPos.y && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Walkable ||
-                        skipOther && y == p_currentNode.m_gridPos.y && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Platform){
+                        if (skipOther && y == p_currentNode.m_gridPos.y && m_nodeGrid[x, y].m_currentNodeType == Node.NodeType.Walkable ||
+                        skipOther && y == p_currentNode.m_gridPos.y && m_nodeGrid[x, y].m_currentNodeType == Node.NodeType.Platform)
+                        {
                             p_currentNode.m_connectedTo.Add(new Node.NodeConnection(m_nodeGrid[x, y], (x < p_currentNode.m_gridPos.x) ? Node.NodeConnection.ConnectionType.Left : Node.NodeConnection.ConnectionType.Right));
                             continue;
                         }
 
-                        if(skipOther && y == p_currentNode.m_gridPos.y-1 && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Walkable ||
-                        skipOther && y == p_currentNode.m_gridPos.y-1 && m_nodeGrid[x,y].m_currentNodeType == Node.NodeType.Platform){
+                        if (skipOther && y == p_currentNode.m_gridPos.y - 1 && m_nodeGrid[x, y].m_currentNodeType == Node.NodeType.Walkable ||
+                        skipOther && y == p_currentNode.m_gridPos.y - 1 && m_nodeGrid[x, y].m_currentNodeType == Node.NodeType.Platform)
+                        {
                             p_currentNode.m_connectedTo.Add(new Node.NodeConnection(m_nodeGrid[x, y], Node.NodeConnection.ConnectionType.Below));
-                            m_nodeGrid[x,y].m_connectedTo.Add(new Node.NodeConnection(p_currentNode, Node.NodeConnection.ConnectionType.Above));
+                            m_nodeGrid[x, y].m_connectedTo.Add(new Node.NodeConnection(p_currentNode, Node.NodeConnection.ConnectionType.Above));
                             continue;
                         }
                         if (y >= m_gridSize.y || skipOther) continue;
@@ -335,8 +337,8 @@ public class PlatformerNavigation : MonoBehaviour
         Node returnNode;
         //the m_nodeGrid starts at 0, so you have to account for that
         //IE, if the point was at -15, and the gridsize was 15, the point is 0
-        float percentX = (p_worldPos.x-transform.position.x + m_gridWorldSize.x / 2) / m_gridWorldSize.x;
-        float percentY = (p_worldPos.y-transform.position.y + m_gridWorldSize.y / 2) / m_gridWorldSize.y;
+        float percentX = (p_worldPos.x - transform.position.x + m_gridWorldSize.x / 2) / m_gridWorldSize.x;
+        float percentY = (p_worldPos.y - transform.position.y + m_gridWorldSize.y / 2) / m_gridWorldSize.y;
 
         //Create the percentage of the current position on the m_nodeGrid
         percentX = Mathf.Clamp01(percentX);
@@ -362,9 +364,9 @@ public class PlatformerNavigation : MonoBehaviour
                     {
                         if (!Physics2D.Linecast(p_worldPos, currentNode.m_worldPos, m_terrainLayer))
                         {
-                            
+
                             closestDistance = currentDistance;
-                            
+
                             returnNode = currentNode;
                         }
                     }
@@ -412,17 +414,20 @@ public class PlatformerNavigation : MonoBehaviour
                 else if (n.m_currentNodeType == Node.NodeType.Empty)
                 {
                     Gizmos.color = Color.cyan;
-                    
+
                 }
                 else if (n.m_currentNodeType == Node.NodeType.Platform)
                 {
                     Gizmos.color = Color.yellow;
+                    Gizmos.DrawCube(n.m_worldPos, Vector3.one * (m_nodeDiameter - .1f));
                 }
                 else if (n.m_currentNodeType == Node.NodeType.Walkable)
                 {
                     Gizmos.color = Color.green;
+                    Gizmos.DrawCube(n.m_worldPos, Vector3.one * (m_nodeDiameter - .1f));
                 }
-                Gizmos.DrawCube(n.m_worldPos, Vector3.one * (m_nodeDiameter - .1f));
+                
+
             }
         }
 

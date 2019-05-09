@@ -51,7 +51,7 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
     public override bool IsGrounded(Rigidbody2D p_rb, Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, LayerMask p_wallLayer)
     {
-        return false;
+        return true;
     }
 
     public override void VisualTellMovement(Rigidbody2D p_rb)

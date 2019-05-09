@@ -19,7 +19,7 @@ public class AiController : MonoBehaviour
 
     public Transform m_bulletOrigin;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_isPooled = false;
     Vector3 m_hardSetPos;
 
@@ -308,7 +308,6 @@ public class AiController : MonoBehaviour
         {
             int newDir = (int)Mathf.Sign(p_targetPoint.x - transform.position.x);
             FlipEnemy(newDir);
-
             return true;
         }
         return false;
@@ -338,6 +337,7 @@ public class AiController : MonoBehaviour
             {
                 m_spawnerManager.m_currentEnemiesInRoom.Remove(this);
                 m_patrolPoints.Clear();
+                ObjectPooler.instance.ReturnToPool(this.gameObject);
             }
         }
 
