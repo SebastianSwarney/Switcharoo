@@ -419,12 +419,12 @@ public class PlatformerNavigation : MonoBehaviour
                 else if (n.m_currentNodeType == Node.NodeType.Platform)
                 {
                     Gizmos.color = Color.yellow;
-                    Gizmos.DrawCube(n.m_worldPos, Vector3.one * (m_nodeDiameter - .1f));
+                    Gizmos.DrawCube(new Vector3(n.m_worldPos.x, n.m_worldPos.y, 10), Vector3.one * (m_nodeDiameter - .1f));
                 }
                 else if (n.m_currentNodeType == Node.NodeType.Walkable)
                 {
                     Gizmos.color = Color.green;
-                    Gizmos.DrawCube(n.m_worldPos, Vector3.one * (m_nodeDiameter - .1f));
+                    Gizmos.DrawCube(new Vector3(n.m_worldPos.x, n.m_worldPos.y, 10), Vector3.one * (m_nodeDiameter - .1f));
                 }
                 
 

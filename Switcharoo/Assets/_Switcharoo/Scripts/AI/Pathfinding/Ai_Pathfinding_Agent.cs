@@ -9,7 +9,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     Node m_targetNode;
     List<Node> m_tracedPath;
     public bool m_drawPath;
-
+    public bool m_isGrounded;
 
     [Space(10)]
 
@@ -51,28 +51,34 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
                             }
                             else
                             {
-                                print("Oi fuck the velocity");
                                 m_rb.velocity = new Vector3(0, m_rb.velocity.y, 0);
                             }
                         }
                         else
                         {
+                            print("Moveing to node");
                             m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
                         }
 
 
                     }
+                    else
+                    {
+                        if (p_isGrounded)
+                        {
+                            if (m_navGrid.NodeFromWorldPoint(transform.position).m_worldPos.y > m_currentNode.m_worldPos.y)
+                            {
+                                m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
+                            }
+                        }
+                    }
+
                 }
                 else
                 {
                     return;
                 }
 
-
-            }
-            else
-            {
-                print("Ya fucking suck");
 
             }
         }
@@ -82,11 +88,18 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
         }
     }
 
-    void Jump(float p_jumpHeight, bool p_isGrounded)
+    void Jump(float p_maxJumpHeight, bool p_isGrounded)
     {
         if (p_isGrounded)
         {
-            float jumpForce = Mathf.Sqrt(2f * m_gravityValue * p_jumpHeight);
+            Node occupiedGrid = m_navGrid.NodeFromWorldPoint(transform.position);
+            float smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.y - m_currentNode.m_gridPos.y);
+            if(smartJumpHeight == 0)
+            {
+                smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.x - m_currentNode.m_gridPos.x);
+            }
+            if (smartJumpHeight > p_maxJumpHeight) smartJumpHeight = p_maxJumpHeight;
+            float jumpForce = Mathf.Sqrt(2f * m_gravityValue * smartJumpHeight);
             m_rb.velocity = new Vector3(m_rb.velocity.x, jumpForce, 0);
 
         }
@@ -94,11 +107,11 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     bool IsCloseToPosition(Vector3 p_position, float p_jumpHeight, bool p_isGrounded)
     {
 
+        m_isGrounded = p_isGrounded;
         if (Mathf.Abs(p_position.x - transform.position.x) < m_stoppingDistance)
         {
             if (p_isGrounded)
             {
-                print("Fuckin remove this shit");
                 m_tracedPath.RemoveAt(0);
                 if (ShouldIJump())
                 {
@@ -135,9 +148,9 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     {
 
         Node occupiedNode = m_navGrid.NodeFromWorldPoint(transform.position);
-        if (occupiedNode.m_worldPos.y < m_tracedPath[0].m_worldPos.y || Mathf.Abs(m_tracedPath[0].m_worldPos.x - occupiedNode.m_worldPos.x) > m_navGrid.m_nodeRadius * 2)
+
+        if (occupiedNode.m_worldPos.y < m_tracedPath[0].m_worldPos.y || Mathf.Abs(m_tracedPath[0].m_gridPos.x - occupiedNode.m_gridPos.x) > 1 && occupiedNode.m_worldPos.y == m_tracedPath[0].m_worldPos.y)
         {
-            print("JUmp!");
             return true;
         }
         return false;
