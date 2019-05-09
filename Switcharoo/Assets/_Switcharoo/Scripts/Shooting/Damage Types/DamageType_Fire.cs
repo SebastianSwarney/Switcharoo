@@ -13,9 +13,26 @@ public class DamageType_Fire : DamageType_Base
 
 	public override void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, float p_damageBase, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
 	{
-		FireBlast(p_bulletRefrence, p_collision, p_damageBase, p_obstacleMask, p_damageTargetMask);
+		SetFireDamage(p_bulletRefrence, p_collision, p_damageBase, p_obstacleMask, p_damageTargetMask);
 	}
 
+	private void SetFireDamage(Bullet_Base p_bulletRefrence, Collider2D p_collision, float p_damageBase, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
+	{
+		if (CheckCollisionLayer(p_damageTargetMask, p_collision))
+		{
+			Health targetHealth = p_collision.GetComponent<Health>();
+
+			targetHealth.TakeDamage(p_damageBase);
+			targetHealth.SetFireState();
+		}
+
+		if (CheckCollisionLayer(p_obstacleMask, p_collision) || CheckCollisionLayer(p_damageTargetMask, p_collision))
+		{
+			ObjectPooler.instance.ReturnToPool(p_bulletRefrence.gameObject);
+		}
+	}
+
+	#region Old Fire Code
 	//Does the normal bullet damage and casts to set other targets on fire
 	private void FireBlast(Bullet_Base p_bulletRefrence, Collider2D p_collision, float p_damageBase, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
 	{
@@ -68,4 +85,5 @@ public class DamageType_Fire : DamageType_Base
 			p_healthTarget.m_onFire = false;
 		}
 	}
+	#endregion
 }
