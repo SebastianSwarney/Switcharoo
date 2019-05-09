@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!58 &3233234039609179257
+--- !u!58 &1638111025
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546858493808718349}
+  m_GameObject: {fileID: 4667800907035337802}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -16,7 +16,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!1001 &4593725543158630817
+--- !u!1001 &7669883747139723238
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -26,13 +26,13 @@ PrefabInstance:
     - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Name
-      value: AI_JumpSlime Variant
+      value: AI_Slime_Gunner
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_enemyType
       value: 
-      objectReference: {fileID: 11400000, guid: d72a084ea70319240868cdd284766781,
+      objectReference: {fileID: 11400000, guid: a67f061c84417414ba30845fb164e9f6,
         type: 2}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -42,12 +42,12 @@ PrefabInstance:
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.37
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.45
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -96,9 +96,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}
---- !u!1 &1546858493808718349 stripped
+--- !u!1 &4667800907035337802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
     type: 3}
-  m_PrefabInstance: {fileID: 4593725543158630817}
+  m_PrefabInstance: {fileID: 7669883747139723238}
   m_PrefabAsset: {fileID: 0}

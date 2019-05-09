@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 3
   m_usesPathfinding: 0
-  m_checkWallDistance: 4
+  m_checkWallDistance: 1
   m_canJump: 0
   m_jumpTurnDistance: 0
   m_gravityValue: 0

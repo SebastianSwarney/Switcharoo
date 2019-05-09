@@ -15,9 +15,11 @@ public abstract class AI_MovementType_Base : ScriptableObject {
 
     public abstract Vector3 ConvertRelativePosition(Ai_Pathfinding_Agent p_agent,GameObject p_enemyObject,Vector3 p_convertPos);
 
-    public abstract bool WallInFront(AiController p_aiCont,Rigidbody2D p_rb,  Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, int p_forwardDir, LayerMask p_wallLayer, bool p_isGrounded);
+    public abstract bool WallInFront(AiController p_aiCont, Rigidbody2D p_rb, Vector2 p_castPos, float p_circleCastRad, int p_forwardDir, LayerMask p_hitLayer, bool p_isGrounded);
 
     public abstract bool IsGrounded(Rigidbody2D p_rb,  Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, LayerMask p_wallLayer);
 
+    public abstract void VisualTellMovement(Rigidbody2D p_rb);
 
+    public abstract void StopMoving(Rigidbody2D p_rb);
 }

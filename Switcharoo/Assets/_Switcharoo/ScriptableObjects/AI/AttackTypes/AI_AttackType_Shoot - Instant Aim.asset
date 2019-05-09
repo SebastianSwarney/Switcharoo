@@ -23,7 +23,7 @@ MonoBehaviour:
   m_shootBreakTime: 2
   m_shootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
   m_weaponComposition:
-    m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
+    m_shotPattern: {fileID: 11400000, guid: 1fd15566db4407145ad20bbb281c6150, type: 2}
     m_bulletType: {fileID: 7315616157899850491, guid: 6834496e6d0e4d044867d5b54ece3703,
       type: 3}
-    m_damageType: {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
+    m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}

@@ -18,6 +18,9 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
     public List<AiController> m_currentEnemiesInRoom;
 
+    
+    public PlatformerNavigation m_currentNavGrid;
+
     void Awake()
     {
         foreach (AI_Spawner spawner in m_spawnersInRoom)
@@ -78,9 +81,13 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
             spawner.gameObject.SetActive(false);
 
         }
-
+        List<AiController> destroyEnemies = new List<AiController>();
         foreach(AiController enemy in m_currentEnemiesInRoom){
-            enemy.gameObject.SetActive(false);
+            destroyEnemies.Add(enemy);
+        }
+        foreach(AiController enem in destroyEnemies)
+        {
+            enem.gameObject.SetActive(false);
         }
     }
 }

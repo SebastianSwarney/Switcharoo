@@ -9,7 +9,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     Node m_targetNode;
     List<Node> m_tracedPath;
     public bool m_drawPath;
-
+    public bool m_isGrounded;
 
     [Space(10)]
 
@@ -26,7 +26,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_tracedPath = new List<Node>();
-        if(m_navGrid == null) Debug.Log("Nav grid missing from: " + gameObject.name);
+        if (m_navGrid == null) Debug.Log("Nav grid missing from: " + gameObject.name);
     }
 
     public void MoveToNode(float p_speed, float p_jumpHeight, bool p_isGrounded)
@@ -48,17 +48,31 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
                             if (Mathf.Abs(m_currentNode.m_worldPos.x - transform.position.x) > m_stoppingDistance * 2)
                             {
                                 m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
-                            }else{
-                                m_rb.velocity = new Vector3(0, m_rb.velocity.y,0);
+                            }
+                            else
+                            {
+                                m_rb.velocity = new Vector3(0, m_rb.velocity.y, 0);
                             }
                         }
                         else
                         {
+                            print("Moveing to node");
                             m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
                         }
 
 
                     }
+                    else
+                    {
+                        if (p_isGrounded)
+                        {
+                            if (m_navGrid.NodeFromWorldPoint(transform.position).m_worldPos.y > m_currentNode.m_worldPos.y)
+                            {
+                                m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
+                            }
+                        }
+                    }
+
                 }
                 else
                 {
@@ -74,11 +88,18 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
         }
     }
 
-    void Jump(float p_jumpHeight, bool p_isGrounded)
+    void Jump(float p_maxJumpHeight, bool p_isGrounded)
     {
         if (p_isGrounded)
         {
-            float jumpForce = Mathf.Sqrt(2f * m_gravityValue * p_jumpHeight);
+            Node occupiedGrid = m_navGrid.NodeFromWorldPoint(transform.position);
+            float smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.y - m_currentNode.m_gridPos.y);
+            if(smartJumpHeight == 0)
+            {
+                smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.x - m_currentNode.m_gridPos.x);
+            }
+            if (smartJumpHeight > p_maxJumpHeight) smartJumpHeight = p_maxJumpHeight;
+            float jumpForce = Mathf.Sqrt(2f * m_gravityValue * smartJumpHeight);
             m_rb.velocity = new Vector3(m_rb.velocity.x, jumpForce, 0);
 
         }
@@ -86,21 +107,27 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     bool IsCloseToPosition(Vector3 p_position, float p_jumpHeight, bool p_isGrounded)
     {
 
+        m_isGrounded = p_isGrounded;
         if (Mathf.Abs(p_position.x - transform.position.x) < m_stoppingDistance)
         {
             if (p_isGrounded)
             {
                 m_tracedPath.RemoveAt(0);
+                if (ShouldIJump())
+                {
+                    Jump(p_jumpHeight, p_isGrounded);
+                }
+                return true;
             }
 
-            if (ShouldIJump())
-            {
-                Jump(p_jumpHeight, p_isGrounded);
-            }
-            
+            return false;
 
 
-            return true;
+
+        }
+        if (ShouldIJump())
+        {
+            Jump(p_jumpHeight, p_isGrounded);
         }
         return false;
     }
@@ -112,16 +139,17 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
             return false;
         }
 
-        
+
         float dis = Mathf.Abs(p_targetPos.x - transform.position.x);
-        
+
         return (dis < m_stoppingDistance) ? true : false;
     }
     bool ShouldIJump()
     {
 
+        Node occupiedNode = m_navGrid.NodeFromWorldPoint(transform.position);
 
-        if (m_navGrid.NodeFromWorldPoint(transform.position).m_gridPos.y < m_tracedPath[0].m_gridPos.y)
+        if (occupiedNode.m_worldPos.y < m_tracedPath[0].m_worldPos.y || Mathf.Abs(m_tracedPath[0].m_gridPos.x - occupiedNode.m_gridPos.x) > 1 && occupiedNode.m_worldPos.y == m_tracedPath[0].m_worldPos.y)
         {
             return true;
         }
@@ -154,7 +182,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
             if (p_currentNode == p_endNode)
             {
                 m_tracedPath = RetracePath(p_startNode, p_endNode);
-                
+
                 m_currentNode = m_tracedPath[0];
                 return;
             }

@@ -1,18 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
-///<Summary>
-///The behviour that performs the melee enemies
-///<Summary>
-
-[CreateAssetMenu(fileName = "AI_AttackType_Collide", menuName = "AI/AttackType/Collide", order = 0)]
-public class AI_AttackType_Collide : AI_AttackType_Base
+[CreateAssetMenu(fileName = "AI_AttackType_Collide - Jump", menuName = "AI/AttackType/Collide - Jump", order = 0)]
+public class AI_AttackType_Collide_Jump : AI_AttackType_Base
 {
-    [Header("Melee-Only Variables")]
-    public float m_targetOvershootPlayerDistance;   //Used for if the target overshoots the player, and the player jumps over them
+    [Header("Jump Melee only variables")]
+    public AI_MovementType_Grounded m_jumpMovement;
+    public float m_jumpAttackDistance;
 
 
     ///<Summary>
@@ -29,13 +23,22 @@ public class AI_AttackType_Collide : AI_AttackType_Base
 
             case AttackState.Perform:
 
+                if (p_player.transform.position.x - p_aiController.transform.position.x  <= m_jumpAttackDistance && p_aiController.m_isGrounded)
+                {
+                    m_jumpMovement.Jump(p_rb);
+                }
+                else
+                {
+                    bool flipEntity = m_attackMovement.WallInFront(p_aiController, p_rb, new Vector2(p_aiController.transform.position.x - p_aiController.m_circleCastOffset.x, p_aiController.transform.position.y - p_aiController.m_circleCastOffset.y), p_aiController.m_circleCastRad, p_aiController.m_currentForward, p_aiController.m_wallLayer, p_aiController.m_isGrounded);
+                }
                 //If the player is in range, set a position that is in their direction
                 if (PlayerInRange(p_player, p_enemyObject))
                 {
-                    m_attackMovement.MoveToPosition(p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
+                    m_attackMovement.MoveToPosition(p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
 
-                    //If the enemy reaches that position, end the current attack
-                    if (m_attackMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
+
+
+                    if (m_attackMovement.PostionReached(p_aiController.m_agent, p_enemyObject, p_targetPos, m_targetStoppingDistance))
                     {
                         p_aiController.m_currentAttackState = AttackState.Finished;
                     }
@@ -57,14 +60,11 @@ public class AI_AttackType_Collide : AI_AttackType_Base
 
     ///<Summary>
     ///Generates a target position that is a little behind the player, allowing for that overshooting
-    public override Vector3 SetAttackTargetPosition(AiController p_aiCont,GameObject p_enemyObject, GameObject p_player)
+    public override Vector3 SetAttackTargetPosition(AiController p_aiCont, GameObject p_enemyObject, GameObject p_player)
     {
-        Vector3 playerPos = m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent,p_enemyObject, p_player.transform.position);
-        Vector3 enemyPos = m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent,p_enemyObject, p_enemyObject.transform.position);
-        Vector3 dir = (playerPos - enemyPos).normalized;
-        dir = playerPos + dir * m_targetOvershootPlayerDistance;
+        Vector3 playerPos = m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent, p_enemyObject, p_player.transform.position);
 
-        return dir;
+        return playerPos;
     }
 
     ///<Summary>
@@ -73,9 +73,4 @@ public class AI_AttackType_Collide : AI_AttackType_Base
     {
         p_aiController.m_currentAttackState = AttackState.Start;
     }
-
-
-
-
-
 }

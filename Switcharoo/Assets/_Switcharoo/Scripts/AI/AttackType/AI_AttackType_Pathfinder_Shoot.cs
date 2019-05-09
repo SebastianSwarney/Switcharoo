@@ -20,7 +20,7 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
         {
             case AttackState.Start:
                 //Starts the visual tell
-                VisualTell(p_aiController);
+                VisualTell(p_aiController, p_rb);
                 break;
 
             case AttackState.Perform:
@@ -75,7 +75,6 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
                 break;
 
             case AttackState.Finished:
-                Debug.Log("Player Gone");
                 return true;
         }
         return false;
@@ -86,7 +85,7 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
     public override Vector3 SetAttackTargetPosition(AiController p_aiCont, GameObject p_enemyObject, GameObject p_player)
     {
 
-
+        Debug.Log("Set Attack Pos");
         return p_player.transform.position;
     }
 
