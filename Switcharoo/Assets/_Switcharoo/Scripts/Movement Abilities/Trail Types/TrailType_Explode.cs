@@ -8,7 +8,6 @@ public class TrailType_Explode : TrailType_Base
 	[Header("Explosion Properites")]
 	public float m_explosionRadius;
 	public int m_amountOfExplosionsPerUse;
-	public LayerMask m_testmask;
 
 	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
 	{
@@ -23,7 +22,7 @@ public class TrailType_Explode : TrailType_Base
 
 		while (amountOfExplosions < m_amountOfExplosionsPerUse)
 		{
-			Explode(p_playerRefrence, m_testmask);
+			Explode(p_playerRefrence);
 
 			amountOfExplosions++;
 
@@ -31,9 +30,9 @@ public class TrailType_Explode : TrailType_Base
 		}
 	}
 
-	private void Explode(PlayerController p_playerRefrence, LayerMask p_damageTargetMask)
+	private void Explode(PlayerController p_playerRefrence)
 	{
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_playerRefrence.transform.position , m_explosionRadius, p_damageTargetMask);
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_playerRefrence.transform.position , m_explosionRadius, p_playerRefrence.m_gunnerDamageTargetMask);
 
 		DebugExtension.DebugCircle(p_playerRefrence.transform.position , Vector3.forward, Color.yellow, m_explosionRadius, 0.1f);
 
