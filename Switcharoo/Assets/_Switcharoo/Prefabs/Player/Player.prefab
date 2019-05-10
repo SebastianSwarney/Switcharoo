@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 288033317153994167}
   - component: {fileID: 288033317153994160}
   - component: {fileID: 288033317153994161}
+  - component: {fileID: 3642809637188688157}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -143,10 +144,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 16640
     m_weaponComposition:
-      m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
+      m_shotPattern: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
         type: 3}
-      m_damageType: {fileID: 11400000, guid: fb3eede0ef9f1e641a2db337cdcac8a1, type: 2}
+      m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
@@ -163,8 +164,8 @@ MonoBehaviour:
         type: 3}
       m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
-      m_movementType: {fileID: 11400000, guid: c4bd5d240229cd342b3913d9ddf1c84f, type: 2}
-      m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
+      m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
+      m_trailType: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323, type: 2}
   m_gunnerDamageTargetMask:
     serializedVersion: 2
     m_Bits: 0
@@ -243,6 +244,29 @@ MonoBehaviour:
     m_Bits: 0
   m_nextTimeToFire: 0
   m_ammoCount: 0
+--- !u!114 &3642809637188688157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288033317153994315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e7074be04ce904fae6ccf908f4dce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isDead: 0
+  m_maxHealth: 100
+  m_currentHealth: 0
+  m_currentIceState: 0
+  m_currentFireState: 0
+  m_onFire: 0
+  m_minFireHitsPerEffect: 5
+  m_maxFireHitsPerEffect: 15
+  m_maxFireEffectInterval: 1
+  m_minFireEffectInterval: 0.5
+  m_fireDamageAmount: 10
 --- !u!1 &288033318001868466
 GameObject:
   m_ObjectHideFlags: 0
