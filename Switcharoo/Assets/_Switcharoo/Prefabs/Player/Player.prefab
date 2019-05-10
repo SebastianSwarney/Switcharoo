@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288033317153994315}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -136,6 +136,12 @@ MonoBehaviour:
     m_movementControllState: 0
   m_players:
   - m_currentRole: 1
+    m_damageTargetMask:
+      serializedVersion: 2
+      m_Bits: 512
+    m_obstacleMask:
+      serializedVersion: 2
+      m_Bits: 256
     m_weaponComposition:
       m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
@@ -145,13 +151,19 @@ MonoBehaviour:
       m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
   - m_currentRole: 0
+    m_damageTargetMask:
+      serializedVersion: 2
+      m_Bits: 512
+    m_obstacleMask:
+      serializedVersion: 2
+      m_Bits: 256
     m_weaponComposition:
       m_shotPattern: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
         type: 3}
       m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
-      m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
+      m_movementType: {fileID: 11400000, guid: c4bd5d240229cd342b3913d9ddf1c84f, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
   m_maxJumpHeight: 4
   m_minJumpHeight: 1
@@ -200,6 +212,7 @@ MonoBehaviour:
     m_movementType: {fileID: 0}
     m_trailType: {fileID: 0}
   m_velocity: {x: 0, y: 0, z: 0}
+  controller: {fileID: 0}
 --- !u!114 &288033317153994161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +229,12 @@ MonoBehaviour:
     m_shotPattern: {fileID: 0}
     m_bulletType: {fileID: 0}
     m_damageType: {fileID: 0}
+  m_damageTargetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_nextTimeToFire: 0
   m_ammoCount: 0
 --- !u!1 &288033318001868466

@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db498ea18a3af846889dc6bf6bf8b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_moveSpeedMultiplier: 2
   m_moveSpeed: 10
   m_damageTargetMask:
     serializedVersion: 2
@@ -148,6 +149,6 @@ MonoBehaviour:
   m_obstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  m_timeUntillDeactivate: 60
   m_damageType: {fileID: 0}
+  m_bulletDamageAmount: 0
   m_rotateSpeed: 150

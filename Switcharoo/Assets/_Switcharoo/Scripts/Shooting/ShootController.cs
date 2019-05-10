@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
-	/*
-    public ShotPattern_Base m_shotPattern;
-	public Bullet_Base m_bulletType;
-	public DamageType_Base m_damageType;
-	*/
-
 	public WeaponComposition m_currentWeaponComposition;
+
+	public LayerMask m_damageTargetMask;
+	public LayerMask m_obstacleMask;
 
 	[HideInInspector]
     public float m_nextTimeToFire;
-
 	public int m_ammoCount;
-
 	private bool isPlayer;
 
 	public void Shoot(Transform p_bulletOrigin)
     {
         if (CanShoot())
         {
-            m_currentWeaponComposition.m_shotPattern.Shoot(p_bulletOrigin, m_currentWeaponComposition.m_bulletType, m_currentWeaponComposition.m_damageType);
+            m_currentWeaponComposition.m_shotPattern.Shoot(p_bulletOrigin, m_currentWeaponComposition.m_bulletType, m_currentWeaponComposition.m_damageType, m_damageTargetMask, m_obstacleMask);
         }
     }
 

@@ -9,12 +9,12 @@ public class ShotPattern_Scatter : ShotPattern_Base
 	public float m_bulletSpacing;
 	public int m_amountOfBulletsPerShot;
 
-	public override void Shoot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType)
+	public override void Shoot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		ShootScatter(p_bulletOrigin, p_bulletType, p_damageType);
+		ShootScatter(p_bulletOrigin, p_bulletType, p_damageType, p_damageTargetMask, p_obstacleMask);
 	}
 
-	private void ShootScatter(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType)
+	private void ShootScatter(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		float angleBetweenBullets = m_bulletSpacing / m_amountOfBulletsPerShot;
 
@@ -26,7 +26,7 @@ public class ShotPattern_Scatter : ShotPattern_Base
 
 			newBullet.transform.rotation = p_bulletOrigin.rotation * bulletSpaceQuaternion;
 
-			newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_damageType);
+			newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_damageType, m_baseBulletSpeed, m_baseDamage, p_damageTargetMask, p_obstacleMask);
 		}
 	}
 }

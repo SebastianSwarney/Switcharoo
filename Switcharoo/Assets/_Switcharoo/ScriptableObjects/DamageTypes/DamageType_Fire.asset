@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b49c8dcffc6b3645a21e20018f17c6f, type: 3}
   m_Name: DamageType_Fire
   m_EditorClassIdentifier: 
-  m_damageAmount: 5
   m_fireEffectLength: 3
   m_fireEffectRadius: 5
   m_fireHitsPerEffect: 5
-  m_fireDamageAmount: 0
+  m_fireDamageAmount: 5

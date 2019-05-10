@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet_Ricochet : Bullet_Base
 {
+	[Header("Ricochet Properties")]
 	public int m_amountOfRicochets;
 	private int m_ricochetCount;
 
@@ -16,7 +17,6 @@ public class Bullet_Ricochet : Bullet_Base
 	public override void Update()
 	{
 		base.Update();
-
 		Move();
 	}
 
@@ -37,14 +37,13 @@ public class Bullet_Ricochet : Bullet_Base
 
 			transform.eulerAngles = new Vector3(0, 0, rotation);
 		}
-
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (m_damageTargetMask == (m_damageTargetMask | (1 << collision.gameObject.layer)))
 		{
-			m_damageType.OnContact(this, collision, m_obstacleMask, m_damageTargetMask);
+			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 		}
 
 		if ((m_obstacleMask == (m_obstacleMask | (1 << collision.gameObject.layer))) && m_ricochetCount < m_amountOfRicochets)
@@ -55,7 +54,7 @@ public class Bullet_Ricochet : Bullet_Base
 
 		if ((m_obstacleMask == (m_obstacleMask | (1 << collision.gameObject.layer))) && m_ricochetCount >= m_amountOfRicochets)
 		{
-			m_damageType.OnContact(this, collision, m_obstacleMask, m_damageTargetMask);
+			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 		}
 	}
 }

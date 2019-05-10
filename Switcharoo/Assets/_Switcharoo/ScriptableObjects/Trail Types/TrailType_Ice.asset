@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3048f71e841f740a3c572e81b7fd09, type: 3}
-  m_Name: Shot Pattern_FullyAutomatic
+  m_Script: {fileID: 11500000, guid: 5ac547006869a4f43be6ac551a603787, type: 3}
+  m_Name: TrailType_Ice
   m_EditorClassIdentifier: 
-  m_fireRate: 10
-  m_baseDamage: 5
-  m_baseBulletSpeed: 15
-  m_ammoCount: 1000
-  m_maxBulletSpread: 10
+  m_trailDamageAmount: 25
+  m_amountOfDropsPerUse: 5
+  m_dropObject: {fileID: -2288412577565911287, guid: ae676ff8c9d5dc74baed7f24a61d4b86,
+    type: 3}
+  m_iceExplosionRadius: 5

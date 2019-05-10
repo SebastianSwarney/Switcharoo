@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
 	public PlayerData[] m_players;
 
+	public LayerMask m_gunnerDamageTargetMask;
+	public LayerMask m_runnerObstacleMask;
+
     #region Jump Properties
     [Header("Jump Properties")]
     public float m_maxJumpHeight = 4;
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
     [Header("Aim Properties")]
     public Transform m_crosshair;
     public float m_crosshairDst;
-	//[HideInInspector]
+	[HideInInspector]
 	public Vector3 m_aimDirection;
 
     Vector3 m_lastPos;
@@ -116,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
 		CalculateJump();
 		UpdatePickups();
+		UpdateLayers();
 		m_shootController.Reload();
 
 	}
@@ -415,8 +419,27 @@ public class PlayerController : MonoBehaviour
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			m_players[i].Swap();
-
+			UpdateLayers();
 			UpdatePickups();
+		}
+	}
+
+	private void UpdateLayers()
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Gunner)
+			{
+				m_gunnerDamageTargetMask = m_players[i].m_damageTargetMask;
+
+				m_shootController.m_damageTargetMask = m_players[i].m_damageTargetMask;
+				m_shootController.m_obstacleMask = m_players[i].m_obstacleMask;
+			}
+
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_runnerObstacleMask = m_players[i].m_obstacleMask;
+			}
 		}
 	}
 
@@ -424,9 +447,9 @@ public class PlayerController : MonoBehaviour
 	public struct PlayerData
 	{
 		public PlayerRole m_currentRole;
-
+		public LayerMask m_damageTargetMask;
+		public LayerMask m_obstacleMask;
 		public ShootController.WeaponComposition m_weaponComposition;
-
 		public MovementAbilityComposition m_movementAbilityComposition;
 
 		public void Swap()

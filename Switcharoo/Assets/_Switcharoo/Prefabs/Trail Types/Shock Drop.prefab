@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &318290044110178628
+--- !u!1 &951872444426221590
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 318290044110178635}
-  - component: {fileID: 318290044110178634}
-  - component: {fileID: 504732419026082140}
-  - component: {fileID: 6400184362384343306}
-  - component: {fileID: -5114918403831490374}
-  m_Layer: 0
-  m_Name: Bullet_Launch
+  - component: {fileID: 951872444426221586}
+  - component: {fileID: 951872444426221587}
+  - component: {fileID: 2416284592811496172}
+  - component: {fileID: 951872444426221585}
+  - component: {fileID: 8025584017552049092}
+  m_Layer: 12
+  m_Name: Shock Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &318290044110178635
+--- !u!4 &951872444426221586
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318290044110178628}
+  m_GameObject: {fileID: 951872444426221590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &318290044110178634
+--- !u!212 &951872444426221587
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318290044110178628}
+  m_GameObject: {fileID: 951872444426221590}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3180871680ec61d49b4dc302bb80d43d, type: 3}
-  m_Color: {r: 0.7735849, g: 0.14897409, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 76efadd8bb7ad2745bedf1cd56885156, type: 3}
+  m_Color: {r: 0.2588235, g: 0.3849716, b: 0.81960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,13 +82,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &504732419026082140
-BoxCollider2D:
+--- !u!58 &2416284592811496172
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318290044110178628}
+  m_GameObject: {fileID: 951872444426221590}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -96,58 +96,42 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!50 &6400184362384343306
+  m_Radius: 0.5
+--- !u!50 &951872444426221585
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318290044110178628}
+  m_GameObject: {fileID: 951872444426221590}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.5
-  m_AngularDrag: 0
-  m_GravityScale: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5114918403831490374
+--- !u!114 &8025584017552049092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318290044110178628}
+  m_GameObject: {fileID: 951872444426221590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f02a22cd5e4caae4db67fb185de93ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bd39d2469909f641b5205884dcbbecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeedMultiplier: 3
-  m_moveSpeed: 30
+  m_trailType: {fileID: 0}
   m_damageTargetMask:
     serializedVersion: 2
-    m_Bits: 16
-  m_obstacleMask:
-    serializedVersion: 2
-    m_Bits: 256
-  m_damageType: {fileID: 0}
-  m_bulletDamageAmount: 0
+    m_Bits: 0

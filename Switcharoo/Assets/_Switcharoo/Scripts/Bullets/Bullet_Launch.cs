@@ -15,14 +15,12 @@ public class Bullet_Launch : Bullet_Base
 	public override void Update()
 	{
 		base.Update();
-
 		RotateToMovement();
 	}
 
-	public override void InitializeParameters(DamageType_Base p_damageType)
+	public override void InitializeParameters(DamageType_Base p_damageType, float p_moveSpeed, float p_damageAmount, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		base.InitializeParameters(p_damageType);
-
+		base.InitializeParameters(p_damageType, p_moveSpeed, p_damageAmount, p_damageTargetMask, p_obstacleMask);
 		Launch();
 	}
 
@@ -42,6 +40,6 @@ public class Bullet_Launch : Bullet_Base
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		m_damageType.OnContact(this, collision.collider, m_obstacleMask, m_damageTargetMask);
+		m_damageType.OnContact(this, collision.collider, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 	}
 }

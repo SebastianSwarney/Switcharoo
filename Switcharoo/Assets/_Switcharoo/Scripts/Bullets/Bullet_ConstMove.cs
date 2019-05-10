@@ -7,7 +7,6 @@ public class Bullet_ConstMove : Bullet_Base
 	public override void Update()
 	{
 		base.Update();
-
 		Move();
 	}
 
@@ -18,6 +17,6 @@ public class Bullet_ConstMove : Bullet_Base
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		m_damageType.OnContact(this, collision, m_obstacleMask, m_damageTargetMask);
+		m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 	}
 }

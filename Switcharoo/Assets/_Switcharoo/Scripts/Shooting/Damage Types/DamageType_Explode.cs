@@ -9,16 +9,16 @@ public class DamageType_Explode : DamageType_Base
 	public float m_explosionRadius;
 	public float m_explosionDamage;
 
-	public override void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
+	public override void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, float p_damageBase, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
 	{
-		Explode(p_bulletRefrence, p_collision, p_obstacleMask, p_damageTargetMask);
+		Explode(p_bulletRefrence, p_collision, p_damageBase, p_obstacleMask, p_damageTargetMask);
 	}
 
-	private void Explode(Bullet_Base p_bulletRefrence, Collider2D p_collision, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
+	private void Explode(Bullet_Base p_bulletRefrence, Collider2D p_collision, float p_damageBase, LayerMask p_obstacleMask, LayerMask p_damageTargetMask)
 	{
 		if (CheckCollisionLayer(p_damageTargetMask, p_collision))
 		{
-			p_collision.GetComponent<Health>().TakeDamage(m_damageAmount);
+			p_collision.GetComponent<Health>().TakeDamage(p_damageBase);
 		}
 
 		if (CheckCollisionLayer(p_obstacleMask, p_collision) || CheckCollisionLayer(p_damageTargetMask, p_collision))
