@@ -28,4 +28,8 @@ public class RoomManager_KoTH : RoomManager_Base
 
         }
     }
+
+    public override void EnemyKilled(AiController p_enemy)
+    {
+    }
 }

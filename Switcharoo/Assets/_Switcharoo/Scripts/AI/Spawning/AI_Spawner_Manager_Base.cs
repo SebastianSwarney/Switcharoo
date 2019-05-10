@@ -11,6 +11,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 {
     public GameObject m_player;
     public List<AI_Spawner> m_spawnersInRoom;
+    public RoomManager_Base m_roomBase;
 
     public List<GameObject> m_placedEnemies;
     public int m_maxAiInRoom;
@@ -72,7 +73,15 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         }
     }
 
-    
+    public void EnemyKilled(AiController p_enemyKilled)
+    {
+        if (p_enemyKilled.m_isPooled)
+        {
+            m_currentEnemiesInRoom.Remove(p_enemyKilled);
+        }
+        m_currentAiCount -= 1;
+        m_roomBase.EnemyKilled(p_enemyKilled);
+    }
     //When the room is unloaded, unload all entities attached to this room
     void OnDisable()
     {

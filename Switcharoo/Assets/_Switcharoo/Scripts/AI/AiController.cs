@@ -335,10 +335,11 @@ public class AiController : MonoBehaviour
         {
             if (m_isPooled)
             {
-                m_spawnerManager.m_currentEnemiesInRoom.Remove(this);
                 m_patrolPoints.Clear();
                 ObjectPooler.instance.ReturnToPool(this.gameObject);
             }
+            m_spawnerManager.EnemyKilled(this);
+            
         }
 
     }

@@ -13,7 +13,8 @@ public abstract class RoomManager_Base : MonoBehaviour
 
     [HideInInspector]
     public GameObject m_playerObject;
-
+    
+    [HideInInspector]
     public PlatformerNavigation m_navGrid;
 
     void Awake()
@@ -34,6 +35,7 @@ public abstract class RoomManager_Base : MonoBehaviour
         foreach (AI_Spawner_Manager_Base spawn in m_roomAiManager)
         {
             spawn.m_currentNavGrid = m_navGrid;
+            spawn.m_roomBase = this;
         }
     }
     private void OnEnable()
@@ -71,4 +73,6 @@ public abstract class RoomManager_Base : MonoBehaviour
     }
 
     public abstract void CheckRoomObjective();
+
+    public abstract void EnemyKilled(AiController p_enemy);
 }
