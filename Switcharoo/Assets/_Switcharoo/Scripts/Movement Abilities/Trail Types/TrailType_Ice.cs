@@ -5,9 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Trail Types/Ice")]
 public class TrailType_Ice : TrailType_Base
 {
-	[Header("Ice Properites")]
+	[Header("Ice Trail Properites")]
 	public int m_amountOfDropsPerUse;
-	public GameObject m_dropObject;
+	public TrailObject_Ice m_dropObject;
+
+	[Header("Ice Explosion Properites")]
+	public float m_iceExplosionRadius;
 
 	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
 	{
@@ -30,8 +33,23 @@ public class TrailType_Ice : TrailType_Base
 		}
 	}
 
+	public void IceBlast(Vector3 p_blastOrigin, LayerMask p_damageTargetMask)
+	{
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_blastOrigin, m_iceExplosionRadius, p_damageTargetMask);
+
+		DebugExtension.DebugCircle(p_blastOrigin, Vector3.forward, Color.cyan, m_iceExplosionRadius, 0.1f);
+
+		foreach (Collider2D collider in colliders)
+		{
+			collider.GetComponent<Health>().SetIceState();
+		}
+	}
+
 	private void DropIce(PlayerController p_playerRefrence)
 	{
-	 	ObjectPooler.instance.NewObject(m_dropObject, p_playerRefrence.transform, true);
+	 	GameObject newDropObject = ObjectPooler.instance.NewObject(m_dropObject.gameObject, p_playerRefrence.transform, true);
+
+		newDropObject.GetComponent<TrailObject_Ice>().m_trailType = this;
+		newDropObject.GetComponent<TrailObject_Ice>().m_damageTargetMask = p_playerRefrence.m_gunnerDamageTargetMask;
 	}
 }

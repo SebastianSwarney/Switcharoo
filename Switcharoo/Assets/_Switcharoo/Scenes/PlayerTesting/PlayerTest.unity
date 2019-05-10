@@ -794,7 +794,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_players.Array.data[1].m_movementAbilityComposition.m_movementType
       value: 
-      objectReference: {fileID: 11400000, guid: c4bd5d240229cd342b3913d9ddf1c84f,
+      objectReference: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9,
         type: 2}
     - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}

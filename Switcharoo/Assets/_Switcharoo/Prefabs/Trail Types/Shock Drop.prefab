@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 951872444426221586}
   - component: {fileID: 951872444426221587}
-  - component: {fileID: 951872444426221584}
+  - component: {fileID: 2416284592811496172}
   - component: {fileID: 951872444426221585}
-  - component: {fileID: -2288412577565911287}
+  - component: {fileID: 8025584017552049092}
   m_Layer: 12
-  m_Name: Ice Drop
+  m_Name: Shock Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3180871680ec61d49b4dc302bb80d43d, type: 3}
-  m_Color: {r: 0.25938943, g: 0.799846, b: 0.8207547, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 76efadd8bb7ad2745bedf1cd56885156, type: 3}
+  m_Color: {r: 0.2588235, g: 0.3849716, b: 0.81960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &951872444426221584
-BoxCollider2D:
+--- !u!58 &2416284592811496172
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,18 +96,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!50 &951872444426221585
 Rigidbody2D:
   serializedVersion: 4
@@ -123,13 +113,13 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2288412577565911287
+--- !u!114 &8025584017552049092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 951872444426221590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90db03be64bf1cd41a8689f2fbf476c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bd39d2469909f641b5205884dcbbecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_trailType: {fileID: 0}
