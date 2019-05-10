@@ -91,7 +91,8 @@ GameObject:
   - component: {fileID: 3078133998956346286}
   - component: {fileID: 3078133998956346287}
   - component: {fileID: 1780877241023508681}
-  m_Layer: 9
+  - component: {fileID: -6166238226835638072}
+  m_Layer: 10
   m_Name: AI_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,6 +212,8 @@ MonoBehaviour:
   m_movementFlipLayer:
     serializedVersion: 2
     m_Bits: 768
+  m_circleCastRad: 0
+  m_circleCastOffset: {x: 0, y: 0}
   m_stuckMoveTime: 3
   m_isStuck: 0
   m_patrolPoints: []
@@ -235,6 +238,12 @@ MonoBehaviour:
     m_shotPattern: {fileID: 0}
     m_bulletType: {fileID: 0}
     m_damageType: {fileID: 0}
+  m_damageTargetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_nextTimeToFire: 0
   m_ammoCount: 0
 --- !u!114 &1780877241023508681
@@ -251,8 +260,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_navGrid: {fileID: 0}
   m_drawPath: 1
+  m_isGrounded: 0
   m_stoppingDistance: 0.1
   m_gravityValue: 9.8
   m_terrainLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &-6166238226835638072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078133998956346284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f73b03023067b46ac9dcddd1fac869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isDead: 0
+  m_maxHealth: 10
+  m_currentHealth: 0
+  m_currentIceState: 0
+  m_currentFireState: 0
+  m_onFire: 0
+  m_minFireHitsPerEffect: 5
+  m_maxFireHitsPerEffect: 15
+  m_maxFireEffectInterval: 1
+  m_minFireEffectInterval: 0.1
+  m_fireDamageAmount: 10

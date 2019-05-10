@@ -138,10 +138,10 @@ MonoBehaviour:
   - m_currentRole: 1
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 1024
     m_obstacleMask:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 16640
     m_weaponComposition:
       m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
@@ -153,10 +153,10 @@ MonoBehaviour:
   - m_currentRole: 0
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 2048
     m_obstacleMask:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 33024
     m_weaponComposition:
       m_shotPattern: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
@@ -165,6 +165,12 @@ MonoBehaviour:
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: c4bd5d240229cd342b3913d9ddf1c84f, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
+  m_gunnerDamageTargetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_runnerObstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_maxJumpHeight: 4
   m_minJumpHeight: 1
   m_timeToJumpApex: 0.4

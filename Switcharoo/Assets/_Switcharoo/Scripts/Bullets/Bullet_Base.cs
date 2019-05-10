@@ -49,5 +49,7 @@ public class Bullet_Base : MonoBehaviour
 		m_moveSpeed = p_moveSpeed * m_moveSpeedMultiplier;
 		m_damageType = p_damageType;
 		m_bulletDamageAmount = p_damageAmount;
+		m_damageTargetMask = p_damageTargetMask;
+		m_obstacleMask = p_obstacleMask;
 	}
 }

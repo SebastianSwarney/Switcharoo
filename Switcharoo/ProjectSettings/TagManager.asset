@@ -19,8 +19,8 @@ TagManager:
   - Enemy1
   - Player0
   - Player1
-  - 
-  - 
+  - ObstaclePlayer0
+  - ObstaclePlayer1
   - 
   - 
   - 

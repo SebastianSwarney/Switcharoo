@@ -44,8 +44,6 @@ public class Health : MonoBehaviour
 
 	private void Update()
 	{
-		m_rigidbody.velocity = Vector2.down * 3;
-
 		SlowFromIce();
 		SetFireProperites();
 		SetSelfOnFire();
@@ -77,8 +75,14 @@ public class Health : MonoBehaviour
 	{
 		if (m_currentHealth <= 0)
 		{
-			m_isDead = true;
+			Die();
 		}
+	}
+
+	public virtual void Die()
+	{
+		m_isDead = true;
+		gameObject.SetActive(false);
 	}
 
 	#region Fire Code
