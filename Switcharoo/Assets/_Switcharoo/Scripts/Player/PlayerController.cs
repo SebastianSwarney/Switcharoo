@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
 	public enum MovementControllState {MovementEnabled, MovementDisabled}
 
+	public enum GravityState { GravityEnabled, GravityDisabled }
+
 	public PlayerState m_states;
 
 	public enum PlayerRole { Runner, Gunner }
@@ -251,6 +253,11 @@ public class PlayerController : MonoBehaviour
             m_velocity.y = m_minJumpVelocity;
         }
     }
+
+	public void JumpMaxVelocityMultiplied(float p_jumpVelocityMultiplier)
+	{
+		m_velocity.y = m_maxJumpVelocity * p_jumpVelocityMultiplier;
+	}
 
 	public void JumpMaxVelocity()
 	{
@@ -543,6 +550,7 @@ public class PlayerController : MonoBehaviour
 	public struct PlayerState
 	{
 		public MovementControllState m_movementControllState;
+		public GravityState m_gravityControllState;
 	}
 
 	private void UpdatePlayerStates()
@@ -556,6 +564,21 @@ public class PlayerController : MonoBehaviour
 				break;
 
 			case MovementControllState.MovementDisabled:
+
+
+
+				break;
+		}
+
+		switch (m_states.m_gravityControllState)
+		{
+			case GravityState.GravityEnabled:
+
+
+
+				break;
+
+			case GravityState.GravityDisabled:
 
 
 

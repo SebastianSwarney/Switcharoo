@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea426ceb9015f24a96a9207a3dd9056, type: 3}
   m_Name: MovementType_DoubleJump
   m_EditorClassIdentifier: 
-  m_movementTime: 1
+  m_movementTime: 0.5
+  m_amountOfTrailsToSpawn: 1
+  m_jumpMultiplier: 2

@@ -25,6 +25,8 @@ public class MovementType_Jetpack : MovementType_Base
 
 		Vector3 jetpackTarget = new Vector3(initialPosition.x, initialPosition.y + m_jetpackDistanceY, initialPosition.z);
 
+		p_trailType.UseTrail(p_playerRefrence, this);
+
 		while (t1 < m_movementTime)
 		{
 			t1 += Time.deltaTime;

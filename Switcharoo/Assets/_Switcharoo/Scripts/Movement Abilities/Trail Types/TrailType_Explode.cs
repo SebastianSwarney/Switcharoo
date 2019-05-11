@@ -7,7 +7,6 @@ public class TrailType_Explode : TrailType_Base
 {
 	[Header("Explosion Properites")]
 	public float m_explosionRadius;
-	public int m_amountOfExplosionsPerUse;
 
 	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
 	{
@@ -16,11 +15,11 @@ public class TrailType_Explode : TrailType_Base
 
 	IEnumerator ExplosionTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
 	{
-		float explosionInterval = p_movementType.m_movementTime / m_amountOfExplosionsPerUse;
+		float explosionInterval = p_movementType.m_movementTime / p_movementType.m_amountOfTrailsToSpawn;
 
 		int amountOfExplosions = 0;
 
-		while (amountOfExplosions < m_amountOfExplosionsPerUse)
+		while (amountOfExplosions < p_movementType.m_amountOfTrailsToSpawn)
 		{
 			Explode(p_playerRefrence);
 

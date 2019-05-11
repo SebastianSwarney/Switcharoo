@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MovementType_Blink
   m_EditorClassIdentifier: 
   m_movementTime: 0.2
+  m_amountOfTrailsToSpawn: 3
   m_blinkDistance: 10
   m_blinkAmount: 3
   m_pauseBetweenBlinkTime: 0.2
