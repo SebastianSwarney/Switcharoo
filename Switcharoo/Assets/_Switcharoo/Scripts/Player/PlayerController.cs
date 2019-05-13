@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
     public float m_accelerationTimeGrounded = .1f;
     public float m_moveSpeed = 6;
 
-    float m_velocityXSmoothing;
+    private float m_velocityXSmoothing;
+	private Vector2 m_velocitySmoothing;
+	[HideInInspector]
+	public Vector3 m_moveDirection;
     [Space]
     #endregion
 
@@ -110,9 +113,9 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector]
     public Controller2D controller;
 
-    Vector2 m_directionalInput;
+    private Vector2 m_directionalInput;
 
-    Vector2 m_aimInput;
+	private Vector2 m_aimInput;
 
     void Start()
     {
@@ -123,7 +126,6 @@ public class PlayerController : MonoBehaviour
 		UpdatePickups();
 		UpdateLayers();
 		m_shootController.Reload();
-
 	}
 
 	void Update()
@@ -133,7 +135,7 @@ public class PlayerController : MonoBehaviour
         Aim();
 		UpdatePlayerStates();
 
-        controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
+		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
 		CalculateGroundPhysics();
     }
@@ -399,9 +401,17 @@ public class PlayerController : MonoBehaviour
 
 	void CalculateVelocity()
     {
-		float targetVelocityX = m_directionalInput.x * m_moveSpeed;
-		m_velocity.x = Mathf.SmoothDamp(m_velocity.x, targetVelocityX, ref m_velocityXSmoothing, (controller.collisions.below) ? m_accelerationTimeGrounded : m_accelerationTimeAirborne);
-		m_velocity.y += m_gravity * Time.deltaTime;
+		if (m_states.m_gravityControllState == GravityState.GravityEnabled)
+		{
+			float targetVelocityX = m_directionalInput.x * m_moveSpeed;
+			m_velocity.x = Mathf.SmoothDamp(m_velocity.x, targetVelocityX, ref m_velocityXSmoothing, (controller.collisions.below) ? m_accelerationTimeGrounded : m_accelerationTimeAirborne);
+			m_velocity.y += m_gravity * Time.deltaTime;
+		}
+		else if (m_states.m_gravityControllState == GravityState.GravityDisabled)
+		{
+			Vector2 targetVelocity = m_directionalInput * m_moveSpeed;
+			m_velocity = Vector2.SmoothDamp(m_velocity, targetVelocity, ref m_velocitySmoothing, (controller.collisions.below) ? m_accelerationTimeGrounded : m_accelerationTimeAirborne);
+		}
 	}
 
 	private void CalculateGroundPhysics()
@@ -565,22 +575,7 @@ public class PlayerController : MonoBehaviour
 
 			case MovementControllState.MovementDisabled:
 
-
-
-				break;
-		}
-
-		switch (m_states.m_gravityControllState)
-		{
-			case GravityState.GravityEnabled:
-
-
-
-				break;
-
-			case GravityState.GravityDisabled:
-
-
+				//Nothing
 
 				break;
 		}
