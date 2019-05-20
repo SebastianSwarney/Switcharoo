@@ -8,11 +8,11 @@ public class PlayerInput : MonoBehaviour
 	public int m_playerId = 0;
 
 	private PlayerController m_playerController;
-	private Rewired.Player m_playerInputController;
+	private Player m_playerInputController;
 
 	void Start()
 	{
-		m_playerInputController = Rewired.ReInput.players.GetPlayer(m_playerId);
+		m_playerInputController = ReInput.players.GetPlayer(m_playerId);
 		m_playerController = GetComponent<PlayerController>();
 	}
 
@@ -26,8 +26,8 @@ public class PlayerInput : MonoBehaviour
 		Vector2 directionalInput = new Vector2(m_playerInputController.GetAxisRaw("Move Horizontal"), m_playerInputController.GetAxisRaw("Move Vertical"));
 		m_playerController.SetDirectionalInput(directionalInput);
 
-        Vector2 mouseAimInput = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        m_playerController.SetAimInput(Camera.main.ScreenToWorldPoint(mouseAimInput) - transform.position);
+		Vector2 mouseAimInput = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+		m_playerController.SetAimInput(Camera.main.ScreenToWorldPoint(mouseAimInput) - transform.position);
 
 		if (m_playerInputController.GetButtonDown("Jump"))
 		{
@@ -38,17 +38,17 @@ public class PlayerInput : MonoBehaviour
 			m_playerController.OnJumpInputUp();
 		}
 
-		if (Input.GetMouseButton(0))
+		if (m_playerInputController.GetButton("Shoot"))
 		{
 			m_playerController.OnShootInputHold();
 		}
 
-		if (Input.GetKeyDown(KeyCode.R))
+		if (m_playerInputController.GetButtonDown("Reload"))
 		{
 			m_playerController.OnReloadInputDown();
 		}
 
-		if (Input.GetMouseButtonDown(2))
+		if (m_playerInputController.GetButtonDown("Movement Ability"))
 		{
 			m_playerController.OnMovementAbilityInputDown();
 		}
