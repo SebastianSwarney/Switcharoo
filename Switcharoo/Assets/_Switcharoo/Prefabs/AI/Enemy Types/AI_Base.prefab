@@ -211,7 +211,7 @@ MonoBehaviour:
     m_Bits: 256
   m_movementFlipLayer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 3840
   m_circleCastRad: 0
   m_circleCastOffset: {x: 0, y: 0}
   m_stuckMoveTime: 3

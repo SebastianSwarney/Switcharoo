@@ -17,4 +17,9 @@ public class RoomManager_Arena_Survival : RoomManager_Base
 
         }
     }
+
+    public override void EnemyKilled(AiController p_enemy)
+    {
+        m_enemiesLeft -= 1;
+    }
 }
