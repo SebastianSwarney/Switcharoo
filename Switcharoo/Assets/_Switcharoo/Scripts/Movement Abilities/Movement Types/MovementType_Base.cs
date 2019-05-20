@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class MovementType_Base : ScriptableObject
 {
 	public float m_movementTime;
+	public float m_amountOfTrailsToSpawn;
 
 	public abstract void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType);
 

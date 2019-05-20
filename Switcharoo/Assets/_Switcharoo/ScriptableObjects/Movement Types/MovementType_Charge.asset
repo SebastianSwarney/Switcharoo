@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MovementType_Charge
   m_EditorClassIdentifier: 
   m_movementTime: 0.5
+  m_amountOfTrailsToSpawn: 5
   m_chargeCurve:
     serializedVersion: 2
     m_Curve:

@@ -6,7 +6,6 @@ using UnityEngine;
 public class TrailType_Shock : TrailType_Base
 {
 	[Header("Shock Trail Properites")]
-	public int m_amountOfDropsPerUse;
 	public TrailObject_Shock m_dropObject;
 
 	[Header("Shock Blast Properties")]
@@ -21,11 +20,11 @@ public class TrailType_Shock : TrailType_Base
 
 	private IEnumerator ShockTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
 	{
-		float dropInterval = p_movementType.m_movementTime / m_amountOfDropsPerUse;
+		float dropInterval = p_movementType.m_movementTime / p_movementType.m_amountOfTrailsToSpawn;
 
 		int amountOfDrops = 0;
 
-		while (amountOfDrops < m_amountOfDropsPerUse)
+		while (amountOfDrops < p_movementType.m_amountOfTrailsToSpawn)
 		{
 			DropShock(p_playerRefrence);
 

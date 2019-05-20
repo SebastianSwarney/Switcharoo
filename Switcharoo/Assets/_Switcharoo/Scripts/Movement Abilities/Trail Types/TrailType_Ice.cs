@@ -6,7 +6,6 @@ using UnityEngine;
 public class TrailType_Ice : TrailType_Base
 {
 	[Header("Ice Trail Properites")]
-	public int m_amountOfDropsPerUse;
 	public TrailObject_Ice m_dropObject;
 
 	[Header("Ice Explosion Properites")]
@@ -19,11 +18,11 @@ public class TrailType_Ice : TrailType_Base
 
 	private IEnumerator IceTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
 	{
-		float dropInterval = p_movementType.m_movementTime / m_amountOfDropsPerUse;
+		float dropInterval = p_movementType.m_movementTime / p_movementType.m_amountOfTrailsToSpawn;
 
 		int amountOfDrops = 0;
 
-		while (amountOfDrops < m_amountOfDropsPerUse)
+		while (amountOfDrops < p_movementType.m_amountOfTrailsToSpawn)
 		{
 			DropIce(p_playerRefrence);
 

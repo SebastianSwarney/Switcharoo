@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eea426ceb9015f24a96a9207a3dd9056, type: 3}
-  m_Name: MovementType_DoubleJump
+  m_Script: {fileID: 11500000, guid: ef9ff8a05ef50e2438339e0c368f4994, type: 3}
+  m_Name: MovementType_Stasis
   m_EditorClassIdentifier: 
-  m_movementTime: 0.5
-  m_amountOfTrailsToSpawn: 1
-  m_jumpMultiplier: 2
+  m_movementTime: 5
+  m_amountOfTrailsToSpawn: 5
+  m_stasisRadius: 5
