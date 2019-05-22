@@ -117,19 +117,25 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 m_directionalInput;
 
-	private Vector2 m_aimInput;
+	private Vector2 m_gunnerAimInput;
+
+	private Vector2 m_runnerAimInput;
 
 	private Health_Player m_health;
+
+	private PlayerInput m_input;
 
     void Start()
     {
         controller = GetComponent<Controller2D>();
 		m_shootController = GetComponent<ShootController>();
 		m_health = GetComponent<Health_Player>();
+		m_input = GetComponent<PlayerInput>();
 
 		CalculateJump();
 		UpdatePickups();
 		UpdateLayers();
+		UpdateInput();
 		m_shootController.Reload();
 	}
 
@@ -151,16 +157,21 @@ public class PlayerController : MonoBehaviour
         m_directionalInput = p_input;
     }
 
-    public void SetAimInput(Vector2 p_input)
+    public void SetGunnerAimInput(Vector2 p_input)
     {
-        m_aimInput = p_input;
+        m_gunnerAimInput = p_input;
     }
+
+	public void SetRunnerAimInput(Vector2 p_input)
+	{
+		m_runnerAimInput = p_input;
+	}
 	#endregion
 
 	#region Aim Code
 	void Aim()
     {
-        float theta = Mathf.Atan2(m_aimInput.y, m_aimInput.x);
+        float theta = Mathf.Atan2(m_gunnerAimInput.y, m_gunnerAimInput.x);
 
         float aimDegrees = theta * Mathf.Rad2Deg;
 
@@ -168,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
 		m_aimDirection = m_crosshair.position - transform.position;
 
-		if (m_aimInput.normalized.magnitude != 0)
+		if (m_gunnerAimInput.normalized.magnitude != 0)
         {
             m_crosshair.rotation = Quaternion.Euler(0, 0, aimDegrees);
             m_crosshair.position = transform.position + pCircle;
@@ -443,6 +454,20 @@ public class PlayerController : MonoBehaviour
 			m_players[i].Swap();
 			UpdateLayers();
 			UpdatePickups();
+		}
+
+		UpdateInput();
+	}
+
+	private void UpdateInput()
+	{
+		if (m_players[0].m_currentRole == PlayerRole.Runner)
+		{
+			m_input.m_currentPlayerOrder = PlayerInput.PlayerOrder.ZeroRunnerOneGunner;
+		}
+		else if (m_players[0].m_currentRole == PlayerRole.Gunner)
+		{
+			m_input.m_currentPlayerOrder = PlayerInput.PlayerOrder.ZeroGunnerOneGunner;
 		}
 	}
 

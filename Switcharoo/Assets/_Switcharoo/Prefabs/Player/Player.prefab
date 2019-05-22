@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 288033317153994160}
   - component: {fileID: 288033317153994161}
   - component: {fileID: 3642809637188688157}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25d68a5799acf245b404df7ff6e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerId: 0
+  m_currentPlayerOrder: 0
+  m_isKeyboard: 1
 --- !u!114 &288033317153994160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +147,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 16640
     m_weaponComposition:
-      m_shotPattern: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3, type: 2}
+      m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
         type: 3}
-      m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
+      m_damageType: {fileID: 11400000, guid: a2a4a771a38738b40a4b1995ec450d4e, type: 2}
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
@@ -166,8 +167,8 @@ MonoBehaviour:
         type: 3}
       m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
-      m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
-      m_trailType: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323, type: 2}
+      m_movementType: {fileID: 11400000, guid: 97a876521a2651440a6a216342bce150, type: 2}
+      m_trailType: {fileID: 11400000, guid: 67fe97535c831de48b3e7de132ed15f6, type: 2}
   m_gunnerDamageTargetMask:
     serializedVersion: 2
     m_Bits: 0
