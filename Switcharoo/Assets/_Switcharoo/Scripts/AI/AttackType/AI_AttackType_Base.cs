@@ -14,6 +14,8 @@ public abstract class AI_AttackType_Base : ScriptableObject
     public float m_targetStoppingDistance;
     public float m_playerMoveDistanceReaction;
 
+    public float m_collisionDamage;
+
     #region Abstract Methods
     
     ///Initiates the attacks, setting variables

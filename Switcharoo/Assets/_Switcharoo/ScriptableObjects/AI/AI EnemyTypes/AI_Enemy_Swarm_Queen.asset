@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77d81408e01e0a64185e1f71fec49fe6, type: 3}
-  m_Name: AI_Enemy_Bird
+  m_Name: AI_Enemy_Swarm_Queen
   m_EditorClassIdentifier: 
   m_enemyDimensions: {x: 0, y: 0, z: 0}
   m_groundCheckDimensions: {x: 0, y: 0, z: 0}
-  m_attackType: {fileID: 11400000, guid: 86091b91af4de7440ad063bc1dc31c8a, type: 2}
-  m_idleMovementType: {fileID: 11400000, guid: 0d4a085c48c3f84489f93e3caad1aa19, type: 2}
+  m_attackType: {fileID: 11400000, guid: aa6feb40c84467e4ab670b40ae69aad3, type: 2}
+  m_idleMovementType: {fileID: 11400000, guid: 97c466338436a2843a3fec3fe56f3d8f, type: 2}

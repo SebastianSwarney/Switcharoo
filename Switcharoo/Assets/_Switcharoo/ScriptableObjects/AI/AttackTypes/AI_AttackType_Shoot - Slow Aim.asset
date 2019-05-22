@@ -17,9 +17,13 @@ MonoBehaviour:
   m_tellTime: 0
   m_targetStoppingDistance: 0
   m_playerMoveDistanceReaction: 0
+  m_collisionDamage: 10
   m_distanceFromPlayer: 0
-  m_shotType: {fileID: 0}
   m_shootIntervalTime: 0
   m_shootBreakTime: 0
   m_shootingMovement: {fileID: 0}
+  m_weaponComposition:
+    m_shotPattern: {fileID: 0}
+    m_bulletType: {fileID: 0}
+    m_damageType: {fileID: 0}
   m_aimSpeed: 0

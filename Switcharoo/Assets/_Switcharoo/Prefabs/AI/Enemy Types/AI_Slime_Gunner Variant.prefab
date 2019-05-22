@@ -26,18 +26,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Name
-      value: AI_Slime_Gunner
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_enemyType
-      value: 
-      objectReference: {fileID: 11400000, guid: a67f061c84417414ba30845fb164e9f6,
-        type: 2}
-    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_circleCastRad
-      value: 0.8
+      value: AI_Slime_Gunner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -93,6 +82,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyType
+      value: 
+      objectReference: {fileID: 11400000, guid: a67f061c84417414ba30845fb164e9f6,
+        type: 2}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_circleCastRad
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346259, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.77800006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346259, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346259, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.5330188
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}

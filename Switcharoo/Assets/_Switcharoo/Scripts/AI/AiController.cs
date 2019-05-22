@@ -9,8 +9,8 @@ public class AiController : MonoBehaviour
 {
     public Enemy_Base m_enemyType;
     [Space(10)]
-    public GameObject target;
-    public string playerTag = "Player";
+    public GameObject m_target;
+    public string m_playerTag = "Player";
 
     #region Components on the Enemy
 
@@ -40,6 +40,9 @@ public class AiController : MonoBehaviour
     float m_currentShootTimer, m_currentShootDelay;
 
     bool m_isShooting;
+
+   
+   
     #endregion
 
     #region Move Variables
@@ -75,6 +78,9 @@ public class AiController : MonoBehaviour
     public AI_Spawner_Manager_Base m_spawnerManager;
     #endregion
 
+    [Header("Heavy Specific Variables")]
+    public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
+    public Transform m_originPoint;
 
     void Awake()
     {
@@ -146,7 +152,7 @@ public class AiController : MonoBehaviour
         }
 
 
-        if (target != null)
+        if (m_target != null)
         {
 
             //Check if the enemy is grounded
@@ -161,13 +167,13 @@ public class AiController : MonoBehaviour
                 if (!PlayerInRadius())
                 {
                     Debug.Log("Player Gone");
-                    target = null;
+                    m_target = null;
                 }
                 else
                 {
                     //Restart the attack
-                    m_enemyType.m_attackType.StartAttack(this, m_rb, target, gameObject, m_gun);
-                    m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, target);
+                    m_enemyType.m_attackType.StartAttack(this, m_rb, m_target, gameObject, m_gun);
+                    m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, m_target);
                 }
             }
 
@@ -176,13 +182,13 @@ public class AiController : MonoBehaviour
             {
 
                 //If the attack has ceased
-                if (m_enemyType.m_attackType.AttackFinished(this, m_rb, m_attackTargetPos, target, gameObject, m_bulletOrigin, m_gun))
+                if (m_enemyType.m_attackType.AttackFinished(this, m_rb, m_attackTargetPos, m_target, gameObject, m_bulletOrigin, m_gun))
                 {
                     //If the player is no lnger in the radius, set the target to null
                     if (!PlayerInRadius())
                     {
                         Debug.Log("Player Gone 2");
-                        target = null;
+                        m_target = null;
                     }
                 }
                 else
@@ -190,7 +196,7 @@ public class AiController : MonoBehaviour
                     //If the player has moved a set amount of distance (set in the attack type), recalculate the attackTarget Position
                     if (PlayerMoved())
                     {
-                        m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, target);
+                        m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, m_target);
                     }
                 }
             }
@@ -238,9 +244,9 @@ public class AiController : MonoBehaviour
     ///If the player has moved a set distance from a spot
     bool PlayerMoved()
     {
-        if (Vector3.Distance(target.transform.position, m_delayedPlayerPosition) > m_enemyType.m_attackType.m_playerMoveDistanceReaction)
+        if (Vector3.Distance(m_target.transform.position, m_delayedPlayerPosition) > m_enemyType.m_attackType.m_playerMoveDistanceReaction)
         {
-            m_delayedPlayerPosition = target.transform.position;
+            m_delayedPlayerPosition = m_target.transform.position;
             return true;
         }
         return false;
@@ -251,7 +257,7 @@ public class AiController : MonoBehaviour
     ///TODO: Create the following function
     bool PlayerInRadius()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) < m_enemyType.m_attackType.m_attackRadius)
+        if (Vector3.Distance(transform.position, m_target.transform.position) < m_enemyType.m_attackType.m_attackRadius)
         {
             return true;
         }
@@ -322,7 +328,21 @@ public class AiController : MonoBehaviour
     }
     #endregion
 
-
+    #region Heavy Function
+    public bool CheckPatternType(int p_patternChangeAmount, bool p_isShooting)
+    {
+        if (p_isShooting != m_isShooting)
+        {
+            m_currentPatternChangeAmount++;
+            if (m_currentPatternChangeAmount >= p_patternChangeAmount)
+            {
+                m_currentPatternChangeAmount = 0;
+                return true;
+            }
+        }
+        return false;
+    }
+    #endregion
 
     public void FlipEnemy(int p_newXDir)
     {
@@ -339,7 +359,7 @@ public class AiController : MonoBehaviour
                 ObjectPooler.instance.ReturnToPool(this.gameObject);
             }
             m_spawnerManager.EnemyKilled(this);
-            
+
         }
 
     }
@@ -347,18 +367,26 @@ public class AiController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (target != null)
+        if (m_target != null)
         {
             return;
         }
-        if (other.gameObject.tag == playerTag)
+        if (other.gameObject.tag == m_playerTag)
         {
 
             float dis = Vector3.Distance(transform.position, other.gameObject.transform.position);
             if (dis < m_enemyType.m_attackType.m_attackRadius)
             {
-                target = other.gameObject;
+                m_target = other.gameObject;
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == m_playerTag)
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(m_enemyType.m_attackType.m_collisionDamage);
         }
     }
 }

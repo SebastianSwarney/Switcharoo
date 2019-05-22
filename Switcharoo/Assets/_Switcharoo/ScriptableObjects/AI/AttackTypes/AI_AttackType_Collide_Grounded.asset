@@ -16,5 +16,6 @@ MonoBehaviour:
   m_attackRadius: 10
   m_tellTime: 1
   m_targetStoppingDistance: 0.1
-  m_playerMoveDistanceReaction: 2
+  m_playerMoveDistanceReaction: 4
+  m_collisionDamage: 15
   m_targetOvershootPlayerDistance: 3
