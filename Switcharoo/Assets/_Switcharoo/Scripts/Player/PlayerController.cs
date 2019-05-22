@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
 	public enum GravityState { GravityEnabled, GravityDisabled }
 
+	public enum DamageState { Vulnerable, Invulnerable }
+
 	public PlayerState m_states;
 
 	public enum PlayerRole { Runner, Gunner }
@@ -117,10 +119,13 @@ public class PlayerController : MonoBehaviour
 
 	private Vector2 m_aimInput;
 
+	private Health_Player m_health;
+
     void Start()
     {
         controller = GetComponent<Controller2D>();
 		m_shootController = GetComponent<ShootController>();
+		m_health = GetComponent<Health_Player>();
 
 		CalculateJump();
 		UpdatePickups();
@@ -561,6 +566,7 @@ public class PlayerController : MonoBehaviour
 	{
 		public MovementControllState m_movementControllState;
 		public GravityState m_gravityControllState;
+		public DamageState m_damageState;
 	}
 
 	private void UpdatePlayerStates()
@@ -576,6 +582,21 @@ public class PlayerController : MonoBehaviour
 			case MovementControllState.MovementDisabled:
 
 				//Nothing
+
+				break;
+		}
+
+		switch (m_states.m_damageState)
+		{
+			case DamageState.Vulnerable:
+
+				m_health.m_canTakeDamage = true;
+
+				break;
+
+			case DamageState.Invulnerable:
+
+				m_health.m_canTakeDamage = false;
 
 				break;
 		}

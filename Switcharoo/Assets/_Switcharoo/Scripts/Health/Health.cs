@@ -14,6 +14,8 @@ public class Health : MonoBehaviour
 	[SerializeField]
 	private float m_currentHealth;
 	private Rigidbody2D m_rigidbody;
+	[HideInInspector]
+	public bool m_canTakeDamage = true;
 
 	[Header("Ice Properties")]
 	public IceState m_currentIceState;
@@ -33,12 +35,10 @@ public class Health : MonoBehaviour
 	private float m_currentFireInterval;
 	private int m_currentEffectHitAmount;
 
-	private void Start()
+	public virtual void Start()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D>();
-
 		ResetHealth();
-
 		SetFireProperites();
 	}
 
@@ -64,11 +64,13 @@ public class Health : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(float p_damage)
+	public virtual void TakeDamage(float p_damage)
 	{
-		m_currentHealth -= p_damage;
-
-		CheckDamage();
+		if (m_canTakeDamage)
+		{
+			m_currentHealth -= p_damage;
+			CheckDamage();
+		}
 	}
 
 	private void CheckDamage()

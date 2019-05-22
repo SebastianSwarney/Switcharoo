@@ -135,6 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_states:
     m_movementControllState: 0
+    m_gravityControllState: 0
+    m_damageState: 0
   m_players:
   - m_currentRole: 1
     m_damageTargetMask:
@@ -178,6 +180,7 @@ MonoBehaviour:
   m_accelerationTimeAirborne: 0.2
   m_accelerationTimeGrounded: 0.1
   m_moveSpeed: 6
+  m_moveDirection: {x: 0, y: 0, z: 0}
   m_crosshair: {fileID: 288033318095290243}
   m_crosshairDst: 2
   m_aimDirection: {x: 0, y: 0, z: 0}
@@ -259,6 +262,7 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 100
   m_currentHealth: 0
+  m_canTakeDamage: 0
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0
@@ -267,6 +271,8 @@ MonoBehaviour:
   m_maxFireEffectInterval: 1
   m_minFireEffectInterval: 0.5
   m_fireDamageAmount: 10
+  m_invulnerableTime: 1
+  m_movementControllLossTime: 0.3
 --- !u!1 &288033318001868466
 GameObject:
   m_ObjectHideFlags: 0
