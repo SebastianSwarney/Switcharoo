@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollisionHazard_Rotate : CollisionHazard_Base
 {
 	[Header("Rotate Hazard Properties")]
+	[Range(0, 180)]
 	public float m_rotateDegrees;
 	public float m_rotateSpeed;
 	public Transform m_rotateTarget;

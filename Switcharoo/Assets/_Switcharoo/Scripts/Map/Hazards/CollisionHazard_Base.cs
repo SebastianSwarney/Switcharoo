@@ -12,9 +12,14 @@ public class CollisionHazard_Base : MonoBehaviour
 	private float m_damageTimer;
 	[HideInInspector]
 	public Rigidbody2D m_rigidbody;
+	[HideInInspector]
+	public bool m_canDamage;
+	[HideInInspector]
+	public SpriteRenderer m_renderer;
 
-	private void Start()
+	public virtual void Start()
 	{
+		m_renderer = GetComponent<SpriteRenderer>();
 		m_damageTimer = m_damageInterval;
 		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
@@ -28,7 +33,11 @@ public class CollisionHazard_Base : MonoBehaviour
 	{
 		if (m_damageTimer >= m_damageInterval)
 		{
-			collision.gameObject.GetComponent<Health>().TakeDamage(m_damageAmount);
+			if (m_canDamage)
+			{
+				collision.gameObject.GetComponent<Health>().TakeDamage(m_damageAmount);
+			}
+
 			m_damageTimer = 0;
 		}
 

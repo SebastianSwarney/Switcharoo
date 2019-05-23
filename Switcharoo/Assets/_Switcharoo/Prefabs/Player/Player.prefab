@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 288033317153994160}
   - component: {fileID: 288033317153994161}
   - component: {fileID: 3642809637188688157}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25d68a5799acf245b404df7ff6e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerId: 0
+  m_currentPlayerOrder: 0
+  m_isKeyboard: 1
 --- !u!114 &288033317153994160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +136,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_states:
     m_movementControllState: 0
+    m_gravityControllState: 0
+    m_damageState: 0
   m_players:
-  - m_currentRole: 1
+  - m_type: 0
+    m_currentRole: 1
     m_damageTargetMask:
       serializedVersion: 2
       m_Bits: 1024
@@ -151,7 +155,8 @@ MonoBehaviour:
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
-  - m_currentRole: 0
+  - m_type: 1
+    m_currentRole: 0
     m_damageTargetMask:
       serializedVersion: 2
       m_Bits: 2048
@@ -165,7 +170,7 @@ MonoBehaviour:
       m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
-      m_trailType: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323, type: 2}
+      m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
   m_gunnerDamageTargetMask:
     serializedVersion: 2
     m_Bits: 0
@@ -178,6 +183,7 @@ MonoBehaviour:
   m_accelerationTimeAirborne: 0.2
   m_accelerationTimeGrounded: 0.1
   m_moveSpeed: 6
+  m_moveDirection: {x: 0, y: 0, z: 0}
   m_crosshair: {fileID: 288033318095290243}
   m_crosshairDst: 2
   m_aimDirection: {x: 0, y: 0, z: 0}
@@ -259,6 +265,7 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 100
   m_currentHealth: 0
+  m_canTakeDamage: 0
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0
@@ -267,6 +274,8 @@ MonoBehaviour:
   m_maxFireEffectInterval: 1
   m_minFireEffectInterval: 0.5
   m_fireDamageAmount: 10
+  m_invulnerableTime: 1
+  m_movementControllLossTime: 0.3
 --- !u!1 &288033318001868466
 GameObject:
   m_ObjectHideFlags: 0
