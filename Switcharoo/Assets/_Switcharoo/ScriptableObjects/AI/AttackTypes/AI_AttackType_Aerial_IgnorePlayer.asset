@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 174bfc47e3c86ab41be35ff7f714509d, type: 3}
-  m_Name: AI_AttackType_Collide_Aerial
+  m_Name: AI_AttackType_Aerial_IgnorePlayer
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: 8f45e1ddb1b705e4e9a0db67930f3fa9, type: 2}
-  m_attackRadius: 10
-  m_tellTime: 1
-  m_targetStoppingDistance: 0.1
-  m_playerMoveDistanceReaction: 3
-  m_collisionDamage: 15
+  m_attackRadius: 0
+  m_tellTime: 0
+  m_targetStoppingDistance: 1
+  m_playerMoveDistanceReaction: 100
+  m_collisionDamage: 20
   m_targetOvershootPlayerDistance: 0

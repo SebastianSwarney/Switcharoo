@@ -17,6 +17,7 @@ MonoBehaviour:
   m_tellTime: 2
   m_targetStoppingDistance: 0.1
   m_playerMoveDistanceReaction: 3
+  m_collisionDamage: 10
   m_distanceFromPlayer: 3
   m_shotType: {fileID: 0}
   m_shootIntervalTime: 3

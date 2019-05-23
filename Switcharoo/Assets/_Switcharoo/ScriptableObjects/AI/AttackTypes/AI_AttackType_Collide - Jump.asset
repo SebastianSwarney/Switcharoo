@@ -17,5 +17,6 @@ MonoBehaviour:
   m_tellTime: 1
   m_targetStoppingDistance: 0.1
   m_playerMoveDistanceReaction: 3
+  m_collisionDamage: 15
   m_jumpMovement: {fileID: 11400000, guid: aafd2fc2224c3b949845907982c2c6e0, type: 2}
   m_jumpAttackDistance: 2

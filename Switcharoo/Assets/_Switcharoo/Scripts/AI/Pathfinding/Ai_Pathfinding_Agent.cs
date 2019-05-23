@@ -20,7 +20,6 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     public LayerMask m_terrainLayer;
 
 
-    Node m_playernode;
 
     private void Start()
     {
@@ -279,11 +278,6 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
                 if (n == m_targetNode)
                 {
                     Gizmos.color = Color.magenta;
-                }
-                if (n == m_playernode)
-                {
-                    Gizmos.color = Color.white;
-
                 }
                 Gizmos.DrawCube(n.m_worldPos, Vector3.one * (m_navGrid.m_nodeRadius * 2 - .1f));
 

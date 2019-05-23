@@ -44,7 +44,7 @@ public class AI_AttackType_Collide : AI_AttackType_Base
                 //If the player is not in range, end the attack
                 else
                 {
-                    p_aiController.target = null;
+                    p_aiController.m_target = null;
                     p_aiController.m_currentAttackState = AttackState.Finished;
                 }
                 break;

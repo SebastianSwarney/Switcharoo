@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952f6233066d0b4429da1e38de68fdd4, type: 3}
+  m_Name: AI_AttackType_HeavyShoot
+  m_EditorClassIdentifier: 
+  m_attackMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
+  m_attackRadius: 50
+  m_tellTime: 2
+  m_targetStoppingDistance: 1
+  m_playerMoveDistanceReaction: 4
+  m_collisionDamage: 20
+  m_closeDistanceMax: 10
+  m_closeShootIntervalTime: 4
+  m_closeShootBreakTime: 2
+  m_farShootIntervalTime: 1
+  m_farShootBreakTime: 1
+  m_closeFireAmount: 2
+  m_farFireAmount: 4
+  m_closeShootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e,
+    type: 2}
+  m_farShootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e,
+    type: 2}
+  m_closeShootComp:
+    m_shotPattern: {fileID: 11400000, guid: 1fd15566db4407145ad20bbb281c6150, type: 2}
+    m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
+      type: 3}
+    m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
+  m_farShootComp:
+    m_shotPattern: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3, type: 2}
+    m_bulletType: {fileID: 7220302174730930199, guid: d27749c25024a47409f7042fe3e45fb9,
+      type: 3}
+    m_damageType: {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
+  m_maxDistanceFromOrigin: 5
