@@ -6,8 +6,9 @@ public class Objective_KoTH_Hill : MonoBehaviour
 {
     public float m_targetTime;
     float m_currentTime;
+    
     public PlayerController.PlayerType m_targetPlayer;
-
+    public bool m_eitherPlayer = false;
     PlayerController m_player;
     public string m_playerTag = "Player";
 
@@ -22,13 +23,14 @@ public class Objective_KoTH_Hill : MonoBehaviour
     void AddTime()
     {
 
-        if (m_player.m_players[(m_targetPlayer == PlayerController.PlayerType.Type0) ? 0 : 1].m_currentRole == PlayerController.PlayerRole.Runner)
+        if (m_player.m_players[(m_targetPlayer == PlayerController.PlayerType.Type0) ? 0 : 1].m_currentRole == PlayerController.PlayerRole.Runner || m_eitherPlayer)
         {
             m_currentTime += Time.deltaTime;
             if (m_currentTime >= m_targetTime)
             {
                 m_hillComplete = true;
-                this.enabled = false;
+                this.gameObject.SetActive(false);
+                
             }
         }
 
