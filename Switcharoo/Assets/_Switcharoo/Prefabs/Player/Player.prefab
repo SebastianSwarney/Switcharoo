@@ -143,7 +143,7 @@ MonoBehaviour:
     m_currentRole: 1
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 66560
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 16640
@@ -159,7 +159,7 @@ MonoBehaviour:
     m_currentRole: 0
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 2048
+      m_Bits: 67584
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 33024

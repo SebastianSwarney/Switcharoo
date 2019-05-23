@@ -7,6 +7,7 @@ public class PlatformerNavigation : MonoBehaviour
     public bool displayGizmos = false, displayPaths = false;
 
     public Vector2 m_gridWorldSize;
+    public Vector3 m_gridOrigin;
     public float m_nodeRadius = .5f;
     Node[,] m_nodeGrid;
     float m_nodeDiameter;
@@ -42,7 +43,7 @@ public class PlatformerNavigation : MonoBehaviour
         m_nodeDiameter = m_nodeRadius * 2;
         m_gridSize = new Vector2Int(Mathf.RoundToInt(m_gridWorldSize.x / m_nodeDiameter), Mathf.RoundToInt(m_gridWorldSize.y / m_nodeDiameter));
         m_nodeGrid = new Node[m_gridSize.x, m_gridSize.y];
-        Vector2 p_worldBottomLeft = transform.position - Vector3.right * m_gridWorldSize.x / 2 - Vector3.up * m_gridWorldSize.y / 2;
+        Vector2 p_worldBottomLeft = m_gridOrigin - Vector3.right * m_gridWorldSize.x / 2 - Vector3.up * m_gridWorldSize.y / 2;
         int count = 0;
         for (int y = 0; y < m_gridSize.y; y++)
         {
@@ -337,8 +338,8 @@ public class PlatformerNavigation : MonoBehaviour
         Node returnNode;
         //the m_nodeGrid starts at 0, so you have to account for that
         //IE, if the point was at -15, and the gridsize was 15, the point is 0
-        float percentX = (p_worldPos.x - transform.position.x + m_gridWorldSize.x / 2) / m_gridWorldSize.x;
-        float percentY = (p_worldPos.y - transform.position.y + m_gridWorldSize.y / 2) / m_gridWorldSize.y;
+        float percentX = (p_worldPos.x - m_gridOrigin.x + m_gridWorldSize.x / 2) / m_gridWorldSize.x;
+        float percentY = (p_worldPos.y - m_gridOrigin.y + m_gridWorldSize.y / 2) / m_gridWorldSize.y;
 
         //Create the percentage of the current position on the m_nodeGrid
         percentX = Mathf.Clamp01(percentX);
@@ -399,7 +400,7 @@ public class PlatformerNavigation : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!displayGizmos) return;
-        Gizmos.DrawWireCube(transform.position, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 0));
+        Gizmos.DrawWireCube(m_gridOrigin, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 0));
 
 
         if (m_nodeGrid != null)
@@ -410,11 +411,12 @@ public class PlatformerNavigation : MonoBehaviour
                 if (n.m_currentNodeType == Node.NodeType.Blocked)
                 {
                     Gizmos.color = Color.red;
+                    //Gizmos.DrawCube(new Vector3(n.m_worldPos.x, n.m_worldPos.y, 10), Vector3.one * (m_nodeDiameter - .1f));
                 }
                 else if (n.m_currentNodeType == Node.NodeType.Empty)
                 {
                     Gizmos.color = Color.cyan;
-
+                    //Gizmos.DrawCube(new Vector3(n.m_worldPos.x, n.m_worldPos.y, 10), Vector3.one * (m_nodeDiameter - .1f));
                 }
                 else if (n.m_currentNodeType == Node.NodeType.Platform)
                 {

@@ -67,7 +67,6 @@ public abstract class RoomManager_Base : MonoBehaviour
         {
             spawns.gameObject.SetActive(false);
         }
-        m_roomTilemap.SetActive(false);
     }
 
     private void Update()
