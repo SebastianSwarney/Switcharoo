@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CameraController_Base : MonoBehaviour
 {
@@ -11,13 +12,13 @@ public class CameraController_Base : MonoBehaviour
 	public float m_verticalSmoothTime;
 	public Vector2 m_focusAreaSize;
 	public Bounds m_cameraBoundsArea;
-	public Vector2 m_levelSizeTest; //This has to be a differnt value for so it can work with tile maps
+
+	public TilemapCollider2D m_firstTileMapCollider;
 
 	[Space]
 
 	public float m_cameraTransitionTime;
 	public AnimationCurve m_transitionCurve;
-	public CameraData newCamDataTest;
 
 	private Camera m_camera;
 
@@ -34,23 +35,9 @@ public class CameraController_Base : MonoBehaviour
 	void Start()
 	{
 		m_focusArea = new FocusArea(m_target.col.bounds, m_focusAreaSize);
-
 		m_camera = GetComponent<Camera>();
 
-		CalculateBoundsSize(m_levelSizeTest);
-
-		if (m_cameraBoundsArea.center.z != transform.position.z)
-		{
-			m_cameraBoundsArea.center = new Vector3(m_cameraBoundsArea.center.x, m_cameraBoundsArea.center.y, transform.position.z);
-		}
-	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			StartCoroutine(TransitionCameraToNewLevel(newCamDataTest));
-		}
+		CalculateNewCameraBounds(m_firstTileMapCollider);
 	}
 
 	void LateUpdate()
@@ -89,22 +76,38 @@ public class CameraController_Base : MonoBehaviour
 		}
 	}
 
-	private void CalculateBoundsSize(Vector2 p_levelSize)
+	private void CalculateNewCameraBounds(TilemapCollider2D p_tilemapCollider)
 	{
+		Bounds newBounds = new Bounds();
+
 		float camHeight = 2f * m_camera.orthographicSize;
 		float camWidth = camHeight * m_camera.aspect;
 
-		float boundsHeight = (p_levelSize.y - camHeight) / 2;
-		float boundsWidth = (p_levelSize.x - camWidth) / 2;
+		float boundsHeight = ((p_tilemapCollider.bounds.extents.y * 2) - camHeight) / 2;
+		float boundsWidth = ((p_tilemapCollider.bounds.extents.x * 2) - camWidth) / 2;
 
-		m_cameraBoundsArea.extents = new Vector3(boundsWidth, boundsHeight, 0);
+		newBounds.extents = new Vector3(boundsWidth, boundsHeight, 0);
+
+		newBounds.center = p_tilemapCollider.bounds.center;
+
+		if (newBounds.center.z != transform.position.z)
+		{
+			newBounds.center = new Vector3(newBounds.center.x, newBounds.center.y, transform.position.z);
+		}
+
+		m_cameraBoundsArea = newBounds;
 	}
 
-	IEnumerator TransitionCameraToNewLevel(CameraData p_newSceneCamera)
+	#region Camera Transition Code
+	IEnumerator TransitionCameraToNewLevel(float p_newCameraSize, TilemapCollider2D p_newTilemapCollider)
 	{
 		float t = 0;
 
 		float startSize = m_camera.orthographicSize;
+
+		Vector3 startPosition = transform.position;
+
+		Vector3 targetPosition = p_newTilemapCollider.bounds.center;
 
 		while (t < m_cameraTransitionTime)
 		{
@@ -112,14 +115,16 @@ public class CameraController_Base : MonoBehaviour
 
 			float progress = m_transitionCurve.Evaluate(t / m_cameraTransitionTime);
 
-			m_camera.orthographicSize = Mathf.Lerp(startSize, p_newSceneCamera.m_cameraSize, progress);
+			transform.position = Vector3.Lerp(startPosition, targetPosition, progress);
+
+			m_camera.orthographicSize = Mathf.Lerp(startSize, p_newCameraSize, progress);
 
 			yield return null;
 		}
 
-		CalculateBoundsSize(p_newSceneCamera.m_levelSizeTest);
-
+		CalculateNewCameraBounds(p_newTilemapCollider);
 	}
+	#endregion
 
 	void OnDrawGizmos()
 	{
@@ -179,11 +184,4 @@ public class CameraController_Base : MonoBehaviour
 		}
 	}
 	#endregion
-
-	[System.Serializable]
-	public struct CameraData
-	{
-		public Vector2 m_levelSizeTest; //This has to be a differnt value for so it can work with tile maps
-		public float m_cameraSize;
-	}
 }
