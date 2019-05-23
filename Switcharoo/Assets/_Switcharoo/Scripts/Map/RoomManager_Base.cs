@@ -13,7 +13,7 @@ public abstract class RoomManager_Base : MonoBehaviour
 
     [HideInInspector]
     public GameObject m_playerObject;
-    
+
     [HideInInspector]
     public PlatformerNavigation m_navGrid;
 
@@ -28,24 +28,28 @@ public abstract class RoomManager_Base : MonoBehaviour
         {
             Debug.Log(gameObject.name + " does not have a room tilemap object");
         }
-    }
-    private void Start()
-    {
-        m_playerObject = DungeonManager.instance.m_playerGameObject;
+
         foreach (AI_Spawner_Manager_Base spawn in m_roomAiManager)
         {
-            spawn.m_currentNavGrid = m_navGrid;
             spawn.m_roomBase = this;
         }
+
     }
-    private void OnEnable()
+
+    private void Start()
     {
 
-        
         m_roomTilemap.SetActive(true);
         foreach (AI_Spawner_Manager_Base spawns in m_roomAiManager)
         {
             spawns.gameObject.SetActive(!m_roomTaskComplete);
+            spawns.InitializeSpawnerManager();
+        }
+
+        m_playerObject = DungeonManager.instance.m_playerGameObject;
+        foreach (AI_Spawner_Manager_Base spawn in m_roomAiManager)
+        {
+            spawn.m_roomBase = this;
         }
 
     }

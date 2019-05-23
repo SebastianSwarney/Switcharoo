@@ -41,8 +41,8 @@ public class AiController : MonoBehaviour
 
     bool m_isShooting;
 
-   
-   
+
+
     #endregion
 
     #region Move Variables
@@ -76,6 +76,8 @@ public class AiController : MonoBehaviour
     #region Managing Variables
     [HideInInspector]
     public AI_Spawner_Manager_Base m_spawnerManager;
+    [HideInInspector]
+    public AI_Spawner m_parentSpawn;
     #endregion
 
     [Header("Heavy Specific Variables")]
@@ -244,6 +246,7 @@ public class AiController : MonoBehaviour
     ///If the player has moved a set distance from a spot
     bool PlayerMoved()
     {
+        if (m_target == null) return false;
         if (Vector3.Distance(m_target.transform.position, m_delayedPlayerPosition) > m_enemyType.m_attackType.m_playerMoveDistanceReaction)
         {
             m_delayedPlayerPosition = m_target.transform.position;
@@ -349,20 +352,7 @@ public class AiController : MonoBehaviour
         m_currentForward = p_newXDir;
     }
 
-    void OnDisable()
-    {
-        if (m_spawnerManager != null)
-        {
-            if (m_isPooled)
-            {
-                m_patrolPoints.Clear();
-                ObjectPooler.instance.ReturnToPool(this.gameObject);
-            }
-            m_spawnerManager.EnemyKilled(this);
 
-        }
-
-    }
 
 
     void OnTriggerStay2D(Collider2D other)
@@ -389,4 +379,23 @@ public class AiController : MonoBehaviour
             collision.gameObject.GetComponent<Health>().TakeDamage(m_enemyType.m_attackType.m_collisionDamage);
         }
     }
+    void OnDisable()
+    {
+        if (m_spawnerManager != null)
+        {
+            if (m_isPooled)
+            {
+                m_patrolPoints.Clear();
+                ObjectPooler.instance.ReturnToPool(this.gameObject);
+            }
+            m_spawnerManager.EnemyKilled(this);
+
+        }
+        if (m_parentSpawn != null)
+        {
+            m_parentSpawn.m_currentEnemyNumber--;
+        }
+
+    }
+
 }

@@ -9,44 +9,80 @@ using UnityEngine;
 ///Inherited classes will be able to start the spawning
 public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject m_player;
-    public List<AI_Spawner> m_spawnersInRoom;
+    [HideInInspector]
     public RoomManager_Base m_roomBase;
 
-    public List<GameObject> m_placedEnemies;
+    public GameObject m_enemySpawnersParent;
+    public GameObject m_placedEnemiesParent;
+
+    List<AI_Spawner> m_spawnersInRoom;
+    List<GameObject> m_placedEnemies;
+
+
+
     public int m_maxAiInRoom;
     public int m_currentAiCount;
 
+
+    //[HideInInspector]
     public List<AiController> m_currentEnemiesInRoom;
-
-    
+    [HideInInspector]
     public PlatformerNavigation m_currentNavGrid;
-
-    void Awake()
+    private void Awake()
     {
-        foreach (AI_Spawner spawner in m_spawnersInRoom)
-        {
-            spawner.m_spawnManager = this;
-        }
-
+        m_placedEnemies = new List<GameObject>();
+        m_spawnersInRoom = new List<AI_Spawner>();
+        m_currentEnemiesInRoom = new List<AiController>();
     }
 
-    
     ///This object is enabled when the room is enabled
-    void OnEnable()
+
+
+    public void InitializeSpawnerManager()
     {
+        m_player = DungeonManager.instance.m_playerGameObject;
+        m_currentNavGrid = m_roomBase.m_navGrid;
+        m_currentAiCount = 0;
+        m_placedEnemies.Clear();
+
+        m_spawnersInRoom.Clear();
+        m_currentEnemiesInRoom.Clear();
+
+        for (int i = 0; i < m_placedEnemiesParent.transform.childCount; i++)
+        {
+            m_placedEnemies.Add(m_placedEnemiesParent.transform.GetChild(i).gameObject);
+            m_currentAiCount++;
+            m_currentEnemiesInRoom.Add(m_placedEnemiesParent.transform.GetChild(i).GetComponent<AiController>());
+        }
+
+
+        for (int i = 0; i < m_enemySpawnersParent.transform.childCount; i++)
+        {
+
+            m_spawnersInRoom.Add(m_enemySpawnersParent.transform.GetChild(i).GetComponent<AI_Spawner>());
+        }
+
+
         InitializeAllSpawners();
+
     }
 
     //Sets up all the spawners, when the object is enabled
     public virtual void InitializeAllSpawners()
     {
-        foreach(AiController placedEnemy in m_currentEnemiesInRoom){
+        foreach (AiController placedEnemy in m_currentEnemiesInRoom)
+        {
             placedEnemy.gameObject.SetActive(true);
+            placedEnemy.m_agent.m_navGrid = m_currentNavGrid;
         }
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.gameObject.SetActive(true);
+
+            spawner.m_spawnManager = this;
+
         }
         foreach (GameObject enemy in m_placedEnemies)
         {
@@ -85,16 +121,18 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     //When the room is unloaded, unload all entities attached to this room
     void OnDisable()
     {
-        foreach(AI_Spawner spawner in m_spawnersInRoom){
+        foreach (AI_Spawner spawner in m_spawnersInRoom)
+        {
             spawner.ChangeSpawning(false);
             spawner.gameObject.SetActive(false);
 
         }
         List<AiController> destroyEnemies = new List<AiController>();
-        foreach(AiController enemy in m_currentEnemiesInRoom){
+        foreach (AiController enemy in m_currentEnemiesInRoom)
+        {
             destroyEnemies.Add(enemy);
         }
-        foreach(AiController enem in destroyEnemies)
+        foreach (AiController enem in destroyEnemies)
         {
             enem.gameObject.SetActive(false);
         }

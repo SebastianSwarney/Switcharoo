@@ -720,14 +720,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1479424759127251337}
-  - {fileID: -7847488541988794837}
+  - {fileID: 6084331570480615430}
   EditorEvents:
   - {fileID: 4680539131476580777}
   MasterBanks:
-  - {fileID: -7847488541988794837}
+  - {fileID: 6084331570480615430}
   StringsBanks:
   - {fileID: 1479424759127251337}
-  stringsBankWriteTime: 636918753376729294
+  stringsBankWriteTime: 636918796141284933
   cacheVersion: 3
 --- !u!114 &424183267904029597
 MonoBehaviour:
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636918753376729294
+  lastModified: 636918796141284933
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -957,7 +957,7 @@ MonoBehaviour:
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
   - {fileID: -7431798904897923119}
-  - {fileID: -7847488541988794837}
+  - {fileID: 6084331570480615430}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1124,6 +1124,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2722
+--- !u!114 &6084331570480615430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Tyler\Pictures\_Projects\Switcheroo\_Unity File\Take 5\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636918796141194994
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &6535694957630117203
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,11 +7,14 @@ public class RoomManager_KoTH : RoomManager_Base
     public List<Objective_KoTH_Hill> m_hillsInRoom;
     Objective_KoTH_Hill m_currentActiveHill;
 
-
-    public float m_timeToHold;
     public override void CheckRoomObjective()
     {
-        if (m_timeToHold <= 0 && !m_roomTaskComplete)
+        bool allRoomsComplete = true;
+        foreach (Objective_KoTH_Hill m_hill in m_hillsInRoom)
+        {
+            if (!m_hill.m_hillComplete) allRoomsComplete = false;
+        }
+        if (allRoomsComplete)
         {
             m_roomTaskComplete = true;
             foreach (Objective_KoTH_Hill hill in m_hillsInRoom)
@@ -25,8 +28,9 @@ public class RoomManager_KoTH : RoomManager_Base
                     spawns.StopAllSpawners();
                 }
             }
-
         }
+
+
     }
 
     public override void EnemyKilled(AiController p_enemy)

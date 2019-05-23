@@ -15,5 +15,5 @@ MonoBehaviour:
   m_speed: 4
   m_usesPathfinding: 1
   m_checkWallDistance: 1
-  m_maxJumpHeight: 3.5
+  m_maxJumpHeight: 5
   m_recalculateDistance: 3

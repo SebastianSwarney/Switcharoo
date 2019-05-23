@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8515277832737761271}
   - component: {fileID: 8515277832737761266}
   - component: {fileID: 8515277832737761260}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AI_Swarm_Drone_Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 10
   m_currentHealth: 10
+  m_canTakeDamage: 1
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0
