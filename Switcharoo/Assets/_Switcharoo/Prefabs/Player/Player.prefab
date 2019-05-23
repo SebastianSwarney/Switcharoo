@@ -139,7 +139,8 @@ MonoBehaviour:
     m_gravityControllState: 0
     m_damageState: 0
   m_players:
-  - m_currentRole: 1
+  - m_type: 0
+    m_currentRole: 1
     m_damageTargetMask:
       serializedVersion: 2
       m_Bits: 1024
@@ -154,7 +155,8 @@ MonoBehaviour:
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
       m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
-  - m_currentRole: 0
+  - m_type: 1
+    m_currentRole: 0
     m_damageTargetMask:
       serializedVersion: 2
       m_Bits: 2048

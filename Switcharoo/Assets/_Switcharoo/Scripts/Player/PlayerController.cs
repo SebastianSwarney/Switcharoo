@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 
 	public PlayerState m_states;
 
+	public enum PlayerType { Type0, Type1 }
+
 	public enum PlayerRole { Runner, Gunner }
 
 	public PlayerData[] m_players;
@@ -493,6 +495,7 @@ public class PlayerController : MonoBehaviour
 	[System.Serializable]
 	public struct PlayerData
 	{
+		public PlayerType m_type;
 		public PlayerRole m_currentRole;
 		public LayerMask m_damageTargetMask;
 		public LayerMask m_obstacleMask;

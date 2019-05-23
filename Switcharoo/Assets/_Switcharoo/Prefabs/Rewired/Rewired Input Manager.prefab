@@ -359,6 +359,9 @@ MonoBehaviour:
     - _name: Single Player Keyboard
       _descriptiveName: Single Player Keyboard
       _id: 1
+    - _name: Two Player Keyboard
+      _descriptiveName: Two Player Keyboard
+      _id: 2
     mouseLayouts:
     - _name: Default
       _descriptiveName: Default
@@ -829,7 +832,7 @@ MonoBehaviour:
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
     joystickLayoutIdCounter: 2
-    keyboardLayoutIdCounter: 2
+    keyboardLayoutIdCounter: 3
     mouseLayoutIdCounter: 2
     customControllerLayoutIdCounter: 1
     joystickMapIdCounter: 3
