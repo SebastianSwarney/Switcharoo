@@ -5,6 +5,8 @@ using Rewired;
 
 public class PlayerInput : MonoBehaviour
 {
+	public Camera m_displayCamera;
+
 	public enum PlayerOrder { ZeroRunnerOneGunner, ZeroGunnerOneGunner }
 	[HideInInspector]
 	public PlayerOrder m_currentPlayerOrder;
@@ -67,7 +69,7 @@ public class PlayerInput : MonoBehaviour
 		m_playerController.SetDirectionalInput(directionalInput);
 
 		Vector2 mouseAimInput = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-		m_playerController.SetGunnerAimInput(Camera.main.ScreenToWorldPoint(mouseAimInput) - transform.position);
+		m_playerController.SetGunnerAimInput(m_displayCamera.ScreenToWorldPoint(mouseAimInput) - m_displayCamera.transform.position);
 
 		if (m_playerInputController.GetButtonDown("Jump"))
 		{

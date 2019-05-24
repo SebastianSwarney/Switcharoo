@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 m_directionalInput;
 
-	private Vector2 m_gunnerAimInput;
+	public Vector2 m_gunnerAimInput;
 
 	private Vector2 m_runnerAimInput;
 
