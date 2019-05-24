@@ -376,7 +376,7 @@ public class AiController : MonoBehaviour
     {
         if (collision.gameObject.tag == m_playerTag)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(m_enemyType.m_attackType.m_collisionDamage);
+            collision.gameObject.GetComponent<Health>().TakeDamage(m_enemyType.m_collisionDamage);
         }
     }
     void OnDisable()
