@@ -22,6 +22,8 @@ public class CameraController_Base : MonoBehaviour
 
 	private Camera m_camera;
 
+	private PlayerController m_player;
+
 	FocusArea m_focusArea;
 
 	private float m_currentLookAheadX;
@@ -36,6 +38,8 @@ public class CameraController_Base : MonoBehaviour
 	{
 		m_focusArea = new FocusArea(m_target.col.bounds, m_focusAreaSize);
 		m_camera = GetComponent<Camera>();
+
+		m_player = m_target.GetComponent<PlayerController>();
 
 		CalculateNewCameraBounds(m_firstTileMapCollider);
 	}
@@ -74,6 +78,17 @@ public class CameraController_Base : MonoBehaviour
 		{
 			transform.position = m_cameraBoundsArea.ClosestPoint(transform.position);
 		}
+	}
+
+	private void Aim()
+	{
+		float theta = Mathf.Atan2(m_player.m_gunnerAimInput.y, m_player.m_gunnerAimInput.x);
+
+		Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * 0.5f;
+
+		m_camera.transform.position = transform.position + pCircle;
+
+		//m_crosshair.position = transform.position + pCircle;
 	}
 
 	private void CalculateNewCameraBounds(TilemapCollider2D p_tilemapCollider)
