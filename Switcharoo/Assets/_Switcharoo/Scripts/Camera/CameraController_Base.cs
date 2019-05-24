@@ -86,7 +86,7 @@ public class CameraController_Base : MonoBehaviour
 	{
 		float theta = Mathf.Atan2(m_player.m_gunnerAimInput.y, m_player.m_gunnerAimInput.x);
 
-		Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * 1;
+		Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * 0.5f;
 
 		m_camera.transform.position = transform.position + pCircle;
 
