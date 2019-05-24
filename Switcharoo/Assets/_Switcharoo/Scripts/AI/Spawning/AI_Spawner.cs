@@ -20,6 +20,7 @@ public class AI_Spawner : MonoBehaviour
     //[HideInInspector]
     public int m_currentEnemyNumber;
 
+    public List<GameObject> m_disableObjectsOnDisable;
 
     void InitateSpawning()
     {
@@ -96,6 +97,20 @@ public class AI_Spawner : MonoBehaviour
             }
             yield return m_spawnDelay;
 
+        }
+    }
+    private void OnEnable()
+    {
+        foreach (GameObject currentObj in m_disableObjectsOnDisable)
+        {
+            currentObj.gameObject.SetActive(true);
+        }
+    }
+    private void OnDisable()
+    {
+        foreach(GameObject currentObj in m_disableObjectsOnDisable)
+        {
+            currentObj.gameObject.SetActive(false);
         }
     }
 
