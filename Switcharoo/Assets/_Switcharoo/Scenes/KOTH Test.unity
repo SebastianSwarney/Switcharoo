@@ -171,6 +171,7 @@ MonoBehaviour:
   m_spawnedEnemyPatrolPoints: []
   m_maxEnemyFromThis: 2
   m_currentEnemyNumber: 0
+  m_disableObjectsOnDisable: []
 --- !u!1001 &92076681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21775,6 +21776,7 @@ MonoBehaviour:
   m_spawnedEnemyPatrolPoints: []
   m_maxEnemyFromThis: 0
   m_currentEnemyNumber: 0
+  m_disableObjectsOnDisable: []
 --- !u!1 &709311713
 GameObject:
   m_ObjectHideFlags: 0
@@ -22010,7 +22012,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_camera: {fileID: 197097954}
 --- !u!20 &946636868
 Camera:
   m_ObjectHideFlags: 0
@@ -22018,7 +22019,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946636866}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 0}
@@ -22076,7 +22077,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946636866}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 

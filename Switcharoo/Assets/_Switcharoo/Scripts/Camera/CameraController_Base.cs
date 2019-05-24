@@ -20,7 +20,7 @@ public class CameraController_Base : MonoBehaviour
 	public float m_cameraTransitionTime;
 	public AnimationCurve m_transitionCurve;
 
-	public Camera m_camera;
+	private Camera m_camera;
 
 	private PlayerController m_player;
 
@@ -78,8 +78,6 @@ public class CameraController_Base : MonoBehaviour
 		{
 			transform.position = m_cameraBoundsArea.ClosestPoint(transform.position);
 		}
-
-		Aim();
 	}
 
 	private void Aim()
