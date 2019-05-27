@@ -21,10 +21,12 @@ MonoBehaviour:
   m_roomTaskComplete: 0
   m_increaseRoomIndex: 0
   m_stopEnemySpawnsOnComplete: 1
-  m_roomTilemap: {fileID: 5120200163418227306}
+  m_roomTilemap:
+  - {fileID: 5454461814508983790}
   m_tempLockedDoor: {fileID: 8507161937951202530}
   m_playerObject: {fileID: 0}
   m_navGrid: {fileID: 0}
+  m_roomsToAlterOnCompletion: []
   m_targetEnemies: []
 --- !u!1001 &3864021571552212885
 PrefabInstance:
@@ -101,6 +103,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3864021571552212885}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8507161937951202530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4868463284834986871, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3864021571552212885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5454461814508983790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9092177461548769915, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
@@ -137,15 +145,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92614af2dd30d134eabf305b13b69cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5120200163418227306 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8255478334178211327, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3864021571552212885}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8507161937951202530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4868463284834986871, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3864021571552212885}
-  m_PrefabAsset: {fileID: 0}

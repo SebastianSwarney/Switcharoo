@@ -14,7 +14,7 @@ public abstract class RoomManager_Base : MonoBehaviour
 
     int m_roomVariantIndex = 0;
     public bool m_stopEnemySpawnsOnComplete = true;
-    public GameObject m_roomTilemap;
+    public List<GameObject> m_roomTilemap;
     public GameObject m_tempLockedDoor;
 
 
@@ -35,10 +35,6 @@ public abstract class RoomManager_Base : MonoBehaviour
         {
             Debug.Log(gameObject.name + " does not have a room AI Manager");
         }
-        if (m_roomTilemap == null)
-        {
-            Debug.Log(gameObject.name + " does not have a room tilemap object");
-        }
 
         foreach (AI_Spawner_Manager_Base spawn in m_roomAiManager)
         {
@@ -53,7 +49,7 @@ public abstract class RoomManager_Base : MonoBehaviour
         {
             currentRoom.SetActive(true);
         }
-        m_roomTilemap.SetActive(true);
+
         foreach (AI_Spawner_Manager_Base spawns in m_roomAiManager)
         {
             spawns.gameObject.SetActive(!m_roomTaskComplete);
@@ -63,6 +59,8 @@ public abstract class RoomManager_Base : MonoBehaviour
         for (int i = 1; i < m_roomVariants.Count; i++)
         {
             m_roomVariants[i].SetActive(false);
+            if (m_roomTilemap[i] == m_roomTilemap[0]) continue;
+            m_roomTilemap[i].SetActive(false);
         }
 
         m_playerObject = DungeonManager.instance.m_playerGameObject;
@@ -84,6 +82,11 @@ public abstract class RoomManager_Base : MonoBehaviour
         if (m_roomVariantIndex < m_roomAiManager.Count)
         {
             m_roomAiManager[m_roomVariantIndex].gameObject.SetActive(false);
+
+        }
+        if (m_roomVariantIndex < m_roomTilemap.Count)
+        {
+            m_roomTilemap[m_roomVariantIndex].SetActive(false);
         }
     }
     private void OnEnable()
@@ -101,6 +104,14 @@ public abstract class RoomManager_Base : MonoBehaviour
         if (m_roomVariantIndex < m_roomAiManager.Count)
         {
             m_roomAiManager[m_roomVariantIndex].gameObject.SetActive(true);
+        }
+        if (m_roomVariantIndex < m_roomTilemap.Count)
+        {
+            m_roomTilemap[m_roomVariantIndex].SetActive(true);
+        }
+        else
+        {
+            m_roomTilemap[m_roomTilemap.Count - 1].SetActive(true);
         }
     }
     public void DeloadRoom()

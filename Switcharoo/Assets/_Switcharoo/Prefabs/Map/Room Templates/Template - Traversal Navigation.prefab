@@ -21,10 +21,12 @@ MonoBehaviour:
   m_roomTaskComplete: 0
   m_increaseRoomIndex: 0
   m_stopEnemySpawnsOnComplete: 1
-  m_roomTilemap: {fileID: 3455923614594284329}
+  m_roomTilemap:
+  - {fileID: 8752518525914694353}
   m_tempLockedDoor: {fileID: 2230672051834217889}
   m_playerObject: {fileID: 0}
   m_navGrid: {fileID: 0}
+  m_roomsToAlterOnCompletion: []
   m_targetPosition: {fileID: 6404573722727630825}
 --- !u!1 &2802322179367826200
 GameObject:
@@ -171,12 +173,12 @@ PrefabInstance:
     - target: {fileID: 3593565232637721856, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1166228383204974365, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ce74da47cdc094ebcf9e67ac014c4c, type: 3}
@@ -189,6 +191,18 @@ GameObject:
 --- !u!4 &821889817814145867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6197869628555007389, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6729699429112516310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8752518525914694353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2599562973492890631, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6729699429112516310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2230672051834217889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4868463284834986871, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
     type: 3}
   m_PrefabInstance: {fileID: 6729699429112516310}
   m_PrefabAsset: {fileID: 0}
@@ -228,15 +242,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92614af2dd30d134eabf305b13b69cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3455923614594284329 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8255478334178211327, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6729699429112516310}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2230672051834217889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4868463284834986871, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6729699429112516310}
-  m_PrefabAsset: {fileID: 0}
