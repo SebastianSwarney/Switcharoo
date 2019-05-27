@@ -11,6 +11,9 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
     public float m_closeDistanceMax;
     public float m_closeShootIntervalTime, m_closeShootBreakTime, m_farShootIntervalTime, m_farShootBreakTime;
     public int m_closeFireAmount, m_farFireAmount;
+
+    public float m_farShootAimUp;
+
     public AI_MovementType_Base m_closeShootingMovement, m_farShootingMovement;
 
     public ShootController.WeaponComposition m_closeShootComp, m_farShootComp;
@@ -36,7 +39,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                 if (PlayerInRange(p_player, p_enemyObject))
                 {
 
-                    AimAtTarget(p_bulletOrigin, p_player.transform.position);
+                    AimAtTarget(p_aiController,p_bulletOrigin, p_player.transform.position,p_gun);
 
                     ///Creates bursts between the bullets
                     if (CanFireWeapon(p_aiController))
@@ -149,13 +152,20 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
 
     }
 
-    public virtual void AimAtTarget(Transform p_bulletOrigin, Vector3 p_targetPos)
+    public void AimAtTarget(AiController p_aiController,Transform p_bulletOrigin, Vector3 p_targetPos, ShootController p_gun)
     {
         Vector3 dir = p_targetPos - p_bulletOrigin.transform.position;
 
         float lookAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         p_bulletOrigin.rotation = Quaternion.AngleAxis(lookAngle, Vector3.forward);
+        if (!IsCloseBehaviour(p_gun))
+        {
 
+            p_bulletOrigin.rotation = Quaternion.AngleAxis(lookAngle + Mathf.Sign(dir.x) * m_farShootAimUp, Vector3.forward);
+
+        }
+
+        Debug.DrawLine(p_bulletOrigin.position, (p_bulletOrigin.right * 9 + p_bulletOrigin.position), Color.red);
 
     }
 

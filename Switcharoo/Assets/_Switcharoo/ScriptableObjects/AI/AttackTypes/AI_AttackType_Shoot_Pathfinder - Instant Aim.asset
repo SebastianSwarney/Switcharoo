@@ -17,14 +17,12 @@ MonoBehaviour:
   m_tellTime: 2
   m_targetStoppingDistance: 0.1
   m_playerMoveDistanceReaction: 3
-  m_collisionDamage: 10
   m_distanceFromPlayer: 3
-  m_shotType: {fileID: 0}
   m_shootIntervalTime: 3
   m_shootBreakTime: 2
   m_shootingMovement: {fileID: 11400000, guid: bd9bf3053fe98f54bb10b85d7d22ebb3, type: 2}
   m_weaponComposition:
-    m_shotPattern: {fileID: 11400000, guid: 95b33ac4879175e49a55593b20144268, type: 2}
-    m_bulletType: {fileID: 7315616157899850491, guid: 6834496e6d0e4d044867d5b54ece3703,
+    m_shotPattern: {fileID: 11400000, guid: 07e421f4a0688d04e89332289c13e823, type: 2}
+    m_bulletType: {fileID: 7315616157899850491, guid: d29c4385a2d5c5e4e97078efa025ea29,
       type: 3}
-    m_damageType: {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
+    m_damageType: {fileID: 11400000, guid: 46cedc9626b14764ebc156eb150f67a8, type: 2}

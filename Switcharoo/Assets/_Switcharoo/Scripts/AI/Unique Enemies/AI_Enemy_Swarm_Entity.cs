@@ -6,7 +6,8 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
 {
     public AI_Enemy_Swarm.AiState m_entityState;
     public bool m_targetReached;
-
+    
+    public bool m_queenDied;
     [HideInInspector]
     public float m_speed, m_turnSpeed, m_maxDistanceAway, m_entityDamage;
     
@@ -32,11 +33,17 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
         m_maxDistanceAway = p_maxDistanceAway;
         m_entityDamage = p_entityDamage;
         m_playerTag = p_playerTag;
+        m_queenDied = false;
     }
 
     private void Update()
     {
         m_rb.velocity = transform.right * m_speed;
+        if (m_queenDied)
+        {
+            m_currentTarget = DungeonManager.instance.m_playerGameObject.transform.position;
+            m_entityState = AI_Enemy_Swarm.AiState.Attack;
+        }
         if (m_currentTarget != null)
         {
             RotateTowards();

@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyType: {fileID: 0}
-  target: {fileID: 0}
-  playerTag: Player
+  m_target: {fileID: 0}
+  m_playerTag: Player
   m_bulletOrigin: {fileID: 3078133998680829569}
   m_isPooled: 0
   m_detectionRange: {fileID: 7491690288337377126}
@@ -222,6 +222,9 @@ MonoBehaviour:
   m_agent: {fileID: 0}
   m_patrolStoppingDistance: 0
   m_spawnerManager: {fileID: 0}
+  m_parentSpawn: {fileID: 0}
+  m_currentPatternChangeAmount: 0
+  m_originPoint: {fileID: 0}
 --- !u!114 &3078133998956346287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,10 +243,10 @@ MonoBehaviour:
     m_damageType: {fileID: 0}
   m_damageTargetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 12288
   m_obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_nextTimeToFire: 0
   m_ammoCount: 0
 --- !u!114 &1780877241023508681
@@ -281,6 +284,7 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 10
   m_currentHealth: 0
+  m_canTakeDamage: 1
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0

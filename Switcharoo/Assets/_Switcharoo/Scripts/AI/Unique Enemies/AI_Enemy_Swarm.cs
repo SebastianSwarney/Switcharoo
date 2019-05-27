@@ -14,10 +14,12 @@ public class AI_Enemy_Swarm : MonoBehaviour
     bool m_respawnEntity;
 
     public Transform m_target;
-    public string m_playerTag = "Player";
+    
 
+    [Header("Detection Variables")]
+    public CircleCollider2D m_detectionCollider;
     public float m_detectionRadius;
-
+    public string m_playerTag = "Player";
 
     public float m_maxDistanceAway;
     public float m_maxEntityDistance;
@@ -26,18 +28,21 @@ public class AI_Enemy_Swarm : MonoBehaviour
 
     WaitForSeconds m_entitySpawnDelay;
     Coroutine m_entitySpawnCoroutine;
+    
 
     private void Start()
     {
         m_entitySpawnDelay = new WaitForSeconds(m_entityRespawnTime);
         m_swarmEntities = new List<AI_Enemy_Swarm_Entity>();
-        GetComponent<CircleCollider2D>().radius = m_detectionRadius;
+        m_detectionCollider.radius = m_detectionRadius;
         if (m_swarmEntities.Count == 0)
         {
             SpawnNewEntities();
         }
     }
-
+    /// <summary>
+    /// Spawns drones, until the max amount is reached
+    /// </summary>
     void SpawnNewEntities()
     {
         int amountToSpawn = m_entityAmount - m_swarmEntities.Count;
@@ -51,11 +56,12 @@ public class AI_Enemy_Swarm : MonoBehaviour
     private void Update()
     {
         CheckState();
+
+        //the loop for respawning more drones
         if (!m_respawnEntity)
         {
             if (m_swarmEntities.Count < m_entityAmount)
             {
-                print("Spawn more");
                 m_respawnEntity = true;
                 m_entitySpawnCoroutine = StartCoroutine(SpawnMoreEntities());
             }
@@ -164,5 +170,13 @@ public class AI_Enemy_Swarm : MonoBehaviour
         yield return m_entitySpawnDelay;
         SpawnNewEntity();
         m_respawnEntity = false;
+    }
+
+    private void OnDisable()
+    {
+        foreach (AI_Enemy_Swarm_Entity drone in m_swarmEntities)
+        {
+            drone.m_queenDied = true;
+        }
     }
 }

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class AI_Spawner : MonoBehaviour
 {
+    public bool m_showGizmos = true;
+
     public enum SpawnDir { Left, Right };
     public SpawnDir m_currentSpawnDir;
+
     [HideInInspector]
     public AI_Spawner_Manager_Base m_spawnManager;
+    public float m_spawnerRadius;
     public float m_spawnPerMinute;
     float m_timeToSpawn;
     public GameObject m_enemyToSpawn;
@@ -17,10 +21,16 @@ public class AI_Spawner : MonoBehaviour
     public List<Transform> m_spawnedEnemyPatrolPoints;
 
     public int m_maxEnemyFromThis;
-    //[HideInInspector]
+    [HideInInspector]
     public int m_currentEnemyNumber;
 
     public List<GameObject> m_disableObjectsOnDisable;
+
+    public enum ObjectSpawnType { Heavy, Enemy, Object}
+    public List<ObjectSpawnsOnDeath> m_spawnOnDestroyed;
+
+    
+    
 
     void InitateSpawning()
     {
@@ -43,6 +53,9 @@ public class AI_Spawner : MonoBehaviour
 
         aiCont.m_parentSpawn = this;
 
+        Vector3 randomPos = Random.insideUnitCircle * m_spawnerRadius + (Vector2)transform.position;
+        aiCont.transform.position = randomPos;
+
         aiCont.InitiateAi();
         m_currentEnemyNumber++;
 
@@ -50,10 +63,6 @@ public class AI_Spawner : MonoBehaviour
         m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
         return;
     }
-
-
-
-
 
 
     ///<Summary>
@@ -112,6 +121,36 @@ public class AI_Spawner : MonoBehaviour
         {
             currentObj.gameObject.SetActive(false);
         }
+
+        foreach (ObjectSpawnsOnDeath spawning in m_spawnOnDestroyed)
+        {
+            if (spawning.m_objectSpawnType == ObjectSpawnType.Enemy)
+            {
+                AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
+                aiCont.m_patrolPoints = spawning.m_patrolPoints;
+            }else if (spawning.m_objectSpawnType == ObjectSpawnType.Heavy)
+            {
+                AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
+                aiCont.m_originPoint = spawning.m_patrolPoints[0];
+            }else if (spawning.m_objectSpawnType == ObjectSpawnType.Object)
+            {
+                ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform);
+            }
+        }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, m_spawnerRadius);
+    }
+
+    public struct ObjectSpawnsOnDeath
+    {
+        public ObjectSpawnType m_objectSpawnType;
+        public GameObject m_spawnObject;
+        public List<Transform> m_patrolPoints;
     }
 
 }
