@@ -5,8 +5,6 @@ using Rewired;
 
 public class PlayerInput : MonoBehaviour
 {
-	public Camera m_displayCamera;
-
 	public enum PlayerOrder { ZeroRunnerOneGunner, ZeroGunnerOneGunner }
 	[HideInInspector]
 	public PlayerOrder m_currentPlayerOrder;
