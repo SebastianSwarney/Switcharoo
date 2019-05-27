@@ -26,4 +26,8 @@ public class AI_Spawner_Manager_TriggerCollision : AI_Spawner_Manager_Base
             }
         }
     }
+
+    public override void DeintializeAllSpawners()
+    {
+    }
 }

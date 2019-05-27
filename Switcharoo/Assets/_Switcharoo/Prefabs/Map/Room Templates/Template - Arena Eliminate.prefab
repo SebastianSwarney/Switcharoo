@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1172b7a567a2148acaae723d3974c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_roomVariants:
+  - {fileID: 5454461814508983790}
+  - {fileID: 5175923058026911209}
   m_roomAiManager:
   - {fileID: 7177755611824215539}
+  - {fileID: 4322356570824055093}
   m_roomTaskComplete: 0
+  m_increaseRoomIndex: 0
   m_stopEnemySpawnsOnComplete: 1
   m_roomTilemap: {fileID: 5120200163418227306}
   m_tempLockedDoor: {fileID: 8507161937951202530}
@@ -31,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 6197869628555007390, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
       propertyPath: m_Name
-      value: Room Template Base
+      value: Template - Arena Eliminate
       objectReference: {fileID: 0}
     - target: {fileID: 6197869628555007389, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
@@ -96,9 +101,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3864021571552212885}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5454461814508983790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9092177461548769915, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3864021571552212885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7177755611824215539 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6197869627100996198, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3864021571552212885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92614af2dd30d134eabf305b13b69cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5175923058026911209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8235766213664465532, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3864021571552212885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4322356570824055093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1036913423865867936, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
     type: 3}
   m_PrefabInstance: {fileID: 3864021571552212885}
   m_PrefabAsset: {fileID: 0}

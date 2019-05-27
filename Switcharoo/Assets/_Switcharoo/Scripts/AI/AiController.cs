@@ -21,7 +21,7 @@ public class AiController : MonoBehaviour
 
     //[HideInInspector]
     public bool m_isPooled = false;
-    Vector3 m_hardSetPos;
+    
 
     public CircleCollider2D m_detectionRange;
     #endregion
@@ -84,6 +84,12 @@ public class AiController : MonoBehaviour
     public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
     public Transform m_originPoint;
 
+
+    #region respawn Variables
+    Vector3 m_respawnPos;
+    int m_startingForward;
+    #endregion
+
     void Awake()
     {
         m_patrolPointOrder = new Queue<Transform>();
@@ -91,11 +97,25 @@ public class AiController : MonoBehaviour
         m_gun = GetComponent<ShootController>();
         m_agent = GetComponent<Ai_Pathfinding_Agent>();
 
+        if(m_spawnerManager == null)
+        {
+
+        }
+        
+
         if (!m_isPooled)
         {
-            m_hardSetPos = transform.position;
+            m_respawnPos = transform.position;
+            m_startingForward = m_currentForward;
             //gameObject.SetActive(false);
         }
+    }
+
+    public void Respawn()
+    {
+        transform.position = m_respawnPos;
+        m_currentForward = m_startingForward;
+        FlipEnemy(m_currentForward);
     }
 
     private void Update()
@@ -116,10 +136,7 @@ public class AiController : MonoBehaviour
             Debug.Break();
         }
         m_detectionRange.radius = m_enemyType.m_attackType.m_attackRadius;
-        if (!m_isPooled)
-        {
-            transform.position = m_hardSetPos;
-        }
+
         InitiateAi();
     }
 
@@ -168,7 +185,6 @@ public class AiController : MonoBehaviour
             {
                 if (!PlayerInRadius())
                 {
-                    Debug.Log("Player Gone");
                     m_target = null;
                 }
                 else

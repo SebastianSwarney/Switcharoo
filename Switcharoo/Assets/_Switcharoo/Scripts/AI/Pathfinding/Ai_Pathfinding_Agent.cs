@@ -25,7 +25,6 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_tracedPath = new List<Node>();
-        if (m_navGrid == null) Debug.Log("Nav grid missing from: " + gameObject.name);
     }
 
     public void MoveToNode(float p_speed, float p_jumpHeight, bool p_isGrounded)

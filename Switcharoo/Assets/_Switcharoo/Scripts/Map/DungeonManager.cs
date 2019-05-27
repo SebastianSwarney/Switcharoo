@@ -7,7 +7,6 @@ public class DungeonManager : MonoBehaviour
     public static DungeonManager instance { get; private set; }
     public GameObject m_playerGameObject;
 
-    public List<RoomManager_Base> m_allRooms;
     void Awake()
     {
         if (instance == null)
@@ -17,14 +16,6 @@ public class DungeonManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
-        }
-
-        foreach (RoomManager_Base currentRoom in m_allRooms)
-        {
-            if (!currentRoom.gameObject.activeSelf)
-            {
-                currentRoom.DeloadRoom();
-            }
         }
     }
 

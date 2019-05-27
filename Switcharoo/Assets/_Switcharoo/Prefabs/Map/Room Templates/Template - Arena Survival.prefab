@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2abc69f1a1ada44bc483a599122b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_roomVariants:
+  - {fileID: 2482280810688198327}
+  - {fileID: 3320388471316133552}
   m_roomAiManager:
   - {fileID: 746598713303135914}
+  - {fileID: 5925867703345625708}
   m_roomTaskComplete: 0
+  m_increaseRoomIndex: 0
   m_stopEnemySpawnsOnComplete: 1
   m_roomTilemap: {fileID: 3372751687350214963}
   m_tempLockedDoor: {fileID: 2292177815940186043}
@@ -31,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 6197869628555007390, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
       propertyPath: m_Name
-      value: Arena - Survival - Template
+      value: Template - Arena Survival
       objectReference: {fileID: 0}
     - target: {fileID: 6197869628555007389, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
@@ -96,9 +101,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6656093769046938828}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2482280810688198327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9092177461548769915, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6656093769046938828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &746598713303135914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6197869627100996198, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6656093769046938828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92614af2dd30d134eabf305b13b69cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3320388471316133552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8235766213664465532, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6656093769046938828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5925867703345625708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1036913423865867936, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
     type: 3}
   m_PrefabInstance: {fileID: 6656093769046938828}
   m_PrefabAsset: {fileID: 0}

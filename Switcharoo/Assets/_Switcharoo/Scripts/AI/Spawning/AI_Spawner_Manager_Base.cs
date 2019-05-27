@@ -25,6 +25,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     public int m_maxAiInRoom;
     public int m_currentAiCount;
 
+    public bool m_roomDeloaded = false;
 
     //[HideInInspector]
     public List<AiController> m_currentEnemiesInRoom;
@@ -91,6 +92,8 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         m_currentAiCount = m_placedEnemies.Count;
     }
 
+    public abstract void DeintializeAllSpawners();
+
     //The method that is called to enable spawning in this room
     public void StartAllSpawners()
     {
@@ -121,10 +124,11 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     //When the room is unloaded, unload all entities attached to this room
     void OnDisable()
     {
+        m_roomDeloaded = true;
+        DeintializeAllSpawners();
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.ChangeSpawning(false);
-            spawner.gameObject.SetActive(false);
 
         }
         List<AiController> destroyEnemies = new List<AiController>();
@@ -135,6 +139,22 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         foreach (AiController enem in destroyEnemies)
         {
             enem.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnEnable()
+    {
+        m_roomDeloaded = false;
+        InitializeAllSpawners();
+        foreach (AiController enem in m_currentEnemiesInRoom)
+        {
+            enem.gameObject.SetActive(true);
+            enem.Respawn();
+
+        }
+        foreach(AI_Spawner spawner in m_spawnersInRoom)
+        {
+            spawner.Respawn();
         }
     }
 }

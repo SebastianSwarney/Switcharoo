@@ -16,6 +16,12 @@ public class AI_Spawner_Manager_TimedStart : AI_Spawner_Manager_Base
     public float m_timeToStartSpawn;
 
     Coroutine m_delayedSpawn;
+
+    public override void DeintializeAllSpawners()
+    {
+        StopCoroutine(m_delayedSpawn);
+    }
+
     public override void InitializeAllSpawners()
     {
         base.InitializeAllSpawners();

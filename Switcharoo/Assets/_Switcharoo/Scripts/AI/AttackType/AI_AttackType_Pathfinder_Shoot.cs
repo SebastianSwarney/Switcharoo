@@ -84,7 +84,6 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
     public override Vector3 SetAttackTargetPosition(AiController p_aiCont, GameObject p_enemyObject, GameObject p_player)
     {
 
-        Debug.Log("Set Attack Pos");
         return p_player.transform.position;
     }
 

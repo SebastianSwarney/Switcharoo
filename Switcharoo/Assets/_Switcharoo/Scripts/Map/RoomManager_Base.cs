@@ -4,8 +4,15 @@ using UnityEngine;
 
 public abstract class RoomManager_Base : MonoBehaviour
 {
+    public List<GameObject> m_roomVariants;
     public List<AI_Spawner_Manager_Base> m_roomAiManager;
     public bool m_roomTaskComplete = false;
+    bool m_roomAlreadyComplete = false;
+
+    [HideInInspector]
+    public bool m_increaseRoomIndex = false;
+
+    int m_roomVariantIndex = 0;
     public bool m_stopEnemySpawnsOnComplete = true;
     public GameObject m_roomTilemap;
     public GameObject m_tempLockedDoor;
@@ -16,6 +23,10 @@ public abstract class RoomManager_Base : MonoBehaviour
 
     [HideInInspector]
     public PlatformerNavigation m_navGrid;
+
+    [Space(10)]
+    public List<RoomManager_Base> m_roomsToAlterOnCompletion;
+
 
     void Awake()
     {
@@ -38,12 +49,20 @@ public abstract class RoomManager_Base : MonoBehaviour
 
     private void Start()
     {
-
+        foreach (GameObject currentRoom in m_roomVariants)
+        {
+            currentRoom.SetActive(true);
+        }
         m_roomTilemap.SetActive(true);
         foreach (AI_Spawner_Manager_Base spawns in m_roomAiManager)
         {
             spawns.gameObject.SetActive(!m_roomTaskComplete);
             spawns.InitializeSpawnerManager();
+        }
+
+        for (int i = 1; i < m_roomVariants.Count; i++)
+        {
+            m_roomVariants[i].SetActive(false);
         }
 
         m_playerObject = DungeonManager.instance.m_playerGameObject;
@@ -60,6 +79,29 @@ public abstract class RoomManager_Base : MonoBehaviour
     private void OnDisable()
     {
         DeloadRoom();
+
+        m_roomVariants[m_roomVariantIndex].SetActive(false);
+        if (m_roomVariantIndex < m_roomAiManager.Count)
+        {
+            m_roomAiManager[m_roomVariantIndex].gameObject.SetActive(false);
+        }
+    }
+    private void OnEnable()
+    {
+        if (m_increaseRoomIndex)
+        {
+            m_increaseRoomIndex = false;
+            if (m_roomVariantIndex < m_roomVariants.Count - 1)
+            {
+                m_roomVariantIndex++;
+            }
+            
+        }
+        m_roomVariants[m_roomVariantIndex].SetActive(true);
+        if (m_roomVariantIndex < m_roomAiManager.Count)
+        {
+            m_roomAiManager[m_roomVariantIndex].gameObject.SetActive(true);
+        }
     }
     public void DeloadRoom()
     {
@@ -73,6 +115,16 @@ public abstract class RoomManager_Base : MonoBehaviour
     {
         CheckRoomObjective();
         m_tempLockedDoor.SetActive(!m_roomTaskComplete);
+
+        if (m_roomTaskComplete && !m_roomAlreadyComplete)
+        {
+            m_roomAlreadyComplete = true;
+            m_increaseRoomIndex = true;
+            foreach(RoomManager_Base room in m_roomsToAlterOnCompletion)
+            {
+                room.m_increaseRoomIndex = true;
+            }
+        }
     }
 
     public abstract void CheckRoomObjective();

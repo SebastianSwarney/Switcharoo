@@ -42,7 +42,6 @@ public abstract class AI_AttackType_Base : ScriptableObject
         {
             p_aiController.m_visualTellTimer = 0;
             p_aiController.m_currentAttackState = AttackState.Perform;
-            Debug.Log("Visual tell done");
         }else{
             p_aiController.m_visualTellTimer += Time.deltaTime;
             m_attackMovement.VisualTellMovement(p_rb);

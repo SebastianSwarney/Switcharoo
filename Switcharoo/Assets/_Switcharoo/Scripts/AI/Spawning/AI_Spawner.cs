@@ -26,11 +26,11 @@ public class AI_Spawner : MonoBehaviour
 
     public List<GameObject> m_disableObjectsOnDisable;
 
-    public enum ObjectSpawnType { Heavy, Enemy, Object}
+    public enum ObjectSpawnType { Heavy, Enemy, Object, ExistingObject}
     public List<ObjectSpawnsOnDeath> m_spawnOnDestroyed;
 
-    
-    
+
+    Health m_health;
 
     void InitateSpawning()
     {
@@ -117,38 +117,73 @@ public class AI_Spawner : MonoBehaviour
     }
     private void OnDisable()
     {
+
         foreach(GameObject currentObj in m_disableObjectsOnDisable)
         {
             currentObj.gameObject.SetActive(false);
         }
-
-        foreach (ObjectSpawnsOnDeath spawning in m_spawnOnDestroyed)
+        if (m_health == null)
         {
-            if (spawning.m_objectSpawnType == ObjectSpawnType.Enemy)
+            m_health = GetComponent<Health>();
+        }
+        if (m_health.m_isDead)
+        {
+            foreach (ObjectSpawnsOnDeath spawning in m_spawnOnDestroyed)
             {
-                AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
-                aiCont.m_patrolPoints = spawning.m_patrolPoints;
-            }else if (spawning.m_objectSpawnType == ObjectSpawnType.Heavy)
-            {
-                AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
-                aiCont.m_originPoint = spawning.m_patrolPoints[0];
-            }else if (spawning.m_objectSpawnType == ObjectSpawnType.Object)
-            {
-                ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform);
+                if (spawning.m_objectSpawnType == ObjectSpawnType.Enemy)
+                {
+                    AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
+                    aiCont.m_patrolPoints = spawning.m_patrolPoints;
+                    m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
+                }
+                else if (spawning.m_objectSpawnType == ObjectSpawnType.Heavy)
+                {
+                    AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
+                    aiCont.m_originPoint = spawning.m_patrolPoints[0];
+                    m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
+                }
+                else if (spawning.m_objectSpawnType == ObjectSpawnType.Object)
+                {
+                    ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform);
+                }else if (spawning.m_objectSpawnType == ObjectSpawnType.ExistingObject)
+                {
+                    spawning.m_spawnObject.transform.position = spawning.m_spawnPosition + Random.insideUnitCircle * spawning.m_spawnRadius;
+                    spawning.m_spawnObject.SetActive(true);
+                    AiController aiCont = spawning.m_spawnObject.GetComponent<AiController>();
+                    if (aiCont != null)
+                    {
+                        aiCont.m_originPoint = spawning.m_patrolPoints[0];
+                        aiCont.m_patrolPoints = spawning.m_patrolPoints;
+                        if (!m_spawnManager.m_currentEnemiesInRoom.Contains(aiCont))
+                        {
+                            m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
+                        }
+                        
+                    }
+                }
             }
         }
     }
 
-
+    public void Respawn()
+    {
+        
+        m_health.m_isDead = false;
+        m_health.ResetHealth();
+        gameObject.SetActive(true);
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, m_spawnerRadius);
     }
 
+    [System.Serializable]
     public struct ObjectSpawnsOnDeath
     {
         public ObjectSpawnType m_objectSpawnType;
+        public Vector2 m_spawnPosition;
+        public float m_spawnRadius;
         public GameObject m_spawnObject;
         public List<Transform> m_patrolPoints;
     }
