@@ -11,6 +11,8 @@ public class PlayerInput : MonoBehaviour
 
 	public bool m_isKeyboard;
 
+	public bool m_isSinglePlayerController;
+
 	private PlayerController m_playerController;
 
 	private Player m_playerInputController;
@@ -36,7 +38,15 @@ public class PlayerInput : MonoBehaviour
 		}
 		else
 		{
-			HandleTwoPlayerInput();
+			if (m_isSinglePlayerController)
+			{
+				HandleRunnerInput(m_player0InputController);
+				HandleGunnerInput(m_player0InputController);
+			}
+			else
+			{
+				HandleTwoPlayerInput();
+			}
 		}
 	}
 
