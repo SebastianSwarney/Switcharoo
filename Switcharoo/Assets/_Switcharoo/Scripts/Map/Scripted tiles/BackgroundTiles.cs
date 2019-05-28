@@ -88,48 +88,60 @@ public class BackgroundTiles : Tile
         int tileIndex = 4;
         //The basic ones
 
-        if (nTiles[1] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[6] == 'Y' ||
-            nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'N' && nTiles[6] == 'Y')
+        if (nTiles[0] == 'N' && nTiles[1] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[5] == 'Y' && nTiles[6] == 'Y' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[5] == 'N' && nTiles[6] == 'Y' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[5] == 'Y' && nTiles[6] == 'Y' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'N' && nTiles[6] == 'Y' && nTiles[7] == 'Y')
         {
             tileIndex = 0;
         }
 
-        if (nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[6] == 'Y')
+        if (nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[6] == 'Y' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[2] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'N' )
         {
             tileIndex = 1;
         }
 
-        if (nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[6] == 'N' ||
-            nTiles[0] == 'N' && nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'Y')
+        if (nTiles[0] == 'N' && nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[5] == 'Y' && nTiles[6] == 'N' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[5] == 'N' && nTiles[6] == 'N' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[5] == 'Y' && nTiles[6] == 'N' ||
+            nTiles[0] == 'N' && nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'Y')
         {
             tileIndex = 2;
         }
 
-        if (nTiles[1] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'Y')
+        if (nTiles[1] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'Y' ||
+            nTiles[0] == 'N' && nTiles[1] == 'Y' && nTiles[2] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'Y')
         {
             tileIndex = 3;
         }
 
 
 
-        if (nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'N')
+        if (nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'N' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'N' && nTiles[6] == 'Y' && nTiles[7] == 'N')
         {
             tileIndex = 5;
         }
 
-        if (nTiles[1] == 'N' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'Y' ||
-            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'N')
+        if (nTiles[1] == 'N' && nTiles[2] == 'N' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'Y' ||
+            nTiles[1] == 'N' && nTiles[2] == 'Y' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'N' ||
+            nTiles[1] == 'N' && nTiles[2] == 'Y' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'Y' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'N')
         {
             tileIndex = 6;
         }
 
-        if (nTiles[1] == 'Y' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'Y')
+        if (nTiles[1] == 'Y' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'Y' ||
+            nTiles[0] == 'N' && nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'N' && nTiles[6] == 'Y' && nTiles[7] == 'Y')
         {
             tileIndex = 7;
         }
 
-        if (nTiles[1] == 'Y' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'N' ||
-            nTiles[1] == 'Y' && nTiles[2] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'Y' && nTiles[6] == 'Y')
+        if (nTiles[1] == 'Y' && nTiles[2] == 'N' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'N' && nTiles[7] == 'Y' ||
+            nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'N' && nTiles[7] == 'N' ||
+            nTiles[1] == 'Y' && nTiles[2] == 'Y' && nTiles[3] == 'N' && nTiles[4] == 'Y' && nTiles[6] == 'N' && nTiles[7] == 'Y' ||
+            nTiles[0] == 'Y' && nTiles[1] == 'Y' && nTiles[2] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[5] == 'Y' && nTiles[6] == 'Y' && nTiles[7] == 'Y')
         {
             tileIndex = 8;
         }
@@ -157,28 +169,30 @@ public class BackgroundTiles : Tile
         return tMap.GetTile(pos) == this;
     }
 
-    
-        //Only appears in unity editor
-        #if UNITY_EDITOR
 
-        //creates a cliclabke thing to create this scriptable object
+    //Only appears in unity editor
+#if UNITY_EDITOR
 
-        //found under Assets, create, tiles, and there
-        [MenuItem("Assets/Create/Tiles/AdjustableTile")]
+    //creates a cliclabke thing to create this scriptable object
+
+    //found under Assets, create, tiles, and there
+    [MenuItem("Assets/Create/Tiles/AdjustableTile")]
 
 
-        //Saves it in the porject?
-        public static void CreateAdjustableTile(){
-            string path = EditorUtility.SaveFilePanelInProject ("Save AdjustableTile", "New AdjustableTile", "asset", "Save AdjustableTile", "Assets");
+    //Saves it in the porject?
+    public static void CreateAdjustableTile()
+    {
+        string path = EditorUtility.SaveFilePanelInProject("Save AdjustableTile", "New AdjustableTile", "asset", "Save AdjustableTile", "Assets");
 
-            if (path == "") {
-                return;
-            }
-            //When clicked, creates a new scriptable object
-            AssetDatabase.CreateAsset (ScriptableObject.CreateInstance<BackgroundTiles> (), path);
+        if (path == "")
+        {
+            return;
         }
+        //When clicked, creates a new scriptable object
+        AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<BackgroundTiles>(), path);
+    }
 
 
-        #endif
-        
+#endif
+
 }
