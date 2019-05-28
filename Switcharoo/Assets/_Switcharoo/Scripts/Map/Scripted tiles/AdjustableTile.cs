@@ -85,7 +85,7 @@ public class AdjustableTile : Tile
         p_tileData.sprite = m_errorSprite;
 
 
-        int tileIndex = 100;
+        int tileIndex = 4;
         //The basic ones
 
         if (nTiles[1] == 'N' && nTiles[3] == 'Y' && nTiles[4] == 'N' && nTiles[6] == 'Y')
@@ -108,10 +108,7 @@ public class AdjustableTile : Tile
             tileIndex = 3;
         }
 
-        if (nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'Y')
-        {
-            tileIndex = 4;
-        }
+
 
         if (nTiles[1] == 'Y' && nTiles[3] == 'Y' && nTiles[4] == 'Y' && nTiles[6] == 'N')
         {
@@ -138,7 +135,9 @@ public class AdjustableTile : Tile
             tileIndex = 9;
         }
 
-        if(tileIndex < m_tileSprites.Length)
+
+
+        if (tileIndex < m_tileSprites.Length)
         {
             p_tileData.sprite = m_tileSprites[tileIndex];
         }

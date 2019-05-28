@@ -56,7 +56,7 @@ public abstract class RoomManager_Base : MonoBehaviour
             spawns.InitializeSpawnerManager();
         }
 
-        for (int i = 1; i < m_roomVariants.Count; i++)
+        for (int i = 1; i < m_roomVariants.Count-1; i++)
         {
             m_roomVariants[i].SetActive(false);
             if (m_roomTilemap[i] == m_roomTilemap[0]) continue;
