@@ -18,8 +18,10 @@ public class CollisionHazard_Move : CollisionHazard_Base
 	private float m_percentBetweenWaypoints;
 	private float m_nextMoveTime;
 
-	public void Start()
+	public override void Start()
 	{
+		base.Start();
+
 		m_globalWaypoints = new Vector3[m_localWaypoints.Length];
 		for (int i = 0; i < m_localWaypoints.Length; i++)
 		{

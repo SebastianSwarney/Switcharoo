@@ -13,7 +13,7 @@ public class CollisionHazard_Base : MonoBehaviour
 	[HideInInspector]
 	public Rigidbody2D m_rigidbody;
 	[HideInInspector]
-	public bool m_canDamage;
+	public bool m_canDamage = true;
 	[HideInInspector]
 	public SpriteRenderer m_renderer;
 
@@ -22,6 +22,8 @@ public class CollisionHazard_Base : MonoBehaviour
 		m_renderer = GetComponent<SpriteRenderer>();
 		m_damageTimer = m_damageInterval;
 		m_rigidbody = GetComponent<Rigidbody2D>();
+
+		m_canDamage = true;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -35,12 +37,27 @@ public class CollisionHazard_Base : MonoBehaviour
 		{
 			if (m_canDamage)
 			{
-				collision.gameObject.GetComponent<Health>().TakeDamage(m_damageAmount);
+				if (CheckCollisionLayer(m_targetMask, collision.collider))
+				{
+					collision.gameObject.GetComponent<Health>().TakeDamage(m_damageAmount);
+				}
 			}
 
 			m_damageTimer = 0;
 		}
 
 		m_damageTimer += Time.deltaTime;
+	}
+
+	public bool CheckCollisionLayer(LayerMask p_layerMask, Collider2D p_collision)
+	{
+		if (p_layerMask == (p_layerMask | (1 << p_collision.gameObject.layer)))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
