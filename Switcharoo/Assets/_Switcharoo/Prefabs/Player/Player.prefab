@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentPlayerOrder: 0
   m_isKeyboard: 1
+  m_isSinglePlayerController: 0
 --- !u!114 &288033317153994160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,12 +178,12 @@ MonoBehaviour:
   m_runnerObstacleMask:
     serializedVersion: 2
     m_Bits: 0
-  m_maxJumpHeight: 4
+  m_maxJumpHeight: 7
   m_minJumpHeight: 1
-  m_timeToJumpApex: 0.4
+  m_timeToJumpApex: 0.5
   m_accelerationTimeAirborne: 0.2
   m_accelerationTimeGrounded: 0.1
-  m_moveSpeed: 6
+  m_moveSpeed: 8
   m_moveDirection: {x: 0, y: 0, z: 0}
   m_crosshair: {fileID: 288033318095290243}
   m_crosshairDst: 2
@@ -226,6 +227,7 @@ MonoBehaviour:
     m_trailType: {fileID: 0}
   m_velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
+  m_gunnerAimInput: {x: 0, y: 0}
 --- !u!114 &288033317153994161
 MonoBehaviour:
   m_ObjectHideFlags: 0

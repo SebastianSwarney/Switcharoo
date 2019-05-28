@@ -5,55 +5,90 @@ using UnityEngine.Tilemaps;
 
 public class CameraController_Base : MonoBehaviour
 {
+	[Header("Global Camera Properites")]
 	public Controller2D m_target;
+
+	private PlayerController m_player;
+	private Camera m_camera;
+	private Vector3 m_focusPoint;
+
+	[Header("Runner Camera Properties")]
 	public float m_verticalOffset;
 	public float m_lookAheadDstX;
 	public float m_lookSmoothTimeX;
 	public float m_verticalSmoothTime;
-	public Vector2 m_focusAreaSize;
-	public Bounds m_cameraBoundsArea;
+	public Vector2 m_runnerFocusAreaSize;
 
-	public TilemapCollider2D m_firstTileMapCollider;
-
-	[Space]
-
-	public float m_cameraTransitionTime;
-	public AnimationCurve m_transitionCurve;
-
-	private Camera m_camera;
-
-	private PlayerController m_player;
-
-	FocusArea m_focusArea;
-
+	private FocusArea m_runnerFocusArea;
 	private float m_currentLookAheadX;
 	private float m_targetLookAheadX;
 	private float m_lookAheadDirX;
 	private float m_smoothLookVelocityX;
 	private float m_smoothVelocityY;
-
 	private bool m_lookAheadStopped;
+
+	[Header("Gunner Camera Properties")]
+	public float m_gunnerPanDistance;
+	public float m_gunnerPanSmoothTime;
+
+	private Vector3 m_lookSmoothVelocity;
+
+	[Header("Camera Level Bounds Properties")]
+	public bool m_useLevelBounds = false;
+	public Bounds m_cameraBoundsArea;
+	public TilemapCollider2D m_firstTileMapCollider;
 
 	void Start()
 	{
-		m_focusArea = new FocusArea(m_target.col.bounds, m_focusAreaSize);
-		m_camera = GetComponent<Camera>();
+		m_runnerFocusArea = new FocusArea(m_target.col.bounds, m_runnerFocusAreaSize);
 
 		m_player = m_target.GetComponent<PlayerController>();
 
-		CalculateNewCameraBounds(m_firstTileMapCollider);
+		m_camera = GetComponent<Camera>();
+
+		if (m_useLevelBounds)
+		{
+			CalculateNewCameraBounds(m_firstTileMapCollider);
+		}
 	}
 
 	void LateUpdate()
 	{
-		m_focusArea.Update(m_target.col.bounds);
+		m_runnerFocusArea.Update(m_target.col.bounds);
 
-		Vector2 focusPosition = m_focusArea.centre + Vector2.up * m_verticalOffset;
+		CalculateRunnerCamera();
 
-		if (m_focusArea.velocity.x != 0)
+		CalculateGunnerCamera();
+
+		if (m_useLevelBounds)
 		{
-			m_lookAheadDirX = Mathf.Sign(m_focusArea.velocity.x);
-			if (Mathf.Sign(m_target.playerInput.x) == Mathf.Sign(m_focusArea.velocity.x) && m_target.playerInput.x != 0)
+			if (!m_cameraBoundsArea.Contains(transform.position))
+			{
+				transform.position = m_cameraBoundsArea.ClosestPoint(transform.position);
+			}
+		}
+	}
+
+	private void CalculateGunnerCamera()
+	{
+		float theta = Mathf.Atan2(m_player.m_gunnerAimInput.y, m_player.m_gunnerAimInput.x);
+		Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * m_gunnerPanDistance;
+		Vector3 targetPos = m_focusPoint + (pCircle + Vector3.forward * -10);
+
+		Debug.DrawLine(m_focusPoint, targetPos);
+
+		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref m_lookSmoothVelocity, m_gunnerPanSmoothTime);
+	}
+
+	private void CalculateRunnerCamera()
+	{
+		Vector2 focusPosition = m_runnerFocusArea.centre + Vector2.up * m_verticalOffset;
+
+		if (m_runnerFocusArea.velocity.x != 0)
+		{
+			m_lookAheadDirX = Mathf.Sign(m_runnerFocusArea.velocity.x);
+
+			if (Mathf.Sign(m_target.playerInput.x) == Mathf.Sign(m_runnerFocusArea.velocity.x) && m_target.playerInput.x != 0)
 			{
 				m_lookAheadStopped = false;
 				m_targetLookAheadX = m_lookAheadDirX * m_lookAheadDstX;
@@ -69,26 +104,9 @@ public class CameraController_Base : MonoBehaviour
 		}
 
 		m_currentLookAheadX = Mathf.SmoothDamp(m_currentLookAheadX, m_targetLookAheadX, ref m_smoothLookVelocityX, m_lookSmoothTimeX);
-
-		focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref m_smoothVelocityY, m_verticalSmoothTime);
+		focusPosition.y = Mathf.SmoothDamp(m_focusPoint.y, focusPosition.y, ref m_smoothVelocityY, m_verticalSmoothTime);
 		focusPosition += Vector2.right * m_currentLookAheadX;
-		transform.position = (Vector3)focusPosition + Vector3.forward * -10;
-
-		if (!m_cameraBoundsArea.Contains(transform.position))
-		{
-			transform.position = m_cameraBoundsArea.ClosestPoint(transform.position);
-		}
-	}
-
-	private void Aim()
-	{
-		float theta = Mathf.Atan2(m_player.m_gunnerAimInput.y, m_player.m_gunnerAimInput.x);
-
-		Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * 0.5f;
-
-		m_camera.transform.position = transform.position + pCircle;
-
-		//m_crosshair.position = transform.position + pCircle;
+		m_focusPoint = (Vector3)focusPosition + Vector3.forward * -10;
 	}
 
 	private void CalculateNewCameraBounds(TilemapCollider2D p_tilemapCollider)
@@ -113,40 +131,12 @@ public class CameraController_Base : MonoBehaviour
 		m_cameraBoundsArea = newBounds;
 	}
 
-	#region Camera Transition Code
-	IEnumerator TransitionCameraToNewLevel(float p_newCameraSize, TilemapCollider2D p_newTilemapCollider)
-	{
-		float t = 0;
-
-		float startSize = m_camera.orthographicSize;
-
-		Vector3 startPosition = transform.position;
-
-		Vector3 targetPosition = p_newTilemapCollider.bounds.center;
-
-		while (t < m_cameraTransitionTime)
-		{
-			t += Time.deltaTime;
-
-			float progress = m_transitionCurve.Evaluate(t / m_cameraTransitionTime);
-
-			transform.position = Vector3.Lerp(startPosition, targetPosition, progress);
-
-			m_camera.orthographicSize = Mathf.Lerp(startSize, p_newCameraSize, progress);
-
-			yield return null;
-		}
-
-		CalculateNewCameraBounds(p_newTilemapCollider);
-	}
-	#endregion
-
 	void OnDrawGizmos()
 	{
 		Gizmos.color = new Color(1, 0, 0, .5f);
-		Gizmos.DrawCube(m_focusArea.centre, m_focusAreaSize);
+		Gizmos.DrawCube(m_runnerFocusArea.centre, m_runnerFocusAreaSize);
 
-		DebugExtension.DrawBounds(m_cameraBoundsArea, Color.red);
+		DebugExtension.DrawBounds(m_cameraBoundsArea, Color.blue);
 	}
 
 	#region Focus Struct
