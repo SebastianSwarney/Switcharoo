@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
 	public enum DamageState { Vulnerable, Invulnerable }
 
+	public enum InputState { InputEnabled, InputDisabled}
+
 	public PlayerState m_states;
 
 	public enum PlayerType { Type0, Type1 }
@@ -595,6 +597,7 @@ public class PlayerController : MonoBehaviour
 		public MovementControllState m_movementControllState;
 		public GravityState m_gravityControllState;
 		public DamageState m_damageState;
+		public InputState m_inputState;
 	}
 
 	private void UpdatePlayerStates()
@@ -625,6 +628,21 @@ public class PlayerController : MonoBehaviour
 			case DamageState.Invulnerable:
 
 				m_health.m_canTakeDamage = false;
+
+				break;
+		}
+
+		switch (m_states.m_inputState)
+		{
+			case InputState.InputEnabled:
+
+				//Nothing
+
+				break;
+
+			case InputState.InputDisabled:
+
+
 
 				break;
 		}

@@ -163,8 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f436fe1c41ef4546aaa21959837a8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_showGizmos: 1
   m_currentSpawnDir: 0
   m_spawnManager: {fileID: 0}
+  m_spawnerRadius: 0
   m_spawnPerMinute: 10
   m_enemyToSpawn: {fileID: 4667800907035337802, guid: ff02775dce6c83b49b6f5eb6f65223b7,
     type: 3}
@@ -172,6 +174,7 @@ MonoBehaviour:
   m_maxEnemyFromThis: 2
   m_currentEnemyNumber: 0
   m_disableObjectsOnDisable: []
+  m_spawnOnDestroyed: []
 --- !u!1001 &92076681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,6 +479,7 @@ MonoBehaviour:
   m_placedEnemiesParent: {fileID: 1548778045}
   m_maxAiInRoom: 30
   m_currentAiCount: 2
+  m_roomDeloaded: 0
   m_currentEnemiesInRoom: []
   m_currentNavGrid: {fileID: 0}
   m_timeToStartSpawn: 2
@@ -560,14 +564,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d05778b7e004284dbecc02574afeee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_roomVariants: []
   m_roomAiManager:
   - {fileID: 205135105}
   m_roomTaskComplete: 0
+  m_increaseRoomIndex: 0
   m_stopEnemySpawnsOnComplete: 1
-  m_roomTilemap: {fileID: 609288544}
+  m_roomTilemap:
+  - {fileID: 0}
   m_tempLockedDoor: {fileID: 1057105997}
   m_playerObject: {fileID: 0}
   m_navGrid: {fileID: 0}
+  m_roomsToAlterOnCompletion: []
   m_hillsInRoom:
   - {fileID: 1020989258}
   - {fileID: 468951491}
@@ -21633,14 +21641,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f436fe1c41ef4546aaa21959837a8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_showGizmos: 1
   m_currentSpawnDir: 0
   m_spawnManager: {fileID: 0}
+  m_spawnerRadius: 0
   m_spawnPerMinute: 10
   m_enemyToSpawn: {fileID: 0}
   m_spawnedEnemyPatrolPoints: []
   m_maxEnemyFromThis: 0
   m_currentEnemyNumber: 0
   m_disableObjectsOnDisable: []
+  m_spawnOnDestroyed: []
 --- !u!1 &709311713
 GameObject:
   m_ObjectHideFlags: 0
@@ -22295,8 +22306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerGameObject: {fileID: 168630517}
-  m_allRooms:
-  - {fileID: 280868714}
 --- !u!4 &1106369212
 Transform:
   m_ObjectHideFlags: 0
@@ -22717,5 +22726,10 @@ PrefabInstance:
       propertyPath: m_firstTileMapCollider
       value: 
       objectReference: {fileID: 609288548}
+    - target: {fileID: 5592034707182385542, guid: 3b4ca41f933e23742895511e934a1e5b,
+        type: 3}
+      propertyPath: m_useLevelBounds
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b4ca41f933e23742895511e934a1e5b, type: 3}
