@@ -32,22 +32,36 @@ public class PlayerInput : MonoBehaviour
 
 	void Update()
 	{
-		if (m_isKeyboard)
+		switch (m_playerController.m_states.m_inputState)
 		{
-			HandleSinglePlayerInput();
+			case PlayerController.InputState.InputEnabled:
+
+				if (m_isKeyboard)
+				{
+					HandleSinglePlayerInput();
+				}
+				else
+				{
+					if (m_isSinglePlayerController)
+					{
+						HandleRunnerInput(m_player0InputController);
+						HandleGunnerInput(m_player0InputController);
+					}
+					else
+					{
+						HandleTwoPlayerInput();
+					}
+				}
+
+				break;
+
+			case PlayerController.InputState.InputDisabled:
+
+
+
+				break;
 		}
-		else
-		{
-			if (m_isSinglePlayerController)
-			{
-				HandleRunnerInput(m_player0InputController);
-				HandleGunnerInput(m_player0InputController);
-			}
-			else
-			{
-				HandleTwoPlayerInput();
-			}
-		}
+
 	}
 
 	private void HandleTwoPlayerInput()
