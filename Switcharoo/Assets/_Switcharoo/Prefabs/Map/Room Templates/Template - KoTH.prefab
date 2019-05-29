@@ -12,21 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d05778b7e004284dbecc02574afeee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomVariants:
-  - {fileID: 4269767333540024455}
-  - {fileID: 3974413762931675264}
   m_roomAiManager:
   - {fileID: 1400589147094945946}
   - {fileID: 5408681031854120028}
+  m_roomVariants:
+  - {fileID: 4269767333540024455}
+  - {fileID: 3974413762931675264}
+  m_roomsToAlterOnCompletion: []
   m_roomTaskComplete: 0
-  m_increaseRoomIndex: 0
+  m_doorsParent: {fileID: 1902137910771974844}
   m_stopEnemySpawnsOnComplete: 1
   m_roomTilemap:
   - {fileID: 7025374893098696443}
-  m_tempLockedDoor: {fileID: 503528420090304907}
+  m_increaseRoomIndex: 0
+  m_currentLoadedTilemap: {fileID: 0}
   m_playerObject: {fileID: 0}
   m_navGrid: {fileID: 0}
-  m_roomsToAlterOnCompletion: []
   m_hillsInRoom: []
 --- !u!1 &3180441732095092557
 GameObject:
@@ -250,15 +251,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3593565232637721856, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1166228383204974365, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593565232637721856, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ce74da47cdc094ebcf9e67ac014c4c, type: 3}
@@ -277,12 +278,6 @@ Transform:
 --- !u!1 &7025374893098696443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2599562973492890631, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 5002555796766405372}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &503528420090304907 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4868463284834986871, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
     type: 3}
   m_PrefabInstance: {fileID: 5002555796766405372}
   m_PrefabAsset: {fileID: 0}
@@ -322,3 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92614af2dd30d134eabf305b13b69cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1902137910771974844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6848116463543988288, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5002555796766405372}
+  m_PrefabAsset: {fileID: 0}

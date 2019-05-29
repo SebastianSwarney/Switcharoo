@@ -7,8 +7,9 @@ public class CameraController_Base : MonoBehaviour
 {
 	[Header("Global Camera Properites")]
 	public Controller2D m_target;
+    
 
-	private PlayerController m_player;
+    private PlayerController m_player;
 	private Camera m_camera;
 	private Vector3 m_focusPoint;
 
@@ -36,20 +37,18 @@ public class CameraController_Base : MonoBehaviour
 	[Header("Camera Level Bounds Properties")]
 	public bool m_useLevelBounds = false;
 	public Bounds m_cameraBoundsArea;
-	public TilemapCollider2D m_firstTileMapCollider;
 
-	void Start()
+
+
+    void Start()
 	{
 		m_runnerFocusArea = new FocusArea(m_target.col.bounds, m_runnerFocusAreaSize);
 
 		m_player = m_target.GetComponent<PlayerController>();
 
-		m_camera = GetComponent<Camera>();
 
-		if (m_useLevelBounds)
-		{
-			CalculateNewCameraBounds(m_firstTileMapCollider);
-		}
+
+
 	}
 
 	void LateUpdate()
@@ -109,10 +108,13 @@ public class CameraController_Base : MonoBehaviour
 		m_focusPoint = (Vector3)focusPosition + Vector3.forward * -10;
 	}
 
-	private void CalculateNewCameraBounds(TilemapCollider2D p_tilemapCollider)
+	public void CalculateNewCameraBounds(TilemapCollider2D p_tilemapCollider)
 	{
 		Bounds newBounds = new Bounds();
-
+        if (m_camera == null)
+        {
+            m_camera = GetComponent<Camera>();
+        }
 		float camHeight = 2f * m_camera.orthographicSize;
 		float camWidth = camHeight * m_camera.aspect;
 
@@ -129,7 +131,11 @@ public class CameraController_Base : MonoBehaviour
 		}
 
 		m_cameraBoundsArea = newBounds;
-	}
+        m_smoothLookVelocityX = 0;
+        m_smoothVelocityY = 0;
+        m_lookSmoothVelocity = Vector3.zero;
+
+    }
 
 	void OnDrawGizmos()
 	{

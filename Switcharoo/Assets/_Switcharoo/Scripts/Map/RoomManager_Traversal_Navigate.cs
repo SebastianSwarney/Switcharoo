@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RoomManager_Traversal_Navigate : RoomManager_Base
 {
-
+    
+    [Header("Traversal - Navigate Properties")]
     public Objective_KoTH_Hill m_targetPosition;
     public override void CheckRoomObjective()
     {

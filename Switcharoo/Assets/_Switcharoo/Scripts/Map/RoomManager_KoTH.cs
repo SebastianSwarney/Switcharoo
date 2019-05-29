@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomManager_KoTH : RoomManager_Base
 {
+    
+    [Header("KOTH Properties")]
     public List<Objective_KoTH_Hill> m_hillsInRoom;
     Objective_KoTH_Hill m_currentActiveHill;
 

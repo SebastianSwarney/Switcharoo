@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomManager_Traversal_DestroySpawns : RoomManager_Base
 {
+    
+    [Header("Traversal - Destroy Spawns Properties")]
     public List<GameObject> m_enemySpawners;
 
     public override void CheckRoomObjective()

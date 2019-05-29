@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomManager_Arena_Survival : RoomManager_Base
 {
+    
+    [Header("Arena Survival Properties")]
     public int m_enemiesLeft;
     public override void CheckRoomObjective()
     {

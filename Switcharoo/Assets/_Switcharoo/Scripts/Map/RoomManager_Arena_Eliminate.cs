@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomManager_Arena_Eliminate : RoomManager_Base
 {
+    
+    [Header("Arena Eliminate Properties")]
     public List<GameObject> m_targetEnemies;
     public override void CheckRoomObjective()
     {

@@ -4,19 +4,30 @@ using UnityEngine;
 
 public abstract class RoomManager_Base : MonoBehaviour
 {
-    public List<GameObject> m_roomVariants;
     public List<AI_Spawner_Manager_Base> m_roomAiManager;
+    public List<GameObject> m_roomVariants;
+    public List<RoomManager_Base> m_roomsToAlterOnCompletion;
+    public List<GameObject> m_roomTilemap;
+
+    [Header("Preset variables")]
     public bool m_roomTaskComplete = false;
     bool m_roomAlreadyComplete = false;
+    public GameObject m_doorsParent;
+
+
+
+    int m_roomVariantIndex = 0;
+    public bool m_stopEnemySpawnsOnComplete = true;
+    
+
+    
+    List<Door> m_LockedDoors;
 
     [HideInInspector]
     public bool m_increaseRoomIndex = false;
 
-    int m_roomVariantIndex = 0;
-    public bool m_stopEnemySpawnsOnComplete = true;
-    public List<GameObject> m_roomTilemap;
-    public GameObject m_tempLockedDoor;
-
+    [HideInInspector]
+    public GameObject m_currentLoadedTilemap;
 
     [HideInInspector]
     public GameObject m_playerObject;
@@ -24,8 +35,7 @@ public abstract class RoomManager_Base : MonoBehaviour
     [HideInInspector]
     public PlatformerNavigation m_navGrid;
 
-    [Space(10)]
-    public List<RoomManager_Base> m_roomsToAlterOnCompletion;
+
 
 
     void Awake()
@@ -39,6 +49,11 @@ public abstract class RoomManager_Base : MonoBehaviour
         foreach (AI_Spawner_Manager_Base spawn in m_roomAiManager)
         {
             spawn.m_roomBase = this;
+        }
+        m_LockedDoors = new List<Door>();
+        for (int i = 0; i < m_doorsParent.transform.childCount; i++)
+        {
+            m_LockedDoors.Add(m_doorsParent.transform.GetChild(i).GetComponent<Door>());
         }
 
     }
@@ -56,11 +71,15 @@ public abstract class RoomManager_Base : MonoBehaviour
             spawns.InitializeSpawnerManager();
         }
 
-        for (int i = 1; i < m_roomVariants.Count-1; i++)
+        for (int i = 1; i < m_roomVariants.Count; i++)
         {
             m_roomVariants[i].SetActive(false);
-            if (m_roomTilemap[i] == m_roomTilemap[0]) continue;
-            m_roomTilemap[i].SetActive(false);
+            if (i < m_roomTilemap.Count)
+            {
+                if (m_roomTilemap[i] == m_roomTilemap[0]) continue;
+                m_roomTilemap[i].SetActive(false);
+            }
+
         }
 
         m_playerObject = DungeonManager.instance.m_playerGameObject;
@@ -88,6 +107,10 @@ public abstract class RoomManager_Base : MonoBehaviour
         {
             m_roomTilemap[m_roomVariantIndex].SetActive(false);
         }
+        else
+        {
+            m_roomTilemap[m_roomTilemap.Count - 1].SetActive(false);
+        }
     }
     private void OnEnable()
     {
@@ -98,7 +121,7 @@ public abstract class RoomManager_Base : MonoBehaviour
             {
                 m_roomVariantIndex++;
             }
-            
+
         }
         m_roomVariants[m_roomVariantIndex].SetActive(true);
         if (m_roomVariantIndex < m_roomAiManager.Count)
@@ -108,10 +131,12 @@ public abstract class RoomManager_Base : MonoBehaviour
         if (m_roomVariantIndex < m_roomTilemap.Count)
         {
             m_roomTilemap[m_roomVariantIndex].SetActive(true);
+            m_currentLoadedTilemap = m_roomTilemap[m_roomVariantIndex];
         }
         else
         {
             m_roomTilemap[m_roomTilemap.Count - 1].SetActive(true);
+            m_currentLoadedTilemap = m_roomTilemap[m_roomTilemap.Count - 1];
         }
     }
     public void DeloadRoom()
@@ -125,13 +150,19 @@ public abstract class RoomManager_Base : MonoBehaviour
     private void Update()
     {
         CheckRoomObjective();
-        m_tempLockedDoor.SetActive(!m_roomTaskComplete);
+        
 
         if (m_roomTaskComplete && !m_roomAlreadyComplete)
         {
+            foreach(Door currentDoor in m_LockedDoors)
+            {
+                currentDoor.ChangeLockOnDoor(false);
+            }
+
+
             m_roomAlreadyComplete = true;
             m_increaseRoomIndex = true;
-            foreach(RoomManager_Base room in m_roomsToAlterOnCompletion)
+            foreach (RoomManager_Base room in m_roomsToAlterOnCompletion)
             {
                 room.m_increaseRoomIndex = true;
             }
