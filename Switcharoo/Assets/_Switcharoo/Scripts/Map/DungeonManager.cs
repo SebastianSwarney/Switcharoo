@@ -49,9 +49,8 @@ public class DungeonManager : MonoBehaviour
 
     IEnumerator RoomTransition(Vector3 p_camStartPos, Vector3 p_playerSpawnPos, RoomManager_Base p_loadMap)
     {
-
+        m_playerGameObject.transform.position = p_playerSpawnPos;
         GameObject deloadTilemap = m_currentLoadedTilemap.transform.parent.parent.parent.gameObject;
-        print("Deload: " + deloadTilemap.name);
         m_currentLoadedTilemap = p_loadMap.m_currentLoadedTilemap.transform.GetChild(0).gameObject;
         m_cameraController.CalculateNewCameraBounds(m_currentLoadedTilemap.GetComponent<UnityEngine.Tilemaps.TilemapCollider2D>());
 
@@ -67,7 +66,7 @@ public class DungeonManager : MonoBehaviour
             m_cameraController.transform.position = new Vector3(Mathf.Lerp(p_camStartPos.x, lerpPoint.x, currentLerpTime / m_roomTransitionTime), Mathf.Lerp(p_camStartPos.y, lerpPoint.y, currentLerpTime / m_roomTransitionTime), m_cameraController.transform.position.z);
             yield return null;
         }
-        m_playerGameObject.transform.position = p_playerSpawnPos;
+        
         m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;
         deloadTilemap.SetActive(false);
         
