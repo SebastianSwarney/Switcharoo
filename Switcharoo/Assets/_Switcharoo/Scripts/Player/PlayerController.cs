@@ -129,12 +129,16 @@ public class PlayerController : MonoBehaviour
 
 	private PlayerInput m_input;
 
+	private SpriteRenderer m_spriteRenderer;
+
     void Start()
     {
         controller = GetComponent<Controller2D>();
 		m_shootController = GetComponent<ShootController>();
 		m_health = GetComponent<Health_Player>();
 		m_input = GetComponent<PlayerInput>();
+
+		m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 		CalculateJump();
 		UpdatePickups();
@@ -458,6 +462,11 @@ public class PlayerController : MonoBehaviour
 			m_players[i].Swap();
 			UpdateLayers();
 			UpdatePickups();
+
+			if (m_players[i].m_currentRole == PlayerRole.Gunner)
+			{
+				m_spriteRenderer.color = m_players[i].m_testColor;
+			}
 		}
 
 		UpdateInput();
@@ -490,6 +499,7 @@ public class PlayerController : MonoBehaviour
 			if (m_players[i].m_currentRole == PlayerRole.Runner)
 			{
 				m_runnerObstacleMask = m_players[i].m_obstacleMask;
+				gameObject.layer = m_players[i].m_obstacleMask;
 			}
 		}
 	}
@@ -503,6 +513,7 @@ public class PlayerController : MonoBehaviour
 		public LayerMask m_obstacleMask;
 		public ShootController.WeaponComposition m_weaponComposition;
 		public MovementAbilityComposition m_movementAbilityComposition;
+		public Color m_testColor;
 
 		public void Swap()
 		{

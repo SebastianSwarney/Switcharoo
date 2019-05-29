@@ -21,6 +21,8 @@ public class CollisionHazard_Rotate : CollisionHazard_Base
 		m_lineRenderer = GetComponent<LineRenderer>();
 		m_collider = GetComponentInChildren<BoxCollider2D>();
 		m_rigidbody = GetComponentInChildren<Rigidbody2D>();
+
+		m_lineRenderer.useWorldSpace = true;
 	}
 
 	private void Update()
