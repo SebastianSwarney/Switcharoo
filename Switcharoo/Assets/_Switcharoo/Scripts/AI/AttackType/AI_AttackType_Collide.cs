@@ -13,8 +13,10 @@ public class AI_AttackType_Collide : AI_AttackType_Base
 {
     [Header("Melee-Only Variables")]
     public float m_targetOvershootPlayerDistance;   //Used for if the target overshoots the player, and the player jumps over them
-
-
+    public bool m_jumpAtPlayer;
+    public float m_jumpHeight;
+    public float m_jumpDistanceFromPlayer;
+    public float m_gravityValue;
     ///<Summary>
     ///Where all the attack logic is
     public override bool AttackFinished(AiController p_aiController, Rigidbody2D p_rb, Vector3 p_targetPos, GameObject p_player, GameObject p_enemyObject, Transform p_bulletOrigin, ShootController p_gun)
@@ -33,6 +35,20 @@ public class AI_AttackType_Collide : AI_AttackType_Base
                 if (PlayerInRange(p_player, p_enemyObject))
                 {
                     m_attackMovement.MoveToPosition(p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
+
+                    if (m_jumpAtPlayer)
+                    {
+                        if (Vector3.Distance(p_enemyObject.transform.position, m_attackMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_player.transform.position)) < m_jumpDistanceFromPlayer)
+                        {
+                            
+                            if (p_aiController.m_isGrounded)
+                            {
+                                
+                                Jump(p_rb);
+                            }
+                        }
+                    }
+                    
 
                     //If the enemy reaches that position, end the current attack
                     if (m_attackMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
@@ -75,7 +91,11 @@ public class AI_AttackType_Collide : AI_AttackType_Base
     }
 
 
-
+    void Jump(Rigidbody2D p_rb)
+    {
+        float jumpForce = Mathf.Sqrt(2f * m_gravityValue * m_jumpHeight);
+        p_rb.velocity = new Vector3(p_rb.velocity.x, jumpForce, 0);
+    }
 
 
 }

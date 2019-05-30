@@ -93,11 +93,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
         return hit;
     }
 
-    public void Jump(Rigidbody2D p_rb)
-    {
-        float jumpForce = Mathf.Sqrt(2f * m_gravityValue * m_jumpHeight);
-        p_rb.velocity = new Vector3(p_rb.velocity.x, jumpForce, 0);
-    }
+
 
     public override void VisualTellMovement(Rigidbody2D p_rb)
     {
@@ -107,5 +103,11 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
     public override void StopMoving(Rigidbody2D p_rb)
     {
         p_rb.velocity = new Vector3(0f, p_rb.velocity.y,0f);
+    }
+
+    public void Jump(Rigidbody2D p_rb)
+    {
+        float jumpForce = Mathf.Sqrt(2f * m_gravityValue * m_jumpHeight);
+        p_rb.velocity = new Vector3(p_rb.velocity.x, jumpForce, 0);
     }
 }

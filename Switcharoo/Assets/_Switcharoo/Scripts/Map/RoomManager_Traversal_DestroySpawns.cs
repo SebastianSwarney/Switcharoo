@@ -24,4 +24,5 @@ public class RoomManager_Traversal_DestroySpawns : RoomManager_Base
     public override void EnemyKilled(AiController p_enemy)
     {
     }
+
 }

@@ -10,27 +10,23 @@ public class RoomManager_Arena_Eliminate : RoomManager_Base
     public override void CheckRoomObjective()
     {
         if (m_roomTaskComplete) return;
-        List<GameObject> removeFromList = new List<GameObject>();
-        foreach(GameObject currentTarget in m_targetEnemies)
+
+        bool m_allEnemiesDisabled = true;
+        foreach(GameObject currentEnemy in m_targetEnemies)
         {
-            if (!currentTarget.activeSelf)
+            if (currentEnemy.activeSelf == true)
             {
-                removeFromList.Add(currentTarget);
+                m_allEnemiesDisabled = false;
             }
         }
-        foreach (GameObject remove in removeFromList)
-        {
-            m_targetEnemies.Remove(remove);
-        }
+        m_roomTaskComplete = m_allEnemiesDisabled;
+        
 
-        if (m_targetEnemies.Count == 0)
-        {
-            m_roomTaskComplete = true;
-        }
     }
 
     public override void EnemyKilled(AiController p_enemy)
     {
-        throw new System.NotImplementedException();
+        
     }
+
 }

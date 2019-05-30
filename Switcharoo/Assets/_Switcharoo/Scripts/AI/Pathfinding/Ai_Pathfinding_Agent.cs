@@ -54,7 +54,6 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
                         }
                         else
                         {
-                            print("Moveing to node");
                             m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
                         }
 
@@ -80,10 +79,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
 
             }
         }
-        else
-        {
-            print("Pathfinding postion reached");
-        }
+
     }
 
     void Jump(float p_maxJumpHeight, bool p_isGrounded)
@@ -209,7 +205,6 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Path could not be calculated!");
     }
 
     ///<Summary>

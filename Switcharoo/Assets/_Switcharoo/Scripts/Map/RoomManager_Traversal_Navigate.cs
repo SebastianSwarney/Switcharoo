@@ -27,4 +27,11 @@ public class RoomManager_Traversal_Navigate : RoomManager_Base
     public override void EnemyKilled(AiController p_enemy)
     {
     }
+
+    public override void ResetRoom()
+    {
+        base.ResetRoom();
+        m_targetPosition.ResetHill();
+
+    }
 }

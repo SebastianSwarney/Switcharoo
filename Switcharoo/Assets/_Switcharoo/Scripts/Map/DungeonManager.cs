@@ -5,28 +5,38 @@ using UnityEngine;
 public class DungeonManager : MonoBehaviour
 {
     public static DungeonManager instance { get; private set; }
+
     public GameObject m_playerGameObject;
+    Vector3 m_playerRespawnPoint;
+    Health m_playerHealth;
+
     [HideInInspector]
     public CameraController_Base m_cameraController;
     PlayerController m_playerCont;
     public GameObject m_currentLoadedTilemap;
 
-    Coroutine m_roomTransitionCoroutine;
-    WaitForSeconds m_delay;
+
 
     [Header("Room Transition")]
     public float m_roomTransitionTime;
+    Coroutine m_roomTransitionCoroutine;
+    public RoomManager_Base m_currentRoom;
+
+
 
     void Awake()
     {
+        
         m_cameraController = Camera.main.GetComponent<CameraController_Base>();
+
         if (m_cameraController.m_useLevelBounds)
         {
             m_cameraController.CalculateNewCameraBounds(m_currentLoadedTilemap.GetComponent<UnityEngine.Tilemaps.TilemapCollider2D>());            
         }
-        
+
+
+        m_playerHealth = m_playerGameObject.GetComponent<Health>();
         m_playerCont = m_playerGameObject.GetComponent<PlayerController>();
-        m_delay = new WaitForSeconds(m_roomTransitionTime);
         if (instance == null)
         {
             instance = this;
@@ -35,15 +45,38 @@ public class DungeonManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        m_playerRespawnPoint = m_playerGameObject.transform.position;
+    }
+
+    private void Update()
+    {
+        CheckPlayerHealth();
+    }
+    void CheckPlayerHealth()
+    {
+        if (m_playerHealth.m_isDead)
+        {
+            Debug.Log("TODO: Place fancy died transition here");
+            m_playerHealth.m_isDead = false;
+            m_playerHealth.ResetHealth();
+            m_currentRoom.gameObject.SetActive(false);
+            m_currentRoom.ResetRoom();
+            m_currentRoom.gameObject.SetActive(true);
+            m_playerGameObject.transform.position = m_playerRespawnPoint;
+            m_cameraController.transform.position = m_cameraController.m_cameraBoundsArea.ClosestPoint(m_playerGameObject.transform.position);
+
+        }
     }
 
     public void LoadNewMap(RoomManager_Base p_loadMap, Vector3 p_playerSpawnPos)
     {
+        m_currentRoom = p_loadMap;
         m_playerCont.m_velocity = Vector2.zero;
         p_loadMap.gameObject.SetActive(true);
         m_cameraController.enabled = false;
         m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
         m_roomTransitionCoroutine = StartCoroutine(RoomTransition(m_cameraController.transform.position, p_playerSpawnPos, p_loadMap));
+        m_playerRespawnPoint = p_playerSpawnPos;
 
     }
 
@@ -58,7 +91,6 @@ public class DungeonManager : MonoBehaviour
         float currentLerpTime = 0;
 
         Vector3 lerpPoint = m_cameraController.m_cameraBoundsArea.ClosestPoint(p_playerSpawnPos);
-        Debug.DrawLine(p_camStartPos, lerpPoint, Color.red, 10);
         while (m_cameraController.transform.position.x != lerpPoint.x)
         {
             currentLerpTime += Time.deltaTime;

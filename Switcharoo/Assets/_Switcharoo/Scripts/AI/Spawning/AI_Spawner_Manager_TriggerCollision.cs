@@ -16,12 +16,14 @@ public class AI_Spawner_Manager_TriggerCollision : AI_Spawner_Manager_Base
     {
         cols = GetComponents<Collider2D>();
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == playerTag)
         {
             StartAllSpawners();
-            foreach(Collider2D col in cols){
+            foreach (Collider2D col in cols)
+            {
                 col.enabled = false;
             }
         }
@@ -29,5 +31,9 @@ public class AI_Spawner_Manager_TriggerCollision : AI_Spawner_Manager_Base
 
     public override void DeintializeAllSpawners()
     {
+        foreach (Collider2D col in cols)
+        {
+            col.enabled = true;
+        }
     }
 }

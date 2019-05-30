@@ -172,4 +172,20 @@ public abstract class RoomManager_Base : MonoBehaviour
     public abstract void CheckRoomObjective();
 
     public abstract void EnemyKilled(AiController p_enemy);
+
+    public virtual void ResetRoom()
+    {
+        if (m_roomVariantIndex == 0)
+        {
+            m_roomTaskComplete = false;
+        }
+        
+        m_roomAlreadyComplete = false;
+        m_increaseRoomIndex = false;
+        foreach (Door currentDoor in m_LockedDoors)
+        {
+            currentDoor.ChangeLockOnDoor(true);
+        }
+
+    }
 }

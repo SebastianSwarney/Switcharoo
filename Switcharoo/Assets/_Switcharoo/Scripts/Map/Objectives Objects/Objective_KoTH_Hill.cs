@@ -45,6 +45,12 @@ public class Objective_KoTH_Hill : MonoBehaviour
         }
     }
 
+    public void ResetHill()
+    {
+        m_currentTime = 0;
+        this.gameObject.SetActive(true);
+        m_hillComplete = false;
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (m_player == null) return;

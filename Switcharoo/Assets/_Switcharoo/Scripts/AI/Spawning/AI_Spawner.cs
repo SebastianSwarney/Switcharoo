@@ -65,16 +65,7 @@ public class AI_Spawner : MonoBehaviour
     }
 
 
-    ///<Summary>
-    /// Used for forcing an enemy to spawn here.
-    /// the forced spawn does not have to be in the list of enemies that can spawn here
-    public void ForceSpawnEnemy(GameObject m_forcedSpawn)
-    {
-        Debug.Log("Forcing a spawn will result in an enemy without patrol points");
-        AiController aiCont = ObjectPooler.instance.NewObject(m_forcedSpawn, transform, true, false, false).GetComponent<AiController>();
-        aiCont.m_currentForward = (m_spawnManager.m_player.transform.position.x > transform.position.x) ? -1 : 1;
-        aiCont.gameObject.SetActive(true);
-    }
+
 
     ///<Summary>
     ///Start or stop spawning

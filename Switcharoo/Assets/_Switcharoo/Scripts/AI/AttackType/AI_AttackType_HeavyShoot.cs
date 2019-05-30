@@ -165,7 +165,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
 
         }
 
-        Debug.DrawLine(p_bulletOrigin.position, (p_bulletOrigin.right * 9 + p_bulletOrigin.position), Color.red);
+
 
     }
 
@@ -193,7 +193,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
     void SwitchShootPattern(ShootController.WeaponComposition p_newComp, ShootController p_gun)
     {
         p_gun.m_currentWeaponComposition = p_newComp;
-        Debug.Log("New Behave: " + p_newComp.m_shotPattern);
+
     }
 
     bool IsCloseBehaviour(ShootController p_gun)

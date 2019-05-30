@@ -28,17 +28,17 @@ public class AI_Enemy_Swarm : MonoBehaviour
 
     WaitForSeconds m_entitySpawnDelay;
     Coroutine m_entitySpawnCoroutine;
-    
+
+    bool m_swarmReset = false;
 
     private void Start()
     {
         m_entitySpawnDelay = new WaitForSeconds(m_entityRespawnTime);
         m_swarmEntities = new List<AI_Enemy_Swarm_Entity>();
         m_detectionCollider.radius = m_detectionRadius;
-        if (m_swarmEntities.Count == 0)
-        {
-            SpawnNewEntities();
-        }
+        m_swarmReset = true;
+
+
     }
     /// <summary>
     /// Spawns drones, until the max amount is reached
@@ -53,8 +53,29 @@ public class AI_Enemy_Swarm : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        
+        m_swarmReset = true;
+        foreach (AI_Enemy_Swarm_Entity drone in m_swarmEntities)
+        {
+            drone.gameObject.SetActive(false);
+            ObjectPooler.instance.ReturnToPool(drone.gameObject);
+        }
+
+        m_swarmEntities.Clear();
+
+        m_respawnEntity = false;
+        
+
+    }
     private void Update()
     {
+        if (m_swarmReset)
+        {
+            SpawnNewEntities();
+            m_swarmReset = false;
+        }
         CheckState();
 
         //the loop for respawning more drones
@@ -111,6 +132,8 @@ public class AI_Enemy_Swarm : MonoBehaviour
         AI_Enemy_Swarm_Entity newEntity = ObjectPooler.instance.NewObject(m_entityPrefab, transform).GetComponent<AI_Enemy_Swarm_Entity>();
         newEntity.transform.position = new Vector3(transform.position.x, transform.position.y + .2f, 0f);
         newEntity.transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, Random.Range(0, 360));
+        newEntity.transform.parent = transform.parent;
+
         newEntity.InitializeEntity(this, m_entitySpeed, m_entityTurnSpeed, m_maxEntityDistance, m_entityDamage, m_playerTag);
         newEntity.m_entityState = m_currentAiState;
         if (m_currentAiState == AiState.Attack)

@@ -38,4 +38,13 @@ public class RoomManager_KoTH : RoomManager_Base
     public override void EnemyKilled(AiController p_enemy)
     {
     }
+
+    public override void ResetRoom()
+    {
+        base.ResetRoom();
+        foreach(Objective_KoTH_Hill currentHill in m_hillsInRoom)
+        {
+            currentHill.ResetHill();
+        }
+    }
 }

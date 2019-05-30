@@ -50,14 +50,14 @@ public class PlatformerNavigation : MonoBehaviour
             for (int x = 0; x < m_gridSize.x; x++)
             {
                 count++;
-                //print("Node: " + count);
+                
 
                 if (m_nodeGrid[x, y] == null)
                 {
 
 
                     m_nodeGrid[x, y] = CreateNode(x, y, p_worldBottomLeft);
-                    //print("Node World Pos: " + m_nodeGrid[x, y].m_worldPos);
+                    
 
                 }
 
@@ -122,7 +122,6 @@ public class PlatformerNavigation : MonoBehaviour
                     //Finding the space above the current p_node, to determine how much room there is
                     for (int y = p_yPos + 1; y < m_gridSize.y; y++)
                     {
-                        //print("Freespace y check: " + y);
                         worldPoint = p_worldBottomLeft + Vector3.right * (p_xPos * m_nodeDiameter + m_nodeRadius) + Vector3.up * ((y) * m_nodeDiameter + m_nodeRadius);
                         isWalkable = !(Physics2D.OverlapCircle(worldPoint, .1f, m_terrainLayer));
                         if (isWalkable)
@@ -393,7 +392,6 @@ public class PlatformerNavigation : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Node does not exist in current m_nodeGrid. Defaulting to origin");
         return Vector3.zero;
     }
 

@@ -155,20 +155,7 @@ public class AiController : MonoBehaviour
     }
     void CheckState()
     {
-        if (m_isStuck)
-        {
-            m_stuckTimer += Time.deltaTime;
-            if (m_stuckTimer > m_stuckMoveTime)
-            {
-                FlipEnemy(m_currentForward * -1);
-                print("Fliped : stcuk?");
-                m_isStuck = false;
-            }
-        }
-        else
-        {
-            m_stuckTimer = 0;
-        }
+
 
 
         if (m_target != null)
@@ -205,7 +192,6 @@ public class AiController : MonoBehaviour
                     //If the player is no lnger in the radius, set the target to null
                     if (!PlayerInRadius())
                     {
-                        Debug.Log("Player Gone 2");
                         m_target = null;
                     }
                 }
