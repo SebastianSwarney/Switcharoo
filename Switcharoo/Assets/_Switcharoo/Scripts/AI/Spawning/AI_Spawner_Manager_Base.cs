@@ -27,7 +27,9 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
     public bool m_roomDeloaded = false;
 
-    //[HideInInspector]
+
+
+    [HideInInspector]
     public List<AiController> m_currentEnemiesInRoom;
     [HideInInspector]
     public PlatformerNavigation m_currentNavGrid;
@@ -81,7 +83,6 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.gameObject.SetActive(true);
-
             spawner.m_spawnManager = this;
 
         }
@@ -91,6 +92,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         }
         m_currentAiCount = m_placedEnemies.Count;
     }
+    public abstract void ResetSpawners();
 
     public abstract void DeintializeAllSpawners();
 
@@ -109,6 +111,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.ChangeSpawning(false);
+            print("Stop all spawns");
         }
     }
 
@@ -156,5 +159,8 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         {
             spawner.Respawn();
         }
+        ResetSpawners();
+
+
     }
 }

@@ -23,7 +23,7 @@ TagManager:
   - ObstaclePlayer1
   - GenericEnemy
   - Hazards
-  - 
+  - EnemyOnlyObstacle
   - 
   - 
   - 

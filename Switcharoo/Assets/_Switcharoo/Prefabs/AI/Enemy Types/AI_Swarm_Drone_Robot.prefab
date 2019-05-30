@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_entityState: 0
   m_targetReached: 0
+  m_queenDied: 0
   m_speed: 0
   m_turnSpeed: 0
   m_maxDistanceAway: 0

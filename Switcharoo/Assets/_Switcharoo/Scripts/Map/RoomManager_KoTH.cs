@@ -25,10 +25,7 @@ public class RoomManager_KoTH : RoomManager_Base
             }
             if (m_stopEnemySpawnsOnComplete)
             {
-                foreach (AI_Spawner_Manager_Base spawns in m_roomAiManager)
-                {
-                    spawns.StopAllSpawners();
-                }
+                m_roomAiManager[0].StopAllSpawners();
             }
         }
 

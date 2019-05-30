@@ -12,9 +12,12 @@ public class AI_Spawner_Manager_TriggerCollision : AI_Spawner_Manager_Base
 {
     public string playerTag = "Player";
     Collider2D[] cols;
-    void Start()
+    public override void InitializeAllSpawners()
     {
         cols = GetComponents<Collider2D>();
+        base.InitializeAllSpawners();
+
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,6 +34,14 @@ public class AI_Spawner_Manager_TriggerCollision : AI_Spawner_Manager_Base
 
     public override void DeintializeAllSpawners()
     {
+    }
+
+    public override void ResetSpawners()
+    {
+        if (cols == null)
+        {
+            cols = GetComponents<Collider2D>();
+        }
         foreach (Collider2D col in cols)
         {
             col.enabled = true;

@@ -21,7 +21,7 @@ public class AI_Spawner : MonoBehaviour
     public List<Transform> m_spawnedEnemyPatrolPoints;
 
     public int m_maxEnemyFromThis;
-    [HideInInspector]
+    //[HideInInspector]
     public int m_currentEnemyNumber;
 
     public List<GameObject> m_disableObjectsOnDisable;
@@ -34,9 +34,16 @@ public class AI_Spawner : MonoBehaviour
 
     void InitateSpawning()
     {
+
         m_timeToSpawn = 60 / m_spawnPerMinute;
         m_spawnDelay = new WaitForSeconds(m_timeToSpawn);
+
+        if (m_spawnEnemies != null)
+        {
+            StopCoroutine(m_spawnEnemies);
+        }
         m_spawnEnemies = StartCoroutine(SpawnRoutine());
+        
     }
 
 
@@ -79,6 +86,7 @@ public class AI_Spawner : MonoBehaviour
         {
             if (m_spawnEnemies == null) return;
             StopCoroutine(m_spawnEnemies);
+            
         }
     }
 

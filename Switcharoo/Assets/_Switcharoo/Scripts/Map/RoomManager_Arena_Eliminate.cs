@@ -20,8 +20,11 @@ public class RoomManager_Arena_Eliminate : RoomManager_Base
             }
         }
         m_roomTaskComplete = m_allEnemiesDisabled;
-        
 
+        if (m_stopEnemySpawnsOnComplete)
+        {
+            m_roomAiManager[0].StopAllSpawners();
+        }
     }
 
     public override void EnemyKilled(AiController p_enemy)

@@ -12,9 +12,9 @@ public class RoomManager_Arena_Survival : RoomManager_Base
         if (!m_roomTaskComplete && m_enemiesLeft <= 0)
         {
             m_roomTaskComplete = true;
-            foreach(AI_Spawner_Manager_Base spawn in m_roomAiManager)
+            if (m_stopEnemySpawnsOnComplete)
             {
-                spawn.StopAllSpawners();
+                m_roomAiManager[0].StopAllSpawners();
             }
 
         }

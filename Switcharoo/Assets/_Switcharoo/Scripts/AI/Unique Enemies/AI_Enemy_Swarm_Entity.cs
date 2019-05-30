@@ -6,11 +6,11 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
 {
     public AI_Enemy_Swarm.AiState m_entityState;
     public bool m_targetReached;
-    
+
     public bool m_queenDied;
     [HideInInspector]
     public float m_speed, m_turnSpeed, m_maxDistanceAway, m_entityDamage;
-    
+
     public float m_targetStoppingDistance = 1f;
     AI_Enemy_Swarm m_swarmBase;
     Health m_health;
@@ -25,7 +25,7 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
         m_health = GetComponent<Health>();
         m_rb = GetComponent<Rigidbody2D>();
     }
-    public void InitializeEntity(AI_Enemy_Swarm p_swarmBase,float p_speed, float p_turnSpeed,  float p_maxDistanceAway, float p_entityDamage, string p_playerTag)
+    public void InitializeEntity(AI_Enemy_Swarm p_swarmBase, float p_speed, float p_turnSpeed, float p_maxDistanceAway, float p_entityDamage, string p_playerTag)
     {
         m_speed = p_speed;
         m_turnSpeed = p_turnSpeed;
@@ -62,7 +62,7 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
                 if (Vector3.Distance(transform.position, m_swarmBase.transform.position) > m_maxDistanceAway)
                 {
                     Vector3 newSwarmPos = new Vector3(Random.Range(-m_swarmBase.m_maxDistanceAway, m_swarmBase.m_maxDistanceAway), Random.Range(-m_swarmBase.m_maxDistanceAway, m_swarmBase.m_maxDistanceAway), 0);
-                    Vector2 newDir = (m_swarmBase.transform.position - (transform.position+newSwarmPos)).normalized;
+                    Vector2 newDir = (m_swarmBase.transform.position - (transform.position + newSwarmPos)).normalized;
                     transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(newDir.y, newDir.x) * Mathf.Rad2Deg);
                 }
                 break;
@@ -84,10 +84,22 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
         if (collision.gameObject.tag == m_playerTag)
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(m_entityDamage);
+
             m_swarmBase.m_swarmEntities.Remove(this);
             ObjectPooler.instance.ReturnToPool(gameObject);
         }
     }
 
+    private void OnDisable()
+    {
+        if (m_swarmBase != null)
+        {
+            if (m_swarmBase.m_swarmEntities.Contains(this))
+            {
+                m_swarmBase.m_swarmEntities.Remove(this);
+            }
+        }
+        
+    }
 
 }

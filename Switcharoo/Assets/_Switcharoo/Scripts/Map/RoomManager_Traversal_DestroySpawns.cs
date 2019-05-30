@@ -18,6 +18,10 @@ public class RoomManager_Traversal_DestroySpawns : RoomManager_Base
         if (roomComplete)
         {
             m_roomTaskComplete = true;
+            if (m_stopEnemySpawnsOnComplete)
+            {
+                m_roomAiManager[0].StopAllSpawners();
+            }
         }
     }
 

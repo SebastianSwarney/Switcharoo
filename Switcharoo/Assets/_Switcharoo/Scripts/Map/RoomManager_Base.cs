@@ -164,7 +164,7 @@ public abstract class RoomManager_Base : MonoBehaviour
             m_increaseRoomIndex = true;
             foreach (RoomManager_Base room in m_roomsToAlterOnCompletion)
             {
-                room.m_increaseRoomIndex = true;
+                room.m_increaseRoomIndex = true;    
             }
         }
     }
@@ -178,14 +178,16 @@ public abstract class RoomManager_Base : MonoBehaviour
         if (m_roomVariantIndex == 0)
         {
             m_roomTaskComplete = false;
+            m_roomAlreadyComplete = false;
+            foreach (Door currentDoor in m_LockedDoors)
+            {
+                currentDoor.ChangeLockOnDoor(true);
+            }
         }
         
-        m_roomAlreadyComplete = false;
+        
         m_increaseRoomIndex = false;
-        foreach (Door currentDoor in m_LockedDoors)
-        {
-            currentDoor.ChangeLockOnDoor(true);
-        }
+
 
     }
 }

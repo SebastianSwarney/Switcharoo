@@ -19,11 +19,11 @@ MonoBehaviour:
   - {fileID: 2482280810688198327}
   - {fileID: 3320388471316133552}
   m_roomsToAlterOnCompletion: []
+  m_roomTilemap:
+  - {fileID: 8668499938234505419}
   m_roomTaskComplete: 0
   m_doorsParent: {fileID: 240475976724702348}
   m_stopEnemySpawnsOnComplete: 1
-  m_roomTilemap:
-  - {fileID: 8668499938234505419}
   m_increaseRoomIndex: 0
   m_currentLoadedTilemap: {fileID: 0}
   m_playerObject: {fileID: 0}
@@ -40,6 +40,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Template - Arena Survival
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197869627100996217, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6197869628555007389, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
