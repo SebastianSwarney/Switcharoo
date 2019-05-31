@@ -8,12 +8,12 @@ public class TrailType_Explode : TrailType_Base
 	[Header("Explosion Properites")]
 	public float m_explosionRadius;
 
-	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
+	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		p_playerRefrence.StartCoroutine(ExplosionTrail(p_playerRefrence, p_movementType));
+		p_playerRefrence.StartCoroutine(ExplosionTrail(p_playerRefrence, p_movementType, p_damageTargetMask, p_obstacleMask));
 	}
 
-	IEnumerator ExplosionTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
+	IEnumerator ExplosionTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		float explosionInterval = p_movementType.m_movementTime / p_movementType.m_amountOfTrailsToSpawn;
 
@@ -21,20 +21,18 @@ public class TrailType_Explode : TrailType_Base
 
 		while (amountOfExplosions < p_movementType.m_amountOfTrailsToSpawn)
 		{
-			Explode(p_playerRefrence);
-
+			Explode(p_playerRefrence.transform.position, p_damageTargetMask);
 			amountOfExplosions++;
 
 			yield return new WaitForSeconds(explosionInterval);
 		}
 	}
 
-	private void Explode(PlayerController p_playerRefrence)
+	private void Explode(Vector3 p_explosionOrigin, LayerMask p_damageTargetMask)
 	{
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_playerRefrence.transform.position , m_explosionRadius, p_playerRefrence.m_gunnerDamageTargetMask);
+		DebugExtension.DebugCircle(p_explosionOrigin, Vector3.forward, Color.yellow, m_explosionRadius, 0.1f);
 
-		DebugExtension.DebugCircle(p_playerRefrence.transform.position , Vector3.forward, Color.yellow, m_explosionRadius, 0.1f);
-
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_explosionOrigin, m_explosionRadius, p_damageTargetMask);
 		foreach (Collider2D collider in colliders)
 		{
 			collider.GetComponent<Health>().TakeDamage(m_trailDamageAmount);
