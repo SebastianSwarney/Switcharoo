@@ -15,7 +15,7 @@ MonoBehaviour:
   m_roomAiManager:
   - {fileID: 746598713303135914}
   - {fileID: 5925867703345625708}
-  m_roomVariants:
+  m_roomAiVariants:
   - {fileID: 2482280810688198327}
   - {fileID: 3320388471316133552}
   m_roomsToAlterOnCompletion: []

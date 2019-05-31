@@ -12,6 +12,7 @@ public class Objective_KoTH_Hill : MonoBehaviour
     PlayerController m_player;
     public string m_playerTag = "Player";
 
+    [HideInInspector]
     public bool m_hillComplete;
     private void Update()
     {

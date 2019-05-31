@@ -31,7 +31,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
     [HideInInspector]
     public List<AiController> m_currentEnemiesInRoom;
-    [HideInInspector]
+    
     public PlatformerNavigation m_currentNavGrid;
     private void Awake()
     {
@@ -79,16 +79,24 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         {
             placedEnemy.gameObject.SetActive(true);
             placedEnemy.m_agent.m_navGrid = m_currentNavGrid;
+            if (placedEnemy.m_spawnedOnSpawnerDestroy)
+            {
+                placedEnemy.gameObject.SetActive(false);
+            }
         }
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
+            print("fuck");
             spawner.gameObject.SetActive(true);
             spawner.m_spawnManager = this;
 
         }
         foreach (GameObject enemy in m_placedEnemies)
         {
-            enemy.SetActive(true);
+            if (!enemy.GetComponent<AiController>().m_spawnedOnSpawnerDestroy)
+            {
+                enemy.SetActive(true);
+            }
         }
         m_currentAiCount = m_placedEnemies.Count;
     }
@@ -141,6 +149,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         }
         foreach (AiController enem in destroyEnemies)
         {
+
             enem.gameObject.SetActive(false);
         }
     }
@@ -151,11 +160,15 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         InitializeAllSpawners();
         foreach (AiController enem in m_currentEnemiesInRoom)
         {
-            enem.gameObject.SetActive(true);
+            if (!enem.m_spawnedOnSpawnerDestroy)
+            {
+                enem.gameObject.SetActive(true);
+            }
+
             enem.Respawn();
 
         }
-        foreach(AI_Spawner spawner in m_spawnersInRoom)
+        foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.Respawn();
         }

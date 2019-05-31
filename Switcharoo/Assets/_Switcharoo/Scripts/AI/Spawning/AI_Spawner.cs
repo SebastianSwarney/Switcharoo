@@ -9,19 +9,32 @@ public class AI_Spawner : MonoBehaviour
     public enum SpawnDir { Left, Right };
     public SpawnDir m_currentSpawnDir;
 
-    [HideInInspector]
+    [Header("Trigger Properties")]
+    public bool m_triggerStart;
+    public LayerMask m_playerLayers;
+    public Vector2 m_triggerOrigin;
+    public Vector2 m_triggerDimensions;
+    Coroutine m_triggerCheckCoroutine;
+
+    //[HideInInspector]
     public AI_Spawner_Manager_Base m_spawnManager;
+    [Header("Spawner Properties")]
     public float m_spawnerRadius;
     public float m_spawnPerMinute;
+    public int m_maxEnemyFromThis;
     float m_timeToSpawn;
+
+    [Header("Enemy Properties")]
     public GameObject m_enemyToSpawn;
     WaitForSeconds m_spawnDelay;
     Coroutine m_spawnEnemies;
 
+    
+
     public List<Transform> m_spawnedEnemyPatrolPoints;
 
-    public int m_maxEnemyFromThis;
-    //[HideInInspector]
+
+    [HideInInspector]
     public int m_currentEnemyNumber;
 
     public List<GameObject> m_disableObjectsOnDisable;
@@ -31,6 +44,7 @@ public class AI_Spawner : MonoBehaviour
 
 
     Health m_health;
+    bool m_isSpawning;
 
     void InitateSpawning()
     {
@@ -42,6 +56,7 @@ public class AI_Spawner : MonoBehaviour
         {
             StopCoroutine(m_spawnEnemies);
         }
+        if (!gameObject.activeSelf || m_triggerStart) return;
         m_spawnEnemies = StartCoroutine(SpawnRoutine());
         
     }
@@ -90,28 +105,21 @@ public class AI_Spawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnRoutine()
-    {
-        while (true)
-        {
-            if (m_spawnManager.m_currentAiCount < m_spawnManager.m_maxAiInRoom)
-            {
-                if (m_currentEnemyNumber < m_maxEnemyFromThis)
-                {
-                    m_spawnManager.m_currentAiCount++;
-                    SpawnEnemy();
-                }
-
-            }
-            yield return m_spawnDelay;
-
-        }
-    }
+   
     private void OnEnable()
     {
         foreach (GameObject currentObj in m_disableObjectsOnDisable)
         {
             currentObj.gameObject.SetActive(true);
+        }
+
+        if(m_triggerCheckCoroutine != null)
+        {
+            StopCoroutine(m_triggerCheckCoroutine);
+        }
+        if (m_triggerStart)
+        {
+            m_triggerCheckCoroutine = StartCoroutine(TriggerRoutine());
         }
     }
     private void OnDisable()
@@ -135,18 +143,21 @@ public class AI_Spawner : MonoBehaviour
                     aiCont.m_patrolPoints = spawning.m_patrolPoints;
                     m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
                 }
+
                 else if (spawning.m_objectSpawnType == ObjectSpawnType.Heavy)
                 {
                     AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
                     aiCont.m_originPoint = spawning.m_patrolPoints[0];
                     m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
                 }
+
                 else if (spawning.m_objectSpawnType == ObjectSpawnType.Object)
                 {
                     ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform);
-                }else if (spawning.m_objectSpawnType == ObjectSpawnType.ExistingObject)
+                }
+
+                else if (spawning.m_objectSpawnType == ObjectSpawnType.ExistingObject)
                 {
-                    spawning.m_spawnObject.transform.position = spawning.m_spawnPosition + Random.insideUnitCircle * spawning.m_spawnRadius;
                     spawning.m_spawnObject.SetActive(true);
                     AiController aiCont = spawning.m_spawnObject.GetComponent<AiController>();
                     if (aiCont != null)
@@ -170,12 +181,53 @@ public class AI_Spawner : MonoBehaviour
         m_health.m_isDead = false;
         m_health.ResetHealth();
         gameObject.SetActive(true);
+        m_isSpawning = false;
     }
+
+    IEnumerator SpawnRoutine()
+    {
+        while (true)
+        {
+            if (m_spawnManager.m_currentAiCount < m_spawnManager.m_maxAiInRoom)
+            {
+                if (m_currentEnemyNumber < m_maxEnemyFromThis)
+                {
+                    m_spawnManager.m_currentAiCount++;
+                    SpawnEnemy();
+                }
+
+            }
+            yield return m_spawnDelay;
+
+        }
+    }
+
+    IEnumerator TriggerRoutine()
+    {
+        bool m_playerFound = false;
+        WaitForEndOfFrame delay = new WaitForEndOfFrame();
+        while(!m_playerFound)
+        {
+            yield return delay;
+            if (Physics2D.OverlapBox(m_triggerOrigin + (Vector2)transform.position, m_triggerDimensions, 0,m_playerLayers)!= null)
+            {
+                m_playerFound = true;
+            }
+        }
+        InitateSpawning();
+        m_spawnEnemies = StartCoroutine(SpawnRoutine());
+
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(m_triggerOrigin + (Vector2)transform.position, m_triggerDimensions);
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, m_spawnerRadius);
     }
+
+   
 
     [System.Serializable]
     public struct ObjectSpawnsOnDeath

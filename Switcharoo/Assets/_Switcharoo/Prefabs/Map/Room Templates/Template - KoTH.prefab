@@ -15,15 +15,15 @@ MonoBehaviour:
   m_roomAiManager:
   - {fileID: 1400589147094945946}
   - {fileID: 5408681031854120028}
-  m_roomVariants:
+  m_roomAiVariants:
   - {fileID: 4269767333540024455}
   - {fileID: 3974413762931675264}
   m_roomsToAlterOnCompletion: []
+  m_roomTilemap:
+  - {fileID: 7025374893098696443}
   m_roomTaskComplete: 0
   m_doorsParent: {fileID: 1902137910771974844}
   m_stopEnemySpawnsOnComplete: 1
-  m_roomTilemap:
-  - {fileID: 7025374893098696443}
   m_increaseRoomIndex: 0
   m_currentLoadedTilemap: {fileID: 0}
   m_playerObject: {fileID: 0}

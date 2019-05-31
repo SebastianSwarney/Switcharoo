@@ -15,15 +15,15 @@ MonoBehaviour:
   m_roomAiManager:
   - {fileID: 821889817136540848}
   - {fileID: 5982867978310213750}
-  m_roomVariants:
+  m_roomAiVariants:
   - {fileID: 2542658861136604333}
   - {fileID: 3400182831446813866}
   m_roomsToAlterOnCompletion: []
+  m_roomTilemap:
+  - {fileID: 8752518525914694353}
   m_roomTaskComplete: 0
   m_doorsParent: {fileID: 175029459310460566}
   m_stopEnemySpawnsOnComplete: 1
-  m_roomTilemap:
-  - {fileID: 8752518525914694353}
   m_increaseRoomIndex: 0
   m_currentLoadedTilemap: {fileID: 0}
   m_playerObject: {fileID: 0}
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711803ed96796c5439764a7f7b4f9c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_targetTime: 0.5
+  m_targetTime: 0.0001
   m_targetPlayer: 0
   m_eitherPlayer: 1
   m_playerTag: Player

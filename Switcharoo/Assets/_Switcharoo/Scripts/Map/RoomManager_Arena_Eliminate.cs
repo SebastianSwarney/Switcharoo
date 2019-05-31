@@ -6,15 +6,15 @@ public class RoomManager_Arena_Eliminate : RoomManager_Base
 {
     
     [Header("Arena Eliminate Properties")]
-    public List<GameObject> m_targetEnemies;
+    public List<Health> m_targetEnemies;
     public override void CheckRoomObjective()
     {
         if (m_roomTaskComplete) return;
 
         bool m_allEnemiesDisabled = true;
-        foreach(GameObject currentEnemy in m_targetEnemies)
+        foreach(Health currentEnemy in m_targetEnemies)
         {
-            if (currentEnemy.activeSelf == true)
+            if (currentEnemy.m_isDead == false)
             {
                 m_allEnemiesDisabled = false;
             }
@@ -30,6 +30,15 @@ public class RoomManager_Arena_Eliminate : RoomManager_Base
     public override void EnemyKilled(AiController p_enemy)
     {
         
+    }
+    public override void ResetRoom()
+    {
+        base.ResetRoom();
+        foreach (Health currentEnemy in m_targetEnemies)
+        {
+            currentEnemy.m_isDead = false;
+            currentEnemy.ResetHealth();
+        }
     }
 
 }

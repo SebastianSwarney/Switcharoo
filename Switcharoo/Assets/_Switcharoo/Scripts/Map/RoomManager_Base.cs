@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class RoomManager_Base : MonoBehaviour
 {
     public List<AI_Spawner_Manager_Base> m_roomAiManager;
-    public List<GameObject> m_roomVariants;
+    public List<GameObject> m_roomAiVariants;
     public List<RoomManager_Base> m_roomsToAlterOnCompletion;
     public List<GameObject> m_roomTilemap;
 
@@ -60,7 +60,7 @@ public abstract class RoomManager_Base : MonoBehaviour
 
     private void Start()
     {
-        foreach (GameObject currentRoom in m_roomVariants)
+        foreach (GameObject currentRoom in m_roomAiVariants)
         {
             currentRoom.SetActive(true);
         }
@@ -71,9 +71,9 @@ public abstract class RoomManager_Base : MonoBehaviour
             spawns.InitializeSpawnerManager();
         }
 
-        for (int i = 1; i < m_roomVariants.Count; i++)
+        for (int i = 1; i < m_roomAiVariants.Count; i++)
         {
-            m_roomVariants[i].SetActive(false);
+            m_roomAiVariants[i].SetActive(false);
             if (i < m_roomTilemap.Count)
             {
                 if (m_roomTilemap[i] == m_roomTilemap[0]) continue;
@@ -97,7 +97,7 @@ public abstract class RoomManager_Base : MonoBehaviour
     {
         DeloadRoom();
 
-        m_roomVariants[m_roomVariantIndex].SetActive(false);
+        m_roomAiVariants[m_roomVariantIndex].SetActive(false);
         if (m_roomVariantIndex < m_roomAiManager.Count)
         {
             m_roomAiManager[m_roomVariantIndex].gameObject.SetActive(false);
@@ -117,13 +117,13 @@ public abstract class RoomManager_Base : MonoBehaviour
         if (m_increaseRoomIndex)
         {
             m_increaseRoomIndex = false;
-            if (m_roomVariantIndex < m_roomVariants.Count - 1)
+            if (m_roomVariantIndex < m_roomAiVariants.Count - 1)
             {
                 m_roomVariantIndex++;
             }
 
         }
-        m_roomVariants[m_roomVariantIndex].SetActive(true);
+        m_roomAiVariants[m_roomVariantIndex].SetActive(true);
         if (m_roomVariantIndex < m_roomAiManager.Count)
         {
             m_roomAiManager[m_roomVariantIndex].gameObject.SetActive(true);

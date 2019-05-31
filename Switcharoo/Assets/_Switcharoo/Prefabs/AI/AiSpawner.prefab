@@ -86,13 +86,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f436fe1c41ef4546aaa21959837a8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_showGizmos: 1
   m_currentSpawnDir: 0
+  m_triggerStart: 0
+  m_playerLayers:
+    serializedVersion: 2
+    m_Bits: 3072
+  m_triggerOrigin: {x: 0, y: 0}
+  m_triggerDimensions: {x: 0, y: 0}
   m_spawnManager: {fileID: 0}
+  m_spawnerRadius: 0
   m_spawnPerMinute: 0
+  m_maxEnemyFromThis: 0
   m_enemyToSpawn: {fileID: 0}
   m_spawnedEnemyPatrolPoints: []
-  m_maxEnemyFromThis: 0
   m_currentEnemyNumber: 0
+  m_disableObjectsOnDisable: []
+  m_spawnOnDestroyed: []
 --- !u!212 &8319353519710110319
 SpriteRenderer:
   m_ObjectHideFlags: 0

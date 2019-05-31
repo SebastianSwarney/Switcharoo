@@ -8,6 +8,7 @@ using UnityEngine;
 public class AiController : MonoBehaviour
 {
     public Enemy_Base m_enemyType;
+    public bool m_spawnedOnSpawnerDestroy = false;
     [Space(10)]
     public GameObject m_target;
     public string m_playerTag = "Player";
@@ -19,9 +20,9 @@ public class AiController : MonoBehaviour
 
     public Transform m_bulletOrigin;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool m_isPooled = false;
-    
+
 
     public CircleCollider2D m_detectionRange;
     #endregion
