@@ -23,15 +23,19 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
 
     public int m_maxAiInRoom;
+
+    [HideInInspector]
     public int m_currentAiCount;
 
+    [HideInInspector]
     public bool m_roomDeloaded = false;
 
 
 
     [HideInInspector]
     public List<AiController> m_currentEnemiesInRoom;
-    
+
+    [HideInInspector]
     public PlatformerNavigation m_currentNavGrid;
     private void Awake()
     {

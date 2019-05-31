@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5948296371411213610}
-  - component: {fileID: 5948296371411213611}
   - component: {fileID: 5948296371411213609}
+  - component: {fileID: 5948296371411213611}
   - component: {fileID: 5948296371411213608}
   - component: {fileID: 8319353519710110319}
   m_Layer: 16
@@ -34,6 +34,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5948296371411213609
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948296371411213604}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &5948296371411213611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,22 +74,6 @@ MonoBehaviour:
   m_maxFireEffectInterval: 0
   m_minFireEffectInterval: 0
   m_fireDamageAmount: 0
---- !u!58 &5948296371411213609
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5948296371411213604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &5948296371411213608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_showGizmos: 1
-  m_currentSpawnDir: 0
   m_triggerStart: 0
   m_playerLayers:
     serializedVersion: 2
@@ -95,6 +94,7 @@ MonoBehaviour:
   m_triggerOrigin: {x: 0, y: 0}
   m_triggerDimensions: {x: 0, y: 0}
   m_spawnManager: {fileID: 0}
+  m_currentSpawnDir: 0
   m_spawnerRadius: 0
   m_spawnPerMinute: 0
   m_maxEnemyFromThis: 0
@@ -102,7 +102,12 @@ MonoBehaviour:
   m_spawnedEnemyPatrolPoints: []
   m_currentEnemyNumber: 0
   m_disableObjectsOnDisable: []
-  m_spawnOnDestroyed: []
+  m_spawnOnDestroyed:
+  - m_objectSpawnType: 3
+    m_spawnPosition: {x: 0, y: 0}
+    m_spawnRadius: 0
+    m_spawnObject: {fileID: 0}
+    m_patrolPoints: []
 --- !u!212 &8319353519710110319
 SpriteRenderer:
   m_ObjectHideFlags: 0

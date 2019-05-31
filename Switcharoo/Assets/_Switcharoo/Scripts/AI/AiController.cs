@@ -9,8 +9,9 @@ public class AiController : MonoBehaviour
 {
     public Enemy_Base m_enemyType;
     public bool m_spawnedOnSpawnerDestroy = false;
-    [Space(10)]
+    [HideInInspector]
     public GameObject m_target;
+    [Space(10)]
     public string m_playerTag = "Player";
 
     #region Components on the Enemy
@@ -47,20 +48,20 @@ public class AiController : MonoBehaviour
     #endregion
 
     #region Move Variables
+    [HideInInspector]
     public int m_currentForward = 1;
     public LayerMask m_wallLayer;
     public LayerMask m_movementFlipLayer;
     public float m_circleCastRad;
     public Vector2 m_circleCastOffset;
-    public float m_stuckMoveTime = 3;
-    float m_stuckTimer;
-    public bool m_isStuck;
 
     public List<Transform> m_patrolPoints;
     Queue<Transform> m_patrolPointOrder;
+
+    [HideInInspector]
     public Transform currentPatrolPoint;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool m_isGrounded;
 
     #endregion
@@ -82,9 +83,10 @@ public class AiController : MonoBehaviour
     #endregion
 
     [Header("Heavy Specific Variables")]
-    public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
+    
     public Transform m_originPoint;
-
+    [HideInInspector]
+    public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
 
     #region respawn Variables
     Vector3 m_respawnPos;
@@ -308,7 +310,6 @@ public class AiController : MonoBehaviour
         {
 
             FlipEnemy(m_currentForward * -1);
-            m_isStuck = false;
         }
 
     }

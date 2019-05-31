@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AI_Spawner : MonoBehaviour
 {
+    public enum SpawnDir { Left, Right };
     public bool m_showGizmos = true;
 
-    public enum SpawnDir { Left, Right };
-    public SpawnDir m_currentSpawnDir;
+    
 
     [Header("Trigger Properties")]
     public bool m_triggerStart;
@@ -16,9 +16,13 @@ public class AI_Spawner : MonoBehaviour
     public Vector2 m_triggerDimensions;
     Coroutine m_triggerCheckCoroutine;
 
-    //[HideInInspector]
+    [HideInInspector]
     public AI_Spawner_Manager_Base m_spawnManager;
+
+    
     [Header("Spawner Properties")]
+    
+    public SpawnDir m_currentSpawnDir;
     public float m_spawnerRadius;
     public float m_spawnPerMinute;
     public int m_maxEnemyFromThis;
