@@ -30,7 +30,7 @@ public class MovementType_Blink : MovementType_Base
 			float t = 0;
 
 			Vector3 initialPosition = p_playerRefrence.transform.position;
-			Vector3 blinkTarget = (p_playerRefrence.m_runnerAimDirection.normalized * m_blinkDistance) + p_playerRefrence.transform.position;
+			Vector3 blinkTarget = ((Vector3)p_playerRefrence.m_runnerAimInput.normalized * m_blinkDistance) + p_playerRefrence.transform.position;
 
 			while (t < m_movementTime)
 			{

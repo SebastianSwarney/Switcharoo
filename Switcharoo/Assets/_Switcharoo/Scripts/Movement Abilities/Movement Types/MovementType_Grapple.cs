@@ -22,7 +22,7 @@ public class MovementType_Grapple : MovementType_Base
 		float t = 0;
 
 		Vector3 initialPosition = p_playerRefrence.transform.position;
-		RaycastHit2D hit = Physics2D.Raycast(initialPosition, p_playerRefrence.m_runnerAimDirection, Mathf.Infinity, m_grappleMask);
+		RaycastHit2D hit = Physics2D.Raycast(initialPosition, p_playerRefrence.m_runnerAimInput, Mathf.Infinity, m_grappleMask);
 		Vector3 grappleTarget = hit.point;
 
 		p_trailType.UseTrail(p_playerRefrence, this, p_damageTargetMask, p_obstacleMask);

@@ -128,8 +128,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 m_directionalInput;
 
 	public Vector2 m_gunnerAimInput;
-
-	private Vector2 m_runnerAimInput;
+	public Vector2 m_runnerAimInput;
 
 	private Health_Player m_health;
 
@@ -159,8 +158,10 @@ public class PlayerController : MonoBehaviour
     {
         HandleWallSliding();
         InputBuffering();
-        Aim();
+        GunnerAim();
 		UpdatePlayerStates();
+
+		m_moveDirection = m_velocity.normalized;
 
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
@@ -185,7 +186,7 @@ public class PlayerController : MonoBehaviour
 	#endregion
 
 	#region Aim Code
-	void Aim()
+	void GunnerAim()
     {
         float theta = Mathf.Atan2(m_gunnerAimInput.y, m_gunnerAimInput.x);
 
@@ -206,10 +207,10 @@ public class PlayerController : MonoBehaviour
             m_crosshair.position = transform.position + m_lastPos;
         }
     }
-    #endregion
+	#endregion
 
-    #region Input Buffering Code
-    void InputBuffering()
+	#region Input Buffering Code
+	void InputBuffering()
     {
         if (controller.collisions.below)
         {

@@ -92,6 +92,7 @@ public class PlayerInput : MonoBehaviour
 
 		Vector2 mouseAimInput = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 		m_playerController.SetGunnerAimInput(Camera.main.ScreenToWorldPoint(mouseAimInput) - transform.position);
+		m_playerController.SetRunnerAimInput(Camera.main.ScreenToWorldPoint(mouseAimInput) - transform.position);
 
 		if (m_playerInputController.GetButtonDown("Jump"))
 		{
@@ -110,6 +111,11 @@ public class PlayerInput : MonoBehaviour
 		if (m_playerInputController.GetButtonDown("Reload"))
 		{
 			m_playerController.OnReloadInputDown();
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			//m_playerController.OnMovementAbilityInputDown();
 		}
 
 		if (m_playerInputController.GetButtonDown("Movement Ability"))

@@ -922,6 +922,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[0].m_movementAbilityComposition.m_movementType
+      value: 
+      objectReference: {fileID: 11400000, guid: 171e52338bb7bb744a9bd93b9a7dcba4,
+        type: 2}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[0].m_movementAbilityComposition.m_trailType
+      value: 
+      objectReference: {fileID: 11400000, guid: 67fe97535c831de48b3e7de132ed15f6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}
 --- !u!1001 &4661171504036958735

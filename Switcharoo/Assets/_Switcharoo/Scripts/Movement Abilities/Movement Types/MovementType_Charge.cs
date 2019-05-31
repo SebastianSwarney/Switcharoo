@@ -24,7 +24,7 @@ public class MovementType_Charge : MovementType_Base
 		float t = 0;
 
 		Vector3 initialPosition = p_playerRefrence.transform.position;
-		Vector3 chargeTarget = new Vector3(initialPosition.x + (m_chargeDistanceX * Mathf.Sign(p_playerRefrence.m_runnerAimDirection.x)), initialPosition.y, initialPosition.z);
+		Vector3 chargeTarget = new Vector3(initialPosition.x + (m_chargeDistanceX * Mathf.Sign(p_playerRefrence.m_runnerAimInput.x)), initialPosition.y, initialPosition.z);
 
 		p_trailType.UseTrail(p_playerRefrence, this, p_damageTargetMask, p_obstacleMask);
 
@@ -38,7 +38,7 @@ public class MovementType_Charge : MovementType_Base
 			float hitBoxTargetX = (p_playerRefrence.controller.collisions.faceDir > 0) ? p_playerRefrence.transform.position.x + (p_playerRefrence.controller.col.bounds.size.x / 2) + m_chargeHitBoxSize.x / 2 : p_playerRefrence.transform.position.x - (p_playerRefrence.controller.col.bounds.size.x / 2) - m_chargeHitBoxSize.x / 2;
 			Vector2 hitBoxTargetPosition = new Vector2(hitBoxTargetX, p_playerRefrence.transform.position.y);
 
-			Collider2D[] colliders = Physics2D.OverlapBoxAll(hitBoxTargetPosition, m_chargeHitBoxSize, 0f);
+			Collider2D[] colliders = Physics2D.OverlapBoxAll(hitBoxTargetPosition, m_chargeHitBoxSize, 0f, p_damageTargetMask);
 
 			foreach (Collider2D collider in colliders)
 			{
