@@ -499,7 +499,7 @@ public class PlayerController : MonoBehaviour
 			if (m_players[i].m_currentRole == PlayerRole.Runner)
 			{
 				m_runnerObstacleMask = m_players[i].m_obstacleMask;
-				gameObject.layer = m_players[i].m_obstacleMask;
+				//gameObject.layer = m_players[i].m_obstacleMask;
 			}
 		}
 	}
