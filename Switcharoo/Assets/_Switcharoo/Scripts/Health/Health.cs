@@ -52,6 +52,7 @@ public class Health : MonoBehaviour
 	public void ResetHealth()
 	{
 		m_currentHealth = m_maxHealth;
+        m_isDead = false;
 	}
 
 	public void HealDamage(float p_healAmount)

@@ -160,6 +160,7 @@ public class AiController : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
+        m_enemyHealth.ResetHealth();
         if (m_enemyType == null)
         {
             Debug.Log("Error: " + gameObject.name + " has no assigned enemy type");

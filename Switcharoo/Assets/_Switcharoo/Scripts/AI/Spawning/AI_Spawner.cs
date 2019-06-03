@@ -109,7 +109,19 @@ public class AI_Spawner : MonoBehaviour
         }
     }
 
-   
+    private void Update()
+    {
+        if (m_health.m_isDead)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         foreach (GameObject currentObj in m_disableObjectsOnDisable)
