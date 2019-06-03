@@ -141,6 +141,7 @@ public class AI_Spawner : MonoBehaviour
         {
             foreach (ObjectSpawnsOnDeath spawning in m_spawnOnDestroyed)
             {
+                if (spawning.m_spawnObject == null) continue;
                 if (spawning.m_objectSpawnType == ObjectSpawnType.Enemy)
                 {
                     AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();

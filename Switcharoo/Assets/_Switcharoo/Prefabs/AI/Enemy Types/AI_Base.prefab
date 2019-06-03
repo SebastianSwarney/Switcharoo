@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 3078133998956346287}
   - component: {fileID: 1780877241023508681}
   - component: {fileID: -6166238226835638072}
+  - component: {fileID: 4608192024861086840}
   m_Layer: 10
   m_Name: AI_Base
   m_TagString: Untagged
@@ -197,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyType: {fileID: 0}
+  m_spawnedOnSpawnerDestroy: 0
   m_target: {fileID: 0}
   m_playerTag: Player
   m_bulletOrigin: {fileID: 3078133998680829569}
@@ -214,8 +216,6 @@ MonoBehaviour:
     m_Bits: 3840
   m_circleCastRad: 0
   m_circleCastOffset: {x: 0, y: 0}
-  m_stuckMoveTime: 3
-  m_isStuck: 0
   m_patrolPoints: []
   currentPatrolPoint: {fileID: 0}
   m_isGrounded: 0
@@ -223,8 +223,33 @@ MonoBehaviour:
   m_patrolStoppingDistance: 0
   m_spawnerManager: {fileID: 0}
   m_parentSpawn: {fileID: 0}
-  m_currentPatternChangeAmount: 0
   m_originPoint: {fileID: 0}
+  m_currentPatternChangeAmount: 0
+  m_enemyDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4608192024861086840}
+        m_MethodName: AddScoreToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnEnemyDied, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyVisualTell:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyVisualTell, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_enemyAttack:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyAttack, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &3078133998956346287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,3 +318,16 @@ MonoBehaviour:
   m_maxFireEffectInterval: 1
   m_minFireEffectInterval: 0.1
   m_fireDamageAmount: 10
+--- !u!114 &4608192024861086840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078133998956346284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac6495dc360ae41be0fced8ebf4dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreAmount: 0

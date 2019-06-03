@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class OnEnemyDied : UnityEvent { }
+
+[System.Serializable]
+public class OnEnemyVisualTell : UnityEvent { }
+
+[System.Serializable]
+public class OnEnemyAttack : UnityEvent { }
 
 
 ///<Summary>
 ///The brain of the AI. This is essentially an empty shell that requires components to function
 public class AiController : MonoBehaviour
 {
+
+
     public Enemy_Base m_enemyType;
     public bool m_spawnedOnSpawnerDestroy = false;
     [HideInInspector]
@@ -26,6 +38,7 @@ public class AiController : MonoBehaviour
 
 
     public CircleCollider2D m_detectionRange;
+    Health m_enemyHealth;
     #endregion
 
     #region Attack Variables
@@ -82,19 +95,28 @@ public class AiController : MonoBehaviour
     public AI_Spawner m_parentSpawn;
     #endregion
 
+    #region Heavy Exclusive Variables
     [Header("Heavy Specific Variables")]
     
     public Transform m_originPoint;
     [HideInInspector]
     public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
+    #endregion
 
     #region respawn Variables
     Vector3 m_respawnPos;
     int m_startingForward;
     #endregion
 
+    #region Events
+    public OnEnemyDied m_enemyDied = new OnEnemyDied();
+    public OnEnemyVisualTell m_enemyVisualTell = new OnEnemyVisualTell();
+    public OnEnemyAttack m_enemyAttack = new OnEnemyAttack();
+    #endregion
+
     void Awake()
     {
+        m_enemyHealth = GetComponent<Health>();
         m_patrolPointOrder = new Queue<Transform>();
         m_rb = GetComponent<Rigidbody2D>();
         m_gun = GetComponent<ShootController>();
@@ -125,6 +147,11 @@ public class AiController : MonoBehaviour
     {
 
         CheckState();
+
+        if (m_enemyHealth.m_isDead)
+        {
+            Die();
+        }
 
     }
 
@@ -383,6 +410,16 @@ public class AiController : MonoBehaviour
             collision.gameObject.GetComponent<Health>().TakeDamage(m_enemyType.m_collisionDamage);
         }
     }
+
+
+    void Die()
+    {
+        m_enemyDied.Invoke();
+        gameObject.SetActive(false);
+    }
+
+
+
     void OnDisable()
     {
         if (m_spawnerManager != null)

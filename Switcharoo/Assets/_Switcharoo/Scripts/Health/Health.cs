@@ -84,7 +84,6 @@ public class Health : MonoBehaviour
 	public virtual void Die()
 	{
 		m_isDead = true;
-		gameObject.SetActive(false);
 	}
 
 	#region Fire Code
@@ -186,6 +185,7 @@ public class Health : MonoBehaviour
 	#region Ice Code
 	private void SlowFromIce()
 	{
+        if (m_rigidbody == null) return;
 		switch (m_currentIceState)
 		{
 			case IceState._25:

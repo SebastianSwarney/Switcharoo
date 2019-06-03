@@ -26,12 +26,12 @@ public class DungeonManager : MonoBehaviour
 
     void Awake()
     {
-        
+
         m_cameraController = Camera.main.GetComponent<CameraController_Base>();
 
         if (m_cameraController.m_useLevelBounds)
         {
-            m_cameraController.CalculateNewCameraBounds(m_currentLoadedTilemap.GetComponent<UnityEngine.Tilemaps.TilemapCollider2D>());            
+            m_cameraController.CalculateNewCameraBounds(m_currentLoadedTilemap.GetComponent<UnityEngine.Tilemaps.TilemapCollider2D>());
         }
 
 
@@ -70,17 +70,17 @@ public class DungeonManager : MonoBehaviour
 
     public void LoadNewMap(RoomManager_Base p_loadMap, Vector3 p_playerSpawnPos)
     {
-        if (!m_playerCont.m_usingMovementAbility)
-        {
-            m_currentRoom = p_loadMap;
-            m_playerCont.m_velocity = Vector2.zero;
-            p_loadMap.gameObject.SetActive(true);
-            m_cameraController.enabled = false;
-            m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
-            m_roomTransitionCoroutine = StartCoroutine(RoomTransition(m_cameraController.transform.position, p_playerSpawnPos, p_loadMap));
-            m_playerRespawnPoint = p_playerSpawnPos;
-        }
-        
+        m_playerCont.m_usingMovementAbility = false;
+
+        m_currentRoom = p_loadMap;
+        m_playerCont.m_velocity = Vector2.zero;
+        p_loadMap.gameObject.SetActive(true);
+        m_cameraController.enabled = false;
+        m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
+        m_roomTransitionCoroutine = StartCoroutine(RoomTransition(m_cameraController.transform.position, p_playerSpawnPos, p_loadMap));
+        m_playerRespawnPoint = p_playerSpawnPos;
+
+
 
     }
 
@@ -98,14 +98,14 @@ public class DungeonManager : MonoBehaviour
         while (m_cameraController.transform.position.x != lerpPoint.x)
         {
             currentLerpTime += Time.deltaTime;
- 
+
             m_cameraController.transform.position = new Vector3(Mathf.Lerp(p_camStartPos.x, lerpPoint.x, currentLerpTime / m_roomTransitionTime), Mathf.Lerp(p_camStartPos.y, lerpPoint.y, currentLerpTime / m_roomTransitionTime), m_cameraController.transform.position.z);
             yield return null;
         }
-        
+
         m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;
         deloadTilemap.SetActive(false);
-        
+
 
         m_cameraController.enabled = true;
         m_playerCont.m_velocity = Vector2.zero;

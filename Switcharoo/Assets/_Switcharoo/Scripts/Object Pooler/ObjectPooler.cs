@@ -32,7 +32,6 @@ public class ObjectPooler : MonoBehaviour
         return GetNewObject(requestedObject.name, requestedObject, spawner, moveToTransform, rotateToTransform, isActive);
     }
 
-
     GameObject GetNewObject(string poolName, GameObject requestedObject, Transform spawner, bool moveToTransform = true, bool rotateToTransform = true, bool isActive = true)
     {
         if (!objectPool.ContainsKey(poolName))
@@ -65,7 +64,7 @@ public class ObjectPooler : MonoBehaviour
             {
                 newObject.transform.position = transform.position;
             }
-            
+
             if (rotateToTransform)
             {
                 newObject.transform.rotation = spawner.rotation;
@@ -75,6 +74,31 @@ public class ObjectPooler : MonoBehaviour
         return newObject;
     }
 
+
+    public GameObject NewObject(GameObject requestedObject, Vector3 spawnPosition, Quaternion angle, bool isActive = true)
+    {
+        return GetNewObject(requestedObject.name, requestedObject, spawnPosition, angle, isActive);
+    }
+
+    GameObject GetNewObject(string poolName, GameObject requestedObject, Vector3 spawnPostion, Quaternion angle, bool isActive)
+    {
+        if (!objectPool.ContainsKey(poolName))
+        {
+            CreateNewPool(requestedObject);
+        }
+
+        GameObject newObject = objectPool[poolName].Dequeue();
+        if (objectPool[poolName].Count == 0)
+        {
+            IncreasePool(poolName, newObject, newObject.transform.parent.gameObject);
+        }
+
+        newObject.transform.position = spawnPostion;
+        newObject.transform.rotation = angle;
+        newObject.SetActive(isActive);
+        return newObject;
+    }
+  
     ///<summary>
     ///When the pool is equal to zero, increase the pool
     ///called in the NewObject function
@@ -97,6 +121,10 @@ public class ObjectPooler : MonoBehaviour
     ///<summary>
     public void ReturnToPool(GameObject pooledObject)
     {
+        if (!objectPool.ContainsKey(pooledObject.name))
+        {
+            CreateNewPool(pooledObject);
+        }
         objectPool[pooledObject.name].Enqueue(pooledObject);
         pooledObject.SetActive(false);
     }
