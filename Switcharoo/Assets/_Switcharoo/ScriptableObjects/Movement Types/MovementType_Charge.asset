@@ -42,3 +42,4 @@ MonoBehaviour:
   m_chargeDistanceX: 15
   m_chargeHitBoxSize: {x: 2, y: 2}
   m_chargeDamage: 0
+  m_testBuff: {fileID: 11400000, guid: 14528d7dad8d3f640a05738da9e1e93b, type: 2}

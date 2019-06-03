@@ -11,12 +11,12 @@ public class MovementType_Charge : MovementType_Base
 	public Vector2 m_chargeHitBoxSize;
 	public float m_chargeDamage;
 
-	public override void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+	public override void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		p_playerRefrence.StartCoroutine(UseCharge(p_playerRefrence, p_trailType, p_damageTargetMask, p_obstacleMask));
+		p_playerRefrence.StartCoroutine(UseCharge(p_playerRefrence, p_trailType, p_buffType, p_damageTargetMask, p_obstacleMask));
 	}
 
-	IEnumerator UseCharge(PlayerController p_playerRefrence, TrailType_Base p_trailType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+	IEnumerator UseCharge(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
 		p_playerRefrence.m_usingMovementAbility = true;
@@ -47,8 +47,15 @@ public class MovementType_Charge : MovementType_Base
 
 			DebugExtension.DebugBounds(new Bounds(hitBoxTargetPosition, m_chargeHitBoxSize));
 
+			if (!p_playerRefrence.m_usingMovementAbility)
+			{
+				t = m_movementTime;
+			}
+
 			yield return null;
 		}
+
+		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);
 
 		p_playerRefrence.m_velocity = Vector3.zero;
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;

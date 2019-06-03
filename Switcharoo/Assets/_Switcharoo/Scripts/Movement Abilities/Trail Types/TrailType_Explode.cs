@@ -25,6 +25,11 @@ public class TrailType_Explode : TrailType_Base
 			amountOfExplosions++;
 
 			yield return new WaitForSeconds(explosionInterval);
+
+			if (!p_playerRefrence.m_usingMovementAbility)
+			{
+				amountOfExplosions = (int)p_movementType.m_amountOfTrailsToSpawn;
+			}
 		}
 	}
 

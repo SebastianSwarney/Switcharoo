@@ -24,6 +24,12 @@ public class TrailType_Fire : TrailType_Base
 			Vector3 moveDir = p_playerRefrence.m_moveDirection;
 			t += Time.deltaTime;
 			DropFire(p_playerRefrence.transform, moveDir, p_damageTargetMask);
+
+			if (!p_playerRefrence.m_usingMovementAbility)
+			{
+				t = p_movementType.m_movementTime;
+			}
+
 			yield return null;
 		}
 	}

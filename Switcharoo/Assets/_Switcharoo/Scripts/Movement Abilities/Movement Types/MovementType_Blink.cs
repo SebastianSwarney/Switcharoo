@@ -11,12 +11,12 @@ public class MovementType_Blink : MovementType_Base
 	public float m_pauseBetweenBlinkTime;
 	public AnimationCurve m_blinkCurve;
 
-	public override void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+	public override void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		p_playerRefrence.StartCoroutine(UseBlink(p_playerRefrence, p_trailType, p_damageTargetMask, p_obstacleMask));
+		p_playerRefrence.StartCoroutine(UseBlink(p_playerRefrence, p_trailType, p_buffType, p_damageTargetMask, p_obstacleMask));
 	}
 
-	IEnumerator UseBlink(PlayerController p_playerRefrence, TrailType_Base p_trailType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+	IEnumerator UseBlink(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
 		p_playerRefrence.m_usingMovementAbility = true;
@@ -41,6 +41,12 @@ public class MovementType_Blink : MovementType_Base
 
 				Debug.DrawLine(p_playerRefrence.transform.position, blinkTarget);
 
+				if (!p_playerRefrence.m_usingMovementAbility)
+				{
+					t = m_movementTime;
+					blinksUsed = m_blinkAmount;
+				}
+
 				yield return null;
 			}
 
@@ -50,6 +56,8 @@ public class MovementType_Blink : MovementType_Base
 
 			yield return new WaitForSeconds(m_pauseBetweenBlinkTime);
 		}
+
+		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);
 
 		p_playerRefrence.m_velocity = Vector3.zero;
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;

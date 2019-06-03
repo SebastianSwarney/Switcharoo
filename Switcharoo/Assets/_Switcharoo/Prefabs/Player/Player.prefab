@@ -158,7 +158,8 @@ MonoBehaviour:
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 171e52338bb7bb744a9bd93b9a7dcba4, type: 2}
       m_trailType: {fileID: 11400000, guid: 67fe97535c831de48b3e7de132ed15f6, type: 2}
-    m_testColor: {r: 0.93333334, g: 0.6784314, b: 0, a: 1}
+      m_buffType: {fileID: 11400000, guid: 55dc2f67a28c0094d8dd78539ec12c40, type: 2}
+    m_testColor: {r: 0.9333334, g: 0.6784314, b: 0, a: 1}
   - m_type: 1
     m_currentRole: 0
     m_damageTargetMask:
@@ -173,9 +174,10 @@ MonoBehaviour:
         type: 3}
       m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
-      m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
-      m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
-    m_testColor: {r: 0, g: 0.9138584, b: 1, a: 1}
+      m_movementType: {fileID: 11400000, guid: 60c6dc7ca57a6f64ea36b2a0765edf86, type: 2}
+      m_trailType: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323, type: 2}
+      m_buffType: {fileID: 11400000, guid: 55dc2f67a28c0094d8dd78539ec12c40, type: 2}
+    m_testColor: {r: 0, g: 0.91372555, b: 1, a: 1}
   m_maxJumpHeight: 7
   m_minJumpHeight: 1
   m_timeToJumpApex: 0.5
@@ -224,6 +226,7 @@ MonoBehaviour:
   m_currentMovementAbilityComposition:
     m_movementType: {fileID: 0}
     m_trailType: {fileID: 0}
+    m_buffType: {fileID: 0}
   m_usingMovementAbility: 0
   m_movementAbilityAmmoCount: 0
   m_velocity: {x: 0, y: 0, z: 0}

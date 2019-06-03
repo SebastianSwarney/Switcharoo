@@ -162,6 +162,11 @@ public class PlayerController : MonoBehaviour
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
 		CalculateGroundPhysics();
+
+		if (Input.GetKeyDown(KeyCode.F))
+		{
+			m_usingMovementAbility = false;
+		}
     }
 
 	#region Input Code
@@ -428,10 +433,11 @@ public class PlayerController : MonoBehaviour
 	{
 		public MovementType_Base m_movementType;
 		public TrailType_Base m_trailType;
+		public PlayerBuff_Base m_buffType;
 
 		public void UseAbility(PlayerController p_player, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 		{
-			m_movementType.UseAbility(p_player, m_trailType, p_damageTargetMask, p_obstacleMask);
+			m_movementType.UseAbility(p_player, m_trailType, m_buffType, p_damageTargetMask, p_obstacleMask);
 		}
 	}
 	#endregion

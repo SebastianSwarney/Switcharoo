@@ -27,6 +27,11 @@ public class TrailType_Ice : TrailType_Base
 			amountOfDrops++;
 
 			yield return new WaitForSeconds(dropInterval);
+
+			if (!p_playerRefrence.m_usingMovementAbility)
+			{
+				amountOfDrops = (int)p_movementType.m_amountOfTrailsToSpawn;
+			}
 		}
 	}
 

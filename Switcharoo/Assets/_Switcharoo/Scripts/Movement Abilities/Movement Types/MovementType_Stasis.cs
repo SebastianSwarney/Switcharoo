@@ -8,12 +8,12 @@ public class MovementType_Stasis : MovementType_Base
 	[Header("Stasis Properties")]
 	public float m_stasisRadius;
 
-	public override void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+	public override void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		p_playerRefrence.StartCoroutine(UseStasis(p_playerRefrence, p_trailType, p_damageTargetMask, p_obstacleMask));
+		p_playerRefrence.StartCoroutine(UseStasis(p_playerRefrence, p_trailType, p_buffType, p_damageTargetMask, p_obstacleMask));
 	}
 
-	private IEnumerator UseStasis(PlayerController p_playerRefrence, TrailType_Base p_trailType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+	private IEnumerator UseStasis(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.m_usingMovementAbility = true;
 
@@ -42,8 +42,15 @@ public class MovementType_Stasis : MovementType_Base
 
 			DebugExtension.DebugCircle(stasisOrigin, Vector3.forward, Color.blue, m_stasisRadius);
 
+			if (!p_playerRefrence.m_usingMovementAbility)
+			{
+				t = m_movementTime;
+			}
+
 			yield return null;
 		}
+
+		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);
 
 		p_playerRefrence.m_states.m_gravityControllState = PlayerController.GravityState.GravityEnabled;
 		p_playerRefrence.m_usingMovementAbility = false;
