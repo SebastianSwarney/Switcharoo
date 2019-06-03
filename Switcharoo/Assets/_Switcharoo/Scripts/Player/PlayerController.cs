@@ -623,6 +623,45 @@ public class PlayerController : MonoBehaviour
 
 		UpdatePickups();
 	}
+
+	public void SetMovementTypePickup(MovementType_Base p_newMovementType)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_players[i].m_movementAbilityComposition.m_movementType = p_newMovementType;
+			}
+		}
+
+		UpdatePickups();
+	}
+
+	public void SetTrailTypePickup(TrailType_Base p_newTrailType)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_players[i].m_movementAbilityComposition.m_trailType = p_newTrailType;
+			}
+		}
+
+		UpdatePickups();
+	}
+
+	public void SetBuffPickup(PlayerBuff_Base p_newBuffType)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_players[i].m_movementAbilityComposition.m_buffType = p_newBuffType;
+			}
+		}
+
+		UpdatePickups();
+	}
 	#endregion
 
 	#region Player State Code

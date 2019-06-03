@@ -8,11 +8,18 @@ public abstract class Pickup_Base : MonoBehaviour
 
 	public abstract void SetPickup(PlayerController p_playerRefrence);
 
+	public int RandomIndex(int p_amountOfTypes)
+	{
+		 return Random.Range(0, p_amountOfTypes);
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (CheckCollisionLayer(m_playerLayer, collision))
 		{
 			SetPickup(collision.gameObject.GetComponent<PlayerController>());
+
+			gameObject.SetActive(false);
 		}
 	}
 
