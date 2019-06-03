@@ -47,12 +47,12 @@ public class MovementType_Charge : MovementType_Base
 
 			DebugExtension.DebugBounds(new Bounds(hitBoxTargetPosition, m_chargeHitBoxSize));
 
+			yield return null;
+
 			if (!p_playerRefrence.m_usingMovementAbility)
 			{
 				t = m_movementTime;
 			}
-
-			yield return null;
 		}
 
 		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);

@@ -34,12 +34,12 @@ public class MovementType_Grapple : MovementType_Base
 			Vector3 targetPosition = Vector3.Lerp(initialPosition, grappleTarget, progress);
 			PhysicsSeekTo(p_playerRefrence, targetPosition);
 
+			yield return null;
+
 			if (!p_playerRefrence.m_usingMovementAbility)
 			{
 				t = m_movementTime;
 			}
-
-			yield return null;
 
 			if (p_playerRefrence.controller.collisions.left || p_playerRefrence.controller.collisions.right || p_playerRefrence.controller.collisions.above || p_playerRefrence.controller.collisions.below)
 			{

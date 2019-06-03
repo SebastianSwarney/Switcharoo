@@ -34,12 +34,12 @@ public class MovementType_Jetpack : MovementType_Base
 			Vector3 targetPosition = Vector3.Lerp(initialPosition, jetpackTarget, progress);
 			PhysicsSeekTo(p_playerRefrence, targetPosition);
 
+			yield return null;
+
 			if (!p_playerRefrence.m_usingMovementAbility)
 			{
 				t1 = m_movementTime;
 			}
-
-			yield return null;
 		}
 
 		float t2 = 0;
@@ -49,12 +49,12 @@ public class MovementType_Jetpack : MovementType_Base
 			t2 += Time.deltaTime;
 			p_playerRefrence.m_velocity = Vector3.zero;
 
+			yield return null;
+
 			if (!p_playerRefrence.m_usingMovementAbility)
 			{
 				t2 = m_jetpackHoverTime;
 			}
-
-			yield return null;
 		}
 
 		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);

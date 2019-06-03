@@ -42,12 +42,12 @@ public class MovementType_Stasis : MovementType_Base
 
 			DebugExtension.DebugCircle(stasisOrigin, Vector3.forward, Color.blue, m_stasisRadius);
 
+			yield return null;
+
 			if (!p_playerRefrence.m_usingMovementAbility)
 			{
 				t = m_movementTime;
 			}
-
-			yield return null;
 		}
 
 		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);

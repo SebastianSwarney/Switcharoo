@@ -41,13 +41,13 @@ public class MovementType_Blink : MovementType_Base
 
 				Debug.DrawLine(p_playerRefrence.transform.position, blinkTarget);
 
+				yield return null;
+
 				if (!p_playerRefrence.m_usingMovementAbility)
 				{
 					t = m_movementTime;
 					blinksUsed = m_blinkAmount;
 				}
-
-				yield return null;
 			}
 
 			p_playerRefrence.m_velocity = Vector3.zero;
