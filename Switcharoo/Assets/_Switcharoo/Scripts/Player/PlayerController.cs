@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
 
 	public enum DamageState { Vulnerable, Invulnerable }
 
-	public enum InputState { InputEnabled, InputDisabled}
+	public enum InputState { InputEnabled, InputDisabled }
+
+	public enum SwappingState { SwappingEnabled, SwappingDisabled }
 
 	public PlayerState m_states;
 
@@ -121,19 +123,13 @@ public class PlayerController : MonoBehaviour
 
 	[HideInInspector]
     public Vector3 m_velocity;
-
 	[HideInInspector]
     public Controller2D controller;
-
     private Vector2 m_directionalInput;
-
 	public Vector2 m_gunnerAimInput;
 	public Vector2 m_runnerAimInput;
-
 	private Health_Player m_health;
-
 	private PlayerInput m_input;
-
 	private SpriteRenderer m_spriteRenderer;
 
     void Start()
@@ -399,10 +395,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnReloadInputDown()
     {
-		SwapPlayers();
-
-		m_shootController.Reload();
-		ReloadMovementAbility();
+		if (m_states.m_swappingState == SwappingState.SwappingEnabled)
+		{
+			SwapPlayers();
+			m_shootController.Reload();
+			ReloadMovementAbility();
+		}
 	}
 	#endregion
 
@@ -629,6 +627,7 @@ public class PlayerController : MonoBehaviour
 		public GravityState m_gravityControllState;
 		public DamageState m_damageState;
 		public InputState m_inputState;
+		public SwappingState m_swappingState;
 	}
 
 	private void UpdatePlayerStates()
@@ -676,6 +675,15 @@ public class PlayerController : MonoBehaviour
 
 
 				break;
+		}
+
+		if (m_usingMovementAbility)
+		{
+			m_states.m_swappingState = SwappingState.SwappingDisabled;
+		}
+		else
+		{
+			m_states.m_swappingState = SwappingState.SwappingEnabled;
 		}
 	}
 	#endregion
