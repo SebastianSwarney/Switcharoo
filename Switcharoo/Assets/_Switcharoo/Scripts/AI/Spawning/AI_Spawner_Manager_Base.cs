@@ -90,7 +90,6 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         }
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
-            print("fuck");
             spawner.gameObject.SetActive(true);
             spawner.m_spawnManager = this;
 

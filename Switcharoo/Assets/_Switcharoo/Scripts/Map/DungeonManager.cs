@@ -70,13 +70,17 @@ public class DungeonManager : MonoBehaviour
 
     public void LoadNewMap(RoomManager_Base p_loadMap, Vector3 p_playerSpawnPos)
     {
-        m_currentRoom = p_loadMap;
-        m_playerCont.m_velocity = Vector2.zero;
-        p_loadMap.gameObject.SetActive(true);
-        m_cameraController.enabled = false;
-        m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
-        m_roomTransitionCoroutine = StartCoroutine(RoomTransition(m_cameraController.transform.position, p_playerSpawnPos, p_loadMap));
-        m_playerRespawnPoint = p_playerSpawnPos;
+        if (!m_playerCont.m_usingMovementAbility)
+        {
+            m_currentRoom = p_loadMap;
+            m_playerCont.m_velocity = Vector2.zero;
+            p_loadMap.gameObject.SetActive(true);
+            m_cameraController.enabled = false;
+            m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
+            m_roomTransitionCoroutine = StartCoroutine(RoomTransition(m_cameraController.transform.position, p_playerSpawnPos, p_loadMap));
+            m_playerRespawnPoint = p_playerSpawnPos;
+        }
+        
 
     }
 
