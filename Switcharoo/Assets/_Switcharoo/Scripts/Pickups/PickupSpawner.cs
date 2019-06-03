@@ -7,10 +7,14 @@ public class PickupSpawner : MonoBehaviour
 	[Header("Pickup Spawn Properites")]
 	public List<Vector3> m_pickupSpawnPoints;
 	public int m_numberOfPickupsToSpawn;
-	[Tooltip("Only put all of one type of pickup in here.")]
 	public List<Pickup_Base> m_objectsToSpawn;
 
-	private void Start()
+	private void OnEnable()
+	{
+		SpawnObjects();
+	}
+
+	public void SpawnObjects()
 	{
 		if (m_numberOfPickupsToSpawn > m_objectsToSpawn.Count)
 		{
@@ -20,7 +24,7 @@ public class PickupSpawner : MonoBehaviour
 		SpawnAtRandomLocations();
 	}
 
-	public void SpawnAtRandomLocations()
+	private void SpawnAtRandomLocations()
 	{
 		for (int i = 0; i < m_numberOfPickupsToSpawn; i++)
 		{
