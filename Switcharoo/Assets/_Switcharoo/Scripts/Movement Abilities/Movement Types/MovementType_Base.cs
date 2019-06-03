@@ -6,8 +6,9 @@ public abstract class MovementType_Base : ScriptableObject
 {
 	public float m_movementTime;
 	public float m_amountOfTrailsToSpawn;
+	public int m_ammoCount;
 
-	public abstract void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType);
+	public abstract void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask);
 
 	public void PhysicsSeekTo(PlayerController p_playerRefrence, Vector3 p_targetPosition)
 	{

@@ -10,37 +10,30 @@ public class TrailType_Fire : TrailType_Base
 	public float m_orbShootForce;
 	public float m_orbSpawnAngleMax;
 
-	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
+	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
-		p_playerRefrence.StartCoroutine(FireTrail(p_playerRefrence, p_movementType));
+		p_playerRefrence.StartCoroutine(FireTrail(p_playerRefrence, p_movementType, p_damageTargetMask, p_obstacleMask));
 	}
 
-	private IEnumerator FireTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType)
+	private IEnumerator FireTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		float t = 0;
 
 		while (t < p_movementType.m_movementTime)
 		{
+			Vector3 moveDir = p_playerRefrence.m_moveDirection;
 			t += Time.deltaTime;
-
-			Vector3 moveDir = p_playerRefrence.m_velocity - p_playerRefrence.transform.position;
-
-			DropFire(p_playerRefrence, moveDir);
-
+			DropFire(p_playerRefrence.transform, moveDir, p_damageTargetMask);
 			yield return null;
 		}
 	}
 
-	private void DropFire(PlayerController p_playerRefrence, Vector3 p_moveDirection)
+	private void DropFire(Transform p_spawnPoint, Vector3 p_moveDirection, LayerMask p_damageTargetMask)
 	{
-		GameObject newDropObject = ObjectPooler.instance.NewObject(m_dropObject.gameObject, p_playerRefrence.transform, true);
-
+		GameObject newDropObject = ObjectPooler.instance.NewObject(m_dropObject.gameObject, p_spawnPoint, true);
 		float randomAngle = Random.Range(-m_orbSpawnAngleMax / 2, m_orbSpawnAngleMax / 2);
-
-		Vector3 forceDir = Quaternion.Euler(0, 0, randomAngle) * -p_moveDirection.normalized; 
-
+		Vector3 forceDir = Quaternion.Euler(0, 0, randomAngle) * -p_moveDirection;
 		newDropObject.GetComponent<Rigidbody2D>().AddForce(forceDir * m_orbShootForce, ForceMode2D.Impulse);
-
-		newDropObject.GetComponent<TrailObject_Fire>().m_damageTargetMask = p_playerRefrence.m_gunnerDamageTargetMask;
+		newDropObject.GetComponent<TrailObject_Fire>().m_damageTargetMask = p_damageTargetMask;
 	}
 }

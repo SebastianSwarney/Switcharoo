@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_movementTime: 0.5
   m_amountOfTrailsToSpawn: 5
+  m_ammoCount: 5
   m_chargeCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,3 +41,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_chargeDistanceX: 15
   m_chargeHitBoxSize: {x: 2, y: 2}
+  m_chargeDamage: 0

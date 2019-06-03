@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_movementTime: 0.5
   m_amountOfTrailsToSpawn: 5
+  m_ammoCount: 3
   m_grappleCurve:
     serializedVersion: 2
     m_Curve:

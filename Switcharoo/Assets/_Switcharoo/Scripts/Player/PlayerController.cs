@@ -21,11 +21,13 @@ public class PlayerController : MonoBehaviour
 
 	public PlayerData[] m_players;
 
-	public LayerMask m_gunnerDamageTargetMask;
-	public LayerMask m_runnerObstacleMask;
+	private LayerMask m_gunnerDamageTargetMask;
+	private LayerMask m_gunnerObstacleMask;
+	private LayerMask m_runnerDamageTargetMask;
+	private LayerMask m_runnerObstacleMask;
 
-    #region Jump Properties
-    [Header("Jump Properties")]
+	#region Jump Properties
+	[Header("Jump Properties")]
     public float m_maxJumpHeight = 4;
     public float m_minJumpHeight = 1;
     public float m_timeToJumpApex = .4f;
@@ -54,7 +56,9 @@ public class PlayerController : MonoBehaviour
     public Transform m_crosshair;
     public float m_crosshairDst;
 	[HideInInspector]
-	public Vector3 m_aimDirection;
+	public Vector3 m_gunnerAimDirection;
+	[HideInInspector]
+	public Vector3 m_runnerAimDirection;
 
     Vector3 m_lastPos;
     [Space]
@@ -111,6 +115,8 @@ public class PlayerController : MonoBehaviour
 	[Header("Movement Ability Properties")]
 	[SerializeField]
 	private MovementAbilityComposition m_currentMovementAbilityComposition;
+	public bool m_usingMovementAbility;
+	public int m_movementAbilityAmmoCount;
 	#endregion
 
 	[HideInInspector]
@@ -122,8 +128,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 m_directionalInput;
 
 	public Vector2 m_gunnerAimInput;
-
-	private Vector2 m_runnerAimInput;
+	public Vector2 m_runnerAimInput;
 
 	private Health_Player m_health;
 
@@ -142,17 +147,21 @@ public class PlayerController : MonoBehaviour
 
 		CalculateJump();
 		UpdatePickups();
-		UpdateLayers();
+		SwapLayers();
 		UpdateInput();
+
 		m_shootController.Reload();
+		ReloadMovementAbility();
 	}
 
 	void Update()
     {
         HandleWallSliding();
         InputBuffering();
-        Aim();
+        GunnerAim();
 		UpdatePlayerStates();
+
+		m_moveDirection = m_velocity.normalized;
 
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
@@ -177,7 +186,7 @@ public class PlayerController : MonoBehaviour
 	#endregion
 
 	#region Aim Code
-	void Aim()
+	void GunnerAim()
     {
         float theta = Mathf.Atan2(m_gunnerAimInput.y, m_gunnerAimInput.x);
 
@@ -185,7 +194,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * m_crosshairDst;
 
-		m_aimDirection = m_crosshair.position - transform.position;
+		m_gunnerAimDirection = m_crosshair.position - transform.position;
 
 		if (m_gunnerAimInput.normalized.magnitude != 0)
         {
@@ -198,10 +207,10 @@ public class PlayerController : MonoBehaviour
             m_crosshair.position = transform.position + m_lastPos;
         }
     }
-    #endregion
+	#endregion
 
-    #region Input Buffering Code
-    void InputBuffering()
+	#region Input Buffering Code
+	void InputBuffering()
     {
         if (controller.collisions.below)
         {
@@ -393,13 +402,27 @@ public class PlayerController : MonoBehaviour
 		SwapPlayers();
 
 		m_shootController.Reload();
+		ReloadMovementAbility();
 	}
 	#endregion
 
 	#region Movement Ability Code
 	public void OnMovementAbilityInputDown()
 	{
-		m_currentMovementAbilityComposition.UseAbility(this);
+		if (m_movementAbilityAmmoCount > 0)
+		{
+			if (!m_usingMovementAbility)
+			{
+				m_currentMovementAbilityComposition.UseAbility(this, m_runnerDamageTargetMask, m_runnerObstacleMask);
+
+				m_movementAbilityAmmoCount--;
+			}
+		}
+	}
+
+	private void ReloadMovementAbility()
+	{
+		m_movementAbilityAmmoCount = m_currentMovementAbilityComposition.m_movementType.m_ammoCount;
 	}
 
 	[System.Serializable]
@@ -408,9 +431,9 @@ public class PlayerController : MonoBehaviour
 		public MovementType_Base m_movementType;
 		public TrailType_Base m_trailType;
 
-		public void UseAbility(PlayerController p_player)
+		public void UseAbility(PlayerController p_player, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 		{
-			m_movementType.UseAbility(p_player, m_trailType);
+			m_movementType.UseAbility(p_player, m_trailType, p_damageTargetMask, p_obstacleMask);
 		}
 	}
 	#endregion
@@ -460,7 +483,7 @@ public class PlayerController : MonoBehaviour
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			m_players[i].Swap();
-			UpdateLayers();
+			SwapLayers();
 			UpdatePickups();
 
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
@@ -484,24 +507,33 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private void UpdateLayers()
+	private void SwapLayers()
 	{
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
 			{
 				m_gunnerDamageTargetMask = m_players[i].m_damageTargetMask;
+				m_gunnerObstacleMask = m_players[i].m_obstacleMask;
 
-				m_shootController.m_damageTargetMask = m_players[i].m_damageTargetMask;
-				m_shootController.m_obstacleMask = m_players[i].m_obstacleMask;
 			}
 
 			if (m_players[i].m_currentRole == PlayerRole.Runner)
 			{
+				m_runnerDamageTargetMask = m_players[i].m_damageTargetMask;
 				m_runnerObstacleMask = m_players[i].m_obstacleMask;
-				//gameObject.layer = m_players[i].m_obstacleMask;
 			}
 		}
+
+		SetLayersToComponents();
+	}
+
+	private void SetLayersToComponents()
+	{
+		m_shootController.m_damageTargetMask = m_gunnerDamageTargetMask;
+		m_shootController.m_obstacleMask = m_runnerObstacleMask;
+
+		//Put the object set here
 	}
 
 	[System.Serializable]
@@ -544,6 +576,9 @@ public class PlayerController : MonoBehaviour
 				m_currentMovementAbilityComposition = m_players[i].m_movementAbilityComposition;
 			}
 		}
+
+		m_shootController.Reload();
+		ReloadMovementAbility();
 	}
 
 	public void SetShotPatternPickup(ShotPattern_Base p_newShotPattern)
@@ -584,21 +619,6 @@ public class PlayerController : MonoBehaviour
 
 		UpdatePickups();
 	}
-
-	/*
-	public void SetMovementPickup(MovementAbility_Base p_newMovementAbility)
-	{
-		for (int i = 0; i < m_players.Length; i++)
-		{
-			if (m_players[i].m_currentRole == PlayerRole.Runner)
-			{
-				m_players[i].m_movementAbility = p_newMovementAbility;
-			}
-		}
-
-		UpdatePickups();
-	}
-	*/
 	#endregion
 
 	#region Player State Code
