@@ -69,6 +69,11 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
         }
 
 
+        if (m_health.m_isDead)
+        {
+            Die();
+        }
+
     }
 
     void RotateTowards()
@@ -88,6 +93,11 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
             m_swarmBase.m_swarmEntities.Remove(this);
             ObjectPooler.instance.ReturnToPool(gameObject);
         }
+    }
+
+    void Die()
+    {
+        gameObject.SetActive(false);
     }
 
     private void OnDisable()

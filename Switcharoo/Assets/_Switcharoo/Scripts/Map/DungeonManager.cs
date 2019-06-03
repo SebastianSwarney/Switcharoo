@@ -72,6 +72,7 @@ public class DungeonManager : MonoBehaviour
     {
         m_playerCont.m_usingMovementAbility = false;
 
+            
         m_currentRoom = p_loadMap;
         m_playerCont.m_velocity = Vector2.zero;
         p_loadMap.gameObject.SetActive(true);
