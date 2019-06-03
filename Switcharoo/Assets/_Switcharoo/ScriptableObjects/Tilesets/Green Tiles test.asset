@@ -36,15 +36,15 @@ MonoBehaviour:
   m_ColliderType: 1
   m_tileType: Floor
   m_tileSprites:
-  - {fileID: -413771896593656019, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: 6826945187687765180, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: 4457030449859568962, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: 2926154997493323140, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: -8205618032151064526, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: -7821428862690766161, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: -35925231786457136, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: -1696604210280138050, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
-  - {fileID: 1710199904148558355, guid: da1cfdea0443cf440aa4cafa35a9dbbc, type: 3}
+  - {fileID: 4856218513228241523, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: -6747372041305702341, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: 7928460692893676201, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: 239518238819631573, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: 450416401984585372, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: -5191476043990110619, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: 8837309144812153427, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: -7568351864497481938, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
+  - {fileID: -4208523890321682052, guid: 65c9a7c66d373514eba5ba1403883ad9, type: 3}
   m_errorSprite: {fileID: 21300000, guid: d820aa9736a56404bbc502bac5cf65fc, type: 3}
   m_tilePreview: {fileID: 3315575984268113646, guid: 435b65ce381c84b4aab65c88df7fb883,
     type: 3}
