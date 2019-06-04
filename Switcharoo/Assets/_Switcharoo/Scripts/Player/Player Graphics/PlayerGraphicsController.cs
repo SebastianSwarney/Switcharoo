@@ -23,7 +23,9 @@ public class PlayerGraphicsController : MonoBehaviour
 	private IEnumerator SlowTime(float p_slowAmount, float p_slowLength)
 	{
 		Time.timeScale = p_slowAmount;
+		Time.fixedDeltaTime = Time.timeScale * 0.02f;
 		yield return new WaitForSecondsRealtime(p_slowLength);
+		Time.fixedDeltaTime = 0.02f;
 		Time.timeScale = 1f;
 	}
 

@@ -10,9 +10,8 @@ public class Health : MonoBehaviour
 	[Header("Health Properties")]
 	public bool m_isDead;
 	public float m_maxHealth;
+	public float m_currentHealth;
 
-	[SerializeField]
-	private float m_currentHealth;
 	private Rigidbody2D m_rigidbody;
 	[HideInInspector]
 	public bool m_canTakeDamage = true;

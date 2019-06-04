@@ -45,10 +45,6 @@ public class CameraController_Base : MonoBehaviour
 		m_runnerFocusArea = new FocusArea(m_target.col.bounds, m_runnerFocusAreaSize);
 
 		m_player = m_target.GetComponent<PlayerController>();
-
-
-
-
 	}
 
 	void LateUpdate()
