@@ -1,28 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class OnPlayerSwap : UnityEvent { }
+
+[System.Serializable]
+public class OnPlayerHurt : UnityEvent { }
 
 [RequireComponent(typeof(Controller2D))]
 public class PlayerController : MonoBehaviour
 {
 	public enum MovementControllState {MovementEnabled, MovementDisabled}
-
 	public enum GravityState { GravityEnabled, GravityDisabled }
-
 	public enum DamageState { Vulnerable, Invulnerable }
-
 	public enum InputState { InputEnabled, InputDisabled }
-
 	public enum SwappingState { SwappingEnabled, SwappingDisabled }
-
 	public PlayerState m_states;
-
 	public enum PlayerType { Type0, Type1 }
-
 	public enum PlayerRole { Runner, Gunner }
-
 	public PlayerData[] m_players;
-
 	private LayerMask m_gunnerDamageTargetMask;
 	private LayerMask m_gunnerObstacleMask;
 	private LayerMask m_runnerDamageTargetMask;
@@ -121,6 +119,12 @@ public class PlayerController : MonoBehaviour
 	public int m_movementAbilityAmmoCount;
 	#endregion
 
+	#region Events
+	[Header("Events")]
+	public OnPlayerSwap m_playerSwapped = new OnPlayerSwap();
+	public OnPlayerHurt m_playerHurt = new OnPlayerHurt();
+	#endregion
+
 	[HideInInspector]
     public Vector3 m_velocity;
 	[HideInInspector]
@@ -132,7 +136,9 @@ public class PlayerController : MonoBehaviour
 	private PlayerInput m_input;
 	private SpriteRenderer m_spriteRenderer;
 
-    void Start()
+
+
+	void Start()
     {
         controller = GetComponent<Controller2D>();
 		m_shootController = GetComponent<ShootController>();
@@ -485,6 +491,8 @@ public class PlayerController : MonoBehaviour
 	#region Swaping Code
 	private void SwapPlayers()
 	{
+		m_playerSwapped.Invoke();
+
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			m_players[i].Swap();
@@ -537,8 +545,7 @@ public class PlayerController : MonoBehaviour
 	{
 		m_shootController.m_damageTargetMask = m_gunnerDamageTargetMask;
 		m_shootController.m_obstacleMask = m_runnerObstacleMask;
-
-		//Put the object set here
+		controller.collisionMask = m_runnerObstacleMask;
 	}
 
 	[System.Serializable]

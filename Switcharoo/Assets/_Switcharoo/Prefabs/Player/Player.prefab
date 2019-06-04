@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 288033317153994160}
   - component: {fileID: 288033317153994161}
   - component: {fileID: 3642809637188688157}
+  - component: {fileID: 2094756095}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -229,6 +230,37 @@ MonoBehaviour:
     m_buffType: {fileID: 0}
   m_usingMovementAbility: 0
   m_movementAbilityAmmoCount: 0
+  m_playerSwapped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2094756095}
+        m_MethodName: TriggerTimeSlow
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5f6752ac46a6c7c4bb616af90a9ce106,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TimeSlowData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnPlayerSwap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_playerHurt:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2094756095}
+        m_MethodName: PlayerHitGraphicsTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnPlayerHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   m_gunnerAimInput: {x: 0, y: 0}
@@ -281,6 +313,20 @@ MonoBehaviour:
   m_maxFireEffectInterval: 1
   m_minFireEffectInterval: 0.5
   m_fireDamageAmount: 10
+  m_invulnerableTime: 1
+  m_movementControllLossTime: 0.3
+--- !u!114 &2094756095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288033317153994315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4441201ecd67a434db841d7412c59de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_invulnerableTime: 1
   m_movementControllLossTime: 0.3
 --- !u!1 &288033318001868466

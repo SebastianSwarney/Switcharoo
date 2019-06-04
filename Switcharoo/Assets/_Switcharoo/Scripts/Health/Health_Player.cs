@@ -21,31 +21,8 @@ public class Health_Player : Health
 		base.TakeDamage(p_damage);
 		if (m_canTakeDamage)
 		{
-			StartCoroutine(PlayerHit());
+			m_player.m_playerHurt.Invoke();
 		}
-	}
-
-	IEnumerator PlayerHit()
-	{
-		float t = 0;
-
-		m_player.m_states.m_damageState = PlayerController.DamageState.Invulnerable;
-		m_player.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
-		m_player.m_velocity = Vector3.zero;
-
-		while (t < m_invulnerableTime)
-		{
-			t += Time.deltaTime;
-
-			if (t >= m_movementControllLossTime)
-			{
-				m_player.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;
-			}
-
-			yield return null;
-		}
-
-		m_player.m_states.m_damageState = PlayerController.DamageState.Vulnerable;
 	}
 
 	public override void Die()
