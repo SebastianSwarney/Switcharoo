@@ -311,7 +311,8 @@ public class PlayerController : MonoBehaviour
     {
         m_wallDirX = (controller.collisions.left) ? -1 : 1;
         m_wallSliding = false;
-        if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && m_velocity.y < 0)
+
+        if ((controller.collisions.left || controller.collisions.right) && m_directionalInput.x == m_wallDirX && !controller.collisions.below && m_velocity.y < 0)
         {
             m_wallSliding = true;
 

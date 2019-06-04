@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrailObject_Ice : MonoBehaviour
+public class TrailObject_Ice : TrailObject_Base
 {
 	[HideInInspector]
 	public TrailType_Ice m_trailType;

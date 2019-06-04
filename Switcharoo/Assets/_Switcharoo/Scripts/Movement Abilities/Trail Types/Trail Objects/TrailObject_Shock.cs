@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrailObject_Shock : MonoBehaviour
+public class TrailObject_Shock : TrailObject_Base
 {
 	[HideInInspector]
 	public TrailType_Shock m_trailType;
