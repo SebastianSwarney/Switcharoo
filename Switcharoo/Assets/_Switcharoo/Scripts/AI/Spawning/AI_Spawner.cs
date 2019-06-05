@@ -124,7 +124,12 @@ public class AI_Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-        foreach (GameObject currentObj in m_disableObjectsOnDisable)
+		if (m_health == null)
+		{
+			m_health = GetComponent<Health>();
+		}
+
+		foreach (GameObject currentObj in m_disableObjectsOnDisable)
         {
             currentObj.gameObject.SetActive(true);
         }
@@ -145,10 +150,7 @@ public class AI_Spawner : MonoBehaviour
         {
             currentObj.gameObject.SetActive(false);
         }
-        if (m_health == null)
-        {
-            m_health = GetComponent<Health>();
-        }
+
         if (m_health.m_isDead)
         {
             foreach (ObjectSpawnsOnDeath spawning in m_spawnOnDestroyed)
