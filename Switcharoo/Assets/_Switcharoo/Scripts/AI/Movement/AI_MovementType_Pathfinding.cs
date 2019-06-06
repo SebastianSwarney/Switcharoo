@@ -14,13 +14,13 @@ public class AI_MovementType_Pathfinding : AI_MovementType_Base
         return p_convertPos;
     }
 
-    public override bool IsGrounded(Rigidbody2D p_rb, Vector2 p_boxcastPos, Vector2 p_raycastDimensions, LayerMask p_wallLayer)
+    public override bool IsGrounded(AiController p_aiCont, LayerMask p_wallLayer)
     {
-        RaycastHit2D hit = Physics2D.BoxCast(p_boxcastPos, p_raycastDimensions, 0, -Vector3.up, p_raycastDimensions.y / 2, p_wallLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(p_aiCont.m_groundCheckPos + p_aiCont.transform.position, p_aiCont.m_groundCheckDimensions, 0, -Vector3.up, 0f, p_wallLayer);
         return hit;
     }
 
-    public override void MoveToPosition(Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
+    public override void MoveToPosition(AiController p_aiCont, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
     {
         if (!p_agent.TargetPositionReached(p_targetPosition))
         {

@@ -26,7 +26,7 @@ Animator:
   m_GameObject: {fileID: 4763751906924356119}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69541be42bcd103438aa9feb5b0a570a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 69b1f63134b7d6e44b8b0976859f7549, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentAiState: 0
   m_swarmEntities: []
-  m_entityPrefab: {fileID: 8515277832737761270, guid: 47474835a69593e429440625e7b1beb5,
+  m_entityPrefab: {fileID: 8515277832737761270, guid: be2dda85b46848d4dac4dccbf6cef502,
     type: 3}
   m_entityAmount: 20
   m_entityRespawnTime: 1

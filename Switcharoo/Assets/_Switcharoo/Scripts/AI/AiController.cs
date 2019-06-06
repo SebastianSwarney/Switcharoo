@@ -30,8 +30,10 @@ public class AiController : MonoBehaviour
 
     Rigidbody2D m_rb;
     ShootController m_gun;
+    SpriteRenderer m_sRend;
 
     public Transform m_bulletOrigin;
+
 
     [HideInInspector]
     public bool m_isPooled = false;
@@ -61,12 +63,9 @@ public class AiController : MonoBehaviour
     #endregion
 
     #region Move Variables
-    [HideInInspector]
+    
     public int m_currentForward = 1;
-    public LayerMask m_wallLayer;
-    public LayerMask m_movementFlipLayer;
-    public float m_circleCastRad;
-    public Vector2 m_circleCastOffset;
+
 
     public List<Transform> m_patrolPoints;
     Queue<Transform> m_patrolPointOrder;
@@ -74,7 +73,7 @@ public class AiController : MonoBehaviour
     [HideInInspector]
     public Transform currentPatrolPoint;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_isGrounded;
 
     #endregion
@@ -114,6 +113,18 @@ public class AiController : MonoBehaviour
     public OnEnemyAttack m_enemyAttack = new OnEnemyAttack();
     #endregion
 
+
+    #region Physics Settings
+    [Header("Physics Settings")]
+    public bool m_debugPhysicsChecks;
+    public float m_circleCastRad;
+    public Vector3 m_spriteOffset;
+    public Vector3 m_groundCheckPos;
+    public Vector3 m_groundCheckDimensions;
+    public LayerMask m_wallLayer;
+    public LayerMask m_movementFlipLayer;
+    #endregion
+
     void Awake()
     {
         m_enemyHealth = GetComponent<Health>();
@@ -121,18 +132,13 @@ public class AiController : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_gun = GetComponent<ShootController>();
         m_agent = GetComponent<Ai_Pathfinding_Agent>();
-
-        if(m_spawnerManager == null)
-        {
-
-        }
-        
+        m_sRend = GetComponent<SpriteRenderer>();
+        FlipEnemy(m_currentForward);
 
         if (!m_isPooled)
         {
             m_respawnPos = transform.position;
             m_startingForward = m_currentForward;
-            //gameObject.SetActive(false);
         }
     }
 
@@ -193,9 +199,8 @@ public class AiController : MonoBehaviour
         {
 
             //Check if the enemy is grounded
-            Vector2 wallBoxcastPos = new Vector2(transform.position.x + (m_enemyType.m_enemyDimensions.x / 2) * m_currentForward, transform.position.y);
-            Vector2 floorBoxcastPos = transform.position;
-            m_isGrounded = m_enemyType.m_attackType.m_attackMovement.IsGrounded(m_rb, floorBoxcastPos, m_enemyType.m_groundCheckDimensions, m_wallLayer);
+
+            m_isGrounded = m_enemyType.m_attackType.m_attackMovement.IsGrounded(this, m_wallLayer);
 
 
             //If the attack is finished, and no longer running
@@ -243,6 +248,19 @@ public class AiController : MonoBehaviour
         }
     }
 
+
+    private void OnDrawGizmos()
+    {
+        if (!m_debugPhysicsChecks) return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(m_groundCheckPos+transform.position, m_groundCheckDimensions);
+        Gizmos.color = Color.blue;
+        Vector3 spherePos = transform.position + m_spriteOffset;
+        spherePos = new Vector3(spherePos.x + m_enemyType.m_idleMovementType.m_movementType.m_checkWallDistance * m_currentForward, spherePos.y, 0f);
+        Gizmos.DrawWireSphere(spherePos, m_circleCastRad);
+        Debug.DrawLine(transform.position + m_spriteOffset, spherePos);
+
+    }
 
     #region Attacking Functions
 
@@ -318,21 +336,21 @@ public class AiController : MonoBehaviour
                 currentPatrolPoint = NewPatrolPoint();
             }
 
-            m_enemyType.m_idleMovementType.PerformIdleMovement(m_agent, m_rb, transform, m_currentForward, currentPatrolPoint.position, m_isGrounded);
+            m_enemyType.m_idleMovementType.PerformIdleMovement(this,m_agent, m_rb, transform, m_currentForward, currentPatrolPoint.position, m_isGrounded);
 
         }
         else
         {
-            m_enemyType.m_idleMovementType.PerformIdleMovement(m_agent, m_rb, transform, m_currentForward, transform.position, m_isGrounded);
+            m_enemyType.m_idleMovementType.PerformIdleMovement(this,m_agent, m_rb, transform, m_currentForward, transform.position, m_isGrounded);
         }
 
 
 
         //Check for walls infront, and check if gronded
-        Vector2 circleCastPos = new Vector2(transform.position.x - m_circleCastOffset.x, transform.position.y - m_circleCastOffset.y);
+        Vector2 circleCastPos = new Vector2(transform.position.x + m_spriteOffset.x, transform.position.y + m_spriteOffset.y);
 
-        Vector2 floorBoxcastPos = transform.position;
-        m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(m_rb, floorBoxcastPos, m_enemyType.m_groundCheckDimensions, m_wallLayer);
+        Vector2 floorBoxcastPos = transform.position + m_spriteOffset ;
+        m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(this, m_wallLayer);
 
         if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, circleCastPos, m_circleCastRad, m_currentForward, m_movementFlipLayer, m_isGrounded))
         {
@@ -342,6 +360,7 @@ public class AiController : MonoBehaviour
 
     }
 
+   
 
     bool CloseToPoint(Vector3 p_targetPoint)
     {
@@ -382,6 +401,8 @@ public class AiController : MonoBehaviour
     public void FlipEnemy(int p_newXDir)
     {
         m_currentForward = p_newXDir;
+
+        m_sRend.flipX = (m_currentForward > 0) ? false : true;
     }
 
 

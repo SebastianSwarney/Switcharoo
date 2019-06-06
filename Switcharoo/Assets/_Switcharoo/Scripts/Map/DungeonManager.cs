@@ -26,7 +26,10 @@ public class DungeonManager : MonoBehaviour
 
     void Awake()
     {
-
+        if(Camera.main == null)
+        {
+            Debug.Log("DUNGEON MANAGER ERROR! The Camera is either disabled or nonexistant");
+        }
         m_cameraController = Camera.main.GetComponent<CameraController_Base>();
 
         if (m_cameraController.m_useLevelBounds)

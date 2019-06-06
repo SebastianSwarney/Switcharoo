@@ -27,15 +27,20 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
     ///<Summary>
     ///The movement of the enemy
-    public override void MoveToPosition(Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPos, bool p_isGrounded)
+    public override void MoveToPosition(AiController p_aiCont, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPos, bool p_isGrounded)
     {
-        ///Sets gravit to be active
+        ///Sets gravity to be active
         p_rb.gravityScale = 1;
 
         ///Only travels on the x axis
         Vector3 dir = p_targetPos - p_startPos;
         dir = new Vector3(Mathf.Sign(dir.x) * m_speed, p_rb.velocity.y, 0f);
         p_rb.velocity = dir;
+
+        if(Mathf.Sign(dir.x) != Mathf.Sign(p_aiCont.m_currentForward)){
+            p_aiCont.FlipEnemy((int)Mathf.Sign(dir.x));
+        }
+
     }
 
     ///<Summary>
@@ -73,12 +78,17 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
                         if (distToObj < m_jumpTurnDistance)
                         {
+                            if (p_aiCont.m_debugPhysicsChecks)
+                            {
+                                Debug.DrawLine(p_rb.gameObject.transform.position + p_aiCont.m_spriteOffset, rayHit.point, Color.green, .5f);
+                            }
+                            
                             return true;
                         }
                         return false;
                     }
                 }
-                Debug.DrawLine(p_rb.gameObject.transform.position, rayHit.point, Color.green);
+                
                 return true;
             }
         }
@@ -86,10 +96,16 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
     }
 
-    public override bool IsGrounded(Rigidbody2D p_rb, Vector2 p_boxcastPos, Vector2 p_raycastDimensions, LayerMask p_hitLayer)
+    public override bool IsGrounded(AiController p_aiCont, LayerMask p_hitLayer)
     {
-        RaycastHit2D hit = Physics2D.BoxCast(p_boxcastPos, p_raycastDimensions, 0, -Vector3.up, p_raycastDimensions.y / 2, p_hitLayer);
 
+
+        RaycastHit2D hit = Physics2D.BoxCast(p_aiCont.m_groundCheckPos + p_aiCont.transform.position, p_aiCont.m_groundCheckDimensions, 0, -Vector3.up, 0f, p_hitLayer);
+        if (p_aiCont.m_debugPhysicsChecks)
+        {
+            Debug.DrawLine(p_aiCont.m_groundCheckPos, hit.point, Color.red, .5f);
+            
+        }
         return hit;
     }
 

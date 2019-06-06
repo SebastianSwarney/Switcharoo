@@ -34,7 +34,7 @@ public class AI_AttackType_Collide : AI_AttackType_Base
                 //If the player is in range, set a position that is in their direction
                 if (PlayerInRange(p_player, p_enemyObject))
                 {
-                    m_attackMovement.MoveToPosition(p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
+                    m_attackMovement.MoveToPosition(p_aiController, p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
 
                     if (m_jumpAtPlayer)
                     {

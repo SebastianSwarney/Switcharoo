@@ -62,7 +62,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                                 if (Vector3.Distance(p_enemyObject.transform.position + dir, p_aiController.m_originPoint.position) < m_maxDistanceFromOrigin)
                                 {
                                     m_closeShootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
-                                    m_closeShootingMovement.MoveToPosition(p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                                    m_closeShootingMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
                                 }
                                 else
                                 {
@@ -83,7 +83,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                                 if (Vector3.Distance(p_enemyObject.transform.position + dir, p_aiController.m_originPoint.position) < m_maxDistanceFromOrigin)
                                 {
                                     m_farShootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
-                                    m_farShootingMovement.MoveToPosition(p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                                    m_farShootingMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
                                 }
                                 else
                                 {
@@ -108,7 +108,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                             if (Vector3.Distance(p_enemyObject.transform.position + dir, p_aiController.m_originPoint.position) < m_maxDistanceFromOrigin)
                             {
                                 p_targetPos = m_attackMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
-                                m_attackMovement.MoveToPosition(p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                                m_attackMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
                             }
                             else
                             {

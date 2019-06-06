@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d81408e01e0a64185e1f71fec49fe6, type: 3}
   m_Name: AI_Enemy_Jumpy Slime
   m_EditorClassIdentifier: 
-  m_enemyDimensions: {x: 1.25, y: 0.7, z: 0}
-  m_groundCheckDimensions: {x: 0.8, y: 0.8, z: 0}
+  m_enemyDimensions: {x: 1, y: 0.7, z: 0}
+  m_groundCheckDimensions: {x: 0.4, y: 0.7, z: 0}
   m_collisionDamage: 20
   m_attackType: {fileID: 11400000, guid: 0717b41100c360a4d9a0721efe835b74, type: 2}
   m_idleMovementType: {fileID: 11400000, guid: ea370b020299e634a9acb84aab106ecb, type: 2}

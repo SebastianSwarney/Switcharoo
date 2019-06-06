@@ -87,12 +87,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3078133998956346258}
   - component: {fileID: 3078133998956346259}
+  - component: {fileID: 1323150876451145197}
   - component: {fileID: 3078133998956346257}
   - component: {fileID: 3078133998956346286}
   - component: {fileID: 3078133998956346287}
   - component: {fileID: 1780877241023508681}
   - component: {fileID: -6166238226835638072}
-  - component: {fileID: 4608192024861086840}
   m_Layer: 10
   m_Name: AI_Base
   m_TagString: Untagged
@@ -164,6 +164,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1323150876451145197
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078133998956346284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &3078133998956346257
 Rigidbody2D:
   serializedVersion: 4
@@ -228,7 +247,7 @@ MonoBehaviour:
   m_enemyDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4608192024861086840}
+      - m_Target: {fileID: 0}
         m_MethodName: AddScoreToPlayer
         m_Mode: 1
         m_Arguments:
@@ -318,16 +337,3 @@ MonoBehaviour:
   m_maxFireEffectInterval: 1
   m_minFireEffectInterval: 0.1
   m_fireDamageAmount: 10
---- !u!114 &4608192024861086840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3078133998956346284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ac6495dc360ae41be0fced8ebf4dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_scoreAmount: 0

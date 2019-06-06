@@ -1,0 +1,1574 @@
+fileFormatVersion: 2
+guid: 00c5a5e34c10ea248a87cbc9528fbdfd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6341921094131458957
+    second: GreenMech_Walk_0
+  - first:
+      213: -1250079348396865663
+    second: GreenMech_Walk_1
+  - first:
+      213: -3255265660826754109
+    second: GreenMech_Walk_2
+  - first:
+      213: 4702453231986807306
+    second: GreenMech_Walk_3
+  - first:
+      213: 6579225975104592747
+    second: GreenMech_Walk_4
+  - first:
+      213: 4600839382703892467
+    second: GreenMech_Walk_5
+  - first:
+      213: 915563543037387388
+    second: GreenMech_Walk_6
+  - first:
+      213: 8228231489721934712
+    second: GreenMech_Walk_7
+  - first:
+      213: -8607992557445073853
+    second: GreenMech_Walk_8
+  - first:
+      213: -7928998158770930585
+    second: GreenMech_Walk_9
+  - first:
+      213: -5904212584066654036
+    second: GreenMech_Walk_10
+  - first:
+      213: 2981497043440042255
+    second: GreenMech_Walk_11
+  - first:
+      213: -2133694155642916130
+    second: GreenMech_Walk_12
+  - first:
+      213: 2500636553978724804
+    second: GreenMech_Walk_13
+  - first:
+      213: 4058291985584154064
+    second: GreenMech_Walk_14
+  - first:
+      213: -7351272065952085338
+    second: GreenMech_Walk_15
+  - first:
+      213: -3526676335375239507
+    second: GreenMech_Walk_16
+  - first:
+      213: 3139034227363874834
+    second: GreenMech_Walk_17
+  - first:
+      213: -164351604868192952
+    second: GreenMech_Walk_18
+  - first:
+      213: -7154259580016844402
+    second: GreenMech_Walk_19
+  - first:
+      213: 2387146286033282659
+    second: GreenMech_Walk_20
+  - first:
+      213: -8039329757844419145
+    second: GreenMech_Walk_21
+  - first:
+      213: -154450017020659254
+    second: GreenMech_Walk_22
+  - first:
+      213: 82967951190553059
+    second: GreenMech_Walk_23
+  - first:
+      213: 3166480574230346673
+    second: GreenMech_Walk_24
+  - first:
+      213: -8407228288097881557
+    second: GreenMech_Walk_25
+  - first:
+      213: -4528255252059880924
+    second: GreenMech_Walk_26
+  - first:
+      213: -931972024904015052
+    second: GreenMech_Walk_27
+  - first:
+      213: 587466870322837346
+    second: GreenMech_Walk_28
+  - first:
+      213: -3961259312813829824
+    second: GreenMech_Walk_29
+  - first:
+      213: 5208893123823048235
+    second: GreenMech_Walk_30
+  - first:
+      213: -1404544081225045553
+    second: GreenMech_Walk_31
+  - first:
+      213: -4071217937147746279
+    second: GreenMech_Walk_32
+  - first:
+      213: 5713463801253019397
+    second: GreenMech_Walk_33
+  - first:
+      213: 8292473613456526112
+    second: GreenMech_Walk_34
+  - first:
+      213: -3542044733605238512
+    second: GreenMech_Walk_35
+  - first:
+      213: 3703572235797108929
+    second: GreenMech_Walk_36
+  - first:
+      213: 4614345241619766437
+    second: GreenMech_Walk_37
+  - first:
+      213: 2017564816046359768
+    second: GreenMech_Walk_38
+  - first:
+      213: -4595245129914347827
+    second: GreenMech_Walk_39
+  - first:
+      213: 1124316670899371128
+    second: GreenMech_Walk_40
+  - first:
+      213: 4646746408646380127
+    second: GreenMech_Walk_41
+  - first:
+      213: -7780487146526092561
+    second: GreenMech_Walk_42
+  - first:
+      213: 1413033817706376038
+    second: GreenMech_Walk_43
+  - first:
+      213: 2233992365621781718
+    second: GreenMech_Walk_44
+  - first:
+      213: -6607904974760853064
+    second: GreenMech_Walk_45
+  - first:
+      213: -1685814441889614668
+    second: GreenMech_Walk_46
+  - first:
+      213: -1779127184821449362
+    second: GreenMech_Walk_47
+  - first:
+      213: -6373669001871373834
+    second: GreenMech_Walk_48
+  - first:
+      213: 8685180366822120305
+    second: GreenMech_Walk_49
+  - first:
+      213: 5165765414591112847
+    second: GreenMech_Walk_50
+  - first:
+      213: 664129146854093480
+    second: GreenMech_Walk_51
+  - first:
+      213: -879450599180196491
+    second: GreenMech_Walk_52
+  - first:
+      213: -8327280234065861056
+    second: GreenMech_Walk_53
+  - first:
+      213: 9172928452178049558
+    second: GreenMech_Walk_54
+  - first:
+      213: 3564376964035909198
+    second: GreenMech_Walk_55
+  - first:
+      213: 9208154284177845902
+    second: GreenMech_Walk_56
+  - first:
+      213: 8312698074618259943
+    second: GreenMech_Walk_57
+  - first:
+      213: -8524152247586531649
+    second: GreenMech_Walk_58
+  - first:
+      213: -964047938913210337
+    second: GreenMech_Walk_59
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GreenMech_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf7fa87d95c89c4286d12bffec2dbc6
+      internalID: -6341921094131458957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b61c1b6ac311446921ec9102836501
+      internalID: -1250079348396865663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da92b8c0bb6f78a44bfb9ea428f09230
+      internalID: -3255265660826754109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e556c1aef8fe0a04196ec69f6d0619d8
+      internalID: 4702453231986807306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6493c97729b74564cbd36ed5a6ad8df9
+      internalID: 6579225975104592747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909d3fe475a3aef4db5cf2c856495f91
+      internalID: 4600839382703892467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c808587e0177441a415807ea03ef59
+      internalID: 915563543037387388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb4a88e8fe2d2e458943335ed35d228
+      internalID: 8228231489721934712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d2832f10b44f241a374ffab73638cc
+      internalID: -8607992557445073853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1445
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7eade26325008f4a8d71bd589cc106e
+      internalID: -7928998158770930585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ecd6a95ab18bf04eab5f8fc9bb44405
+      internalID: -5904212584066654036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_11
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4be843b02b1a934c8f9ed67a019afa4
+      internalID: 2981497043440042255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_12
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b96334065c1654fb4ee923dbc2ecf1
+      internalID: -2133694155642916130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_13
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3ea2ebdc6b54e428f634e9ee506741
+      internalID: 2500636553978724804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_14
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22088b3122269a34c876129462a01b98
+      internalID: 4058291985584154064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_15
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9613ee85525da584295c747951b37620
+      internalID: -7351272065952085338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_16
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0589d8ff5066f45aaf6d76828950d9
+      internalID: -3526676335375239507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_17
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3005946b6c65ec74c8149cb83519c5f6
+      internalID: 3139034227363874834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_18
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aeefc3ff63529f4f8123861a5e314fe
+      internalID: -164351604868192952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_19
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1156
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4863e41cfda09164db0bcb4773b51427
+      internalID: -7154259580016844402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92377f76936bbbd4ba40db0a8cc0c094
+      internalID: 2387146286033282659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_21
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f74d80422f54f240ad655d63ee01815
+      internalID: -8039329757844419145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_22
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d02eaf8e8eb01e4ea86d7296a40ae2c
+      internalID: -154450017020659254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_23
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd04ae17ace8e1d40a82e238fba963f7
+      internalID: 82967951190553059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_24
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee704e3f82c00e4685c9a8d285eca4e
+      internalID: 3166480574230346673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_25
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7ab424f29473a48a299221e434135f
+      internalID: -8407228288097881557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_26
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f9e2526f248c1448c57d5ddaaf90d1
+      internalID: -4528255252059880924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_27
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386251d92aa3f434f814400a31a56331
+      internalID: -931972024904015052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_28
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bcf2a2a7850e2a4f9d394643efdde3d
+      internalID: 587466870322837346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_29
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 867
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5a28a89f6a34a41a5f51fab7b75e22
+      internalID: -3961259312813829824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d51d6f27e20b6e4ea3a1ee00720a924
+      internalID: 5208893123823048235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_31
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b19b1f1c84b7aa4a85ebf8c594339cb
+      internalID: -1404544081225045553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_32
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327f418ec5c09df4bbc5304de222dcb0
+      internalID: -4071217937147746279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_33
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5543884a515f4904a8ea9d82c3f3ee46
+      internalID: 5713463801253019397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_34
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de77dc600996c349b9105e5b4e020ff
+      internalID: 8292473613456526112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_35
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04848aeca2b83b46bf00b61a35c4f1c
+      internalID: -3542044733605238512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_36
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14784ed661feb004baad04c31fc106fe
+      internalID: 3703572235797108929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_37
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af74ba0626605f94caad15502801254d
+      internalID: 4614345241619766437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_38
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f70a1ecb7cba44083c013d0c349754
+      internalID: 2017564816046359768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_39
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 578
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af844b15f76b9b40a62e62eb7872746
+      internalID: -4595245129914347827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926cddf175a6b9946b2fa950f81bd878
+      internalID: 1124316670899371128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_41
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5451005a1b31a4f4dacc3e7626cbe95b
+      internalID: 4646746408646380127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_42
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9897b438c3fd4e4e8fd0adcf67a7080
+      internalID: -7780487146526092561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_43
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43501af8001d2a14481b330bc8318009
+      internalID: 1413033817706376038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_44
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 927af53fc9759ef4dbff40d4b6a47c99
+      internalID: 2233992365621781718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_45
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384c8026e816f3246979dadf7e5d0a37
+      internalID: -6607904974760853064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_46
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c8abe966b0f0e439798ec675bf18a4
+      internalID: -1685814441889614668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_47
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2a57b7d4c190e4d86a7266137535d0
+      internalID: -1779127184821449362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_48
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d08291bb77f5cb8499b39279d39b97dc
+      internalID: -6373669001871373834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_49
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 289
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ba24c6ba656b34fa22f4889644e91b
+      internalID: 8685180366822120305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11cea83a77ff754b9769e74557b1769
+      internalID: 5165765414591112847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_51
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78160049e7b59394581709bfc0ad388e
+      internalID: 664129146854093480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_52
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e1040eb57845542b8e24d316eb1fb5
+      internalID: -879450599180196491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_53
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbaed5826c99f843b2cb22e2f10e5fa
+      internalID: -8327280234065861056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_54
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21232f1567ae0a849b151916f891da3a
+      internalID: 9172928452178049558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_55
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fde71f63e3e0834f986187e1ceefad9
+      internalID: 3564376964035909198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_56
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7058a989b0cbf045b8af60015c02234
+      internalID: 9208154284177845902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_57
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b909cf9b30bada4bbdc31aeec72e9af
+      internalID: 8312698074618259943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_58
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e1771ed3a548d4ba1fe33cdc9d36f4
+      internalID: -8524152247586531649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMech_Walk_59
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 0
+        width: 336
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4cd760b0c05074291a0cb89cb768e1
+      internalID: -964047938913210337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9a9da033a85c6ac41bff46f0f9c36de3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

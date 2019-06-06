@@ -22,12 +22,17 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
     ///<Summary>
     ///Moves the enemy to a given position
-    public override void MoveToPosition(Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent,Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
+    public override void MoveToPosition(AiController p_aiCont, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent,Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
     {
         ///Removes gravity, to allow for flight
         p_rb.gravityScale = 0;
         Vector3 dir = (p_targetPosition - p_startPos).normalized;
         p_rb.velocity = dir * m_speed;
+
+        if (Mathf.Sign(dir.x) != Mathf.Sign(p_aiCont.m_currentForward))
+        {
+            p_aiCont.FlipEnemy((int)Mathf.Sign(dir.x));
+        }
     }
 
     ///<Summary>
@@ -49,7 +54,7 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
         return false;
     }
 
-    public override bool IsGrounded(Rigidbody2D p_rb, Vector2 p_boxcastPos,  Vector2 p_raycastDimensions, LayerMask p_wallLayer)
+    public override bool IsGrounded(AiController p_aiCont, LayerMask p_wallLayer)
     {
         return true;
     }
