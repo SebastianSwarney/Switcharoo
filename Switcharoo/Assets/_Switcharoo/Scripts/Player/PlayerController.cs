@@ -9,6 +9,12 @@ public class OnPlayerSwap : UnityEvent { }
 [System.Serializable]
 public class OnPlayerHurt : UnityEvent { }
 
+[System.Serializable]
+public class OnPlayerJump : UnityEvent { }
+
+[System.Serializable]
+public class OnPlayerLand : UnityEvent { }
+
 [RequireComponent(typeof(Controller2D))]
 public class PlayerController : MonoBehaviour
 {
@@ -85,7 +91,8 @@ public class PlayerController : MonoBehaviour
 
     float m_graceTimer;
     float m_bufferTimer;
-    [Space]
+	private bool m_isLanded;
+	[Space]
     #endregion
 
     #region Dash Properties
@@ -123,20 +130,21 @@ public class PlayerController : MonoBehaviour
 	[Header("Events")]
 	public OnPlayerSwap m_playerSwapped = new OnPlayerSwap();
 	public OnPlayerHurt m_playerHurt = new OnPlayerHurt();
+	public OnPlayerJump m_playerJumped = new OnPlayerJump();
+	public OnPlayerLand m_playerLanded = new OnPlayerLand();
 	#endregion
 
 	[HideInInspector]
     public Vector3 m_velocity;
 	[HideInInspector]
     public Controller2D controller;
-    private Vector2 m_directionalInput;
+	[HideInInspector]
+	public Vector2 m_directionalInput;
 	public Vector2 m_gunnerAimInput;
 	public Vector2 m_runnerAimInput;
 	private Health_Player m_health;
 	private PlayerInput m_input;
 	private SpriteRenderer m_spriteRenderer;
-
-
 
 	void Start()
     {
@@ -163,16 +171,16 @@ public class PlayerController : MonoBehaviour
         GunnerAim();
 		UpdatePlayerStates();
 
+		if (!controller.collisions.below)
+		{
+			m_isLanded = false;
+		}
+
 		m_moveDirection = m_velocity.normalized;
 
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
 		CalculateGroundPhysics();
-
-		if (Input.GetKeyDown(KeyCode.F))
-		{
-			m_usingMovementAbility = false;
-		}
     }
 
 	#region Input Code
@@ -249,9 +257,14 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                m_velocity.y = m_maxJumpVelocity;
+				JumpMaxVelocity();
             }
-        }
+		}
+		else if (controller.collisions.below && !m_isLanded)
+		{
+			m_playerLanded.Invoke();
+			m_isLanded = true;
+		}
     }
     #endregion
 
@@ -281,7 +294,7 @@ public class PlayerController : MonoBehaviour
 
         if (!controller.collisions.below && m_graceTimer <= m_graceTime && m_velocity.y <= 0)
         {
-            m_velocity.y = m_maxJumpVelocity;
+			JumpMaxVelocity();
             m_graceTimer = m_graceTime;
         }
     }
@@ -292,18 +305,20 @@ public class PlayerController : MonoBehaviour
 
         if (m_velocity.y > m_minJumpVelocity)
         {
-            m_velocity.y = m_minJumpVelocity;
+			JumpMinVelocity();
         }
     }
 
 	public void JumpMaxVelocityMultiplied(float p_jumpVelocityMultiplier)
 	{
 		m_velocity.y = m_maxJumpVelocity * p_jumpVelocityMultiplier;
+		m_playerJumped.Invoke();
 	}
 
 	public void JumpMaxVelocity()
 	{
 		m_velocity.y = m_maxJumpVelocity;
+		m_playerJumped.Invoke();
 	}
 
 	public void JumpMinVelocity()

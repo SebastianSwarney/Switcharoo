@@ -1,6 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class OnShoot : UnityEvent { }
+
+[System.Serializable]
+public class OnReload : UnityEvent { }
 
 public class ShootController : MonoBehaviour
 {
@@ -14,11 +21,15 @@ public class ShootController : MonoBehaviour
 	public int m_ammoCount;
 	private bool isPlayer;
 
+	public OnShoot m_onShootEvent = new OnShoot();
+	public OnReload m_onReloadEvent = new OnReload();
+
 	public void Shoot(Transform p_bulletOrigin)
     {
         if (CanShoot())
         {
             m_currentWeaponComposition.m_shotPattern.Shoot(p_bulletOrigin, m_currentWeaponComposition.m_bulletType, m_currentWeaponComposition.m_damageType, m_damageTargetMask, m_obstacleMask);
+			m_onShootEvent.Invoke();
         }
     }
 
@@ -30,6 +41,7 @@ public class ShootController : MonoBehaviour
 		}
 
 		m_ammoCount = m_currentWeaponComposition.m_shotPattern.m_ammoCount;
+		m_onReloadEvent.Invoke();
 	}
 
 	public bool CanShoot()

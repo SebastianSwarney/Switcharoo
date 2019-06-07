@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PlayerGraphicsController : MonoBehaviour
 {
@@ -9,10 +10,19 @@ public class PlayerGraphicsController : MonoBehaviour
 	public float m_movementControllLossTime;
 
 	private PlayerController m_player;
+	private Animator m_animationController;
 
 	private void Start()
 	{
 		m_player = GetComponent<PlayerController>();
+		m_animationController = GetComponent<Animator>();
+	}
+
+	private void Update()
+	{
+		m_animationController.SetBool("IsGrounded", m_player.controller.collisions.below);
+
+		m_animationController.SetBool("IsMoving", (m_player.m_directionalInput.x != 0) ? true : false);
 	}
 
 	public void TriggerTimeSlow(TimeSlowData p_timeSlowData)
