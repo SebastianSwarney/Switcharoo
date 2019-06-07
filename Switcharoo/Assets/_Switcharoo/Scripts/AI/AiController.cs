@@ -272,11 +272,11 @@ public class AiController : MonoBehaviour
         if (m_currentShootTimer <= m_currentShootDelay)
         {
             m_currentShootTimer += Time.deltaTime;
-            return m_isShooting;
+            return true;
         }
         else
         {
-            return !m_isShooting;
+            return false;
         }
     }
 
@@ -288,6 +288,7 @@ public class AiController : MonoBehaviour
         {
             m_isShooting = p_isShooting;
             m_currentShootDelay = p_newDelay;
+            print("Time: " + p_newDelay);
             m_currentShootTimer = 0;
         }
 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9384fb053d26f0419ec5addde9faa51, type: 3}
   m_Name: AI_DamageType_Explode
   m_EditorClassIdentifier: 
-  m_explosionRadius: 5
+  m_explosionRadius: 2
   m_explosionDamage: 10

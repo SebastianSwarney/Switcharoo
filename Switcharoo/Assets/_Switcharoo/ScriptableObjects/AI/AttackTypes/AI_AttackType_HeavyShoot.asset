@@ -18,9 +18,9 @@ MonoBehaviour:
   m_targetStoppingDistance: 1
   m_playerMoveDistanceReaction: 4
   m_closeDistanceMax: 10
-  m_closeShootIntervalTime: 4
-  m_closeShootBreakTime: 2
-  m_farShootIntervalTime: 1
+  m_closeShootIntervalTime: 1
+  m_closeShootBreakTime: 0.5
+  m_farShootIntervalTime: 0.2
   m_farShootBreakTime: 1
   m_closeFireAmount: 2
   m_farFireAmount: 4
@@ -30,7 +30,7 @@ MonoBehaviour:
   m_farShootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e,
     type: 2}
   m_closeShootComp:
-    m_shotPattern: {fileID: 11400000, guid: 549077388b9d15c469d953c453dd3fe6, type: 2}
+    m_shotPattern: {fileID: 11400000, guid: 7c955a61c03e731488138ca8c1a979fe, type: 2}
     m_bulletType: {fileID: 7315616157899850491, guid: d29c4385a2d5c5e4e97078efa025ea29,
       type: 3}
     m_damageType: {fileID: 11400000, guid: 46cedc9626b14764ebc156eb150f67a8, type: 2}
@@ -38,5 +38,5 @@ MonoBehaviour:
     m_shotPattern: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb, type: 2}
     m_bulletType: {fileID: 7220302174730930199, guid: 22cee39f8b1513747a414d96b7f4573b,
       type: 3}
-    m_damageType: {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
+    m_damageType: {fileID: 11400000, guid: e43c8d368acd9014c9b7a8191e795fe2, type: 2}
   m_maxDistanceFromOrigin: 5
