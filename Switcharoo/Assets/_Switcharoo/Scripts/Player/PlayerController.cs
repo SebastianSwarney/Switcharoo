@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     #region Aim Properties
     [Header("Aim Properties")]
     public Transform m_crosshair;
+	public Transform m_shootPivotPoint;
     public float m_crosshairDst;
 	[HideInInspector]
 	public Vector3 m_gunnerAimDirection;
@@ -209,17 +210,17 @@ public class PlayerController : MonoBehaviour
 
         Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * m_crosshairDst;
 
-		m_gunnerAimDirection = m_crosshair.position - transform.position;
+		m_gunnerAimDirection = m_crosshair.position - m_shootPivotPoint.position;
 
 		if (m_gunnerAimInput.normalized.magnitude != 0)
         {
             m_crosshair.rotation = Quaternion.Euler(0, 0, aimDegrees);
-            m_crosshair.position = transform.position + pCircle;
+            m_crosshair.position = m_shootPivotPoint.position + pCircle;
             m_lastPos = pCircle;
         }
         else
         {
-            m_crosshair.position = transform.position + m_lastPos;
+            m_crosshair.position = m_shootPivotPoint.position + m_lastPos;
         }
     }
 	#endregion
