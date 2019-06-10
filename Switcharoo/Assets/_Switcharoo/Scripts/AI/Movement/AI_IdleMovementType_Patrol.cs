@@ -6,7 +6,7 @@ public class AI_IdleMovementType_Patrol : AI_IdleMovementType_Base
 {
     public override void PerformIdleMovement(AiController p_aiController, Ai_Pathfinding_Agent p_agent,Rigidbody2D p_rb, Transform p_enemyObject, int p_forwardDir, Vector3 m_targetPos, bool p_isGrounded)
     {
-        m_movementType.MoveToPosition(p_aiController, p_rb, p_agent,p_enemyObject.position,m_targetPos, p_isGrounded);
+        m_movementType.MoveToPosition(p_aiController,p_aiController.m_idleSpeed ,p_rb, p_agent,p_enemyObject.position,m_targetPos, p_isGrounded);
         
     }
 }

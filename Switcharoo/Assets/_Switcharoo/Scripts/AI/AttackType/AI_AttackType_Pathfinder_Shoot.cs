@@ -39,7 +39,9 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
                         //If the enemy gets close enough to the player, they will stop advancing
                         if (Mathf.Abs(p_player.transform.position.x - p_enemyObject.transform.position.x) > m_distanceFromPlayer)
                         {
-                            m_shootingMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                            m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                            
+                            
                         }
                         else
                         {
@@ -53,7 +55,7 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 
                         if (Mathf.Abs(p_player.transform.position.x - p_enemyObject.transform.position.x) > m_distanceFromPlayer)
                         {
-                            m_shootingMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                            m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
                         }
                         else
                         {

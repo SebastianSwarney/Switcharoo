@@ -20,7 +20,7 @@ MonoBehaviour:
   m_distanceFromPlayer: 3
   m_shootIntervalTime: 3
   m_shootBreakTime: 2
-  m_shootingMovement: {fileID: 11400000, guid: bd9bf3053fe98f54bb10b85d7d22ebb3, type: 2}
+  m_shootingMovement: {fileID: 11400000, guid: 8fa5da3ea9435ea42b846ae8dffcd6e6, type: 2}
   m_weaponComposition:
     m_shotPattern: {fileID: 11400000, guid: 07e421f4a0688d04e89332289c13e823, type: 2}
     m_bulletType: {fileID: 7315616157899850491, guid: d29c4385a2d5c5e4e97078efa025ea29,

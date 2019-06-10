@@ -31,12 +31,16 @@ public class AI_Enemy_Swarm : MonoBehaviour
 
     bool m_swarmReset = false;
 
+
+    AIAnimationController m_aiAnimCont;
+
     private void Start()
     {
         m_entitySpawnDelay = new WaitForSeconds(m_entityRespawnTime);
         m_swarmEntities = new List<AI_Enemy_Swarm_Entity>();
         m_detectionCollider.radius = m_detectionRadius;
         m_swarmReset = true;
+        m_aiAnimCont = GetComponent<AIAnimationController>();
 
 
     }
@@ -147,9 +151,14 @@ public class AI_Enemy_Swarm : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, m_target.position) < m_maxDistanceAway)
         {
+            
             return true;
+            
         }
+        print("Player Out Of Range");
+        m_aiAnimCont.PlayerInRangeAnimation(false);
         return false;
+        
     }
     void SwitchEntityState(AiState p_newState)
     {
@@ -179,6 +188,8 @@ public class AI_Enemy_Swarm : MonoBehaviour
             m_target = collision.gameObject.transform;
             SwitchEntityState(AiState.Attack);
             NewTarget(m_target.position);
+            print("Player In Range");
+            m_aiAnimCont.PlayerInRangeAnimation(true);
         }
     }
 

@@ -27,6 +27,7 @@ public class AI_AttackType_Collide : AI_AttackType_Base
 
                 //Perform the visual tell
                 VisualTell(p_aiController, p_rb);
+                p_aiController.PlayerSpotted(true);
                 break;
 
             case AttackState.Perform:
@@ -34,7 +35,7 @@ public class AI_AttackType_Collide : AI_AttackType_Base
                 //If the player is in range, set a position that is in their direction
                 if (PlayerInRange(p_player, p_enemyObject))
                 {
-                    m_attackMovement.MoveToPosition(p_aiController, p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
+                    m_attackMovement.MoveToPosition(p_aiController,p_aiController.m_attackSpeed, p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
 
                     if (m_jumpAtPlayer)
                     {
@@ -44,7 +45,7 @@ public class AI_AttackType_Collide : AI_AttackType_Base
                             if (p_aiController.m_isGrounded)
                             {
                                 
-                                Jump(p_rb);
+                                Jump(p_aiController,p_rb);
                             }
                         }
                     }
@@ -61,6 +62,7 @@ public class AI_AttackType_Collide : AI_AttackType_Base
                 else
                 {
                     p_aiController.m_target = null;
+                    p_aiController.PlayerSpotted(false);
                     p_aiController.m_currentAttackState = AttackState.Finished;
                 }
                 break;
@@ -91,10 +93,12 @@ public class AI_AttackType_Collide : AI_AttackType_Base
     }
 
 
-    void Jump(Rigidbody2D p_rb)
+    void Jump(AiController aiCont, Rigidbody2D p_rb)
     {
         float jumpForce = Mathf.Sqrt(2f * m_gravityValue * m_jumpHeight);
         p_rb.velocity = new Vector3(p_rb.velocity.x, jumpForce, 0);
+        aiCont.EnemyGrounded(false);
+        aiCont.EnemyJump();
     }
 
 

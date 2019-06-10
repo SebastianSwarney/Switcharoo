@@ -27,19 +27,35 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
     ///<Summary>
     ///The movement of the enemy
-    public override void MoveToPosition(AiController p_aiCont, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPos, bool p_isGrounded)
+    public override void MoveToPosition(AiController p_aiCont, float p_speed, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPos, bool p_isGrounded)
     {
-        ///Sets gravity to be active
-        p_rb.gravityScale = 1;
 
-        ///Only travels on the x axis
-        Vector3 dir = p_targetPos - p_startPos;
-        dir = new Vector3(Mathf.Sign(dir.x) * m_speed, p_rb.velocity.y, 0f);
-        p_rb.velocity = dir;
+        if (!p_aiCont.m_jumpAnim)
+        {
+            ///Sets gravity to be active
+            p_rb.gravityScale = 1;
 
-        if(Mathf.Sign(dir.x) != Mathf.Sign(p_aiCont.m_currentForward)){
-            p_aiCont.FlipEnemy((int)Mathf.Sign(dir.x));
+            ///Only travels on the x axis
+            Vector3 dir = p_targetPos - p_startPos;
+            dir = new Vector3(Mathf.Sign(dir.x) * p_speed, p_rb.velocity.y, 0f);
+            p_rb.velocity = dir;
+
+            if (Mathf.Sign(dir.x) != Mathf.Sign(p_aiCont.m_currentForward))
+            {
+                p_aiCont.FlipEnemy((int)Mathf.Sign(dir.x));
+            }
         }
+        else
+        {
+            p_rb.velocity = Vector3.zero;
+            if (p_aiCont.m_beginJump)
+            {
+                PerformJump(p_rb);
+                p_aiCont.m_jumpAnim = false;
+                p_aiCont.m_beginJump = false;
+            }
+        }
+        
 
     }
 
@@ -58,7 +74,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
     public override bool WallInFront(AiController p_aiCont, Rigidbody2D p_rb, Vector2 p_castPos, float p_circleCastRad, int p_forwardDir, LayerMask p_hitLayer, bool p_isGrounded)
     {
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(p_castPos, p_circleCastRad / 2, Vector2.right * p_forwardDir, m_checkWallDistance - (p_circleCastRad / 2), p_hitLayer);
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(p_castPos, p_circleCastRad / 2, Vector2.right * p_forwardDir, p_aiCont.m_checkWallDistance - (p_circleCastRad / 2), p_hitLayer);
 
         foreach (RaycastHit2D rayHit in hit)
         {
@@ -69,7 +85,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
                 {
                     if (p_isGrounded)
                     {
-                        Jump(p_rb);
+                        JumpAnim(p_aiCont,p_rb);
                         return false;
                     }
                     else
@@ -101,10 +117,9 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
 
         RaycastHit2D hit = Physics2D.BoxCast(p_aiCont.m_groundCheckPos + p_aiCont.transform.position, p_aiCont.m_groundCheckDimensions, 0, -Vector3.up, 0f, p_hitLayer);
-        if (p_aiCont.m_debugPhysicsChecks)
+        if (!p_aiCont.m_isGrounded && hit)
         {
-            Debug.DrawLine(p_aiCont.m_groundCheckPos, hit.point, Color.red, .5f);
-            
+            p_aiCont.EnemyGrounded(true);
         }
         return hit;
     }
@@ -121,7 +136,19 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
         p_rb.velocity = new Vector3(0f, p_rb.velocity.y,0f);
     }
 
-    public void Jump(Rigidbody2D p_rb)
+    public void JumpAnim(AiController p_aiController, Rigidbody2D p_rb)
+    {
+        if (!p_aiController.m_isJumping)
+        {
+            p_aiController.EnemyJump();
+            p_aiController.EnemyGrounded(false);
+            p_aiController.m_jumpAnim = true;
+        }
+        
+        
+    }
+
+    void PerformJump(Rigidbody2D p_rb)
     {
         float jumpForce = Mathf.Sqrt(2f * m_gravityValue * m_jumpHeight);
         p_rb.velocity = new Vector3(p_rb.velocity.x, jumpForce, 0);

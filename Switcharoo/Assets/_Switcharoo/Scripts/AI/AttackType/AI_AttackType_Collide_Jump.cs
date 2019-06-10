@@ -19,13 +19,14 @@ public class AI_AttackType_Collide_Jump : AI_AttackType_Base
 
                 //Perform the visual tell
                 VisualTell(p_aiController, p_rb);
+                p_aiController.PlayerSpotted(true);
                 break;
 
             case AttackState.Perform:
 
                 if (p_player.transform.position.x - p_aiController.transform.position.x  <= m_jumpAttackDistance && p_aiController.m_isGrounded)
                 {
-                    m_jumpMovement.Jump(p_rb);
+                    m_jumpMovement.JumpAnim(p_aiController, p_rb);
                 }
                 else
                 {
@@ -34,7 +35,7 @@ public class AI_AttackType_Collide_Jump : AI_AttackType_Base
                 //If the player is in range, set a position that is in their direction
                 if (PlayerInRange(p_player, p_enemyObject))
                 {
-                    m_attackMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                    m_attackMovement.MoveToPosition(p_aiController,p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
 
 
 
@@ -48,6 +49,7 @@ public class AI_AttackType_Collide_Jump : AI_AttackType_Base
                 else
                 {
                     p_aiController.m_target = null;
+                    p_aiController.PlayerSpotted(false);
                     p_aiController.m_currentAttackState = AttackState.Finished;
                 }
                 break;

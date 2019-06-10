@@ -6,10 +6,8 @@ using UnityEngine;
 ///The scriptable object class used to createh the different movement behaviours
 ///<Summary>
 public abstract class AI_MovementType_Base : ScriptableObject {
-    public float m_speed;
     public bool m_usesPathfinding;
-    public float m_checkWallDistance;
-    public abstract void MoveToPosition(AiController p_aiCont, Rigidbody2D p_rb,Ai_Pathfinding_Agent p_agent, Vector3 p_startPos,Vector3 p_targetPosition, bool p_isGrounded);
+    public abstract void MoveToPosition(AiController p_aiCont,float p_speed, Rigidbody2D p_rb,Ai_Pathfinding_Agent p_agent, Vector3 p_startPos,Vector3 p_targetPosition, bool p_isGrounded);
 
     public abstract bool PostionReached(Ai_Pathfinding_Agent p_agent,GameObject p_enemyObject,Vector3 p_targetPos, float p_stoppingDistance);
 

@@ -155,6 +155,32 @@ PrefabInstance:
       propertyPath: m_patrolStoppingDistance
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 2433419486793325122, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 89cbbfed13b8e3246bf1416187cc458f, type: 2}
+    - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3959724889011485558, guid: 7077d585f6467024284859599e1a38d6,
+        type: 3}
+    - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.046875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}
 --- !u!1 &6551127981345506681 stripped

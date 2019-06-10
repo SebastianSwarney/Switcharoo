@@ -4,14 +4,24 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class OnEnemyDied : UnityEvent { }
+public class OnEnemyJump : UnityEvent { }
 
 [System.Serializable]
-public class OnEnemyVisualTell : UnityEvent { }
+public class OnEnemyDied : UnityEvent<bool> { }
 
 [System.Serializable]
-public class OnEnemyAttack : UnityEvent { }
+public class OnPlayerSpotted : UnityEvent<bool> { }
 
+[System.Serializable]
+public class OnEnemyAttack : UnityEvent<bool> { }
+
+[System.Serializable]
+public class OnEnemyShoot : UnityEvent<bool> { }
+[System.Serializable]
+public class OnEnemyShootAlt : UnityEvent<bool> { }
+
+[System.Serializable]
+public class OnEnemyGrounded : UnityEvent<bool> { }
 
 ///<Summary>
 ///The brain of the AI. This is essentially an empty shell that requires components to function
@@ -30,7 +40,7 @@ public class AiController : MonoBehaviour
 
     Rigidbody2D m_rb;
     ShootController m_gun;
-    SpriteRenderer m_sRend;
+    public SpriteRenderer m_sRend;
 
     public Transform m_bulletOrigin;
 
@@ -63,9 +73,9 @@ public class AiController : MonoBehaviour
     #endregion
 
     #region Move Variables
-    
+    public float m_idleSpeed, m_attackSpeed;
     public int m_currentForward = 1;
-
+    
 
     public List<Transform> m_patrolPoints;
     Queue<Transform> m_patrolPointOrder;
@@ -105,12 +115,17 @@ public class AiController : MonoBehaviour
     #region respawn Variables
     Vector3 m_respawnPos;
     int m_startingForward;
+    bool m_died = false;
     #endregion
 
     #region Events
     public OnEnemyDied m_enemyDied = new OnEnemyDied();
-    public OnEnemyVisualTell m_enemyVisualTell = new OnEnemyVisualTell();
+    public OnPlayerSpotted m_playerSpotted = new OnPlayerSpotted();
     public OnEnemyAttack m_enemyAttack = new OnEnemyAttack();
+    public OnEnemyJump m_enemyJump = new OnEnemyJump();
+    public OnEnemyShoot m_enemyShoot = new OnEnemyShoot();
+    public OnEnemyShootAlt m_enemyShootAlt = new OnEnemyShootAlt();
+    public OnEnemyGrounded m_enemyGrounded = new OnEnemyGrounded();
     #endregion
 
 
@@ -118,11 +133,23 @@ public class AiController : MonoBehaviour
     [Header("Physics Settings")]
     public bool m_debugPhysicsChecks;
     public float m_circleCastRad;
+    public float m_checkWallDistance;
     public Vector3 m_spriteOffset;
     public Vector3 m_groundCheckPos;
     public Vector3 m_groundCheckDimensions;
     public LayerMask m_wallLayer;
     public LayerMask m_movementFlipLayer;
+    
+    #endregion
+
+
+    #region Animation Delay Events
+    [HideInInspector]
+    public bool m_jumpAnim, m_beginJump, m_isJumping, m_shootingMovement;
+
+    //[HideInInspector]
+    public bool m_startAttackAnim, m_beginAttack, m_isAttacking;
+
     #endregion
 
     void Awake()
@@ -132,7 +159,6 @@ public class AiController : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_gun = GetComponent<ShootController>();
         m_agent = GetComponent<Ai_Pathfinding_Agent>();
-        m_sRend = GetComponent<SpriteRenderer>();
         FlipEnemy(m_currentForward);
 
         if (!m_isPooled)
@@ -144,6 +170,7 @@ public class AiController : MonoBehaviour
 
     public void Respawn()
     {
+        m_died = false;
         transform.position = m_respawnPos;
         m_currentForward = m_startingForward;
         FlipEnemy(m_currentForward);
@@ -151,13 +178,16 @@ public class AiController : MonoBehaviour
 
     private void Update()
     {
-
-        CheckState();
-
-        if (m_enemyHealth.m_isDead)
+        if (m_enemyHealth.m_isDead && !m_died)
         {
+            m_died = true;
             Die();
         }
+        if (!m_died)
+        {
+            CheckState();
+        }
+
 
     }
 
@@ -256,7 +286,7 @@ public class AiController : MonoBehaviour
         Gizmos.DrawWireCube(m_groundCheckPos+transform.position, m_groundCheckDimensions);
         Gizmos.color = Color.blue;
         Vector3 spherePos = transform.position + m_spriteOffset;
-        spherePos = new Vector3(spherePos.x + m_enemyType.m_idleMovementType.m_movementType.m_checkWallDistance * m_currentForward, spherePos.y, 0f);
+        spherePos = new Vector3(spherePos.x + m_checkWallDistance * m_currentForward, spherePos.y, 0f);
         Gizmos.DrawWireSphere(spherePos, m_circleCastRad);
         Debug.DrawLine(transform.position + m_spriteOffset, spherePos);
 
@@ -288,7 +318,6 @@ public class AiController : MonoBehaviour
         {
             m_isShooting = p_isShooting;
             m_currentShootDelay = p_newDelay;
-            print("Time: " + p_newDelay);
             m_currentShootTimer = 0;
         }
 
@@ -302,6 +331,7 @@ public class AiController : MonoBehaviour
         if (Vector3.Distance(m_target.transform.position, m_delayedPlayerPosition) > m_enemyType.m_attackType.m_playerMoveDistanceReaction)
         {
             m_delayedPlayerPosition = m_target.transform.position;
+            
             return true;
         }
         return false;
@@ -318,6 +348,7 @@ public class AiController : MonoBehaviour
         }
         else
         {
+            
             return false;
         }
     }
@@ -437,11 +468,14 @@ public class AiController : MonoBehaviour
 
     void Die()
     {
-        m_enemyDied.Invoke();
-        gameObject.SetActive(false);
+        EnemyDied(true);
+        
     }
 
-
+    public void DeathAnimComplete()
+    {
+        gameObject.SetActive(false);
+    }
 
     void OnDisable()
     {
@@ -461,5 +495,44 @@ public class AiController : MonoBehaviour
         }
 
     }
+
+
+    #region Fire Events
+
+    public void EnemyDied(bool p_active)
+    {
+        m_enemyDied.Invoke(p_active);
+    }
+    
+    public void PlayerSpotted(bool p_active)
+    {
+        m_playerSpotted.Invoke(p_active);
+    }
+
+    public void EnemyJump()
+    {
+        m_enemyJump.Invoke();
+    }
+
+    public void EnemyShoot(bool p_active)
+    {
+        m_enemyShoot.Invoke(p_active);
+        
+    }
+
+    public void EnemyShootAlt(bool p_active)
+    {
+        m_enemyShootAlt.Invoke(p_active);
+    }
+
+    public void EnemyGrounded(bool p_active)
+    {
+        m_enemyGrounded.Invoke(p_active);
+    }
+
+    #endregion
+
+
+
 
 }

@@ -44,9 +44,8 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
                         //Different movement for when they are shooting
                         if (!m_shootingMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
                         {
-                            Debug.DrawLine(p_rb.position,p_targetPos);
                             m_shootingMovement.ConvertRelativePosition(p_aiController.m_agent,p_enemyObject, p_targetPos);
-                            m_shootingMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                            m_shootingMovement.MoveToPosition(p_aiController,p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
                         }else{
                         m_shootingMovement.StopMoving(p_rb);
                         }
@@ -59,7 +58,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
                         {
                             
                             p_targetPos = m_attackMovement.ConvertRelativePosition(p_aiController.m_agent,p_enemyObject, p_targetPos);
-                            m_attackMovement.MoveToPosition(p_aiController, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
+                            m_attackMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
                         }else{
                             m_attackMovement.StopMoving(p_rb);
                         }

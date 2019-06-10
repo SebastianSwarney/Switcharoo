@@ -4,7 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AI_Enemy", menuName = "AI/Enemy Types", order = 0)]
 public class Enemy_Base : ScriptableObject
 {
-
     public Vector3 m_enemyDimensions;
     public Vector3 m_groundCheckDimensions;
     public float m_collisionDamage;

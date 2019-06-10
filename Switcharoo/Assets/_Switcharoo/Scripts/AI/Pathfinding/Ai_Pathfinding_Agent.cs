@@ -19,67 +19,79 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     public float m_gravityValue;
     public LayerMask m_terrainLayer;
 
+    AiController m_aiCont;
+
 
 
     private void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_tracedPath = new List<Node>();
+        m_aiCont = GetComponent<AiController>();
     }
 
     public void MoveToNode(float p_speed, float p_jumpHeight, bool p_isGrounded)
     {
-        if (m_tracedPath.Count > 0)
-        {
-            m_currentNode = m_tracedPath[0];
-            if (!IsCloseToPosition(m_currentNode.m_worldPos, p_jumpHeight, p_isGrounded))
+        if (m_aiCont.m_isAttacking) return;
+        
+
+
+            if (m_tracedPath.Count > 0)
             {
-                if (m_tracedPath.Count > 0)
+                m_currentNode = m_tracedPath[0];
+                if (Mathf.Sign(m_aiCont.m_currentForward) != Mathf.Sign(m_tracedPath[0].m_worldPos.x - transform.position.x))
                 {
+                    m_aiCont.FlipEnemy((int)Mathf.Sign(m_tracedPath[0].m_worldPos.x - transform.position.x));
+                }
 
-
-                    if (!Physics2D.Linecast(transform.position, m_currentNode.m_worldPos, m_terrainLayer))
+                if (!IsCloseToPosition(m_currentNode.m_worldPos, p_jumpHeight, p_isGrounded))
+                {
+                    if (m_tracedPath.Count > 0)
                     {
 
-                        if (!p_isGrounded)
+
+                        if (!Physics2D.Linecast(transform.position, m_currentNode.m_worldPos, m_terrainLayer))
                         {
-                            if (Mathf.Abs(m_currentNode.m_worldPos.x - transform.position.x) > m_stoppingDistance * 2)
+
+                            if (!p_isGrounded)
                             {
-                                m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
+                                if (Mathf.Abs(m_currentNode.m_worldPos.x - transform.position.x) > m_stoppingDistance * 2)
+                                {
+                                    m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
+                                }
+                                else
+                                {
+                                    m_rb.velocity = new Vector3(0, m_rb.velocity.y, 0);
+                                }
                             }
                             else
                             {
-                                m_rb.velocity = new Vector3(0, m_rb.velocity.y, 0);
+                                m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
                             }
+
+
                         }
                         else
                         {
-                            m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
+                            if (p_isGrounded)
+                            {
+                                if (m_navGrid.NodeFromWorldPoint(transform.position).m_worldPos.y > m_currentNode.m_worldPos.y)
+                                {
+                                    m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
+                                }
+                            }
                         }
-
 
                     }
                     else
                     {
-                        if (p_isGrounded)
-                        {
-                            if (m_navGrid.NodeFromWorldPoint(transform.position).m_worldPos.y > m_currentNode.m_worldPos.y)
-                            {
-                                m_rb.velocity = new Vector3(Mathf.Sign(m_currentNode.m_worldPos.x - transform.position.x) * p_speed, m_rb.velocity.y);
-                            }
-                        }
+                        return;
                     }
 
-                }
-                else
-                {
-                    return;
-                }
 
-
+                }
             }
-        }
-
+        
     }
 
     void Jump(float p_maxJumpHeight, bool p_isGrounded)

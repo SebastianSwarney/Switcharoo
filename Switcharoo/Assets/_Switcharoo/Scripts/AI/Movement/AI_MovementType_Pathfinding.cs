@@ -20,7 +20,7 @@ public class AI_MovementType_Pathfinding : AI_MovementType_Base
         return hit;
     }
 
-    public override void MoveToPosition(AiController p_aiCont, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
+    public override void MoveToPosition(AiController p_aiCont,float p_speed, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent, Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
     {
         if (!p_agent.TargetPositionReached(p_targetPosition))
         {
@@ -62,7 +62,7 @@ public class AI_MovementType_Pathfinding : AI_MovementType_Base
             }
             else
             {
-                p_agent.MoveToNode(m_speed, m_maxJumpHeight, p_isGrounded);
+                p_agent.MoveToNode(p_speed, m_maxJumpHeight, p_isGrounded);
 
 
             }

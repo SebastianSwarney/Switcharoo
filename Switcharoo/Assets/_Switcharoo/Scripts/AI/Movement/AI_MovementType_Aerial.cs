@@ -22,12 +22,12 @@ public class AI_MovementType_Aerial : AI_MovementType_Base
 
     ///<Summary>
     ///Moves the enemy to a given position
-    public override void MoveToPosition(AiController p_aiCont, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent,Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
+    public override void MoveToPosition(AiController p_aiCont,float p_speed, Rigidbody2D p_rb, Ai_Pathfinding_Agent p_agent,Vector3 p_startPos, Vector3 p_targetPosition, bool p_isGrounded)
     {
         ///Removes gravity, to allow for flight
         p_rb.gravityScale = 0;
         Vector3 dir = (p_targetPosition - p_startPos).normalized;
-        p_rb.velocity = dir * m_speed;
+        p_rb.velocity = dir * p_speed;
 
         if (Mathf.Sign(dir.x) != Mathf.Sign(p_aiCont.m_currentForward))
         {
