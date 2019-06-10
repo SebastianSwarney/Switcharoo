@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class PlayerGraphicsController : MonoBehaviour
 {
@@ -12,11 +11,13 @@ public class PlayerGraphicsController : MonoBehaviour
 	private PlayerController m_player;
 	private Animator m_animationController;
 	private int m_currentType;
+	private SpriteRenderer m_spriteRenderer;
 
 	private void Start()
 	{
 		m_player = GetComponent<PlayerController>();
 		m_animationController = GetComponent<Animator>();
+		m_spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	private void Update()
@@ -24,6 +25,8 @@ public class PlayerGraphicsController : MonoBehaviour
 		m_animationController.SetBool("IsGrounded", m_player.controller.collisions.below);
 
 		m_animationController.SetBool("IsMoving", (m_player.m_directionalInput.x != 0) ? true : false);
+
+		m_spriteRenderer.flipX = m_player.controller.collisions.faceDir == 1 ? true : false;
 	}
 
 	public void SwapAnimInt()

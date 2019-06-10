@@ -160,9 +160,9 @@ public class PlayerController : MonoBehaviour
 		UpdatePickups();
 		SwapLayers();
 		UpdateInput();
-
 		m_shootController.Reload();
 		ReloadMovementAbility();
+		UpdateCollider();
 	}
 
 	void Update()
@@ -178,6 +178,13 @@ public class PlayerController : MonoBehaviour
 		}
 
 		m_moveDirection = m_velocity.normalized;
+
+		if (Mathf.Sign(controller.col.offset.x) != Mathf.Sign(controller.collisions.faceDir))
+		{
+			controller.col.offset = new Vector2(Mathf.Sign(controller.col.offset.x) > 0 ? controller.col.offset.x * controller.collisions.faceDir : controller.col.offset.x * -controller.collisions.faceDir, controller.col.offset.y);
+			controller.CalculateRaySpacing();
+			controller.UpdateRaycastOrigins();
+		}
 
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
@@ -425,6 +432,7 @@ public class PlayerController : MonoBehaviour
     {
 		if (m_states.m_swappingState == SwappingState.SwappingEnabled)
 		{
+			m_states.m_swappingState = SwappingState.SwappingDisabled;
 			SwapPlayers();
 			m_shootController.Reload();
 			ReloadMovementAbility();
@@ -507,8 +515,6 @@ public class PlayerController : MonoBehaviour
 	#region Swaping Code
 	private void SwapPlayers()
 	{
-		m_playerSwapped.Invoke();
-
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			m_players[i].Swap();
@@ -517,11 +523,13 @@ public class PlayerController : MonoBehaviour
 
 			if (m_players[i].m_currentRole == PlayerRole.Gunner)
 			{
-				m_spriteRenderer.color = m_players[i].m_testColor;
+				//m_spriteRenderer.color = m_players[i].m_testColor;
 			}
 		}
 
+		m_playerSwapped.Invoke();
 		UpdateInput();
+		UpdateCollider();
 	}
 
 	private void UpdateInput()
@@ -557,6 +565,31 @@ public class PlayerController : MonoBehaviour
 		SetLayersToComponents();
 	}
 
+	private void UpdateCollider()
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				controller.col.size = m_players[i].m_colliderBounds.extents;
+				controller.col.offset = m_players[i].m_colliderBounds.center;
+			}
+		}
+
+		controller.CalculateRaySpacing();
+		controller.UpdateRaycastOrigins();
+	}
+
+	public void DisableSwapping()
+	{
+		m_states.m_swappingState = SwappingState.SwappingDisabled;
+	}
+
+	public void EnableSwapping()
+	{
+		m_states.m_swappingState = SwappingState.SwappingEnabled;
+	}
+
 	private void SetLayersToComponents()
 	{
 		m_shootController.m_damageTargetMask = m_gunnerDamageTargetMask;
@@ -573,6 +606,7 @@ public class PlayerController : MonoBehaviour
 		public LayerMask m_obstacleMask;
 		public ShootController.WeaponComposition m_weaponComposition;
 		public MovementAbilityComposition m_movementAbilityComposition;
+		public Bounds m_colliderBounds;
 		public Color m_testColor;
 
 		public void Swap()
@@ -748,11 +782,11 @@ public class PlayerController : MonoBehaviour
 
 		if (m_usingMovementAbility)
 		{
-			m_states.m_swappingState = SwappingState.SwappingDisabled;
+			//m_states.m_swappingState = SwappingState.SwappingDisabled;
 		}
 		else
 		{
-			m_states.m_swappingState = SwappingState.SwappingEnabled;
+			//m_states.m_swappingState = SwappingState.SwappingEnabled;
 		}
 	}
 	#endregion

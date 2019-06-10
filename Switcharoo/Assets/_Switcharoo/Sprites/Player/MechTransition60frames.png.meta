@@ -1,181 +1,187 @@
 fileFormatVersion: 2
-guid: 602f60ac88720c24dac3302ed3613fd0
+guid: 90456e68138c1cd4585c501585c7c509
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5316161375845355141
-    second: MechTransitionYoYo_0
+      213: 9172047248688509490
+    second: MechTransition60frames_0
   - first:
-      213: 2152004786404045145
-    second: MechTransitionYoYo_1
+      213: 4618705886401220399
+    second: MechTransition60frames_1
   - first:
-      213: -2897441464132573326
-    second: MechTransitionYoYo_2
+      213: -7757315512696260624
+    second: MechTransition60frames_2
   - first:
-      213: 3112130264500873452
-    second: MechTransitionYoYo_3
+      213: -4076718546554614963
+    second: MechTransition60frames_3
   - first:
-      213: 5311361263634295430
-    second: MechTransitionYoYo_4
+      213: -5468802743805406066
+    second: MechTransition60frames_4
   - first:
-      213: -9134072353300329843
-    second: MechTransitionYoYo_5
+      213: 5918551783705717923
+    second: MechTransition60frames_5
   - first:
-      213: -8202163676877400985
-    second: MechTransitionYoYo_6
+      213: 8985203298395453015
+    second: MechTransition60frames_6
   - first:
-      213: -1819778833654018345
-    second: MechTransitionYoYo_7
+      213: -4974771180368319692
+    second: MechTransition60frames_7
   - first:
-      213: -1292862109921015896
-    second: MechTransitionYoYo_8
+      213: 1840216910756577823
+    second: MechTransition60frames_8
   - first:
-      213: -3508293408110354223
-    second: MechTransitionYoYo_9
+      213: 227491657517318827
+    second: MechTransition60frames_9
   - first:
-      213: -7671700957678373877
-    second: MechTransitionYoYo_10
+      213: 724152147617301097
+    second: MechTransition60frames_10
   - first:
-      213: -7721934286595922750
-    second: MechTransitionYoYo_11
+      213: 5210270696760377174
+    second: MechTransition60frames_11
   - first:
-      213: 159078167890724944
-    second: MechTransitionYoYo_12
+      213: 6065198478698547633
+    second: MechTransition60frames_12
   - first:
-      213: -4371245021774892371
-    second: MechTransitionYoYo_13
+      213: 8598185249766167293
+    second: MechTransition60frames_13
   - first:
-      213: 680581636409626339
-    second: MechTransitionYoYo_14
+      213: 2529778463166208965
+    second: MechTransition60frames_14
   - first:
-      213: -3027268110175780867
-    second: MechTransitionYoYo_15
+      213: -6231950841015799100
+    second: MechTransition60frames_15
   - first:
-      213: -8575467613271263043
-    second: MechTransitionYoYo_16
+      213: -9083636414345529293
+    second: MechTransition60frames_16
   - first:
-      213: 8183200129443686504
-    second: MechTransitionYoYo_17
+      213: -8149433915646387112
+    second: MechTransition60frames_17
   - first:
-      213: -8718257662607601164
-    second: MechTransitionYoYo_18
+      213: -3983782245804600961
+    second: MechTransition60frames_18
   - first:
-      213: 6308863963170648597
-    second: MechTransitionYoYo_19
+      213: -748097568992284183
+    second: MechTransition60frames_19
   - first:
-      213: -2899726360970211857
-    second: MechTransitionYoYo_20
+      213: 2266818334782735355
+    second: MechTransition60frames_20
   - first:
-      213: -5455693172068569593
-    second: MechTransitionYoYo_21
+      213: 3813814960442115105
+    second: MechTransition60frames_21
   - first:
-      213: 308369010046328175
-    second: MechTransitionYoYo_22
+      213: -24810480735542908
+    second: MechTransition60frames_22
   - first:
-      213: 3210954171000736671
-    second: MechTransitionYoYo_23
+      213: 4185557891865596990
+    second: MechTransition60frames_23
   - first:
-      213: 8927549307798493487
-    second: MechTransitionYoYo_24
+      213: -6981503838469206648
+    second: MechTransition60frames_24
   - first:
-      213: -1770701642705627630
-    second: MechTransitionYoYo_25
+      213: -4042803079753899929
+    second: MechTransition60frames_25
   - first:
-      213: 6556410898980396194
-    second: MechTransitionYoYo_26
+      213: 9128251405780242394
+    second: MechTransition60frames_26
   - first:
-      213: 8767337627990937889
-    second: MechTransitionYoYo_27
+      213: 1574979783922184999
+    second: MechTransition60frames_27
   - first:
-      213: -1134395050696233338
-    second: MechTransitionYoYo_28
+      213: -4006487153437247737
+    second: MechTransition60frames_28
   - first:
-      213: -2990889709885805154
-    second: MechTransitionYoYo_29
+      213: -8145279271964349159
+    second: MechTransition60frames_29
   - first:
-      213: -8405493466876869070
-    second: MechTransitionYoYo_30
+      213: 1369730223963273940
+    second: MechTransition60frames_30
   - first:
-      213: 8730196404379726752
-    second: MechTransitionYoYo_31
+      213: -5179971169741940188
+    second: MechTransition60frames_31
   - first:
-      213: -3751008810736951746
-    second: MechTransitionYoYo_32
+      213: 2243013213705031195
+    second: MechTransition60frames_32
   - first:
-      213: 7387016812069096161
-    second: MechTransitionYoYo_33
+      213: -6080388913805691289
+    second: MechTransition60frames_33
   - first:
-      213: 5419820087083137308
-    second: MechTransitionYoYo_34
+      213: 4230883621923095667
+    second: MechTransition60frames_34
   - first:
-      213: -1550008226876991799
-    second: MechTransitionYoYo_35
+      213: 7567165887799477881
+    second: MechTransition60frames_35
   - first:
-      213: 8464235267981239964
-    second: MechTransitionYoYo_36
+      213: -6589927054050140720
+    second: MechTransition60frames_36
   - first:
-      213: 8484117390091374669
-    second: MechTransitionYoYo_37
+      213: -2104036568103309253
+    second: MechTransition60frames_37
   - first:
-      213: -7705735252683357684
-    second: MechTransitionYoYo_38
+      213: -7152569174765402901
+    second: MechTransition60frames_38
   - first:
-      213: 5347593477285544124
-    second: MechTransitionYoYo_39
+      213: 2163407532290237248
+    second: MechTransition60frames_39
   - first:
-      213: 349927931327563532
-    second: MechTransitionYoYo_40
+      213: 1498378368009070978
+    second: MechTransition60frames_40
   - first:
-      213: 2885713471666788661
-    second: MechTransitionYoYo_41
+      213: 5359840419568876737
+    second: MechTransition60frames_41
   - first:
-      213: -7135929687242029437
-    second: MechTransitionYoYo_42
+      213: -7606451927380611311
+    second: MechTransition60frames_42
   - first:
-      213: -3212269833945510358
-    second: MechTransitionYoYo_43
+      213: -7718416706605315527
+    second: MechTransition60frames_43
   - first:
-      213: 4653089192453540240
-    second: MechTransitionYoYo_44
+      213: -5781201547259574758
+    second: MechTransition60frames_44
   - first:
-      213: -7327991860501385151
-    second: MechTransitionYoYo_45
+      213: 7990418232815922891
+    second: MechTransition60frames_45
   - first:
-      213: 6098071515488457525
-    second: MechTransitionYoYo_46
+      213: -6463413483043863261
+    second: MechTransition60frames_46
   - first:
-      213: -5107627643538968400
-    second: MechTransitionYoYo_47
+      213: 2270794687957478716
+    second: MechTransition60frames_47
   - first:
-      213: 7316934641471495527
-    second: MechTransitionYoYo_48
+      213: 7650275174872421513
+    second: MechTransition60frames_48
   - first:
-      213: 183372285851766409
-    second: MechTransitionYoYo_49
+      213: 1480393693935444965
+    second: MechTransition60frames_49
   - first:
-      213: -695393039158581971
-    second: MechTransitionYoYo_50
+      213: -9205324527732540187
+    second: MechTransition60frames_50
   - first:
-      213: -325675435747138440
-    second: MechTransitionYoYo_51
+      213: 1925451196173354478
+    second: MechTransition60frames_51
   - first:
-      213: 7497260374267816934
-    second: MechTransitionYoYo_52
+      213: -1508195682432886095
+    second: MechTransition60frames_52
   - first:
-      213: 5866400075721490118
-    second: MechTransitionYoYo_53
+      213: 8810046606524203540
+    second: MechTransition60frames_53
   - first:
-      213: -9018432432206942283
-    second: MechTransitionYoYo_54
+      213: -1072588852003346478
+    second: MechTransition60frames_54
   - first:
-      213: -3070608717903805797
-    second: MechTransitionYoYo_55
+      213: 4224584544338826495
+    second: MechTransition60frames_55
   - first:
-      213: -4581049698018019415
-    second: MechTransitionYoYo_56
+      213: 5848523323164504915
+    second: MechTransition60frames_56
   - first:
-      213: -377684040721094860
-    second: MechTransitionYoYo_57
+      213: -5422860175107887686
+    second: MechTransition60frames_57
+  - first:
+      213: -5538106481081062618
+    second: MechTransition60frames_58
+  - first:
+      213: 4005133779173440474
+    second: MechTransition60frames_59
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -258,7 +264,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MechTransitionYoYo_0
+      name: MechTransition60frames_0
       rect:
         serializedVersion: 2
         x: 0
@@ -272,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cf21ac8982ad9e4c9bf28bc20066603
-      internalID: -5316161375845355141
+      spriteID: 0515d4a9356c94d49824643d9da96b58
+      internalID: 9172047248688509490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_1
+      name: MechTransition60frames_1
       rect:
         serializedVersion: 2
         x: 128
@@ -293,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f417e1376e20a441a567c3e29018fbd
-      internalID: 2152004786404045145
+      spriteID: 10eaf435137a52241954ccbf583b881d
+      internalID: 4618705886401220399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_2
+      name: MechTransition60frames_2
       rect:
         serializedVersion: 2
         x: 256
@@ -314,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10bd082effc94e84e90af769ec3f105c
-      internalID: -2897441464132573326
+      spriteID: 71d3b28ce62b4924db7a79fe1adb7f7c
+      internalID: -7757315512696260624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_3
+      name: MechTransition60frames_3
       rect:
         serializedVersion: 2
         x: 384
@@ -335,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 360c506a586c1344cb663f3d1be162ff
-      internalID: 3112130264500873452
+      spriteID: 37c74c54807e08f49a11ccbd8ce13e06
+      internalID: -4076718546554614963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_4
+      name: MechTransition60frames_4
       rect:
         serializedVersion: 2
         x: 512
@@ -356,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e10d76675596334e96103131aa83f59
-      internalID: 5311361263634295430
+      spriteID: 39ab2df9a61bde949b7694a90592beb6
+      internalID: -5468802743805406066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_5
+      name: MechTransition60frames_5
       rect:
         serializedVersion: 2
         x: 640
@@ -377,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c84d8e9d02d027e458b3886e0ba987f6
-      internalID: -9134072353300329843
+      spriteID: 5e0a885438efa994c82b51a48a257179
+      internalID: 5918551783705717923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_6
+      name: MechTransition60frames_6
       rect:
         serializedVersion: 2
         x: 768
@@ -398,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70bc2d817467c5c4cb48e2913874bba7
-      internalID: -8202163676877400985
+      spriteID: fbcdd49419394ba47930afc141daee02
+      internalID: 8985203298395453015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_7
+      name: MechTransition60frames_7
       rect:
         serializedVersion: 2
         x: 896
@@ -419,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb4d976cd5c03a240b11f16803741383
-      internalID: -1819778833654018345
+      spriteID: 8757a674e812b134e934449f9d5c772c
+      internalID: -4974771180368319692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_8
+      name: MechTransition60frames_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -440,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1425ad855c2cc304aa4b674b8bcecf5d
-      internalID: -1292862109921015896
+      spriteID: 6709087d4c6ea734e96eadafc92e9dc7
+      internalID: 1840216910756577823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_9
+      name: MechTransition60frames_9
       rect:
         serializedVersion: 2
         x: 1152
@@ -461,14 +467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c57f4c36c7d39547aa6fd6a5d1fffea
-      internalID: -3508293408110354223
+      spriteID: b9fe202fe6312374ea52426f61fcfce8
+      internalID: 227491657517318827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_10
+      name: MechTransition60frames_10
       rect:
         serializedVersion: 2
         x: 1280
@@ -482,14 +488,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5911969d0edcba14fac717f8109991f4
-      internalID: -7671700957678373877
+      spriteID: 0247c0af36dbf10429ac2f2a11383b4f
+      internalID: 724152147617301097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_11
+      name: MechTransition60frames_11
       rect:
         serializedVersion: 2
         x: 1408
@@ -503,14 +509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d7f50bcaf29e3f4b82670f909f0d2b5
-      internalID: -7721934286595922750
+      spriteID: b089b24face6c18409f9b50f4cd39255
+      internalID: 5210270696760377174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_12
+      name: MechTransition60frames_12
       rect:
         serializedVersion: 2
         x: 1536
@@ -524,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b01ce481a5d02349ac4a78bbbd1387f
-      internalID: 159078167890724944
+      spriteID: 5d0b67df425ae3142bd5cbc705e85c45
+      internalID: 6065198478698547633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_13
+      name: MechTransition60frames_13
       rect:
         serializedVersion: 2
         x: 1664
@@ -545,14 +551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00ca98b2b032fc40868100ffb7c2e5f
-      internalID: -4371245021774892371
+      spriteID: a1c985f3d05637a4a83f753d87d83c2d
+      internalID: 8598185249766167293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_14
+      name: MechTransition60frames_14
       rect:
         serializedVersion: 2
         x: 1792
@@ -566,14 +572,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfe894c8fddff464d8c25733e93efc38
-      internalID: 680581636409626339
+      spriteID: 9c62f6dd45756a64ca1ad39e845182c2
+      internalID: 2529778463166208965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_15
+      name: MechTransition60frames_15
       rect:
         serializedVersion: 2
         x: 1920
@@ -587,14 +593,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7fcd8a864f11f84cb3aa014025c151c
-      internalID: -3027268110175780867
+      spriteID: e89e55b2b7937fb459498161e7d0ec07
+      internalID: -6231950841015799100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_16
+      name: MechTransition60frames_16
       rect:
         serializedVersion: 2
         x: 2048
@@ -608,14 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4192a91899fc9654b825fa22a41e9d8d
-      internalID: -8575467613271263043
+      spriteID: b61a846a46c2fa2459a145c22693ca63
+      internalID: -9083636414345529293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_17
+      name: MechTransition60frames_17
       rect:
         serializedVersion: 2
         x: 2176
@@ -629,14 +635,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12e7de24ca8ea0743a74f6531ee587a5
-      internalID: 8183200129443686504
+      spriteID: 88af0c1a896e3f8409be4403e99dcc82
+      internalID: -8149433915646387112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_18
+      name: MechTransition60frames_18
       rect:
         serializedVersion: 2
         x: 2304
@@ -650,14 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 524f51df53bdab04da571da93d8716c0
-      internalID: -8718257662607601164
+      spriteID: 3c84cee3ed41a314d9cdc1c55185b8af
+      internalID: -3983782245804600961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_19
+      name: MechTransition60frames_19
       rect:
         serializedVersion: 2
         x: 2432
@@ -671,14 +677,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb857c3f99dac3045bbe1f02732ac21c
-      internalID: 6308863963170648597
+      spriteID: c0e767d6d6108a64c98f308f39b18215
+      internalID: -748097568992284183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_20
+      name: MechTransition60frames_20
       rect:
         serializedVersion: 2
         x: 2560
@@ -692,14 +698,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7aaf81c0c2dc8749aa1860f06bc4f0d
-      internalID: -2899726360970211857
+      spriteID: f410f5e0a7e38ed4cb9749654da2a3d2
+      internalID: 2266818334782735355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_21
+      name: MechTransition60frames_21
       rect:
         serializedVersion: 2
         x: 2688
@@ -713,14 +719,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71d69adda76fc6141b34ddbda9b68564
-      internalID: -5455693172068569593
+      spriteID: 6ae36b77f4444ee49b334b167597da09
+      internalID: 3813814960442115105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_22
+      name: MechTransition60frames_22
       rect:
         serializedVersion: 2
         x: 2816
@@ -734,14 +740,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10871b0bb7ec9c34bb13a612b7bfb953
-      internalID: 308369010046328175
+      spriteID: f66368722243fb74988f347e98f116bf
+      internalID: -24810480735542908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_23
+      name: MechTransition60frames_23
       rect:
         serializedVersion: 2
         x: 2944
@@ -755,14 +761,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e867764b60ee5448b0c2a48e9d2e26c
-      internalID: 3210954171000736671
+      spriteID: 5ff701f5111f06f4faf3fefcc89a66bb
+      internalID: 4185557891865596990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_24
+      name: MechTransition60frames_24
       rect:
         serializedVersion: 2
         x: 3072
@@ -776,14 +782,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d91cc28024a2f7742bf1689c7aa2c14d
-      internalID: 8927549307798493487
+      spriteID: ad117542addac054e80a41c534818dcd
+      internalID: -6981503838469206648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_25
+      name: MechTransition60frames_25
       rect:
         serializedVersion: 2
         x: 3200
@@ -797,14 +803,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2541e3daf4d457b4d892b4acbd2ae810
-      internalID: -1770701642705627630
+      spriteID: 745485381c800254ba60a05c98156204
+      internalID: -4042803079753899929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_26
+      name: MechTransition60frames_26
       rect:
         serializedVersion: 2
         x: 3328
@@ -818,14 +824,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed3a75ebe1fb28c47812f5debe46ea3e
-      internalID: 6556410898980396194
+      spriteID: 3b2af9f4abdfeb644bb20b8659361a03
+      internalID: 9128251405780242394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_27
+      name: MechTransition60frames_27
       rect:
         serializedVersion: 2
         x: 3456
@@ -839,14 +845,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 349b8996a23051a4ca458b2b7f492a42
-      internalID: 8767337627990937889
+      spriteID: 5b5528c63c48ff04ca8466dfa9a65480
+      internalID: 1574979783922184999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_28
+      name: MechTransition60frames_28
       rect:
         serializedVersion: 2
         x: 3584
@@ -860,14 +866,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53d00b631fbc1af4ba14029d1919d545
-      internalID: -1134395050696233338
+      spriteID: ff74a4c9031c2b4448dbbe9a594cb8b8
+      internalID: -4006487153437247737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_29
+      name: MechTransition60frames_29
       rect:
         serializedVersion: 2
         x: 3712
@@ -881,14 +887,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93176b4ec874be842a728e8febce6c7d
-      internalID: -2990889709885805154
+      spriteID: 9085ee8c0bffe7c4688d74af73e5f6eb
+      internalID: -8145279271964349159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_30
+      name: MechTransition60frames_30
       rect:
         serializedVersion: 2
         x: 3840
@@ -902,14 +908,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cd50d8c14603584aa5086c11aca5c22
-      internalID: -8405493466876869070
+      spriteID: 08bc76daff23d784290c55e9d4c8d114
+      internalID: 1369730223963273940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_31
+      name: MechTransition60frames_31
       rect:
         serializedVersion: 2
         x: 3968
@@ -923,14 +929,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d46ae0ac21db45428155d4cad27c9b6
-      internalID: 8730196404379726752
+      spriteID: ff6e675c30fac8e4591cf3e2606bba0e
+      internalID: -5179971169741940188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_32
+      name: MechTransition60frames_32
       rect:
         serializedVersion: 2
         x: 4096
@@ -944,14 +950,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c48b32da2842bb489e99a4d237feff5
-      internalID: -3751008810736951746
+      spriteID: 55bcaaf9e1f5101408b16c4d40eaa592
+      internalID: 2243013213705031195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_33
+      name: MechTransition60frames_33
       rect:
         serializedVersion: 2
         x: 4224
@@ -965,14 +971,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42fc3da7938bd874ca9003aaabdf9360
-      internalID: 7387016812069096161
+      spriteID: d2b97fd0669dfa64c9bf6a02e545e0c8
+      internalID: -6080388913805691289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_34
+      name: MechTransition60frames_34
       rect:
         serializedVersion: 2
         x: 4352
@@ -986,14 +992,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abcb644845bc7604a88e7b8c38c7a634
-      internalID: 5419820087083137308
+      spriteID: dba88487e205bb5458e5bee3a4da11ad
+      internalID: 4230883621923095667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_35
+      name: MechTransition60frames_35
       rect:
         serializedVersion: 2
         x: 4480
@@ -1007,14 +1013,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f32e3c90e2c102641b97b69ff88aa530
-      internalID: -1550008226876991799
+      spriteID: 3995efca066786c4d93a17a29a1716c6
+      internalID: 7567165887799477881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_36
+      name: MechTransition60frames_36
       rect:
         serializedVersion: 2
         x: 4608
@@ -1028,14 +1034,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 585a10192ad036049ab52f65c7cc8a22
-      internalID: 8464235267981239964
+      spriteID: 167be462e8bc670438772be3cadb635a
+      internalID: -6589927054050140720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_37
+      name: MechTransition60frames_37
       rect:
         serializedVersion: 2
         x: 4736
@@ -1049,14 +1055,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5289d98b50b765a44aeb0528b6c6c497
-      internalID: 8484117390091374669
+      spriteID: b8b9c94c2ee630a4582f7d47ceda1a54
+      internalID: -2104036568103309253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_38
+      name: MechTransition60frames_38
       rect:
         serializedVersion: 2
         x: 4864
@@ -1070,14 +1076,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 902aad715cc232b49a64916a31b34b87
-      internalID: -7705735252683357684
+      spriteID: 8a885da4a21ea954d93e88839903e305
+      internalID: -7152569174765402901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_39
+      name: MechTransition60frames_39
       rect:
         serializedVersion: 2
         x: 4992
@@ -1091,14 +1097,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22d0ef6aafc5a104dae20fc98b6f059a
-      internalID: 5347593477285544124
+      spriteID: acc0a3bd5abbaeb4baa95685eba93bed
+      internalID: 2163407532290237248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_40
+      name: MechTransition60frames_40
       rect:
         serializedVersion: 2
         x: 5120
@@ -1112,14 +1118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0226cfd89eee447b7280a796128b32
-      internalID: 349927931327563532
+      spriteID: b1d42997610e2264a91a84a51307ef58
+      internalID: 1498378368009070978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_41
+      name: MechTransition60frames_41
       rect:
         serializedVersion: 2
         x: 5248
@@ -1133,14 +1139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 590b07421f747154399bfd9051c46ac2
-      internalID: 2885713471666788661
+      spriteID: dc135439b5c628e47807d56d91ad50dd
+      internalID: 5359840419568876737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_42
+      name: MechTransition60frames_42
       rect:
         serializedVersion: 2
         x: 5376
@@ -1154,14 +1160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5b095ad96189204ba9549057f709e1c
-      internalID: -7135929687242029437
+      spriteID: 5f28d52352fa1824ab035dfb7ad7c035
+      internalID: -7606451927380611311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_43
+      name: MechTransition60frames_43
       rect:
         serializedVersion: 2
         x: 5504
@@ -1175,14 +1181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8da74e7e8d96d064b8f13016409c6084
-      internalID: -3212269833945510358
+      spriteID: 156121fe62db9814a8c749a415c3337f
+      internalID: -7718416706605315527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_44
+      name: MechTransition60frames_44
       rect:
         serializedVersion: 2
         x: 5632
@@ -1196,14 +1202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae4ca8fb8574cdb4bb6e59358721ffc6
-      internalID: 4653089192453540240
+      spriteID: d6e7e028c614f7d40b785f6f37bde23a
+      internalID: -5781201547259574758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_45
+      name: MechTransition60frames_45
       rect:
         serializedVersion: 2
         x: 5760
@@ -1217,14 +1223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c130b6728264594f92eb90621f22393
-      internalID: -7327991860501385151
+      spriteID: ccb0523586caaa549a79962ecae99367
+      internalID: 7990418232815922891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_46
+      name: MechTransition60frames_46
       rect:
         serializedVersion: 2
         x: 5888
@@ -1238,14 +1244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3244a56ee8247ac4e95898d1897f4ee2
-      internalID: 6098071515488457525
+      spriteID: 040092ccb5430f34eb8576e9769bf6c3
+      internalID: -6463413483043863261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_47
+      name: MechTransition60frames_47
       rect:
         serializedVersion: 2
         x: 6016
@@ -1259,14 +1265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a2f2ad7aef29d245a44464044837e99
-      internalID: -5107627643538968400
+      spriteID: d2a65a42139a8f547a6b76bc60f8b29c
+      internalID: 2270794687957478716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_48
+      name: MechTransition60frames_48
       rect:
         serializedVersion: 2
         x: 6144
@@ -1280,14 +1286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53441abe5da5c714d8176b6c168ac62b
-      internalID: 7316934641471495527
+      spriteID: 41ddcf6139e71ed46b9386156974b4c5
+      internalID: 7650275174872421513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_49
+      name: MechTransition60frames_49
       rect:
         serializedVersion: 2
         x: 6272
@@ -1301,14 +1307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5581d3d902d7d884ab961c436584355e
-      internalID: 183372285851766409
+      spriteID: 6c9140b20dc185242aec22ca7220f17f
+      internalID: 1480393693935444965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_50
+      name: MechTransition60frames_50
       rect:
         serializedVersion: 2
         x: 6400
@@ -1322,14 +1328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcb7029053b740b4a93dae73b4932473
-      internalID: -695393039158581971
+      spriteID: 80dd37d483f57d849964b89b1886f0fb
+      internalID: -9205324527732540187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_51
+      name: MechTransition60frames_51
       rect:
         serializedVersion: 2
         x: 6528
@@ -1343,14 +1349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b0496ca6ad99fd41938b5f8655bbbf7
-      internalID: -325675435747138440
+      spriteID: 94f9cc50c1272b4459b48b982240bda3
+      internalID: 1925451196173354478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_52
+      name: MechTransition60frames_52
       rect:
         serializedVersion: 2
         x: 6656
@@ -1364,14 +1370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec7c3b8557812f542882b1385d9c1b71
-      internalID: 7497260374267816934
+      spriteID: a16e80573b40e024ca4d3aa1af04e016
+      internalID: -1508195682432886095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_53
+      name: MechTransition60frames_53
       rect:
         serializedVersion: 2
         x: 6784
@@ -1385,14 +1391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a97569716d7754419cdab4a52e72789
-      internalID: 5866400075721490118
+      spriteID: d81363ecfb4613845838a0eb4349cb4f
+      internalID: 8810046606524203540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_54
+      name: MechTransition60frames_54
       rect:
         serializedVersion: 2
         x: 6912
@@ -1406,14 +1412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f4d5a5f35721524d85214dc7ab8b00a
-      internalID: -9018432432206942283
+      spriteID: b01d9676d64ba324198e12eab8523e3d
+      internalID: -1072588852003346478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_55
+      name: MechTransition60frames_55
       rect:
         serializedVersion: 2
         x: 7040
@@ -1427,14 +1433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a49b48dc7ff0960418951c84e0f3e6e5
-      internalID: -3070608717903805797
+      spriteID: 1398abe3537383f4596e8551b86306aa
+      internalID: 4224584544338826495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_56
+      name: MechTransition60frames_56
       rect:
         serializedVersion: 2
         x: 7168
@@ -1448,14 +1454,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5131f7188d38f444a25122f37739f94
-      internalID: -4581049698018019415
+      spriteID: dd8827d44e8a6ec4380f163a90c2ec48
+      internalID: 5848523323164504915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MechTransitionYoYo_57
+      name: MechTransition60frames_57
       rect:
         serializedVersion: 2
         x: 7296
@@ -1469,8 +1475,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 813af278982e9914fb3148ad9f4c6de6
-      internalID: -377684040721094860
+      spriteID: 0fd8f68e75d85fe4eb4448af2ec03a17
+      internalID: -5422860175107887686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechTransition60frames_58
+      rect:
+        serializedVersion: 2
+        x: 7424
+        y: 0
+        width: 128
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb6ffb98327efa47bf5e84840fc533f
+      internalID: -5538106481081062618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechTransition60frames_59
+      rect:
+        serializedVersion: 2
+        x: 7552
+        y: 0
+        width: 128
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e494c91c3eb7642a0f57505319a8f2
+      internalID: 4005133779173440474
       vertices: []
       indices: 
       edges: []
@@ -1478,7 +1526,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: be154a8d229d5f04aa84f3bdb162fe45
+    spriteID: 55e0f1cf0627a7745928ae6d0a589250
     internalID: 0
     vertices: []
     indices: 

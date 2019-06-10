@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerSwapTimeSlow
   m_EditorClassIdentifier: 
   m_timeSlowAmount: 0.1
-  m_timeSlowLength: 0.5
+  m_timeSlowLength: 1
