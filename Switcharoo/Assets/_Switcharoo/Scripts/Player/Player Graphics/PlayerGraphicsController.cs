@@ -11,6 +11,7 @@ public class PlayerGraphicsController : MonoBehaviour
 
 	private PlayerController m_player;
 	private Animator m_animationController;
+	private int m_currentType;
 
 	private void Start()
 	{
@@ -23,6 +24,20 @@ public class PlayerGraphicsController : MonoBehaviour
 		m_animationController.SetBool("IsGrounded", m_player.controller.collisions.below);
 
 		m_animationController.SetBool("IsMoving", (m_player.m_directionalInput.x != 0) ? true : false);
+	}
+
+	public void SwapAnimInt()
+	{
+		if (m_currentType == 0)
+		{
+			m_currentType = 1;
+		}
+		else if (m_currentType == 1)
+		{
+			m_currentType = 0;
+		}
+
+		m_animationController.SetInteger("CurrentType", m_currentType);
 	}
 
 	public void TriggerTimeSlow(TimeSlowData p_timeSlowData)
