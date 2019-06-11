@@ -35,6 +35,10 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 
                     AimAtTarget(p_bulletOrigin, p_player.transform.position);
 
+                    if ((int)Mathf.Sign(p_player.transform.position.x - p_enemyObject.transform.position.x) != (int)Mathf.Sign(p_aiController.m_currentForward))
+                    {
+                        p_aiController.FlipEnemy((int)Mathf.Sign(p_player.transform.position.x - p_enemyObject.transform.position.x));
+                    }
 
                     //If the enemy gets close enough to the player, they will stop advancing
                     if (Mathf.Abs(p_player.transform.position.x - p_enemyObject.transform.position.x) > m_distanceFromPlayer)
@@ -61,6 +65,7 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
                 {
                     p_aiController.ChangeAnimation(false);
                     p_aiController.m_currentAttackState = AttackState.Finished;
+                    
                 }
 
                 break;
@@ -94,6 +99,8 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 
         float lookAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         p_bulletOrigin.rotation = Quaternion.AngleAxis(lookAngle, Vector3.forward);
+
+
 
 
     }
