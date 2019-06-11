@@ -17,6 +17,15 @@ public class AI_MovementType_Pathfinding : AI_MovementType_Base
     public override bool IsGrounded(AiController p_aiCont, LayerMask p_wallLayer)
     {
         RaycastHit2D hit = Physics2D.BoxCast(p_aiCont.m_groundCheckPos + p_aiCont.transform.position, p_aiCont.m_groundCheckDimensions, 0, -Vector3.up, 0f, p_wallLayer);
+        if (!p_aiCont.m_isGrounded && hit)
+        {
+            p_aiCont.EnemyGrounded(true);
+
+            p_aiCont.m_isJumping = false;
+
+        }
+        
+
         return hit;
     }
 

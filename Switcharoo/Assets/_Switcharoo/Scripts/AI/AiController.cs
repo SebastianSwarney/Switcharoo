@@ -35,6 +35,7 @@ public class AiController : MonoBehaviour
 {
 
 
+
     public Enemy_Base m_enemyType;
     public bool m_spawnedOnSpawnerDestroy = false;
     [HideInInspector]
@@ -47,6 +48,7 @@ public class AiController : MonoBehaviour
     Rigidbody2D m_rb;
     ShootController m_gun;
     public SpriteRenderer m_sRend;
+    public bool m_flipTransform;
 
     public Transform m_bulletOrigin;
 
@@ -155,12 +157,12 @@ public class AiController : MonoBehaviour
 
 
     #region Animation Delay Events
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_jumpAnim, m_beginJump, m_isJumping, m_shootingMovement;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool m_startShootAnim, m_inShootingAnim;
-    //[HideInInspector]
+    [HideInInspector]
     public int m_bulletsPerPattern;
     public int m_currentBulletAmount;
 
@@ -484,7 +486,15 @@ public class AiController : MonoBehaviour
     {
         m_currentForward = p_newXDir;
 
-        m_sRend.flipX = (m_currentForward > 0) ? false : true;
+        if (!m_flipTransform)
+        {
+            m_sRend.flipX = (m_currentForward > 0) ? false : true;
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * p_newXDir, transform.localScale.y, transform.localScale.z);
+        }
+        
     }
 
 
