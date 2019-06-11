@@ -12,9 +12,12 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
 {
     [Header("Shoot-Only variables")]
     public float m_distanceFromPlayer;
-    public float m_shootIntervalTime, m_shootBreakTime;
+    public int m_bulletsPerPattern;
+
+    public float m_shootBreakTime, m_shootTriggerTime;
+
     public AI_MovementType_Base m_shootingMovement;
-	public ShootController.WeaponComposition m_weaponComposition;
+    public ShootController.WeaponComposition m_weaponComposition;
 
     ///<Summary>
     ///Where all the attack logic is
@@ -24,7 +27,11 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
         {
             case AttackState.Start:
                 //Starts the visual tell
-                VisualTell(p_aiController, p_rb);
+                p_aiController.m_bulletsPerPattern = m_bulletsPerPattern;
+                p_aiController.m_shootBreakTime = m_shootBreakTime;
+                p_aiController.m_shootTriggerTime = m_shootTriggerTime;
+                p_aiController.m_currentAttackState = AttackState.Perform;
+
                 break;
 
             case AttackState.Perform:
@@ -35,34 +42,21 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
 
                     AimAtTarget(p_bulletOrigin, p_player.transform.position);
 
-                    ///Creates bursts between the bullets
-                    if (CanFireWeapon(p_aiController))
+
+                    //Different movement for when they are shooting
+                    if (!m_shootingMovement.PostionReached(p_aiController.m_agent, p_enemyObject, p_targetPos, m_targetStoppingDistance))
                     {
-                        p_gun.Shoot(p_bulletOrigin);
-                        p_aiController.SwapShooting(true, m_shootIntervalTime);
-                        
-                        //Different movement for when they are shooting
-                        if (!m_shootingMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
-                        {
-                            m_shootingMovement.ConvertRelativePosition(p_aiController.m_agent,p_enemyObject, p_targetPos);
-                            m_shootingMovement.MoveToPosition(p_aiController,p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
-                        }else{
-                        m_shootingMovement.StopMoving(p_rb);
-                        }
+                        m_shootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
+                        m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+
+                        p_aiController.ChangeAnimation(false);
                     }
                     else
                     {
-                        p_aiController.SwapShooting(false, m_shootBreakTime);
-                        ///If they've havent reached the position, move to it still
-                        if (!m_attackMovement.PostionReached(p_aiController.m_agent,p_enemyObject, p_targetPos, m_targetStoppingDistance))
-                        {
-                            
-                            p_targetPos = m_attackMovement.ConvertRelativePosition(p_aiController.m_agent,p_enemyObject, p_targetPos);
-                            m_attackMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
-                        }else{
-                            m_attackMovement.StopMoving(p_rb);
-                        }
+                        p_aiController.ChangeAnimation(true);
+                        m_shootingMovement.StopMoving(p_rb);
                     }
+
 
 
                 }
@@ -70,6 +64,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
                 ///If the player gets out of range, end the attack
                 else
                 {
+                    p_aiController.ChangeAnimation(false);
                     p_aiController.m_currentAttackState = AttackState.Finished;
                 }
 
@@ -84,7 +79,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
 
 
     //Generates the target to move to during the attack
-    public override Vector3 SetAttackTargetPosition(AiController p_aiCont,GameObject p_enemyObject, GameObject p_player)
+    public override Vector3 SetAttackTargetPosition(AiController p_aiCont, GameObject p_enemyObject, GameObject p_player)
     {
         Vector3 dir = (p_player.transform.position - p_enemyObject.transform.position).normalized;
 
@@ -109,12 +104,6 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
         p_bulletOrigin.rotation = Quaternion.AngleAxis(lookAngle, Vector3.forward);
 
 
-    }
-
-    //Determines if the weapon can be fired
-    bool CanFireWeapon(AiController p_aiCont)
-    {
-        return p_aiCont.CanFireGun();
     }
 
 

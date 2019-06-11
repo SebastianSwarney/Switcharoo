@@ -32,7 +32,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
 
     public void MoveToNode(float p_speed, float p_jumpHeight, bool p_isGrounded)
     {
-        if (m_aiCont.m_isAttacking) return;
+        if (m_aiCont.m_inShootingAnim) return;
         
 
 

@@ -105,6 +105,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
+      propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShootBreak.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
       propertyPath: m_enemyType
       value: 
       objectReference: {fileID: 11400000, guid: efe9a7b8045bcae4980383ae77b3503a,
@@ -163,6 +173,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_currentForward
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8330872971473352672}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShootAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShootBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShootBreak.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShootBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8330872971473352672}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShootBreak.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FireShootAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_enemyShootBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7491690288337377126, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -254,3 +314,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5247679576203815569}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8330872971473352672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5247679576203815569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024462297bcb38748915421d324f3371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

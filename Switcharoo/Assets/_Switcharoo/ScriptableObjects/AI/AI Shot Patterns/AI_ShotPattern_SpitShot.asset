@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3ba4c5b6db826b478620216dbcb0362, type: 3}
-  m_Name: AI_ShotPattern_Scatter 1
+  m_Name: AI_ShotPattern_SpitShot
   m_EditorClassIdentifier: 
   m_fireRate: 6
   m_baseDamage: 30

@@ -193,10 +193,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyShoot, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyShootBreak:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyShootBreak, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_enemyShootAlt:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyShootAlt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_enemyShootAltBreak:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyShootAltBreak, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_enemyGrounded:
     m_PersistentCalls:
@@ -218,8 +228,12 @@ MonoBehaviour:
   m_jumpAnim: 0
   m_beginJump: 0
   m_isJumping: 0
-  m_startAttackAnim: 0
-  m_beginAttack: 0
+  m_shootingMovement: 0
+  m_startShootAnim: 0
+  m_inShootingAnim: 0
+  m_bulletsPerPattern: 0
+  m_shootBreakTime: 0
+  m_shootTriggerTime: 0
 --- !u!114 &3078133998956346287
 MonoBehaviour:
   m_ObjectHideFlags: 0

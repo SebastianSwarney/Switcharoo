@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 288033317153994315, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
@@ -292,6 +292,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: Infinity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}
@@ -494,6 +499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_heightOffset
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793162592188619352, guid: 446553491db9b8240a3d567b0abf336e,
+        type: 3}
+      propertyPath: m_drawPath
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4818443893436699530, guid: 446553491db9b8240a3d567b0abf336e,
         type: 3}
@@ -864,7 +874,7 @@ PrefabInstance:
     - target: {fileID: 746598711581196624, guid: d252b1f749c772a418684ea3ad49d903,
         type: 3}
       propertyPath: displayPaths
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 746598711581196624, guid: d252b1f749c772a418684ea3ad49d903,
         type: 3}

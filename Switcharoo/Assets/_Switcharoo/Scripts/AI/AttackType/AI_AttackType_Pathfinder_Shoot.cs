@@ -6,7 +6,9 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 {
     [Header("Pathfinder Shoot-Only variables")]
     public float m_distanceFromPlayer;
-    public float m_shootIntervalTime, m_shootBreakTime;
+    public int m_bulletsPerPattern;
+    public float m_shootBreakTime, m_shootTriggerTime;
+
     public AI_MovementType_Base m_shootingMovement;
     public ShootController.WeaponComposition m_weaponComposition;
 
@@ -19,7 +21,11 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
         {
             case AttackState.Start:
                 //Starts the visual tell
-                VisualTell(p_aiController, p_rb);
+                p_aiController.m_bulletsPerPattern = m_bulletsPerPattern;
+                p_aiController.m_shootBreakTime = m_shootBreakTime;
+                p_aiController.m_shootTriggerTime = m_shootTriggerTime;
+                
+                p_aiController.m_currentAttackState = AttackState.Perform;
                 break;
 
             case AttackState.Perform:
@@ -29,40 +35,23 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 
                     AimAtTarget(p_bulletOrigin, p_player.transform.position);
 
-                    ///Creates bursts between the bullets
-                    if (CanFireWeapon(p_aiController))
+
+                    //If the enemy gets close enough to the player, they will stop advancing
+                    if (Mathf.Abs(p_player.transform.position.x - p_enemyObject.transform.position.x) > m_distanceFromPlayer)
                     {
-                        p_gun.Shoot(p_bulletOrigin);
-                        p_aiController.SwapShooting(true, m_shootIntervalTime);
+                        p_aiController.ChangeAnimation(false);
+                        m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
 
-
-                        //If the enemy gets close enough to the player, they will stop advancing
-                        if (Mathf.Abs(p_player.transform.position.x - p_enemyObject.transform.position.x) > m_distanceFromPlayer)
-                        {
-                            m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
-                            
-                            
-                        }
-                        else
-                        {
-                            p_rb.velocity = new Vector3(0f, p_rb.velocity.y, 0f);
-                        }
+                        
 
                     }
                     else
                     {
-                        p_aiController.SwapShooting(false, m_shootBreakTime);
-
-                        if (Mathf.Abs(p_player.transform.position.x - p_enemyObject.transform.position.x) > m_distanceFromPlayer)
-                        {
-                            m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
-                        }
-                        else
-                        {
-                            p_rb.velocity = new Vector3(0f, p_rb.velocity.y, 0f);
-                        }
-
+                        p_aiController.ChangeAnimation(true);
+                        p_rb.velocity = new Vector3(0f, p_rb.velocity.y, 0f);
                     }
+
+
 
 
                 }
@@ -70,6 +59,7 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
                 ///If the player gets out of range, end the attack
                 else
                 {
+                    p_aiController.ChangeAnimation(false);
                     p_aiController.m_currentAttackState = AttackState.Finished;
                 }
 
@@ -108,10 +98,6 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 
     }
 
-    //Determines if the weapon can be fired
-    bool CanFireWeapon(AiController p_aiCont)
-    {
-        return p_aiCont.CanFireGun();
-    }
+
 
 }

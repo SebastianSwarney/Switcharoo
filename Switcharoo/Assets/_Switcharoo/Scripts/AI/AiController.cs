@@ -17,8 +17,14 @@ public class OnEnemyAttack : UnityEvent<bool> { }
 
 [System.Serializable]
 public class OnEnemyShoot : UnityEvent<bool> { }
+
 [System.Serializable]
-public class OnEnemyShootAlt : UnityEvent<bool> { }
+public class OnEnemyShootBreak : UnityEvent { }
+
+[System.Serializable]
+public class OnEnemyShootAlt : UnityEvent { }
+[System.Serializable]
+public class OnEnemyShootAltBreak : UnityEvent { }
 
 [System.Serializable]
 public class OnEnemyGrounded : UnityEvent<bool> { }
@@ -75,7 +81,7 @@ public class AiController : MonoBehaviour
     #region Move Variables
     public float m_idleSpeed, m_attackSpeed;
     public int m_currentForward = 1;
-    
+
 
     public List<Transform> m_patrolPoints;
     Queue<Transform> m_patrolPointOrder;
@@ -106,10 +112,13 @@ public class AiController : MonoBehaviour
 
     #region Heavy Exclusive Variables
     [Header("Heavy Specific Variables")]
-    
+
     public Transform m_originPoint;
     [HideInInspector]
     public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
+    public Transform m_shootAltOrigin;
+    //[HideInInspector]
+    public bool m_fireAlt;
     #endregion
 
     #region respawn Variables
@@ -124,7 +133,9 @@ public class AiController : MonoBehaviour
     public OnEnemyAttack m_enemyAttack = new OnEnemyAttack();
     public OnEnemyJump m_enemyJump = new OnEnemyJump();
     public OnEnemyShoot m_enemyShoot = new OnEnemyShoot();
+    public OnEnemyShootBreak m_enemyShootBreak = new OnEnemyShootBreak();
     public OnEnemyShootAlt m_enemyShootAlt = new OnEnemyShootAlt();
+    public OnEnemyShootAltBreak m_enemyShootAltBreak = new OnEnemyShootAltBreak();
     public OnEnemyGrounded m_enemyGrounded = new OnEnemyGrounded();
     #endregion
 
@@ -139,7 +150,7 @@ public class AiController : MonoBehaviour
     public Vector3 m_groundCheckDimensions;
     public LayerMask m_wallLayer;
     public LayerMask m_movementFlipLayer;
-    
+
     #endregion
 
 
@@ -148,7 +159,15 @@ public class AiController : MonoBehaviour
     public bool m_jumpAnim, m_beginJump, m_isJumping, m_shootingMovement;
 
     //[HideInInspector]
-    public bool m_startAttackAnim, m_beginAttack, m_isAttacking;
+    public bool m_startShootAnim, m_inShootingAnim;
+    //[HideInInspector]
+    public int m_bulletsPerPattern;
+    public int m_currentBulletAmount;
+
+    [HideInInspector]
+    public float m_shootBreakTime, m_shootTriggerTime;
+    float m_currentShootBreakTimer, m_currentShootBreakTime;
+
 
     #endregion
 
@@ -268,6 +287,10 @@ public class AiController : MonoBehaviour
                     {
                         m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, m_target);
                     }
+                    if (m_inShootingAnim)
+                    {
+                        CheckShootingTimer();
+                    }
                 }
             }
         }
@@ -283,7 +306,7 @@ public class AiController : MonoBehaviour
     {
         if (!m_debugPhysicsChecks) return;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(m_groundCheckPos+transform.position, m_groundCheckDimensions);
+        Gizmos.DrawWireCube(m_groundCheckPos + transform.position, m_groundCheckDimensions);
         Gizmos.color = Color.blue;
         Vector3 spherePos = transform.position + m_spriteOffset;
         spherePos = new Vector3(spherePos.x + m_checkWallDistance * m_currentForward, spherePos.y, 0f);
@@ -296,34 +319,6 @@ public class AiController : MonoBehaviour
 
 
     ///<Summary>
-    ///Checks the shooting pattern, to see if the ai can currently shoot
-    public bool CanFireGun()
-    {
-        if (m_currentShootTimer <= m_currentShootDelay)
-        {
-            m_currentShootTimer += Time.deltaTime;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    ///<Summary>
-    ///Allows the AI to stop shooting, allowing for patterns
-    public void SwapShooting(bool p_isShooting, float p_newDelay)
-    {
-        if (p_isShooting != m_isShooting)
-        {
-            m_isShooting = p_isShooting;
-            m_currentShootDelay = p_newDelay;
-            m_currentShootTimer = 0;
-        }
-
-    }
-
-    ///<Summary>
     ///If the player has moved a set distance from a spot
     bool PlayerMoved()
     {
@@ -331,7 +326,7 @@ public class AiController : MonoBehaviour
         if (Vector3.Distance(m_target.transform.position, m_delayedPlayerPosition) > m_enemyType.m_attackType.m_playerMoveDistanceReaction)
         {
             m_delayedPlayerPosition = m_target.transform.position;
-            
+
             return true;
         }
         return false;
@@ -348,13 +343,68 @@ public class AiController : MonoBehaviour
         }
         else
         {
-            
+
             return false;
         }
     }
 
     #endregion
 
+    #region Shooting Settings
+    public void ShootGun()
+    {
+
+        m_gun.Shoot(m_fireAlt? m_shootAltOrigin : m_bulletOrigin);
+        m_currentBulletAmount++;
+        m_currentShootBreakTimer = Time.time;
+        if (m_currentBulletAmount >= m_bulletsPerPattern)
+        {
+            m_currentBulletAmount = 0;
+            m_currentShootBreakTime = m_shootTriggerTime;
+            if(m_originPoint!= null)
+            {
+                m_currentAttackState = AI_AttackType_Base.AttackState.Start;
+            }
+            return;
+        }
+        m_currentShootBreakTime = m_shootBreakTime;
+    }
+
+    public void ChangeAnimation(bool p_active)
+    {
+
+
+        if (m_inShootingAnim != p_active)
+        {
+            m_enemyShoot.Invoke(p_active);
+            
+            m_inShootingAnim = p_active;
+        }
+        
+        
+
+
+    }
+
+    void CheckShootingTimer()
+    {
+        if (Time.time - m_currentShootBreakTimer > m_currentShootBreakTime)
+        {
+            if (!m_fireAlt)
+            {
+                m_enemyShootBreak.Invoke();
+            }
+            else
+            {
+                m_enemyShootAlt.Invoke();
+            }
+            
+
+
+        }
+    }
+
+    #endregion
 
     #region Move Functions
     void PerformIdleMovement()
@@ -368,12 +418,12 @@ public class AiController : MonoBehaviour
                 currentPatrolPoint = NewPatrolPoint();
             }
 
-            m_enemyType.m_idleMovementType.PerformIdleMovement(this,m_agent, m_rb, transform, m_currentForward, currentPatrolPoint.position, m_isGrounded);
+            m_enemyType.m_idleMovementType.PerformIdleMovement(this, m_agent, m_rb, transform, m_currentForward, currentPatrolPoint.position, m_isGrounded);
 
         }
         else
         {
-            m_enemyType.m_idleMovementType.PerformIdleMovement(this,m_agent, m_rb, transform, m_currentForward, transform.position, m_isGrounded);
+            m_enemyType.m_idleMovementType.PerformIdleMovement(this, m_agent, m_rb, transform, m_currentForward, transform.position, m_isGrounded);
         }
 
 
@@ -381,7 +431,7 @@ public class AiController : MonoBehaviour
         //Check for walls infront, and check if gronded
         Vector2 circleCastPos = new Vector2(transform.position.x + m_spriteOffset.x, transform.position.y + m_spriteOffset.y);
 
-        Vector2 floorBoxcastPos = transform.position + m_spriteOffset ;
+        Vector2 floorBoxcastPos = transform.position + m_spriteOffset;
         m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(this, m_wallLayer);
 
         if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, circleCastPos, m_circleCastRad, m_currentForward, m_movementFlipLayer, m_isGrounded))
@@ -392,7 +442,7 @@ public class AiController : MonoBehaviour
 
     }
 
-   
+
 
     bool CloseToPoint(Vector3 p_targetPoint)
     {
@@ -469,7 +519,7 @@ public class AiController : MonoBehaviour
     void Die()
     {
         EnemyDied(true);
-        
+
     }
 
     public void DeathAnimComplete()
@@ -503,7 +553,7 @@ public class AiController : MonoBehaviour
     {
         m_enemyDied.Invoke(p_active);
     }
-    
+
     public void PlayerSpotted(bool p_active)
     {
         m_playerSpotted.Invoke(p_active);
@@ -517,13 +567,10 @@ public class AiController : MonoBehaviour
     public void EnemyShoot(bool p_active)
     {
         m_enemyShoot.Invoke(p_active);
-        
+
     }
 
-    public void EnemyShootAlt(bool p_active)
-    {
-        m_enemyShootAlt.Invoke(p_active);
-    }
+
 
     public void EnemyGrounded(bool p_active)
     {
