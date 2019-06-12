@@ -135,13 +135,17 @@ public class PlayerController : MonoBehaviour, IPauseable
 	public OnPlayerLand m_playerLanded = new OnPlayerLand();
 	#endregion
 
+	public Transform m_spriteTarget;
+
 	[HideInInspector]
     public Vector3 m_velocity;
 	[HideInInspector]
     public Controller2D controller;
 	[HideInInspector]
 	public Vector2 m_directionalInput;
+	[HideInInspector]
 	public Vector2 m_gunnerAimInput;
+	[HideInInspector]
 	public Vector2 m_runnerAimInput;
 	private Health_Player m_health;
 	private PlayerInput m_input;
@@ -164,8 +168,6 @@ public class PlayerController : MonoBehaviour, IPauseable
 		UpdateInput();
 		m_shootController.Reload();
 		ReloadMovementAbility();
-		UpdateCollider();
-
 		PauseMenuController.instance.m_pauseables.Add(this);
 	}
 
@@ -183,11 +185,9 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 		m_moveDirection = m_velocity.normalized;
 
-		if (Mathf.Sign(controller.col.offset.x) != Mathf.Sign(controller.collisions.faceDir))
+		if (Mathf.Sign(m_spriteTarget.transform.localPosition.x) == Mathf.Sign(controller.collisions.faceDir))
 		{
-			controller.col.offset = new Vector2(Mathf.Sign(controller.col.offset.x) > 0 ? controller.col.offset.x * controller.collisions.faceDir : controller.col.offset.x * -controller.collisions.faceDir, controller.col.offset.y);
-			controller.CalculateRaySpacing();
-			controller.UpdateRaycastOrigins();
+			m_spriteTarget.transform.localPosition = new Vector2(Mathf.Sign(m_spriteTarget.transform.localPosition.x) > 0 ? m_spriteTarget.transform.localPosition.x * -controller.collisions.faceDir : m_spriteTarget.transform.localPosition.x * controller.collisions.faceDir, m_spriteTarget.transform.localPosition.y);
 		}
 
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
@@ -524,16 +524,10 @@ public class PlayerController : MonoBehaviour, IPauseable
 			m_players[i].Swap();
 			SwapLayers();
 			UpdatePickups();
-
-			if (m_players[i].m_currentRole == PlayerRole.Gunner)
-			{
-				//m_spriteRenderer.color = m_players[i].m_testColor;
-			}
 		}
 
 		m_playerSwapped.Invoke();
 		UpdateInput();
-		UpdateCollider();
 	}
 
 	private void UpdateInput()
@@ -786,11 +780,11 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 		if (m_usingMovementAbility)
 		{
-			//m_states.m_swappingState = SwappingState.SwappingDisabled;
+			m_states.m_swappingState = SwappingState.SwappingDisabled;
 		}
 		else
 		{
-			//m_states.m_swappingState = SwappingState.SwappingEnabled;
+			m_states.m_swappingState = SwappingState.SwappingEnabled;
 		}
 	}
 	#endregion
@@ -799,10 +793,11 @@ public class PlayerController : MonoBehaviour, IPauseable
 	{
 		if (p_isPaused)
 		{
+			m_usingMovementAbility = false;
 			m_velocityBeforePaused = m_velocity;
+			m_velocity = Vector3.zero;
 			m_states.m_inputState = InputState.InputDisabled;
 			m_states.m_movementControllState = MovementControllState.MovementDisabled;
-			m_velocity = Vector3.zero;
 		}
 		else
 		{

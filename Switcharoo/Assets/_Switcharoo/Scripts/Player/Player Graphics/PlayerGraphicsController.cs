@@ -16,8 +16,8 @@ public class PlayerGraphicsController : MonoBehaviour
 	private void Start()
 	{
 		m_player = GetComponent<PlayerController>();
-		m_animationController = GetComponent<Animator>();
-		m_spriteRenderer = GetComponent<SpriteRenderer>();
+		m_animationController = GetComponentInChildren<Animator>();
+		m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 	}
 
 	private void Update()
