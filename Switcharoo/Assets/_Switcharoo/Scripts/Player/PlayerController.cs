@@ -793,8 +793,14 @@ public class PlayerController : MonoBehaviour, IPauseable
 	{
 		if (p_isPaused)
 		{
-			m_usingMovementAbility = false;
 			m_velocityBeforePaused = m_velocity;
+
+			if (m_usingMovementAbility)
+			{
+				m_usingMovementAbility = false;
+				m_states.m_gravityControllState = GravityState.GravityDisabled;
+			}
+
 			m_velocity = Vector3.zero;
 			m_states.m_inputState = InputState.InputDisabled;
 			m_states.m_movementControllState = MovementControllState.MovementDisabled;
@@ -803,6 +809,8 @@ public class PlayerController : MonoBehaviour, IPauseable
 		{
 			m_states.m_inputState = InputState.InputEnabled;
 			m_states.m_movementControllState = MovementControllState.MovementEnabled;
+			m_states.m_gravityControllState = GravityState.GravityEnabled;
+
 			m_velocity = m_velocityBeforePaused;
 		}
 	}
