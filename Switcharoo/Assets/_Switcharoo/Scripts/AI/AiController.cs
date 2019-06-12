@@ -29,9 +29,12 @@ public class OnEnemyShootAltBreak : UnityEvent { }
 [System.Serializable]
 public class OnEnemyGrounded : UnityEvent<bool> { }
 
+[System.Serializable]
+public class OnPaused : UnityEvent<bool> { }
+
 ///<Summary>
 ///The brain of the AI. This is essentially an empty shell that requires components to function
-public class AiController : MonoBehaviour
+public class AiController : MonoBehaviour, IPauseable
 {
 
 
@@ -139,6 +142,7 @@ public class AiController : MonoBehaviour
     public OnEnemyShootAlt m_enemyShootAlt = new OnEnemyShootAlt();
     public OnEnemyShootAltBreak m_enemyShootAltBreak = new OnEnemyShootAltBreak();
     public OnEnemyGrounded m_enemyGrounded = new OnEnemyGrounded();
+    public OnPaused m_enemyPaused = new OnPaused();
     #endregion
 
 
@@ -173,6 +177,12 @@ public class AiController : MonoBehaviour
 
     #endregion
 
+
+    #region Pause Settings
+    Vector3 m_pausedVelocity;
+    bool m_isPaused;
+    #endregion
+
     void Awake()
     {
         m_enemyHealth = GetComponent<Health>();
@@ -186,6 +196,15 @@ public class AiController : MonoBehaviour
         {
             m_respawnPos = transform.position;
             m_startingForward = m_currentForward;
+            
+        }
+    }
+
+    private void Start()
+    {
+        if (!m_isPooled)
+        {
+            ObjectPooler.instance.AddObjectToPooler(this.gameObject);
         }
     }
 
@@ -199,16 +218,18 @@ public class AiController : MonoBehaviour
 
     private void Update()
     {
-        if (m_enemyHealth.m_isDead && !m_died)
+        if (!m_isPaused)
         {
-            m_died = true;
-            Die();
+            if (m_enemyHealth.m_isDead && !m_died)
+            {
+                m_died = true;
+                Die();
+            }
+            if (!m_died)
+            {
+                CheckState();
+            }
         }
-        if (!m_died)
-        {
-            CheckState();
-        }
-
 
     }
 
@@ -356,14 +377,14 @@ public class AiController : MonoBehaviour
     public void ShootGun()
     {
 
-        m_gun.Shoot(m_fireAlt? m_shootAltOrigin : m_bulletOrigin);
+        m_gun.Shoot(m_fireAlt ? m_shootAltOrigin : m_bulletOrigin);
         m_currentBulletAmount++;
         m_currentShootBreakTimer = Time.time;
         if (m_currentBulletAmount >= m_bulletsPerPattern)
         {
             m_currentBulletAmount = 0;
             m_currentShootBreakTime = m_shootTriggerTime;
-            if(m_originPoint!= null)
+            if (m_originPoint != null)
             {
                 m_currentAttackState = AI_AttackType_Base.AttackState.Start;
             }
@@ -379,11 +400,11 @@ public class AiController : MonoBehaviour
         if (m_inShootingAnim != p_active)
         {
             m_enemyShoot.Invoke(p_active);
-            
+
             m_inShootingAnim = p_active;
         }
-        
-        
+
+
 
 
     }
@@ -400,7 +421,7 @@ public class AiController : MonoBehaviour
             {
                 m_enemyShootAlt.Invoke();
             }
-            
+
 
 
         }
@@ -494,7 +515,7 @@ public class AiController : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * p_newXDir, transform.localScale.y, transform.localScale.z);
         }
-        
+
     }
 
 
@@ -525,7 +546,7 @@ public class AiController : MonoBehaviour
         }
     }
 
-
+    #region Enemy Death
     void Die()
     {
         EnemyDied(true);
@@ -556,7 +577,8 @@ public class AiController : MonoBehaviour
 
     }
 
-
+    #endregion
+    
     #region Fire Events
 
     public void EnemyDied(bool p_active)
@@ -587,8 +609,30 @@ public class AiController : MonoBehaviour
         m_enemyGrounded.Invoke(p_active);
     }
 
+
     #endregion
 
+    public void SetPauseState(bool p_isPaused)
+    {
+        if (p_isPaused && !m_isPaused)
+        {
+            m_isPaused = true;
+            m_pausedVelocity = m_rb.velocity;
+            m_rb.velocity = Vector3.zero;
+            m_rb.isKinematic = true;
+
+        }
+        else if (!p_isPaused && m_isPaused)
+        {
+            m_isPaused = false;
+            m_rb.isKinematic = false;
+            m_rb.velocity = m_pausedVelocity;
+
+        }
+
+        m_enemyPaused.Invoke(p_isPaused);
+
+    }
 
 
 

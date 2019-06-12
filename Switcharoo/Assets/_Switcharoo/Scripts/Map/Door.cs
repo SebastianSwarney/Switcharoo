@@ -10,6 +10,8 @@ public class Door : MonoBehaviour
 
     Animator m_doorAnimation;
 
+    bool m_doorUnlocked;
+
     [Space(10)]
     public RoomManager_Base m_nextRoom;
 
@@ -19,10 +21,15 @@ public class Door : MonoBehaviour
     {
         m_doorAnimation = GetComponent<Animator>();
     }
+    private void OnEnable()
+    {
+        m_doorAnimation.SetBool("DoorUnlocked", m_doorUnlocked);
+    }
     public void ChangeLockOnDoor(bool p_lockDoor)
     {
         
         m_doorAnimation.SetBool("DoorUnlocked", !p_lockDoor);
+        m_doorUnlocked = !p_lockDoor;
     }
 
 

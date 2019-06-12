@@ -153,6 +153,7 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_playerTag: Player
   m_sRend: {fileID: 2692124808337637456}
+  m_flipTransform: 0
   m_bulletOrigin: {fileID: 3078133998680829569}
   m_isPooled: 0
   m_detectionRange: {fileID: 7491690288337377126}
@@ -171,6 +172,8 @@ MonoBehaviour:
   m_parentSpawn: {fileID: 0}
   m_originPoint: {fileID: 0}
   m_currentPatternChangeAmount: 0
+  m_shootAltOrigin: {fileID: 0}
+  m_fireAlt: 0
   m_enemyDied:
     m_PersistentCalls:
       m_Calls: []
@@ -213,6 +216,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnEnemyGrounded, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_enemyPaused:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4273551082856193393}
+        m_MethodName: PauseAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnPaused, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_debugPhysicsChecks: 0
   m_circleCastRad: 0
   m_checkWallDistance: 0
@@ -232,6 +250,7 @@ MonoBehaviour:
   m_startShootAnim: 0
   m_inShootingAnim: 0
   m_bulletsPerPattern: 0
+  m_currentBulletAmount: 0
   m_shootBreakTime: 0
   m_shootTriggerTime: 0
 --- !u!114 &3078133998956346287
@@ -286,6 +305,7 @@ MonoBehaviour:
   m_terrainLayer:
     serializedVersion: 2
     m_Bits: 256
+  m_movePoint: {x: 0, y: 0, z: 0}
 --- !u!114 &-6166238226835638072
 MonoBehaviour:
   m_ObjectHideFlags: 0

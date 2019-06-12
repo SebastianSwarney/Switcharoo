@@ -67,4 +67,12 @@ public class AIAnimationController : MonoBehaviour
         m_aiCont.ShootGun();
     }
     #endregion
+
+    #region Animation Paused
+    public void PauseAnimation(bool p_pause)
+    {
+        m_animCont.enabled = !p_pause;
+    }
+    #endregion
+
 }
