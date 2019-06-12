@@ -28,13 +28,13 @@ public class ArmCanon_AnimationController : MonoBehaviour
 
 	private void Update()
     {
-		transform.rotation = m_player.m_crosshair.rotation;
+		//transform.rotation = m_player.m_crosshair.rotation;
     }
 
 	public void ShootBullet()
 	{
 		m_animator.speed = m_shootController.m_currentWeaponComposition.m_shotPattern.m_fireRate;
-		m_animator.SetTrigger("Fire");
+		//m_animator.SetTrigger("Fire");
 	}
 
     public void EjectBullet()
