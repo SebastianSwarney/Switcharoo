@@ -16,7 +16,7 @@ public class OnPlayerJump : UnityEvent { }
 public class OnPlayerLand : UnityEvent { }
 
 [RequireComponent(typeof(Controller2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPauseable
 {
 	public enum MovementControllState {MovementEnabled, MovementDisabled}
 	public enum GravityState { GravityEnabled, GravityDisabled }
@@ -146,6 +146,8 @@ public class PlayerController : MonoBehaviour
 	private Health_Player m_health;
 	private PlayerInput m_input;
 	private SpriteRenderer m_spriteRenderer;
+
+	Vector3 m_velocityBeforePaused;
 
 	void Start()
     {
@@ -790,4 +792,20 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	#endregion
+
+	public void SetPauseState(bool p_isPaused)
+	{
+		if (p_isPaused)
+		{
+			m_velocityBeforePaused = m_velocity;
+			m_states.m_inputState = InputState.InputDisabled;
+			m_states.m_movementControllState = MovementControllState.MovementDisabled;
+		}
+		else
+		{
+			m_states.m_inputState = InputState.InputEnabled;
+			m_states.m_movementControllState = MovementControllState.MovementEnabled;
+			m_velocity = m_velocityBeforePaused;
+		}
+	}
 }

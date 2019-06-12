@@ -10,12 +10,26 @@ public interface IPauseable
 
 public class PauseMenuController : MonoBehaviour
 {
+	public static PauseMenuController instance;
+
 	[SerializeField]
 	private bool m_isPaused;
 
 	public Canvas m_pauseCanvans;
 
 	public List<IPauseable> m_pauseables;
+
+	private void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(this);
+		}
+	}
 
 	private void Start()
 	{
