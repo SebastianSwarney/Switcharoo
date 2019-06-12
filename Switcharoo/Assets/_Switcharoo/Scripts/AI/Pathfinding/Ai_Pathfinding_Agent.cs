@@ -351,7 +351,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     void OnDrawGizmos()
     {
 
-        Gizmos.DrawWireSphere(m_movePoint + transform.position, .5f);
+        
         if (!m_drawPath) return;
 
         if (m_tracedPath != null)

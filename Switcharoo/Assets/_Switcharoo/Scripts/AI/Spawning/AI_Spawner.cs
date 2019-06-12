@@ -60,6 +60,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     void InitateSpawning()
     {
 
+
         m_timeToSpawn = 60 / m_spawnPerMinute;
         m_spawnDelay = new WaitForSeconds(m_timeToSpawn);
 
@@ -75,6 +76,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     void SpawnEnemy()
     {
+        
         AiController aiCont = ObjectPooler.instance.NewObject(m_enemyToSpawn, transform, true, false, false).GetComponent<AiController>();
         aiCont.m_currentForward = (m_currentSpawnDir == SpawnDir.Left) ? -1 : 1;
         aiCont.m_spawnerManager = m_spawnManager;
@@ -104,8 +106,10 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     ///Start or stop spawning
     public void ChangeSpawning(bool p_spawnEnemies)
     {
+        
         if (p_spawnEnemies)
         {
+            
             InitateSpawning();
         }
         else

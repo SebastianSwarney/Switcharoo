@@ -69,6 +69,7 @@ public abstract class RoomManager_Base : MonoBehaviour
         {
             spawns.gameObject.SetActive(!m_roomTaskComplete);
             spawns.InitializeSpawnerManager();
+            
         }
 
         for (int i = 1; i < m_roomAiVariants.Count; i++)

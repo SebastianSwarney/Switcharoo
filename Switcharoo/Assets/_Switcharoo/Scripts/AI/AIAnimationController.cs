@@ -71,6 +71,10 @@ public class AIAnimationController : MonoBehaviour
     #region Animation Paused
     public void PauseAnimation(bool p_pause)
     {
+        if (m_animCont == null)
+        {
+            m_animCont = GetComponent<Animator>();
+        }
         m_animCont.enabled = !p_pause;
     }
     #endregion

@@ -119,7 +119,7 @@ public class AiController : MonoBehaviour, IPauseable
 
     public Transform m_originPoint;    
     public Transform m_shootAltOrigin;
-    //[HideInInspector]
+    [HideInInspector]
     public bool m_fireAlt;
     #endregion
 
@@ -158,7 +158,7 @@ public class AiController : MonoBehaviour, IPauseable
 
 
     #region Animation Delay Events
-    //[HideInInspector]
+    [HideInInspector]
     public bool m_jumpAnim, m_beginJump, m_isJumping, m_shootingMovement;
 
     [HideInInspector]
@@ -600,6 +600,10 @@ public class AiController : MonoBehaviour, IPauseable
         if (p_isPaused && !m_isPaused)
         {
             m_isPaused = true;
+            if (m_rb == null)
+            {
+                m_rb = GetComponent<Rigidbody2D>();
+            }
             m_pausedVelocity = m_rb.velocity;
             m_rb.velocity = Vector3.zero;
             m_rb.isKinematic = true;

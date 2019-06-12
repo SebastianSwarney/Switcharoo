@@ -102,12 +102,7 @@ MonoBehaviour:
   m_spawnedEnemyPatrolPoints: []
   m_currentEnemyNumber: 0
   m_disableObjectsOnDisable: []
-  m_spawnOnDestroyed:
-  - m_objectSpawnType: 3
-    m_spawnPosition: {x: 0, y: 0}
-    m_spawnRadius: 0
-    m_spawnObject: {fileID: 0}
-    m_patrolPoints: []
+  m_spawnOnDestroyed: []
 --- !u!212 &8319353519710110319
 SpriteRenderer:
   m_ObjectHideFlags: 0
