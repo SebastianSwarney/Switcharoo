@@ -19,8 +19,8 @@ MonoBehaviour:
   - {fileID: 5454461814508983790}
   - {fileID: 5175923058026911209}
   m_roomsToAlterOnCompletion: []
-  m_roomTilemap:
-  - {fileID: 5454461814508983790}
+  m_roomTilemapVariants:
+  - {fileID: 1264460249677282194}
   m_roomTaskComplete: 0
   m_doorsParent: {fileID: 7680509290173155285}
   m_stopEnemySpawnsOnComplete: 1
@@ -101,6 +101,12 @@ PrefabInstance:
 --- !u!1 &7177755613561414155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6197869628555007390, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3864021571552212885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1264460249677282194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2599562973492890631, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
     type: 3}
   m_PrefabInstance: {fileID: 3864021571552212885}
   m_PrefabAsset: {fileID: 0}

@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 2542658861136604333}
   - {fileID: 3400182831446813866}
   m_roomsToAlterOnCompletion: []
-  m_roomTilemap:
+  m_roomTilemapVariants:
   - {fileID: 8752518525914694353}
   m_roomTaskComplete: 0
   m_doorsParent: {fileID: 175029459310460566}
