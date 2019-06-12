@@ -17,7 +17,7 @@ public class PauseMenuController : MonoBehaviour
 
 	public Canvas m_pauseCanvans;
 
-	public List<IPauseable> m_pauseables;
+	public List<IPauseable> m_pauseables = new List<IPauseable>();
 
 	private void Awake()
 	{

@@ -165,6 +165,8 @@ public class PlayerController : MonoBehaviour, IPauseable
 		m_shootController.Reload();
 		ReloadMovementAbility();
 		UpdateCollider();
+
+		PauseMenuController.instance.m_pauseables.Add(this);
 	}
 
 	void Update()
@@ -800,6 +802,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 			m_velocityBeforePaused = m_velocity;
 			m_states.m_inputState = InputState.InputDisabled;
 			m_states.m_movementControllState = MovementControllState.MovementDisabled;
+			m_velocity = Vector3.zero;
 		}
 		else
 		{

@@ -12,7 +12,7 @@ public class Bullet_ConstMove : Bullet_Base
 
 	private void Move()
 	{
-		transform.Translate(transform.right * m_moveSpeed * Time.deltaTime, Space.World);
+		m_rigidbody.velocity = transform.right * m_moveSpeed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
