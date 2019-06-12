@@ -76,7 +76,7 @@ public class AiController : MonoBehaviour, IPauseable
     [HideInInspector]
     public float m_visualTellTimer;
     float m_currentShootTimer, m_currentShootDelay;
-
+    
 
 
 
