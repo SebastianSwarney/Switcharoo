@@ -104,7 +104,37 @@ public class CameraController_Base : MonoBehaviour
 		m_focusPoint = (Vector3)focusPosition + Vector3.forward * -10;
 	}
 
-	public void CalculateNewCameraBounds(TilemapCollider2D p_tilemapCollider)
+    public void CalculateNewCameraBounds(PlatformerNavigation p_platformNavGrid)
+	{
+		Bounds newBounds = new Bounds();
+        if (m_camera == null)
+        {
+            m_camera = GetComponent<Camera>();
+        }
+		float camHeight = 2f * m_camera.orthographicSize;
+		float camWidth = camHeight * m_camera.aspect;
+
+		float boundsHeight = ((p_platformNavGrid.m_gridWorldSize.y ) - camHeight) / 2;
+		float boundsWidth = ((p_platformNavGrid.m_gridWorldSize.x) - camWidth) / 2;
+
+		newBounds.extents = new Vector3(boundsWidth, boundsHeight, 0);
+
+		newBounds.center = p_platformNavGrid.m_gridOrigin + p_platformNavGrid.transform.position;
+
+		if (newBounds.center.z != transform.position.z)
+		{
+			newBounds.center = new Vector3(newBounds.center.x, newBounds.center.y, transform.position.z);
+		}
+
+		m_cameraBoundsArea = newBounds;
+        m_smoothLookVelocityX = 0;
+        m_smoothVelocityY = 0;
+        m_lookSmoothVelocity = Vector3.zero;
+
+    }
+    //Uses tilemap collider
+    /*
+     public void CalculateNewCameraBounds(TilemapCollider2D p_tilemapCollider)
 	{
 		Bounds newBounds = new Bounds();
         if (m_camera == null)
@@ -132,8 +162,9 @@ public class CameraController_Base : MonoBehaviour
         m_lookSmoothVelocity = Vector3.zero;
 
     }
+     * */
 
-	void OnDrawGizmos()
+    void OnDrawGizmos()
 	{
 		Gizmos.color = new Color(1, 0, 0, .5f);
 		Gizmos.DrawCube(m_runnerFocusArea.centre, m_runnerFocusAreaSize);

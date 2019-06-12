@@ -13,7 +13,7 @@ public class DungeonManager : MonoBehaviour
     [HideInInspector]
     public CameraController_Base m_cameraController;
     PlayerController m_playerCont;
-    public GameObject m_currentLoadedTilemap;
+    public RoomManager_Base m_currentLoadedRoom;
 
 
 
@@ -34,7 +34,7 @@ public class DungeonManager : MonoBehaviour
 
         if (m_cameraController.m_useLevelBounds)
         {
-            m_cameraController.CalculateNewCameraBounds(m_currentLoadedTilemap.GetComponent<UnityEngine.Tilemaps.TilemapCollider2D>());
+            m_cameraController.CalculateNewCameraBounds(m_currentLoadedRoom.GetComponent<PlatformerNavigation>());
         }
 
 
@@ -91,9 +91,9 @@ public class DungeonManager : MonoBehaviour
     IEnumerator RoomTransition(Vector3 p_camStartPos, Vector3 p_playerSpawnPos, RoomManager_Base p_loadMap)
     {
         m_playerGameObject.transform.position = p_playerSpawnPos;
-        GameObject deloadTilemap = m_currentLoadedTilemap.transform.parent.parent.parent.gameObject;
-        m_currentLoadedTilemap = p_loadMap.m_currentLoadedTilemap.transform.GetChild(0).gameObject;
-        m_cameraController.CalculateNewCameraBounds(m_currentLoadedTilemap.GetComponent<UnityEngine.Tilemaps.TilemapCollider2D>());
+        RoomManager_Base deloadTilemap = m_currentLoadedRoom;
+        m_currentLoadedRoom = p_loadMap;
+        m_cameraController.CalculateNewCameraBounds(p_loadMap.GetComponent<PlatformerNavigation>());
 
 
         float currentLerpTime = 0;
@@ -108,7 +108,7 @@ public class DungeonManager : MonoBehaviour
         }
 
         m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;
-        deloadTilemap.SetActive(false);
+        deloadTilemap.m_currentLoadedTilemap.transform.GetChild(0).gameObject.SetActive(false);
 
 
         m_cameraController.enabled = true;
