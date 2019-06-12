@@ -28,8 +28,6 @@ public class Bullet_Base : MonoBehaviour, IPauseable
 	{
 		m_deactivateTimer = 0;
 		m_rigidbody = GetComponent<Rigidbody2D>();
-
-		PauseMenuController.instance.m_pauseables.Add(this);
 	}
 
 	public virtual void Update()
