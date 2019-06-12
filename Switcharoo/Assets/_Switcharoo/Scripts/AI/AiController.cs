@@ -77,7 +77,6 @@ public class AiController : MonoBehaviour, IPauseable
     public float m_visualTellTimer;
     float m_currentShootTimer, m_currentShootDelay;
 
-    bool m_isShooting;
 
 
 
@@ -118,9 +117,7 @@ public class AiController : MonoBehaviour, IPauseable
     #region Heavy Exclusive Variables
     [Header("Heavy Specific Variables")]
 
-    public Transform m_originPoint;
-    [HideInInspector]
-    public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
+    public Transform m_originPoint;    
     public Transform m_shootAltOrigin;
     //[HideInInspector]
     public bool m_fireAlt;
@@ -487,21 +484,7 @@ public class AiController : MonoBehaviour, IPauseable
     }
     #endregion
 
-    #region Heavy Function
-    public bool CheckPatternType(int p_patternChangeAmount, bool p_isShooting)
-    {
-        if (p_isShooting != m_isShooting)
-        {
-            m_currentPatternChangeAmount++;
-            if (m_currentPatternChangeAmount >= p_patternChangeAmount)
-            {
-                m_currentPatternChangeAmount = 0;
-                return true;
-            }
-        }
-        return false;
-    }
-    #endregion
+
 
     public void FlipEnemy(int p_newXDir)
     {

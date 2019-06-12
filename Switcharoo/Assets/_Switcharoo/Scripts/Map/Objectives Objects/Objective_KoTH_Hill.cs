@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Objective_KoTH_Hill : MonoBehaviour
+public class Objective_KoTH_Hill : MonoBehaviour, IPauseable
 {
     public float m_targetTime;
     float m_currentTime;
@@ -14,11 +14,19 @@ public class Objective_KoTH_Hill : MonoBehaviour
 
     [HideInInspector]
     public bool m_hillComplete;
+
+
+    bool m_isPaused;
     private void Update()
     {
         if (m_player != null)
         {
-            AddTime();
+            if (!m_isPaused)
+            {
+                AddTime();
+                
+            }
+            
         }
     }
     void AddTime()
@@ -59,5 +67,10 @@ public class Objective_KoTH_Hill : MonoBehaviour
         {
             m_player = null;
         }
+    }
+
+    public void SetPauseState(bool p_isPaused)
+    {
+        m_isPaused = p_isPaused;
     }
 }

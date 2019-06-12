@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI_Spawner : MonoBehaviour
+public class AI_Spawner : MonoBehaviour, IPauseable
 {
     public enum SpawnDir { Left, Right };
     public bool m_showGizmos = true;
 
-    
+
 
     [Header("Trigger Properties")]
     public bool m_triggerStart;
@@ -19,9 +19,9 @@ public class AI_Spawner : MonoBehaviour
     [HideInInspector]
     public AI_Spawner_Manager_Base m_spawnManager;
 
-    
+
     [Header("Spawner Properties")]
-    
+
     public SpawnDir m_currentSpawnDir;
     public float m_spawnerRadius;
     public float m_spawnPerMinute;
@@ -33,7 +33,7 @@ public class AI_Spawner : MonoBehaviour
     WaitForSeconds m_spawnDelay;
     Coroutine m_spawnEnemies;
 
-    
+
 
     public List<Transform> m_spawnedEnemyPatrolPoints;
 
@@ -43,13 +43,20 @@ public class AI_Spawner : MonoBehaviour
 
     public List<GameObject> m_disableObjectsOnDisable;
 
-    public enum ObjectSpawnType { Heavy, Enemy, Object, ExistingObject}
+    public enum ObjectSpawnType { Heavy, Enemy, Object, ExistingObject }
     public List<ObjectSpawnsOnDeath> m_spawnOnDestroyed;
 
 
     Health m_health;
-    bool m_isSpawning;
 
+
+
+    bool m_isPaused;
+
+    private void Start()
+    {
+        ObjectPooler.instance.AddObjectToPooler(this.gameObject);
+    }
     void InitateSpawning()
     {
 
@@ -62,7 +69,7 @@ public class AI_Spawner : MonoBehaviour
         }
         if (!gameObject.activeSelf || m_triggerStart) return;
         m_spawnEnemies = StartCoroutine(SpawnRoutine());
-        
+
     }
 
 
@@ -105,7 +112,7 @@ public class AI_Spawner : MonoBehaviour
         {
             if (m_spawnEnemies == null) return;
             StopCoroutine(m_spawnEnemies);
-            
+
         }
     }
 
@@ -124,17 +131,17 @@ public class AI_Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-		if (m_health == null)
-		{
-			m_health = GetComponent<Health>();
-		}
+        if (m_health == null)
+        {
+            m_health = GetComponent<Health>();
+        }
 
-		foreach (GameObject currentObj in m_disableObjectsOnDisable)
+        foreach (GameObject currentObj in m_disableObjectsOnDisable)
         {
             currentObj.gameObject.SetActive(true);
         }
 
-        if(m_triggerCheckCoroutine != null)
+        if (m_triggerCheckCoroutine != null)
         {
             StopCoroutine(m_triggerCheckCoroutine);
         }
@@ -146,7 +153,7 @@ public class AI_Spawner : MonoBehaviour
     private void OnDisable()
     {
 
-        foreach(GameObject currentObj in m_disableObjectsOnDisable)
+        foreach (GameObject currentObj in m_disableObjectsOnDisable)
         {
             currentObj.gameObject.SetActive(false);
         }
@@ -187,7 +194,7 @@ public class AI_Spawner : MonoBehaviour
                         {
                             m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
                         }
-                        
+
                     }
                 }
             }
@@ -196,25 +203,30 @@ public class AI_Spawner : MonoBehaviour
 
     public void Respawn()
     {
-        
+
         m_health.m_isDead = false;
         m_health.ResetHealth();
         gameObject.SetActive(true);
-        m_isSpawning = false;
+
     }
 
     IEnumerator SpawnRoutine()
     {
+
         while (true)
         {
             if (m_spawnManager.m_currentAiCount < m_spawnManager.m_maxAiInRoom)
             {
-                if (m_currentEnemyNumber < m_maxEnemyFromThis)
+                if (!m_isPaused)
                 {
-                    m_spawnManager.m_currentAiCount++;
-                    SpawnEnemy();
-                }
 
+
+                    if (m_currentEnemyNumber < m_maxEnemyFromThis)
+                    {
+                        m_spawnManager.m_currentAiCount++;
+                        SpawnEnemy();
+                    }
+                }
             }
             yield return m_spawnDelay;
 
@@ -225,10 +237,10 @@ public class AI_Spawner : MonoBehaviour
     {
         bool m_playerFound = false;
         WaitForEndOfFrame delay = new WaitForEndOfFrame();
-        while(!m_playerFound)
+        while (!m_playerFound)
         {
             yield return delay;
-            if (Physics2D.OverlapBox(m_triggerOrigin + (Vector2)transform.position, m_triggerDimensions, 0,m_playerLayers)!= null)
+            if (Physics2D.OverlapBox(m_triggerOrigin + (Vector2)transform.position, m_triggerDimensions, 0, m_playerLayers) != null)
             {
                 m_playerFound = true;
             }
@@ -246,7 +258,10 @@ public class AI_Spawner : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, m_spawnerRadius);
     }
 
-   
+    public void SetPauseState(bool p_isPaused)
+    {
+        m_isPaused = p_isPaused;
+    }
 
     [System.Serializable]
     public struct ObjectSpawnsOnDeath
