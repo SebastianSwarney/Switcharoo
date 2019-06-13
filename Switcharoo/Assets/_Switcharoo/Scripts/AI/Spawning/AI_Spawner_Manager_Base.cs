@@ -24,7 +24,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
     public int m_maxAiInRoom;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int m_currentAiCount;
 
     [HideInInspector]
@@ -121,6 +121,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     //The method that is called to stop all spawning in this room
     public void StopAllSpawners()
     {
+        print("Stop All Spawners");
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.ChangeSpawning(false);

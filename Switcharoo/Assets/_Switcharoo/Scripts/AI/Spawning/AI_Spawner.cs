@@ -138,7 +138,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     void Die()
     {
-        print("OOf Me Dead");
+        
         m_spawnerDestroyed.Invoke();
         gameObject.SetActive(false);
     }

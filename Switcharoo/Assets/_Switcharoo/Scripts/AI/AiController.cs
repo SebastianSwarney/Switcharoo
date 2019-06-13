@@ -43,6 +43,8 @@ public class AiController : MonoBehaviour, IPauseable
     public bool m_spawnedOnSpawnerDestroy = false;
     [HideInInspector]
     public GameObject m_target;
+
+    public GameObject m_deathParticle;
     [Space(10)]
     public string m_playerTag = "Player";
 
@@ -62,6 +64,7 @@ public class AiController : MonoBehaviour, IPauseable
 
     public CircleCollider2D m_detectionRange;
     Health m_enemyHealth;
+    ObjectPooler m_pooler;
     #endregion
 
     #region Attack Variables
@@ -76,7 +79,8 @@ public class AiController : MonoBehaviour, IPauseable
     [HideInInspector]
     public float m_visualTellTimer;
     float m_currentShootTimer, m_currentShootDelay;
-    
+
+
 
 
 
@@ -117,7 +121,7 @@ public class AiController : MonoBehaviour, IPauseable
     #region Heavy Exclusive Variables
     [Header("Heavy Specific Variables")]
 
-    public Transform m_originPoint;    
+    public Transform m_originPoint;
     public Transform m_shootAltOrigin;
     [HideInInspector]
     public bool m_fireAlt;
@@ -193,15 +197,16 @@ public class AiController : MonoBehaviour, IPauseable
         {
             m_respawnPos = transform.position;
             m_startingForward = m_currentForward;
-            
+
         }
     }
 
     private void Start()
     {
+        m_pooler = ObjectPooler.instance;
         if (!m_isPooled)
         {
-            ObjectPooler.instance.AddObjectToPooler(this.gameObject);
+            m_pooler.AddObjectToPooler(this.gameObject);
         }
     }
 
@@ -533,13 +538,15 @@ public class AiController : MonoBehaviour, IPauseable
     void Die()
     {
         EnemyDied(true);
-
-    }
-
-    public void DeathAnimComplete()
-    {
+        if (m_deathParticle != null)
+        {
+           m_pooler.NewObject(m_deathParticle, transform.position, Quaternion.identity).GetComponent<ParticleSystem>(); 
+        }
         gameObject.SetActive(false);
+
     }
+
+
 
     void OnDisable()
     {
@@ -548,7 +555,7 @@ public class AiController : MonoBehaviour, IPauseable
             if (m_isPooled)
             {
                 m_patrolPoints.Clear();
-                ObjectPooler.instance.ReturnToPool(this.gameObject);
+                m_pooler.ReturnToPool(this.gameObject);
             }
             m_spawnerManager.EnemyKilled(this);
 
@@ -561,7 +568,7 @@ public class AiController : MonoBehaviour, IPauseable
     }
 
     #endregion
-    
+
     #region Fire Events
 
     public void EnemyDied(bool p_active)
