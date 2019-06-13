@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+
+[System.Serializable]
+public class OnSpawnerDeath : UnityEvent { }
 
 public class AI_Spawner : MonoBehaviour, IPauseable
 {
@@ -52,6 +57,9 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
 
     bool m_isPaused;
+
+    [Header("Events")]
+    public OnSpawnerDeath m_spawnerDestroyed = new OnSpawnerDeath();
 
     private void Start()
     {
@@ -130,6 +138,8 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     void Die()
     {
+        print("OOf Me Dead");
+        m_spawnerDestroyed.Invoke();
         gameObject.SetActive(false);
     }
 

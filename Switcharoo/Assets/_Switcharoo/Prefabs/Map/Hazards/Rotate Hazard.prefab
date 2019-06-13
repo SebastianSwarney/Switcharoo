@@ -218,6 +218,7 @@ MonoBehaviour:
   m_layerObstacleMask:
     serializedVersion: 2
     m_Bits: 256
+  m_startActive: 1
 --- !u!120 &1419149069058994722
 LineRenderer:
   m_ObjectHideFlags: 0

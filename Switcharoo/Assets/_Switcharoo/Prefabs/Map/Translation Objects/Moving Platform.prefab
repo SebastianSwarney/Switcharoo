@@ -137,3 +137,4 @@ MonoBehaviour:
   cyclic: 0
   waitTime: 0.1
   easeAmount: 1
+  m_startActive: 1

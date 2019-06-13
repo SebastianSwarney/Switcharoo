@@ -2,22 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorBelt : MonoBehaviour
+public class ConveyorBelt : MonoBehaviour, IActivatable
 {
-	/*
+    /*
 	public enum MoveDirection { Left, Right, Up, Down }
 	public MoveDirection m_moveDirection;
 	*/
 
-	public float m_moveSpeed;
+    public float m_moveSpeed;
 
-	private void OnCollisionStay2D(Collision2D collision)
-	{
-		PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+    [Header("Active Properties")]
+    public bool m_startActive;
+    bool m_isActive;
+    private void Start()
+    {
+        m_isActive = m_startActive;
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
 
-		player.m_velocity += transform.right * m_moveSpeed;
+        if (m_isActive)
+        {
 
-		/*
+
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
+            player.m_velocity += transform.right * m_moveSpeed;
+
+        }
+        /*
 		switch (m_moveDirection)
 		{
 			case MoveDirection.Left:
@@ -42,5 +55,17 @@ public class ConveyorBelt : MonoBehaviour
 				break;
 		}
 		*/
-	}
+    }
+
+    #region IActivatable
+    public void ActiveState(bool p_active)
+    {
+        m_isActive = p_active;
+    }
+
+    public void ResetMe()
+    {
+        m_isActive = !m_startActive;
+    }
+    #endregion
 }

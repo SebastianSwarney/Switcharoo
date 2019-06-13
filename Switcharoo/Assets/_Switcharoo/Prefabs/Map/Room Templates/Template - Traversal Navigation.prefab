@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 8752518525914694353}
   m_roomTaskComplete: 0
   m_doorsParent: {fileID: 175029459310460566}
+  m_roomObjectsParent: {fileID: 8271587082209372916}
   m_stopEnemySpawnsOnComplete: 1
   m_increaseRoomIndex: 0
   m_currentLoadedTilemap: {fileID: 0}
@@ -59,7 +60,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 821889817814145867}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6404573722727630825
 MonoBehaviour:
@@ -111,10 +112,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6197869628555007390, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    - target: {fileID: 1166228383204974365, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
-      propertyPath: m_Name
-      value: Template - Traversal Navigation
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6197869628555007389, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
@@ -171,15 +172,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1166228383204974365, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    - target: {fileID: 6197869628555007390, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 3
+      propertyPath: m_Name
+      value: Template - Traversal Navigation
       objectReference: {fileID: 0}
     - target: {fileID: 3593565232637721856, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359125017994318577, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ce74da47cdc094ebcf9e67ac014c4c, type: 3}
@@ -240,6 +246,12 @@ MonoBehaviour:
 --- !u!1 &175029459310460566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6848116463543988288, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6729699429112516310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8271587082209372916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3435724633379841058, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
     type: 3}
   m_PrefabInstance: {fileID: 6729699429112516310}
   m_PrefabAsset: {fileID: 0}

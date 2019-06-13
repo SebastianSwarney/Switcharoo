@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hazard_PlayerSpecificTerrain : MonoBehaviour
+public class Hazard_PlayerSpecificTerrain : MonoBehaviour, IActivatable
 {
     bool m_displayGizmos = true;
     public PlayerController.PlayerType m_playerTarget;
     public Vector3Int m_numOfPlatforms = new Vector3Int(1,1,0);
     
+
 
     [Header("Pre-set Variables")]
     public string m_humanPlayerLayer;
@@ -91,5 +92,16 @@ public class Hazard_PlayerSpecificTerrain : MonoBehaviour
 
             }
         }
+
+    }
+
+    public void ActiveState(bool p_active)
+    {
+        gameObject.SetActive(p_active);
+    }
+
+    public void ResetMe()
+    {
+        gameObject.SetActive(true);
     }
 }
