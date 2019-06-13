@@ -8,6 +8,9 @@ public class AI_DeathParticle : MonoBehaviour
     public float m_lifespan;
     WaitForSeconds m_delay;
     ParticleSystem m_particles;
+    Coroutine m_lifeCor;
+
+
     private void OnEnable()
     {
         if (m_particles == null)
@@ -16,20 +19,32 @@ public class AI_DeathParticle : MonoBehaviour
             m_pooler = ObjectPooler.instance;
             m_delay = new WaitForSeconds(m_lifespan);
         }
-        else
+
+        if (m_lifeCor != null)
         {
-            m_particles.Play();
-            StartCoroutine(LifeSpan());
+            StopCoroutine(m_lifeCor);
         }
+        m_particles.Play();
+        m_lifeCor = StartCoroutine(LifeSpan());
+
 
     }
+    
 
     IEnumerator LifeSpan()
     {
         yield return m_delay;
-        gameObject.SetActive(false);
-        m_pooler.ReturnToPool(this.gameObject);
+
+        m_pooler.ReturnToPool(gameObject);
+
     }
 
+    private void OnDisable()
+    {
+        if (m_lifeCor != null)
+        {
+            StopCoroutine(m_lifeCor);
+        }
+    }
 
 }

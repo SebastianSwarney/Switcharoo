@@ -86,6 +86,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     {
         
         AiController aiCont = ObjectPooler.instance.NewObject(m_enemyToSpawn, transform, true, false, false).GetComponent<AiController>();
+        aiCont.Respawn();
         aiCont.m_currentForward = (m_currentSpawnDir == SpawnDir.Left) ? -1 : 1;
         aiCont.m_spawnerManager = m_spawnManager;
         aiCont.m_patrolPoints = m_spawnedEnemyPatrolPoints;

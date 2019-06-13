@@ -25,7 +25,8 @@ public class CollisionHazard_Trigger : CollisionHazard_Base, IActivatable
 
 	private void Update()
 	{
-		if (!m_isTriggered)
+        if (m_paused) return;
+        if (!m_isTriggered)
 		{
 			CheckForTarget();
 		}

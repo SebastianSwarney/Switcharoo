@@ -70,6 +70,10 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 		DebugExtension.DebugBounds(drawBounds, Color.red);
 	}
 
+    public override void PauseMe(bool p_paused)
+    {
+        m_rigidbody.simulated = !p_paused;
+    }
 
     #region IActivatable Methods
 

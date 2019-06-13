@@ -38,6 +38,7 @@ public class CollisionHazard_Move : CollisionHazard_Base, IActivatable
 
 	void Update()
 	{
+        if (m_paused) return;
         if (m_isActive)
         {
             Vector3 velocity = CalculatePlatformMovement();

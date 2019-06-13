@@ -130,7 +130,7 @@ public class AiController : MonoBehaviour, IPauseable
     #region respawn Variables
     Vector3 m_respawnPos;
     int m_startingForward;
-    bool m_died = false;
+    public bool m_died = false;
     #endregion
 
     #region Events
@@ -212,7 +212,11 @@ public class AiController : MonoBehaviour, IPauseable
 
     public void Respawn()
     {
-        m_died = false;
+        if (m_enemyHealth == null)
+        {
+            m_enemyHealth = GetComponent<Health>();
+        }
+        m_enemyHealth.ResetHealth();
         transform.position = m_respawnPos;
         m_currentForward = m_startingForward;
         FlipEnemy(m_currentForward);
@@ -222,12 +226,12 @@ public class AiController : MonoBehaviour, IPauseable
     {
         if (!m_isPaused)
         {
-            if (m_enemyHealth.m_isDead && !m_died)
+            if (m_enemyHealth.m_isDead)
             {
-                m_died = true;
+
                 Die();
             }
-            if (!m_died)
+            else
             {
                 CheckState();
             }
@@ -240,7 +244,8 @@ public class AiController : MonoBehaviour, IPauseable
     /// </summary>
     void OnEnable()
     {
-        m_enemyHealth.ResetHealth();
+        
+        
         if (m_enemyType == null)
         {
             Debug.Log("Error: " + gameObject.name + " has no assigned enemy type");
@@ -537,10 +542,11 @@ public class AiController : MonoBehaviour, IPauseable
     #region Enemy Death
     void Die()
     {
+        
         EnemyDied(true);
         if (m_deathParticle != null)
         {
-           m_pooler.NewObject(m_deathParticle, transform.position, Quaternion.identity).GetComponent<ParticleSystem>(); 
+            m_pooler.NewObject(m_deathParticle, transform.position, Quaternion.identity);
         }
         gameObject.SetActive(false);
 

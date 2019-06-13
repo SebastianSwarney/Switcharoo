@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : PlayerRaycastController, IActivatable
+public class MovingPlatform : PlayerRaycastController, IActivatable, IPauseable
 {
     public LayerMask passengerMask;
 
@@ -27,9 +27,13 @@ public class MovingPlatform : PlayerRaycastController, IActivatable
     bool m_isActive;
     Vector3 m_startPos;
 
+    bool m_paused;
+
     public override void Start()
     {
         base.Start();
+
+        ObjectPooler.instance.AddObjectToPooler(gameObject);
 
         globalWaypoints = new Vector3[localWaypoints.Length];
         for (int i = 0; i < localWaypoints.Length; i++)
@@ -42,6 +46,7 @@ public class MovingPlatform : PlayerRaycastController, IActivatable
 
     void Update()
     {
+        if (m_paused) return;
         if (m_isActive)
         {
 
@@ -247,5 +252,12 @@ public class MovingPlatform : PlayerRaycastController, IActivatable
         transform.position = m_startPos;
     }
 
+
+
     #endregion
+
+    public void SetPauseState(bool p_isPaused)
+    {
+        m_paused = p_isPaused;
+    }
 }

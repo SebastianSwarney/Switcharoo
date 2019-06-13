@@ -34,10 +34,12 @@ public class CollisionHazard_Rotate : CollisionHazard_Base, IActivatable
 
 
         m_isActive = m_startActive;
+        ActiveState(m_isActive);
     }
 
     private void Update()
     {
+        if (m_paused) return;
         if (m_isActive)
         {
             Rotate();
@@ -88,6 +90,8 @@ public class CollisionHazard_Rotate : CollisionHazard_Base, IActivatable
     public void ActiveState(bool p_active)
     {
         m_isActive = p_active;
+        m_lineRenderer.enabled = p_active;
+        this.enabled = p_active;
     }
 
     public void ResetMe()

@@ -79,4 +79,9 @@ public class Bullet_Base : MonoBehaviour, IPauseable
 			m_rigidbody.simulated = true;
 		}
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("Hit " + collision.gameObject.name);
+    }
 }
