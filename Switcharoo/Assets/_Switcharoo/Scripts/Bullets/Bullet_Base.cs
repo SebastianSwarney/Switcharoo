@@ -80,8 +80,4 @@ public class Bullet_Base : MonoBehaviour, IPauseable
 		}
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print("Hit " + collision.gameObject.name);
-    }
 }

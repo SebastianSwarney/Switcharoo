@@ -167,7 +167,7 @@ public class AiController : MonoBehaviour, IPauseable
 
     [HideInInspector]
     public bool m_startShootAnim, m_inShootingAnim;
-    [HideInInspector]
+    //[HideInInspector]
     public int m_bulletsPerPattern;
     public int m_currentBulletAmount;
 
