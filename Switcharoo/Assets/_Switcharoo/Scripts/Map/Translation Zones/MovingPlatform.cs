@@ -49,8 +49,6 @@ public class MovingPlatform : PlayerRaycastController, IActivatable, IPauseable
         if (m_paused) return;
         if (m_isActive)
         {
-
-
             UpdateRaycastOrigins();
 
             Vector3 velocity = CalculatePlatformMovement();
