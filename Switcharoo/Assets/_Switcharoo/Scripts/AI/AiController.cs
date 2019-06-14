@@ -47,6 +47,7 @@ public class AiController : MonoBehaviour, IPauseable
     public GameObject m_deathParticle;
     [Space(10)]
     public string m_playerTag = "Player";
+    public LayerMask m_playerLayer;
 
     #region Components on the Enemy
 
@@ -62,7 +63,7 @@ public class AiController : MonoBehaviour, IPauseable
     public bool m_isPooled = false;
 
 
-    public CircleCollider2D m_detectionRange;
+    
     Health m_enemyHealth;
     ObjectPooler m_pooler;
     #endregion
@@ -233,6 +234,7 @@ public class AiController : MonoBehaviour, IPauseable
             }
             else
             {
+                CheckForPlayer();
                 CheckState();
             }
         }
@@ -251,7 +253,7 @@ public class AiController : MonoBehaviour, IPauseable
             Debug.Log("Error: " + gameObject.name + " has no assigned enemy type");
             Debug.Break();
         }
-        m_detectionRange.radius = m_enemyType.m_attackType.m_attackRadius;
+        
 
         InitiateAi();
     }
@@ -342,6 +344,9 @@ public class AiController : MonoBehaviour, IPauseable
         spherePos = new Vector3(spherePos.x + m_checkWallDistance * m_currentForward, spherePos.y, 0f);
         Gizmos.DrawWireSphere(spherePos, m_circleCastRad);
         Debug.DrawLine(transform.position + m_spriteOffset, spherePos);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, m_enemyType.m_attackType.m_attackRadius);
 
     }
 
@@ -514,28 +519,35 @@ public class AiController : MonoBehaviour, IPauseable
 
 
 
-    void OnTriggerStay2D(Collider2D other)
+
+
+    void CheckForPlayer()
     {
         if (m_target != null)
         {
-            return;
-        }
-        if (other.gameObject.tag == m_playerTag)
-        {
-
-            float dis = Vector3.Distance(transform.position, other.gameObject.transform.position);
-            if (dis < m_enemyType.m_attackType.m_attackRadius)
+            float dis = Vector3.Distance(transform.position, m_target.transform.position);
+            if (dis > m_enemyType.m_attackType.m_attackRadius)
             {
-                m_target = other.gameObject;
+                m_target = null;
             }
         }
+        else
+        {
+            Collider2D playerCol = Physics2D.OverlapCircle(transform.position, m_enemyType.m_attackType.m_attackRadius, m_playerLayer);
+            if (playerCol!= null)
+            {
+                m_target = playerCol.gameObject;
+            }
+        }
+
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == m_playerTag)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(m_enemyType.m_collisionDamage);
+            collision.gameObject.transform.parent.GetComponent<Health>().TakeDamage(m_enemyType.m_collisionDamage);
         }
     }
 
