@@ -14,7 +14,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
 
     public float m_closeShootBreakTime, m_farShootBreakTime;
 
-    
+
 
     public float m_farShootAimUp;
 
@@ -31,10 +31,15 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
         {
             case AttackState.Start:
 
-                HeavyAttackPattern(p_enemyObject, p_player, p_gun);
-                p_aiController.m_shootBreakTime = (IsCloseBehaviour(p_gun) ? m_closeShootBreakTime : m_farShootBreakTime);
-                p_aiController.m_shootTriggerTime = (IsCloseBehaviour(p_gun) ? m_closeShootTriggerTime : m_farShootTriggerTime);
-                p_aiController.m_bulletsPerPattern = (IsCloseBehaviour(p_gun) ? m_closeShootBulletCount : m_farShootBulletCount);
+                if (p_aiController.m_currentBulletAmount == 0)
+                {
+                    HeavyAttackPattern(p_enemyObject, p_player, p_gun);
+                    Debug.Log("Change Fire");
+                    p_aiController.m_shootBreakTime = (IsCloseBehaviour(p_gun) ? m_closeShootBreakTime : m_farShootBreakTime);
+                    p_aiController.m_shootTriggerTime = (IsCloseBehaviour(p_gun) ? m_closeShootTriggerTime : m_farShootTriggerTime);
+                    p_aiController.m_bulletsPerPattern = (IsCloseBehaviour(p_gun) ? m_closeShootBulletCount : m_farShootBulletCount);
+                    p_aiController.m_fireAlt = IsCloseBehaviour(p_gun) ? false : true;
+                }
                 //Starts the visual tell
                 VisualTell(p_aiController, p_rb);
 
@@ -43,7 +48,10 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
             case AttackState.Perform:
 
 
-                p_aiController.m_fireAlt = IsCloseBehaviour(p_gun) ? false : true;
+
+                
+
+
                 if (p_aiController.m_fireAlt)
                 {
                     AimAtTarget(p_aiController, p_aiController.m_shootAltOrigin, p_player.transform.position, p_gun);
@@ -68,13 +76,13 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                             m_closeShootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
                             m_closeShootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
 
-                            Debug.Log("Moving to point");
-                            
+
+                            //Debug.Log("Fire");
                             p_aiController.ChangeAnimation(false);
                         }
                         else
                         {
-                            Debug.Log("Fire ");
+
                             p_aiController.ChangeAnimation(true);
                             m_closeShootingMovement.StopMoving(p_rb);
                         }
@@ -82,7 +90,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                     }
                     else
                     {
-                        Debug.Log("Fire v2");
+
                         p_aiController.ChangeAnimation(true);
                         m_closeShootingMovement.StopMoving(p_rb);
                     }
@@ -92,7 +100,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                 ///If the player gets out of range, end the attack
                 else
                 {
-                    Debug.Log("Heavy attack end");
+                    //Debug.Log("Heavy attack end");
                     p_aiController.m_currentAttackState = AttackState.Finished;
                     p_aiController.ChangeAnimation(false);
                 }
