@@ -15,6 +15,9 @@ public class OnPlayerJump : UnityEvent { }
 [System.Serializable]
 public class OnPlayerLand : UnityEvent { }
 
+[System.Serializable]
+public class OnPlayerRespawn : UnityEvent { }
+
 [RequireComponent(typeof(Controller2D))]
 public class PlayerController : MonoBehaviour, IPauseable
 {
@@ -96,23 +99,6 @@ public class PlayerController : MonoBehaviour, IPauseable
 	[Space]
     #endregion
 
-    #region Dash Properties
-    [Header("Dash Properties")]
-    public float m_dashDistance;
-    public float m_dashTime;
-    public float m_groundDashCooldown;
-    public AnimationCurve m_dashCurve;
-
-    //bool m_canDash = true;
-    bool m_dashing;
-
-    float m_dashSpeed;
-    float m_dashingTime;
-    float m_groundDashTimer;
-    bool m_canDashGround;
-    [Space]
-    #endregion
-
     #region Shoot Properties
     [Header("Shooting Properties")]
     private ShootController m_shootController;
@@ -133,6 +119,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 	public OnPlayerHurt m_playerHurt = new OnPlayerHurt();
 	public OnPlayerJump m_playerJumped = new OnPlayerJump();
 	public OnPlayerLand m_playerLanded = new OnPlayerLand();
+	public OnPlayerRespawn m_playerRespawned = new OnPlayerRespawn();
 	#endregion
 
 	public Transform m_spriteTarget;
@@ -153,21 +140,23 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 	Vector3 m_velocityBeforePaused;
 
+	[HideInInspector]
+	public PlayerData[] m_playerDataAtRoomStart;
+
 	void Start()
     {
         controller = GetComponent<Controller2D>();
 		m_shootController = GetComponent<ShootController>();
 		m_health = GetComponent<Health_Player>();
 		m_input = GetComponent<PlayerInput>();
-
 		m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 		CalculateJump();
-		UpdatePickups();
-		SwapLayers();
-		UpdateInput();
-		m_shootController.Reload();
-		ReloadMovementAbility();
+
+		m_playerDataAtRoomStart = new PlayerData[m_players.Length];
+
+		InitalizePlayer();
+
 		PauseMenuController.instance.m_pauseables.Add(this);
 	}
 
@@ -194,6 +183,37 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 		CalculateGroundPhysics();
     }
+
+	public void InitalizePlayer()
+	{
+		m_health.m_currentHealth = m_health.m_maxHealth;
+
+		m_players.CopyTo(m_playerDataAtRoomStart, 0);
+
+		UpdateLayers();
+		UpdateInput();
+		UpdatePickups();
+
+		m_shootController.Reload();
+		ReloadMovementAbility();
+
+		ZeroPlayerVelocity();
+	}
+
+	public void Respawn(Vector3 p_respawnPosition)
+	{
+		transform.position = p_respawnPosition;
+		m_playerRespawned.Invoke();
+		m_playerDataAtRoomStart.CopyTo(m_players, 0);
+		InitalizePlayer();	
+	}
+
+	public void ZeroPlayerVelocity()
+	{
+		m_velocityXSmoothing = 0;
+		m_velocitySmoothing = Vector3.zero;
+		m_velocity = Vector3.zero;
+	}
 
 	#region Input Code
 	public void SetDirectionalInput(Vector2 p_input)
@@ -323,19 +343,28 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 	public void JumpMaxVelocityMultiplied(float p_jumpVelocityMultiplier)
 	{
-		m_velocity.y = m_maxJumpVelocity * p_jumpVelocityMultiplier;
-		m_playerJumped.Invoke();
+		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
+		{
+			m_velocity.y = m_maxJumpVelocity * p_jumpVelocityMultiplier;
+			m_playerJumped.Invoke();
+		}
 	}
 
 	public void JumpMaxVelocity()
 	{
-		m_velocity.y = m_maxJumpVelocity;
-		m_playerJumped.Invoke();
+		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
+		{
+			m_velocity.y = m_maxJumpVelocity;
+			m_playerJumped.Invoke();
+		}
 	}
 
 	public void JumpMinVelocity()
 	{
-		m_velocity.y = m_minJumpVelocity;
+		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
+		{
+			m_velocity.y = m_minJumpVelocity;
+		}
 	}
     #endregion
 
@@ -375,56 +404,6 @@ public class PlayerController : MonoBehaviour, IPauseable
         }
     }
     #endregion
-
-    #region Dash Code
-    public void OnDashInputDown()
-    {
-        if (!m_dashing)
-        {
-            StartCoroutine(Dash());
-        }
-    }
-
-    private IEnumerator Dash()
-    {
-        m_dashing = true;
-
-        m_velocity = Vector3.zero;
-
-        Vector3 initialPosition = transform.position;
-
-        float dashTargetX = (m_directionalInput.x > 0) ? transform.position.x + m_dashDistance : transform.position.x - m_dashDistance; //possibly change this as the velocity x smoothing variable may have been the problem
-
-        Vector3 dashTarget = new Vector3(dashTargetX, transform.position.y, transform.position.z);
-
-        float t = 0;
-
-        while (t < m_dashTime)
-        {
-            t += Time.deltaTime;
-
-            float progress = m_dashCurve.Evaluate(t / m_dashTime);
-
-            Vector3 targetPosition = Vector3.Lerp(initialPosition, dashTarget, progress);
-
-            PhysicsSeekTo(targetPosition);
-
-            yield return null;
-        }
-
-        m_velocity = Vector3.zero;
-
-        m_velocityXSmoothing = 0; //figure out how to do this somewhere else
-
-        m_dashing = false;
-    }
-
-	private void PhysicsSeekTo(Vector3 p_targetPosition)
-	{
-		Vector3 deltaPosition = p_targetPosition - transform.position;
-		m_velocity = deltaPosition / Time.deltaTime;
-	}
-	#endregion
 
 	#region Shoot Code
 	public void OnShootInputHold()
@@ -522,11 +501,11 @@ public class PlayerController : MonoBehaviour, IPauseable
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			m_players[i].Swap();
-			SwapLayers();
-			UpdatePickups();
 		}
 
 		m_playerSwapped.Invoke();
+		UpdateLayers();
+		UpdatePickups();
 		UpdateInput();
 	}
 
@@ -542,7 +521,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 		}
 	}
 
-	private void SwapLayers()
+	private void UpdateLayers()
 	{
 		for (int i = 0; i < m_players.Length; i++)
 		{
@@ -561,21 +540,6 @@ public class PlayerController : MonoBehaviour, IPauseable
 		}
 
 		SetLayersToComponents();
-	}
-
-	private void UpdateCollider()
-	{
-		for (int i = 0; i < m_players.Length; i++)
-		{
-			if (m_players[i].m_currentRole == PlayerRole.Runner)
-			{
-				controller.col.size = m_players[i].m_colliderBounds.extents;
-				controller.col.offset = m_players[i].m_colliderBounds.center;
-			}
-		}
-
-		controller.CalculateRaySpacing();
-		controller.UpdateRaycastOrigins();
 	}
 
 	public void DisableSwapping()
@@ -604,8 +568,6 @@ public class PlayerController : MonoBehaviour, IPauseable
 		public LayerMask m_obstacleMask;
 		public ShootController.WeaponComposition m_weaponComposition;
 		public MovementAbilityComposition m_movementAbilityComposition;
-		public Bounds m_colliderBounds;
-		public Color m_testColor;
 
 		public void Swap()
 		{
