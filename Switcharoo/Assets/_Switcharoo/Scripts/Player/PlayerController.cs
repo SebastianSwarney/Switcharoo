@@ -143,6 +143,8 @@ public class PlayerController : MonoBehaviour, IPauseable
 	[HideInInspector]
 	public PlayerData[] m_playerDataAtRoomStart;
 
+	private bool m_isSwapping;
+
 	void Start()
     {
         controller = GetComponent<Controller2D>();
@@ -545,11 +547,13 @@ public class PlayerController : MonoBehaviour, IPauseable
 	public void DisableSwapping()
 	{
 		m_states.m_swappingState = SwappingState.SwappingDisabled;
+		m_isSwapping = true;
 	}
 
 	public void EnableSwapping()
 	{
 		m_states.m_swappingState = SwappingState.SwappingEnabled;
+		m_isSwapping = false;
 	}
 
 	private void SetLayersToComponents()
@@ -726,21 +730,6 @@ public class PlayerController : MonoBehaviour, IPauseable
 				break;
 		}
 
-		switch (m_states.m_inputState)
-		{
-			case InputState.InputEnabled:
-
-				//Nothing
-
-				break;
-
-			case InputState.InputDisabled:
-
-
-
-				break;
-		}
-
 		if (m_usingMovementAbility)
 		{
 			m_states.m_swappingState = SwappingState.SwappingDisabled;
@@ -748,6 +737,11 @@ public class PlayerController : MonoBehaviour, IPauseable
 		else
 		{
 			m_states.m_swappingState = SwappingState.SwappingEnabled;
+		}
+
+		if (m_isSwapping)
+		{
+			m_states.m_swappingState = SwappingState.SwappingDisabled;
 		}
 	}
 	#endregion
