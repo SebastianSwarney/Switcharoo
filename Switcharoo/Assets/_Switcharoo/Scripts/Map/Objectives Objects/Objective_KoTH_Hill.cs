@@ -72,7 +72,7 @@ public class Objective_KoTH_Hill : MonoBehaviour, IPauseable
     void AddTime()
     {
 
-        if (m_player.m_players[(m_targetPlayer == PlayerController.PlayerType.Type0) ? 0 : 1].m_currentRole == PlayerController.PlayerRole.Runner || m_eitherPlayer)
+        if (m_player.m_players[(m_targetPlayer == PlayerController.PlayerType.Type0) ? 0 : 1].m_currentRole == PlayerController.PlayerRole.Gunner || m_eitherPlayer)
         {
             m_currentTime += Time.deltaTime;
 

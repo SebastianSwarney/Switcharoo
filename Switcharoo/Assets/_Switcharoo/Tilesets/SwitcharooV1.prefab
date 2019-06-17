@@ -173,11 +173,11 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 2.3034305e+23, g: 2.3034305e+23, b: 2.3034305e+23, a: 2.3034305e+23}
   - m_RefCount: 0
-    m_Data: {r: 3.8278389e-22, g: 3.8278389e-22, b: 3.8278389e-22, a: 3.8278389e-22}
+    m_Data: {r: -1209.002, g: -1209.002, b: -1209.002, a: -1209.002}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -3, y: 0, z: 0}
-  m_Size: {x: 8, y: 5, z: 1}
+  m_Origin: {x: -3, y: -1, z: 0}
+  m_Size: {x: 8, y: 6, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:

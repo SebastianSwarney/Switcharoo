@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3300098386514998105}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &4691448977520703515
 CapsuleCollider2D:
@@ -308,7 +308,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -78354054310532819, guid: 3e4f61c9dae98674784c25a6e00582cd,
+      objectReference: {fileID: 8398384410176181640, guid: 024179934e0211147850525db2d27f7c,
         type: 3}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -328,12 +328,12 @@ PrefabInstance:
     - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0.379
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: 0.647
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998680829598, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
