@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8515277832737761271}
   - component: {fileID: 8515277832737761266}
   - component: {fileID: 8515277832737761260}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: AI_Swarm_Drone_Alien
   m_TagString: Untagged
   m_Icon: {fileID: 0}

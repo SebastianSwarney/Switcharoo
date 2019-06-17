@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 	public enum InputState { InputEnabled, InputDisabled }
 	public enum SwappingState { SwappingEnabled, SwappingDisabled }
 	public PlayerState m_states;
-	public enum PlayerType { Type0, Type1 }
+	public enum PlayerType { Robot, Alien }
 	public enum PlayerRole { Runner, Gunner }
 	public PlayerData[] m_players;
 	private LayerMask m_gunnerDamageTargetMask;

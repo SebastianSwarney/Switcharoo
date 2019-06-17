@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5393287606865019668}
   - component: {fileID: 5393287606865019669}
   - component: {fileID: 5393287606865019666}
-  m_Layer: 17
+  m_Layer: 16
   m_Name: Moving Hazard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_rigidbody: {fileID: 0}
   m_canDamage: 0
   m_renderer: {fileID: 0}
+  m_paused: 0
   m_localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: -1, z: 0}

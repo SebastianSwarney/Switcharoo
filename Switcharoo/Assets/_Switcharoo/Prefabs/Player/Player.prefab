@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 2094756095}
   m_Layer: 12
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
     m_currentRole: 1
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 66560
+      m_Bits: 1536
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 16640
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_currentRole: 0
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 67584
+      m_Bits: 2560
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 33024

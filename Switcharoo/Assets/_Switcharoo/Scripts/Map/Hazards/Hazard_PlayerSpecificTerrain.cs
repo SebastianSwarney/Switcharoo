@@ -22,11 +22,11 @@ public class Hazard_PlayerSpecificTerrain : MonoBehaviour, IActivatable
         if (!m_displayGizmos) return;
         switch (m_playerTarget)
         {
-            case (PlayerController.PlayerType.Type0) :
+            case (PlayerController.PlayerType.Robot) :
                 Gizmos.color = m_humanColor;
                 break;
 
-            case (PlayerController.PlayerType.Type1) :
+            case (PlayerController.PlayerType.Alien) :
                 Gizmos.color = m_alienColor;
                 break;
         }
@@ -70,11 +70,11 @@ public class Hazard_PlayerSpecificTerrain : MonoBehaviour, IActivatable
         GameObject platformType = m_alienPlatform;
         switch (m_playerTarget)
         {
-            case (PlayerController.PlayerType.Type0):
+            case (PlayerController.PlayerType.Robot):
                 currentLayer = m_humanPlayerLayer;
                 platformType = m_humanPlatform;
                 break;
-            case (PlayerController.PlayerType.Type1):
+            case (PlayerController.PlayerType.Alien):
                 currentLayer = m_alienPlayerLayer;
                 platformType = m_alienPlatform;
                 break;

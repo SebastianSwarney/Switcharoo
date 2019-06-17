@@ -28,6 +28,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI_Rush_Alien
       objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x

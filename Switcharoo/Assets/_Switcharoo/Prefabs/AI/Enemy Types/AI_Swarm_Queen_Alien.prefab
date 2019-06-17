@@ -35,7 +35,7 @@ MonoBehaviour:
   m_entityAmount: 20
   m_entityRespawnTime: 1
   m_target: {fileID: 0}
-  m_detectionCollider: {fileID: 1106848743679807197}
+  m_detectionCollider: {fileID: 0}
   m_detectionRadius: 5
   m_playerTag: Player
   m_maxDistanceAway: 7
@@ -54,6 +54,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AI_Swarm_Queen_Alien
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -284,12 +289,6 @@ PrefabInstance:
 --- !u!1 &4763751906924356119 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 7542268848184531387}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1106848743679807197 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7491690288337377126, guid: db08449e2d24e0d468dea21746da98aa,
     type: 3}
   m_PrefabInstance: {fileID: 7542268848184531387}
   m_PrefabAsset: {fileID: 0}

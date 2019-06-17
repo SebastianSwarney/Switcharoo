@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 836398382178450084}
   - component: {fileID: 836398382178450091}
   - component: {fileID: 836398382178450090}
-  m_Layer: 17
+  m_Layer: 16
   m_Name: Timer Hazard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,4 +149,5 @@ MonoBehaviour:
   m_rigidbody: {fileID: 0}
   m_canDamage: 0
   m_renderer: {fileID: 0}
+  m_paused: 0
   m_activeInterval: 3

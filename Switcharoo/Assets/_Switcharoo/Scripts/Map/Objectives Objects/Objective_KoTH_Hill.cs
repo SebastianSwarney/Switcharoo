@@ -34,13 +34,13 @@ public class Objective_KoTH_Hill : MonoBehaviour, IPauseable
     {
         if (m_hillFieldRender != null)
         {
-            m_hillFieldRender.color = (m_targetPlayer == PlayerController.PlayerType.Type0) ? m_robotColor : m_alienColor;
+            m_hillFieldRender.color = (m_targetPlayer == PlayerController.PlayerType.Robot) ? m_robotColor : m_alienColor;
             m_hillFieldRender.color = (m_eitherPlayer) ? m_eitherColor : m_hillFieldRender.color;
             m_hillFieldRender.transform.localScale = new Vector2(m_hillDimensions.x - 2, m_hillDimensions.y);
         }
         foreach(SpriteRenderer sRend in m_bars)
         {
-            sRend.color = (m_targetPlayer == PlayerController.PlayerType.Type0) ? m_robotBarColor : m_alienBarColor;
+            sRend.color = (m_targetPlayer == PlayerController.PlayerType.Robot) ? m_robotBarColor : m_alienBarColor;
             sRend.color = (m_eitherPlayer) ? m_neutralBarColor : sRend.color;
         }
 
@@ -72,7 +72,7 @@ public class Objective_KoTH_Hill : MonoBehaviour, IPauseable
     void AddTime()
     {
 
-        if (m_player.m_players[(m_targetPlayer == PlayerController.PlayerType.Type0) ? 0 : 1].m_currentRole == PlayerController.PlayerRole.Gunner || m_eitherPlayer)
+        if (m_player.m_players[(m_targetPlayer == PlayerController.PlayerType.Robot) ? 0 : 1].m_currentRole == PlayerController.PlayerRole.Gunner || m_eitherPlayer)
         {
             m_currentTime += Time.deltaTime;
 
@@ -94,7 +94,7 @@ public class Objective_KoTH_Hill : MonoBehaviour, IPauseable
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = (m_targetPlayer == PlayerController.PlayerType.Type0) ? m_robotColor : m_alienColor;
+        Gizmos.color = (m_targetPlayer == PlayerController.PlayerType.Robot) ? m_robotColor : m_alienColor;
         if (m_eitherPlayer) Gizmos.color = m_eitherColor;
         Gizmos.DrawCube(transform.position, m_hillDimensions);
     }
@@ -119,7 +119,7 @@ public class Objective_KoTH_Hill : MonoBehaviour, IPauseable
         yield return new WaitForSeconds(1f);
         foreach (SpriteRenderer bar in m_bars)
         {
-            bar.color = (m_targetPlayer == PlayerController.PlayerType.Type0) ? m_robotBarColorComplete : m_alienBarColorComplete;
+            bar.color = (m_targetPlayer == PlayerController.PlayerType.Robot) ? m_robotBarColorComplete : m_alienBarColorComplete;
             bar.color = (m_eitherPlayer) ? m_neutralBarColorComplete : bar.color;
         }
     }

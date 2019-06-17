@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1419149068385091138}
   - component: {fileID: 1419149068385091132}
   - component: {fileID: 1419149068385091139}
-  m_Layer: 17
+  m_Layer: 16
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419149068456260768}
-  m_Layer: 17
+  m_Layer: 16
   m_Name: Rotate Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 1419149069058994720}
   - component: {fileID: 1419149069058994727}
   - component: {fileID: 1419149069058994722}
-  m_Layer: 17
+  m_Layer: 16
   m_Name: Rotate Hazard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_rigidbody: {fileID: 0}
   m_canDamage: 0
   m_renderer: {fileID: 0}
+  m_paused: 0
   m_rotateDegrees: 30
   m_rotateSpeed: 1
   m_rotateTarget: {fileID: 1419149068456260768}
