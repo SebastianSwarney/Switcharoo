@@ -176,6 +176,7 @@ MonoBehaviour:
   m_players:
   - m_type: 0
     m_currentRole: 1
+    m_layerString: PlayerRobot
     m_damageTargetMask:
       serializedVersion: 2
       m_Bits: 1536
@@ -193,6 +194,7 @@ MonoBehaviour:
       m_buffType: {fileID: 11400000, guid: 55dc2f67a28c0094d8dd78539ec12c40, type: 2}
   - m_type: 1
     m_currentRole: 0
+    m_layerString: PlayerAlien
     m_damageTargetMask:
       serializedVersion: 2
       m_Bits: 2560

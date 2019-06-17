@@ -529,7 +529,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 			{
 				m_gunnerDamageTargetMask = m_players[i].m_damageTargetMask;
 				m_gunnerObstacleMask = m_players[i].m_obstacleMask;
-
+				gameObject.layer = LayerMask.NameToLayer(m_players[i].m_layerString);
 			}
 
 			if (m_players[i].m_currentRole == PlayerRole.Runner)
@@ -564,6 +564,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 	{
 		public PlayerType m_type;
 		public PlayerRole m_currentRole;
+		public string m_layerString;
 		public LayerMask m_damageTargetMask;
 		public LayerMask m_obstacleMask;
 		public ShootController.WeaponComposition m_weaponComposition;
