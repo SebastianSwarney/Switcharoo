@@ -397,6 +397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 12288
   m_moveSpeed: 5
   m_startActive: 1
