@@ -50,8 +50,7 @@ public class Hazard_PlayerSpecificTerrain : MonoBehaviour, IActivatable
 
         Gizmos.DrawCube(newPos, m_numOfPlatforms);
 
-        Gizmos.color = Color.green;
-        Gizmos.DrawCube(OriginPosition() + transform.position, new Vector3(m_numOfPlatforms.x - .1f, m_numOfPlatforms.y - .1f, 0));
+        
 
     }
 
