@@ -48,6 +48,12 @@ MonoBehaviour:
   m_numOfPlatforms: {x: 2, y: 4, z: 0}
   m_humanPlayerLayer: ObstaclePlayerRobot
   m_alienPlayerLayer: ObstaclePlayerAlien
+  m_robotLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  m_alienLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
   m_humanColor: {r: 1, g: 0.5329268, b: 0, a: 0.69803923}
   m_alienColor: {r: 0, g: 0.6403699, b: 1, a: 0.6509804}
   m_humanPlatform: {fileID: 5300427214722034819, guid: 849f7b2dfe394084a928d181db907fe7,
