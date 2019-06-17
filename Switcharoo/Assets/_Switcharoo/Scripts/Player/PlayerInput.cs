@@ -20,6 +20,11 @@ public class PlayerInput : MonoBehaviour
 	private Player m_player0InputController;
 	private Player m_player1InputController;
 
+	private Vector2 m_lastRunnerInput;
+
+	private bool m_runnerSwap;
+	private bool m_gunnerSwap;
+
 	void Start()
 	{
 		m_playerInputController = ReInput.players.GetPlayer(0);
@@ -82,6 +87,14 @@ public class PlayerInput : MonoBehaviour
 
 				break;
 		}
+
+		if (m_gunnerSwap && m_runnerSwap)
+		{
+			m_gunnerSwap = false;
+			m_runnerSwap = false;
+
+			m_playerController.OnReloadInputDown();
+		}
 	}
 
 	#region Single Player Input
@@ -132,7 +145,16 @@ public class PlayerInput : MonoBehaviour
 		m_playerController.SetDirectionalInput(directionalInput);
 
 		Vector2 aimInput = new Vector2(p_playerInputController.GetAxisRaw("Aim Horizontal"), p_playerInputController.GetAxisRaw("Aim Vertical"));
-		m_playerController.SetRunnerAimInput(aimInput);
+
+		if (aimInput.normalized.magnitude != 0)
+		{
+			m_lastRunnerInput = aimInput;
+			m_playerController.SetRunnerAimInput(aimInput);
+		}
+		else
+		{
+			m_playerController.SetRunnerAimInput(m_lastRunnerInput);
+		}
 
 		if (p_playerInputController.GetButtonDown("Jump"))
 		{
@@ -141,6 +163,12 @@ public class PlayerInput : MonoBehaviour
 		if (p_playerInputController.GetButtonUp("Jump"))
 		{
 			m_playerController.OnJumpInputUp();
+		}
+
+		if (p_playerInputController.GetButtonDown("Reload"))
+		{
+			//m_playerController.OnReloadInputDown();
+			m_runnerSwap = true;
 		}
 
 		if (p_playerInputController.GetButtonDown("Shoot"))
@@ -161,7 +189,8 @@ public class PlayerInput : MonoBehaviour
 
 		if (p_playerInputController.GetButtonDown("Reload"))
 		{
-			m_playerController.OnReloadInputDown();
+			//m_playerController.OnReloadInputDown();
+			m_gunnerSwap = true;
 		}
 	}
 	#endregion

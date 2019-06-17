@@ -233,7 +233,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 	#endregion
 
 	#region Aim Code
-	void GunnerAim()
+	private void GunnerAim()
     {
         float theta = Mathf.Atan2(m_gunnerAimInput.y, m_gunnerAimInput.x);
 
