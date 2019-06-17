@@ -23,9 +23,9 @@ TagManager:
   - ObstaclePlayerAlien
   - Hazards
   - CollisionFX
-  - 
-  - 
-  - 
+  - TranslationZones
+  - BulletsPlayer
+  - BulletsEnemy
   - 
   - 
   - 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 504732419026082140}
   - component: {fileID: -1996426917697744598}
   - component: {fileID: 7315616157899850491}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Bullet_ConstMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,3 +151,4 @@ MonoBehaviour:
     m_Bits: 0
   m_damageType: {fileID: 0}
   m_bulletDamageAmount: 0
+  m_rigidbody: {fileID: 0}
