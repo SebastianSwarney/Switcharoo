@@ -40,6 +40,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 4876064
   Exists: 1
+--- !u!114 &-8949657299879744982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Users\Joshua\Documents\Unavailable Games\Switcharoo\Game\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636926691382055881
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-8734316694777789252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636957579977651188
+  lastModified: 636926691382106047
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -959,14 +979,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -8299777326734704806}
-  - {fileID: -3082616891751799756}
+  - {fileID: -8949657299879744982}
   EditorEvents:
   - {fileID: 9109858367759026603}
   MasterBanks:
-  - {fileID: -3082616891751799756}
+  - {fileID: -8949657299879744982}
   StringsBanks:
   - {fileID: -8299777326734704806}
-  stringsBankWriteTime: 636957579977651188
+  stringsBankWriteTime: 636926691382106047
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -1740,7 +1760,7 @@ MonoBehaviour:
   Path: event:/Gnomed-00
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
-  - {fileID: -3082616891751799756}
+  - {fileID: -8949657299879744982}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
