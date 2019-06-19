@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class DungeonManager : MonoBehaviour
 {
     public static DungeonManager instance { get; private set; }
@@ -27,7 +26,7 @@ public class DungeonManager : MonoBehaviour
 
     void Awake()
     {
-        if (Camera.main == null)
+        if(Camera.main == null)
         {
             Debug.Log("DUNGEON MANAGER ERROR! The Camera is either disabled or nonexistant");
         }
@@ -62,10 +61,11 @@ public class DungeonManager : MonoBehaviour
         {
             Debug.Log("TODO: Place fancy died transition here");
             m_playerHealth.m_isDead = false;
-            m_playerCont.Respawn(m_playerRespawnPoint);
+            m_playerHealth.ResetHealth();
             m_currentRoom.gameObject.SetActive(false);
             m_currentRoom.ResetRoom();
-            m_currentRoom.gameObject.SetActive(true);            
+            m_currentRoom.gameObject.SetActive(true);
+            m_playerGameObject.transform.position = m_playerRespawnPoint;
             m_cameraController.transform.position = m_cameraController.m_cameraBoundsArea.ClosestPoint(m_playerGameObject.transform.position);
 
         }
@@ -75,13 +75,12 @@ public class DungeonManager : MonoBehaviour
     {
         m_playerCont.m_usingMovementAbility = false;
 
-
+            
         m_currentRoom = p_loadMap;
         m_playerCont.m_velocity = Vector2.zero;
         p_loadMap.gameObject.SetActive(true);
         m_cameraController.enabled = false;
         m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
-        
         m_roomTransitionCoroutine = StartCoroutine(RoomTransition(m_cameraController.transform.position, p_playerSpawnPos, p_loadMap));
         m_playerRespawnPoint = p_playerSpawnPos;
 
@@ -91,7 +90,6 @@ public class DungeonManager : MonoBehaviour
 
     IEnumerator RoomTransition(Vector3 p_camStartPos, Vector3 p_playerSpawnPos, RoomManager_Base p_loadMap)
     {
-        
         m_playerGameObject.transform.position = p_playerSpawnPos;
         GameObject deloadTilemap = m_currentLoadedTilemap.transform.parent.parent.parent.gameObject;
         m_currentLoadedTilemap = p_loadMap.m_currentLoadedTilemap.transform.GetChild(0).gameObject;
@@ -112,7 +110,7 @@ public class DungeonManager : MonoBehaviour
         m_playerCont.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;
         deloadTilemap.SetActive(false);
 
-        m_playerCont.InitalizePlayer();
+
         m_cameraController.enabled = true;
         m_playerCont.m_velocity = Vector2.zero;
 

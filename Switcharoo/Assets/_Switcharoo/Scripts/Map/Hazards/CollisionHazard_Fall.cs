@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
+public class CollisionHazard_Fall : CollisionHazard_Base
 {
 	[Header("Fall Hazard Properties")]
 	public Bounds m_triggerArea;
@@ -10,21 +10,15 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 
 	private bool m_isTriggered;
 
-
-    //IActivatable value
-    Vector3 m_StartPos;
-
 	public override void Start()
 	{
 		base.Start();
-        
+
 		if (!m_drawBoundsInWorldSpace)
 		{
 			m_triggerArea.center = m_triggerArea.center + transform.position;
 		}
-
-        m_StartPos = transform.position;
-    }
+	}
 
 	private void Update()
 	{
@@ -69,30 +63,4 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 
 		DebugExtension.DebugBounds(drawBounds, Color.red);
 	}
-
-    public override void PauseMe(bool p_paused)
-    {
-        m_rigidbody.simulated = !p_paused;
-    }
-
-    #region IActivatable Methods
-
-    public void ActiveState(bool p_active)
-    {
-        if (p_active)
-        {
-            
-            m_rigidbody.isKinematic = false;
-            m_isTriggered = true;
-        }
-    }
-
-    public void ResetMe()
-    {
-        
-        m_rigidbody.isKinematic = true;
-        m_isTriggered = false;
-        transform.position = m_StartPos;
-    }
-    #endregion
 }

@@ -19,7 +19,10 @@ public class RoomManager_KoTH : RoomManager_Base
         if (allRoomsComplete)
         {
             m_roomTaskComplete = true;
-
+            foreach (Objective_KoTH_Hill hill in m_hillsInRoom)
+            {
+                hill.gameObject.SetActive(false);
+            }
             if (m_stopEnemySpawnsOnComplete)
             {
                 m_roomAiManager[0].StopAllSpawners();

@@ -141,7 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ba9995c465d5140831c075490046b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 12288
   m_jumpMultiplier: 2

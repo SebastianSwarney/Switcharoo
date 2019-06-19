@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8531472617450045712}
   - component: {fileID: 8531472617450045713}
   - component: {fileID: 8531472617450045726}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Fall Hazard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,6 @@ MonoBehaviour:
   m_rigidbody: {fileID: 0}
   m_canDamage: 0
   m_renderer: {fileID: 0}
-  m_paused: 0
   m_triggerArea:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 2, y: 2, z: 0}

@@ -28,8 +28,8 @@ public class ArmCanon_AnimationController : MonoBehaviour
 
 	private void Update()
     {
-		transform.rotation = m_player.m_crosshair.rotation * new Quaternion(0, 0, -180, 0);
-	}
+		transform.rotation = m_player.m_crosshair.rotation;
+    }
 
 	public void ShootBullet()
 	{

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 951872444426221584}
   - component: {fileID: 951872444426221585}
   - component: {fileID: -2288412577565911287}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: Ice Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

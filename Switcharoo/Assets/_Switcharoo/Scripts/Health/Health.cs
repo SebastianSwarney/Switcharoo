@@ -51,8 +51,6 @@ public class Health : MonoBehaviour
 	public void ResetHealth()
 	{
 		m_currentHealth = m_maxHealth;
-		m_currentIceState = IceState._0;
-		m_currentFireState = FireState._0;
         m_isDead = false;
 	}
 

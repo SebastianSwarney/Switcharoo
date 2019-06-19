@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4713285351191031628}
   - component: {fileID: 4731409184799455815}
   - component: {fileID: 7220302174730930199}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Enemy_Bullet_Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,5 +151,4 @@ MonoBehaviour:
     m_Bits: 256
   m_damageType: {fileID: 0}
   m_bulletDamageAmount: 0
-  m_rigidbody: {fileID: 0}
   m_rotateSpeed: 150

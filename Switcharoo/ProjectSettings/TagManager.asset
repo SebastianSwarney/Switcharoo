@@ -13,19 +13,19 @@ TagManager:
   - UI
   - 
   - 
-  - ObstacleGeneric
-  - EnemyGeneric
-  - EnemyRobot
-  - EnemyAlien
-  - PlayerRobot
-  - PlayerAlien
-  - ObstaclePlayerRobot
-  - ObstaclePlayerAlien
+  - Obstacle
+  - Enemies
+  - Enemy0
+  - Enemy1
+  - Player0
+  - Player1
+  - ObstaclePlayer0
+  - ObstaclePlayer1
+  - GenericEnemy
   - Hazards
+  - EnemyOnlyObstacle
   - CollisionFX
-  - TranslationZones
-  - BulletsPlayer
-  - BulletsEnemy
+  - 
   - 
   - 
   - 

@@ -184,7 +184,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: AnimationDisableSwapping
+    functionName: DisableSwapping
     data: 
     objectReferenceParameter: {fileID: 288033317153994315, guid: 2f9219e412522404b8a390537fdbe7e2,
       type: 3}
@@ -192,7 +192,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2.4166667
-    functionName: AnimationEnableSwapping
+    functionName: EnableSwapping
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

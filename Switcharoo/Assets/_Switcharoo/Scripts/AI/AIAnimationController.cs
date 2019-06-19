@@ -28,9 +28,12 @@ public class AIAnimationController : MonoBehaviour
     }
     public void ShootAnimation(bool p_active)
     {
-        m_animCont.SetBool("isShooting", p_active);
+        m_animCont.SetBool("playerSpotted", p_active);
     }
-
+    public void ShootAlternateAnimation(bool p_active)
+    {
+        m_animCont.SetBool("isShootingAlt", p_active);
+    }
     public void DieAnimation(bool p_active)
     {
         m_animCont.SetBool("die", p_active);
@@ -39,15 +42,6 @@ public class AIAnimationController : MonoBehaviour
     public void CheckGrounded(bool p_active)
     {
         m_animCont.SetBool("Grounded", p_active);
-    }
-
-    public void FireShootAnimation()
-    {
-        m_animCont.SetTrigger("FireBullet");
-    }
-    public void FireShootAltAnim()
-    {
-        m_animCont.SetTrigger("FireAlt");
     }
     #endregion
 
@@ -62,21 +56,9 @@ public class AIAnimationController : MonoBehaviour
         m_aiCont.m_isJumping = false;
     }
 
-    public void FireBullet()
+    public void BeginAttack()
     {
-        m_aiCont.ShootGun();
+        m_aiCont.m_beginAttack = true;
     }
     #endregion
-
-    #region Animation Paused
-    public void PauseAnimation(bool p_pause)
-    {
-        if (m_animCont == null)
-        {
-            m_animCont = GetComponent<Animator>();
-        }
-        m_animCont.enabled = !p_pause;
-    }
-    #endregion
-
 }

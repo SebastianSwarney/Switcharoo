@@ -33,7 +33,7 @@ public class AI_AttackType_Collide_Jump : AI_AttackType_Base
                     bool flipEntity = m_attackMovement.WallInFront(p_aiController, p_rb, new Vector2(p_aiController.transform.position.x - p_aiController.m_spriteOffset.x, p_aiController.transform.position.y - p_aiController.m_spriteOffset.y), p_aiController.m_circleCastRad, p_aiController.m_currentForward, p_aiController.m_wallLayer, p_aiController.m_isGrounded);
                 }
                 //If the player is in range, set a position that is in their direction
-                if (PlayerInRange(p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
+                if (PlayerInRange(p_player, p_enemyObject))
                 {
                     m_attackMovement.MoveToPosition(p_aiController,p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
 

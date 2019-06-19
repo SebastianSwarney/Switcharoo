@@ -17,15 +17,6 @@ public class AI_MovementType_Pathfinding : AI_MovementType_Base
     public override bool IsGrounded(AiController p_aiCont, LayerMask p_wallLayer)
     {
         RaycastHit2D hit = Physics2D.BoxCast(p_aiCont.m_groundCheckPos + p_aiCont.transform.position, p_aiCont.m_groundCheckDimensions, 0, -Vector3.up, 0f, p_wallLayer);
-        if (!p_aiCont.m_isGrounded && hit)
-        {
-            p_aiCont.EnemyGrounded(true);
-
-            p_aiCont.m_isJumping = false;
-
-        }
-        
-
         return hit;
     }
 
@@ -93,7 +84,7 @@ public class AI_MovementType_Pathfinding : AI_MovementType_Base
 
     public override void VisualTellMovement(Rigidbody2D p_rb)
     {
-
+        Debug.Log("Pathfinding visual tell movement not reated");
     }
 
     public override bool WallInFront(AiController p_aiCont, Rigidbody2D p_rb, Vector2 p_castPos, float p_circleCastRad, int p_forwardDir, LayerMask p_hitLayer, bool p_isGrounded)

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Bullet_Launch : Bullet_Base
 {
+	private Rigidbody2D m_rigidbody;
+
+	public override void OnEnable()
+	{
+		base.OnEnable();
+		m_rigidbody = GetComponent<Rigidbody2D>();
+	}
+
 	public override void Update()
 	{
 		base.Update();

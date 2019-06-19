@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionHazard_Base : MonoBehaviour, IPauseable
+public class CollisionHazard_Base : MonoBehaviour
 {
 	[Header("Base Properties")]
 	public float m_damageAmount;
@@ -16,9 +16,6 @@ public class CollisionHazard_Base : MonoBehaviour, IPauseable
 	public bool m_canDamage = true;
 	[HideInInspector]
 	public SpriteRenderer m_renderer;
-    
-    [HideInInspector]
-    public bool m_paused;
 
 	public virtual void Start()
 	{
@@ -27,8 +24,6 @@ public class CollisionHazard_Base : MonoBehaviour, IPauseable
 		m_rigidbody = GetComponent<Rigidbody2D>();
 
 		m_canDamage = true;
-
-        ObjectPooler.instance.AddObjectToPooler(gameObject);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -65,14 +60,4 @@ public class CollisionHazard_Base : MonoBehaviour, IPauseable
 			return false;
 		}
 	}
-
-    public void SetPauseState(bool p_isPaused)
-    {
-        PauseMe(p_isPaused);
-    }
-
-    public virtual void PauseMe(bool p_paused)
-    {
-        m_paused = p_paused;
-    }
 }

@@ -16,11 +16,8 @@ public class PlatformerNavigation : MonoBehaviour
     public List<NodeDisplay> m_nodeDisplayInspector = new List<NodeDisplay>();
 
     public int m_maxPlatformGap = 3;
-
-    
     void Start()
     {
-        m_gridOrigin += transform.position;
         CreateGrid();
     }
     public int MaxSize
@@ -401,8 +398,7 @@ public class PlatformerNavigation : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!displayGizmos) return;
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(m_gridOrigin + transform.position, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 0) );
+        Gizmos.DrawWireCube(m_gridOrigin, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 0));
 
 
         if (m_nodeGrid != null)

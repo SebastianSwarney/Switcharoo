@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour, IPauseable
+public class ObjectPooler : MonoBehaviour
 {
     #region Variables
     public Dictionary<string, Queue<GameObject>> objectPool = new Dictionary<string, Queue<GameObject>>();
@@ -13,30 +13,12 @@ public class ObjectPooler : MonoBehaviour, IPauseable
     public int initalPoolSize = 5;
 
     public static ObjectPooler instance { get; private set; }
-
-
-
-
-
-
-
-
-
-
-    List<Rigidbody2D> m_pauseRbs = new List<Rigidbody2D>();
-    List<IPauseable> m_pauseableObjectsIPause = new List<IPauseable>();
     #endregion
 
     void Awake()
     {
         instance = this;
         InitialGrowth();
-    }
-
-
-    private void Start()
-    {
-        PauseMenuController.instance.m_pauseables.Add(this);
     }
 
     ///<Summary>
@@ -116,7 +98,7 @@ public class ObjectPooler : MonoBehaviour, IPauseable
         newObject.SetActive(isActive);
         return newObject;
     }
-
+  
     ///<summary>
     ///When the pool is equal to zero, increase the pool
     ///called in the NewObject function
@@ -130,21 +112,6 @@ public class ObjectPooler : MonoBehaviour, IPauseable
             newObj.SetActive(false);
             newObj.name = pooledObject.name;
             objectPool[poolName].Enqueue(newObj);
-
-
-
-            IPauseable pauseMe = newObj.GetComponent<IPauseable>();
-            if (pauseMe != null)
-            {
-                m_pauseableObjectsIPause.Add(pauseMe);
-                return;
-            }
-
-            Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
-            if (rb!= null)
-            {
-                m_pauseRbs.Add(rb);
-            }
         }
     }
 
@@ -161,29 +128,6 @@ public class ObjectPooler : MonoBehaviour, IPauseable
         objectPool[pooledObject.name].Enqueue(pooledObject);
         pooledObject.SetActive(false);
     }
-
-
-
-    public void AddObjectToPooler(GameObject pooledObject)
-    {
-
-
-        IPauseable pauseMe = pooledObject.GetComponent<IPauseable>();
-        if (pauseMe != null)
-        {
-            m_pauseableObjectsIPause.Add(pauseMe);
-            return;
-        }
-
-        Rigidbody2D rb = pooledObject.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            m_pauseRbs.Add(rb);
-        }
-
-
-    }
-
 
     ///<summary>
     ///This function is only called at start
@@ -223,17 +167,5 @@ public class ObjectPooler : MonoBehaviour, IPauseable
         objectPool.Add(newPool.name, newQueue);
         IncreasePool(newPool.name, newPool, newParent);
 
-    }
-
-    public void SetPauseState(bool p_isPaused)
-    {
-        foreach (IPauseable pauseMe in m_pauseableObjectsIPause)
-        {
-            pauseMe.SetPauseState(p_isPaused);
-        }
-        foreach(Rigidbody2D rb in m_pauseRbs)
-        {
-            rb.simulated = !p_isPaused;
-        }
     }
 }

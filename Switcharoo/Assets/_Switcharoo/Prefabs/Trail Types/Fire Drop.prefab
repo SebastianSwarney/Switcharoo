@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2416284592811496172}
   - component: {fileID: 951872444426221585}
   - component: {fileID: 8982904590746901947}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: Fire Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -22,7 +22,7 @@ public class Bullet_Ricochet : Bullet_Base
 
 	private void Move()
 	{
-		m_rigidbody.velocity = transform.right * m_moveSpeed;
+		transform.Translate(transform.right * m_moveSpeed * Time.deltaTime, Space.World);
 	}
 
 	private void Ricochet()
@@ -41,18 +41,18 @@ public class Bullet_Ricochet : Bullet_Base
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (CheckCollisionLayer(m_damageTargetMask, collision))
+		if (m_damageTargetMask == (m_damageTargetMask | (1 << collision.gameObject.layer)))
 		{
 			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 		}
 
-		if (CheckCollisionLayer(m_obstacleMask, collision) && m_ricochetCount < m_amountOfRicochets)
+		if ((m_obstacleMask == (m_obstacleMask | (1 << collision.gameObject.layer))) && m_ricochetCount < m_amountOfRicochets)
 		{
 			Ricochet();
 			m_ricochetCount++;
 		}
 
-		if (CheckCollisionLayer(m_obstacleMask, collision) && m_ricochetCount >= m_amountOfRicochets)
+		if ((m_obstacleMask == (m_obstacleMask | (1 << collision.gameObject.layer))) && m_ricochetCount >= m_amountOfRicochets)
 		{
 			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 		}

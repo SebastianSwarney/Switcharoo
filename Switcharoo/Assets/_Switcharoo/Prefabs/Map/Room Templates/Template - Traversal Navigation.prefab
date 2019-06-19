@@ -19,11 +19,10 @@ MonoBehaviour:
   - {fileID: 2542658861136604333}
   - {fileID: 3400182831446813866}
   m_roomsToAlterOnCompletion: []
-  m_roomTilemapVariants:
+  m_roomTilemap:
   - {fileID: 8752518525914694353}
   m_roomTaskComplete: 0
   m_doorsParent: {fileID: 175029459310460566}
-  m_roomObjectsParent: {fileID: 8271587082209372916}
   m_stopEnemySpawnsOnComplete: 1
   m_increaseRoomIndex: 0
   m_currentLoadedTilemap: {fileID: 0}
@@ -40,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4349411731147264597}
   - component: {fileID: 6404573722727630825}
+  - component: {fileID: 1369296176546705360}
   m_Layer: 0
   m_Name: Target Position
   m_TagString: Untagged
@@ -59,7 +59,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 821889817814145867}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6404573722727630825
 MonoBehaviour:
@@ -74,25 +74,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_targetTime: 0.0001
-  m_hillDimensions: {x: 1, y: 1}
   m_targetPlayer: 0
   m_eitherPlayer: 1
+  m_playerTag: Player
   m_hillComplete: 0
-  m_bars: []
-  m_targetYScale: 0
-  m_playerLayer:
-    serializedVersion: 2
-    m_Bits: 12288
-  m_robotColor: {r: 0, g: 1, b: 0.17391229, a: 0.5176471}
-  m_alienColor: {r: 1, g: 0.61947197, b: 0, a: 0.7137255}
-  m_eitherColor: {r: 1, g: 0.3726415, b: 0.9725095, a: 0.73333335}
-  m_hillFieldRender: {fileID: 0}
-  m_robotBarColor: {r: 0, g: 0, b: 0, a: 0}
-  m_alienBarColor: {r: 0, g: 0, b: 0, a: 0}
-  m_neutralBarColor: {r: 0, g: 0, b: 0, a: 0}
-  m_robotBarColorComplete: {r: 0, g: 0, b: 0, a: 0}
-  m_alienBarColorComplete: {r: 0, g: 0, b: 0, a: 0}
-  m_neutralBarColorComplete: {r: 0, g: 0, b: 0, a: 0}
+--- !u!61 &1369296176546705360
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802322179367826200}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &6729699429112516310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,11 +176,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2359125017994318577, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3593565232637721856, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
         type: 3}
       propertyPath: m_RootOrder
@@ -234,12 +240,6 @@ MonoBehaviour:
 --- !u!1 &175029459310460566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6848116463543988288, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6729699429112516310}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8271587082209372916 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3435724633379841058, guid: 73ce74da47cdc094ebcf9e67ac014c4c,
     type: 3}
   m_PrefabInstance: {fileID: 6729699429112516310}
   m_PrefabAsset: {fileID: 0}
