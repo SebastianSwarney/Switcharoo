@@ -742,6 +742,10 @@ public class PlayerController : MonoBehaviour, IPauseable
 		{
 			m_states.m_swappingState = SwappingState.SwappingDisabled;
 		}
+		else
+		{
+			m_states.m_swappingState = SwappingState.SwappingEnabled;
+		}
 	}
 	#endregion
 
