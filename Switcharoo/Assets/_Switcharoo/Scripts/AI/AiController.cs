@@ -122,11 +122,11 @@ public class AiController : MonoBehaviour, IPauseable
 
     #region Heavy Exclusive Variables
     [Header("Heavy Specific Variables")]
-
-    public Transform m_originPoint;
     public Transform m_shootAltOrigin;
     [HideInInspector]
     public bool m_fireAlt;
+
+    public bool m_canSwitchToAlt;
     #endregion
 
     #region respawn Variables
@@ -349,7 +349,7 @@ public class AiController : MonoBehaviour, IPauseable
         Debug.DrawLine(transform.position + m_spriteOffset, spherePos);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, m_enemyType.m_detectionRadius);
+        Gizmos.DrawWireCube((Vector2)transform.position + m_enemyType.m_detectionOffset, m_enemyType.m_detectionRadius);
 
     }
 
@@ -372,35 +372,10 @@ public class AiController : MonoBehaviour, IPauseable
 
     ///<Summary>
     ///Checks if the player is in a set radius
-    ///TODO: Create the following function
     bool PlayerInRadius()
     {
         return m_enemyType.m_attackType.PlayerInRange(this, m_target, this.gameObject,m_enemyType.m_detectionRadius);
-        if (m_target.transform.position.x > transform.position.x + m_enemyType.m_detectionRadius.x / 2 ||
-                m_target.transform.position.x < transform.position.x - m_enemyType.m_detectionRadius.x / 2 ||
-                m_target.transform.position.y > transform.position.y + m_enemyType.m_detectionRadius.y / 2 ||
-                m_target.transform.position.y < transform.position.y - m_enemyType.m_detectionRadius.y / 2)
-        {
-            PlayerSpotted(false);
-            ChangeAnimation(false);
-            m_playerInZone = false;
-            return false;
-        }
-        else
-        {
-            if (m_aiBounds != null)
-            {
-                if (!m_aiBounds.TargetInBounds(m_target.transform.position))
-                {
-                    PlayerSpotted(false);
-                    ChangeAnimation(false);
-                    m_playerInZone = false;
-                    return false;
-                }
-            }
-            m_playerInZone = true;
-            return true;
-        }
+        
     }
 
     #endregion
@@ -416,7 +391,7 @@ public class AiController : MonoBehaviour, IPauseable
         {
             m_currentBulletAmount = 0;
             m_currentShootBreakTime = m_shootTriggerTime;
-            if (m_originPoint != null)
+            if (m_shootAltOrigin != null)
             {
                 m_currentAttackState = AI_AttackType_Base.AttackState.Start;
             }

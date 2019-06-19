@@ -90,7 +90,7 @@ MonoBehaviour:
   m_triggerStart: 0
   m_playerLayers:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 12288
   m_triggerOrigin: {x: 0, y: 0}
   m_triggerDimensions: {x: 0, y: 0}
   m_spawnManager: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_spawnPerMinute: 0
   m_maxEnemyFromThis: 0
   m_enemyToSpawn: {fileID: 0}
+  m_aiBoundsFromSpawner: {fileID: 0}
   m_spawnedEnemyPatrolPoints: []
   m_currentEnemyNumber: 0
   m_disableObjectsOnDisable: []

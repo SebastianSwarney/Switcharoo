@@ -49,6 +49,11 @@ public class AIAnimationController : MonoBehaviour
     {
         m_animCont.SetTrigger("FireAlt");
     }
+
+    public void Idle(bool p_active)
+    {
+        m_animCont.SetBool("Idle", !p_active);
+    }
     #endregion
 
     #region Animation events
@@ -66,6 +71,16 @@ public class AIAnimationController : MonoBehaviour
     {
         m_aiCont.ShootGun();
     }
+
+    public void SwitchToAltFire()
+    {
+        m_aiCont.m_canSwitchToAlt = true;
+    }
+    public void StopSwitchToAltFire()
+    {
+        m_aiCont.m_canSwitchToAlt = false;
+    }
+
     #endregion
 
     #region Animation Paused

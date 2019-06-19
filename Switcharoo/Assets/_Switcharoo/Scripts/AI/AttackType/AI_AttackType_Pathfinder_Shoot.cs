@@ -105,6 +105,42 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 
     }
 
+    public override bool PlayerInRange(AiController p_aiCont, GameObject p_player, GameObject p_enemyObject, Vector2 p_detectionRange)
+    {
 
+        //return base.PlayerInRange(p_aiCont, p_player, p_enemyObject, p_detectionRange);
+        if (p_player.transform.position.x > p_enemyObject.transform.position.x + p_detectionRange.x / 2 ||
+                p_player.transform.position.x < p_enemyObject.transform.position.x - p_detectionRange.x / 2 ||
+                p_player.transform.position.y > p_enemyObject.transform.position.y + p_detectionRange.y / 2 ||
+                p_player.transform.position.y < p_enemyObject.transform.position.y - p_detectionRange.y / 2)
+        {
+            p_aiCont.PlayerSpotted(false);
+            p_aiCont.ChangeAnimation(false);
+
+            return false;
+        }
+        else
+        {
+            p_aiCont.PlayerSpotted(true);
+            p_aiCont.ChangeAnimation(true);
+
+            return true;
+        }
+    }
+
+    public override void CheckForPlayer(AiController p_aiCont)
+    {
+        if (p_aiCont.m_target == null)
+        {
+            Collider2D playerCol = Physics2D.OverlapBox(p_aiCont.transform.position, p_aiCont.m_enemyType.m_detectionRadius, 0, p_aiCont.m_playerLayer);
+            if (playerCol != null)
+            {
+
+                p_aiCont.m_target = playerCol.gameObject;
+            }
+
+
+        }
+    }
 
 }

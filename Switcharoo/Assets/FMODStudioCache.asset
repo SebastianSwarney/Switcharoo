@@ -121,7 +121,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShellCasingBounce
   guid: c942937061be41479001b501522794be
   Banks:
-  - {fileID: -6117474898737276390}
+  - {fileID: -6430725504706103724}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   Path: event:/Gnomed-00
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
-  - {fileID: -6117474898737276390}
+  - {fileID: -6430725504706103724}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -472,6 +472,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 362
+--- !u!114 &-6430725504706103724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636965474948556956
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 461088
+  Exists: 1
 --- !u!114 &-6360194756701255246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,7 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636965508952078479
+  lastModified: 636965474948556956
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1110,17 +1130,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1818824948532211320}
-  - {fileID: -6117474898737276390}
+  - {fileID: -6430725504706103724}
   EditorEvents:
   - {fileID: -6989111560564368890}
   - {fileID: 1370781014222598250}
   - {fileID: 6335393615462752706}
   - {fileID: -8529969278088525624}
   MasterBanks:
-  - {fileID: -6117474898737276390}
+  - {fileID: -6430725504706103724}
   StringsBanks:
   - {fileID: -1818824948532211320}
-  stringsBankWriteTime: 636965508952078479
+  stringsBankWriteTime: 636965474948556956
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -1276,7 +1296,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShotEnergy
   guid: 11d3eb3453535549802ea6bb392e8179
   Banks:
-  - {fileID: -6117474898737276390}
+  - {fileID: -6430725504706103724}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1818,7 +1838,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShotBallistic
   guid: 7183ae29badcc649a13865e552f64b02
   Banks:
-  - {fileID: -6117474898737276390}
+  - {fileID: -6430725504706103724}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

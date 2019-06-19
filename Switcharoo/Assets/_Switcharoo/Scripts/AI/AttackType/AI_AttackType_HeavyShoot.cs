@@ -31,7 +31,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
         {
             case AttackState.Start:
 
-                if (p_aiController.m_currentBulletAmount == 0)
+                if (p_aiController.m_canSwitchToAlt)
                 {
                     HeavyAttackPattern(p_enemyObject, p_player, p_gun);
                     Debug.Log("Change Fire");
@@ -71,13 +71,14 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                     if (!m_closeShootingMovement.PostionReached(p_aiController.m_agent, p_enemyObject, p_targetPos, m_targetStoppingDistance))
                     {
                         Vector3 dir = (p_targetPos - p_enemyObject.transform.position).normalized;
-                        if (Vector3.Distance(p_enemyObject.transform.position + dir, p_aiController.m_originPoint.position) < m_maxDistanceFromOrigin)
+                        if (Vector3.Distance(p_enemyObject.transform.position + dir, p_aiController.m_aiBounds.transform.position) < p_aiController.m_aiBounds.m_boundsDimensions.x/2)
                         {
                             m_closeShootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
                             m_closeShootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
 
 
                             //Debug.Log("Fire");
+                            p_aiController.m_canSwitchToAlt = false;
                             p_aiController.ChangeAnimation(false);
                         }
                         else
@@ -172,5 +173,41 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
         return p_gun.m_currentWeaponComposition.m_shotPattern == m_closeShootComp.m_shotPattern;
     }
 
+    public override bool PlayerInRange(AiController p_aiCont, GameObject p_player, GameObject p_enemyObject, Vector2 p_detectionRange)
+    {
 
+        //return base.PlayerInRange(p_aiCont, p_player, p_enemyObject, p_detectionRange);
+        if (p_player.transform.position.x > p_enemyObject.transform.position.x + p_detectionRange.x / 2 ||
+                p_player.transform.position.x < p_enemyObject.transform.position.x - p_detectionRange.x / 2 ||
+                p_player.transform.position.y > p_enemyObject.transform.position.y + p_detectionRange.y / 2 ||
+                p_player.transform.position.y < p_enemyObject.transform.position.y - p_detectionRange.y / 2)
+        {
+            p_aiCont.PlayerSpotted(false);
+            p_aiCont.ChangeAnimation(false);
+
+            return false;
+        }
+        else
+        {
+            p_aiCont.PlayerSpotted(true);
+            p_aiCont.ChangeAnimation(true);
+
+            return true;
+        }
+    }
+
+    public override void CheckForPlayer(AiController p_aiCont)
+    {
+        if (p_aiCont.m_target == null)
+        {
+            Collider2D playerCol = Physics2D.OverlapBox(p_aiCont.transform.position, p_aiCont.m_enemyType.m_detectionRadius, 0, p_aiCont.m_playerLayer);
+            if (playerCol != null)
+            {
+
+                p_aiCont.m_target = playerCol.gameObject;
+            }
+
+
+        }
+    }
 }

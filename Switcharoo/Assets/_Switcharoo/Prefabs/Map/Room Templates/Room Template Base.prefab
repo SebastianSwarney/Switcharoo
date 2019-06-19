@@ -482,7 +482,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6197869628555007389}
-  - component: {fileID: 6197869628555007388}
   m_Layer: 0
   m_Name: Room Template Base
   m_TagString: Untagged
@@ -509,28 +508,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6197869628555007388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6197869628555007390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7481f47ed83628941a18d9a3e8022c85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayGizmos: 1
-  displayPaths: 1
-  m_gridWorldSize: {x: 0, y: 0}
-  m_gridOrigin: {x: 0, y: 0, z: 0}
-  m_nodeRadius: 0.5
-  m_terrainLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  m_nodeDisplayInspector: []
-  m_maxPlatformGap: 3
 --- !u!1 &6266059761818247659
 GameObject:
   m_ObjectHideFlags: 0

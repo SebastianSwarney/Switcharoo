@@ -20,7 +20,6 @@ public class PlatformerNavigation : MonoBehaviour
     
     void Start()
     {
-        m_gridOrigin += transform.position;
         CreateGrid();
     }
     public int MaxSize

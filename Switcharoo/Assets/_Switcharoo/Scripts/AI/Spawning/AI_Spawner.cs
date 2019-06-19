@@ -40,6 +40,8 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
 
 
+    public AI_Bounds m_aiBoundsFromSpawner;
+    PlatformerNavigation m_navGrid;
     public List<Transform> m_spawnedEnemyPatrolPoints;
 
 
@@ -64,6 +66,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     private void Start()
     {
         ObjectPooler.instance.AddObjectToPooler(this.gameObject);
+        m_navGrid = m_aiBoundsFromSpawner.GetComponent<PlatformerNavigation>();
     }
     void InitateSpawning()
     {
@@ -90,7 +93,8 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         aiCont.m_currentForward = (m_currentSpawnDir == SpawnDir.Left) ? -1 : 1;
         aiCont.m_spawnerManager = m_spawnManager;
         aiCont.m_patrolPoints = m_spawnedEnemyPatrolPoints;
-        aiCont.m_agent.m_navGrid = m_spawnManager.m_currentNavGrid;
+        aiCont.m_aiBounds = m_aiBoundsFromSpawner;
+        aiCont.m_agent.m_navGrid = m_navGrid;
         aiCont.gameObject.SetActive(true);
         aiCont.transform.position = this.transform.position;
         aiCont.m_isPooled = true;
@@ -188,7 +192,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
                 else if (spawning.m_objectSpawnType == ObjectSpawnType.Heavy)
                 {
                     AiController aiCont = ObjectPooler.instance.NewObject(spawning.m_spawnObject, this.transform).GetComponent<AiController>();
-                    aiCont.m_originPoint = spawning.m_patrolPoints[0];
+                    //aiCont.m_originPoint = spawning.m_patrolPoints[0];
                     m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
                 }
 
@@ -203,7 +207,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
                     AiController aiCont = spawning.m_spawnObject.GetComponent<AiController>();
                     if (aiCont != null)
                     {
-                        aiCont.m_originPoint = spawning.m_patrolPoints[0];
+                        //aiCont.m_originPoint = spawning.m_patrolPoints[0];
                         aiCont.m_patrolPoints = spawning.m_patrolPoints;
                         if (!m_spawnManager.m_currentEnemiesInRoom.Contains(aiCont))
                         {

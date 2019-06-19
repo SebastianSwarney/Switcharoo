@@ -75,10 +75,10 @@ public abstract class AI_AttackType_Base : ScriptableObject
             }
 
             if (!checkPlayer) return false;
-            if (p_player.transform.position.x > p_enemyObject.transform.position.x + p_detectionRange.x / 2 ||
-                p_player.transform.position.x < p_enemyObject.transform.position.x - p_detectionRange.x / 2 ||
-                p_player.transform.position.y > p_enemyObject.transform.position.y + p_detectionRange.y / 2 ||
-                p_player.transform.position.y < p_enemyObject.transform.position.y - p_detectionRange.y / 2)
+            if (p_player.transform.position.x > p_enemyObject.transform.position.x + p_aiCont.m_enemyType.m_detectionOffset.x + p_detectionRange.x / 2 ||
+                p_player.transform.position.x < p_enemyObject.transform.position.x + p_aiCont.m_enemyType.m_detectionOffset.x - p_detectionRange.x / 2 ||
+                p_player.transform.position.y > p_enemyObject.transform.position.y + p_aiCont.m_enemyType.m_detectionOffset.y + p_detectionRange.y / 2 ||
+                p_player.transform.position.y < p_enemyObject.transform.position.y + p_aiCont.m_enemyType.m_detectionOffset.y - p_detectionRange.y / 2)
             {
                 p_aiCont.PlayerSpotted(false);
                 p_aiCont.ChangeAnimation(false);
@@ -109,7 +109,7 @@ public abstract class AI_AttackType_Base : ScriptableObject
         }
         else
         {
-            Collider2D playerCol = Physics2D.OverlapBox(p_aiCont.transform.position, p_aiCont.m_enemyType.m_detectionRadius, 0, p_aiCont.m_playerLayer);
+            Collider2D playerCol = Physics2D.OverlapBox((Vector2)p_aiCont.transform.position + p_aiCont.m_enemyType.m_detectionOffset, p_aiCont.m_enemyType.m_detectionRadius, 0, p_aiCont.m_playerLayer);
             if (playerCol != null)
             {
                 if (p_aiCont.m_aiBounds != null)
