@@ -88,7 +88,7 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
     {
         if (collision.gameObject.tag == m_playerTag)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(m_entityDamage);
+            collision.transform.parent.gameObject.GetComponent<Health>().TakeDamage(m_entityDamage);
 
             m_swarmBase.m_swarmEntities.Remove(this);
             ObjectPooler.instance.ReturnToPool(gameObject);

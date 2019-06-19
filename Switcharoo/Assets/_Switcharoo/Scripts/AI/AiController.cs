@@ -41,13 +41,14 @@ public class AiController : MonoBehaviour, IPauseable
 
     public Enemy_Base m_enemyType;
     public bool m_spawnedOnSpawnerDestroy = false;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject m_target;
 
     public GameObject m_deathParticle;
     [Space(10)]
     public string m_playerTag = "Player";
     public LayerMask m_playerLayer;
+
 
     #region Components on the Enemy
 
@@ -91,14 +92,14 @@ public class AiController : MonoBehaviour, IPauseable
     public float m_idleSpeed, m_attackSpeed;
     public int m_currentForward = 1;
 
-
+    public AI_Bounds m_aiBounds;
     public List<Transform> m_patrolPoints;
     Queue<Transform> m_patrolPointOrder;
 
     [HideInInspector]
     public Transform currentPatrolPoint;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool m_isGrounded;
 
     #endregion
@@ -182,10 +183,11 @@ public class AiController : MonoBehaviour, IPauseable
     bool m_isPaused;
     #endregion
 
-
     #region DEbugging Variablers
     public bool m_playerInZone;
     #endregion
+
+
     void Awake()
     {
         m_enemyHealth = GetComponent<Health>();
@@ -373,17 +375,29 @@ public class AiController : MonoBehaviour, IPauseable
     ///TODO: Create the following function
     bool PlayerInRadius()
     {
+        return m_enemyType.m_attackType.PlayerInRange(this, m_target, this.gameObject,m_enemyType.m_detectionRadius);
         if (m_target.transform.position.x > transform.position.x + m_enemyType.m_detectionRadius.x / 2 ||
                 m_target.transform.position.x < transform.position.x - m_enemyType.m_detectionRadius.x / 2 ||
                 m_target.transform.position.y > transform.position.y + m_enemyType.m_detectionRadius.y / 2 ||
                 m_target.transform.position.y < transform.position.y - m_enemyType.m_detectionRadius.y / 2)
         {
-
+            PlayerSpotted(false);
+            ChangeAnimation(false);
             m_playerInZone = false;
             return false;
         }
         else
         {
+            if (m_aiBounds != null)
+            {
+                if (!m_aiBounds.TargetInBounds(m_target.transform.position))
+                {
+                    PlayerSpotted(false);
+                    ChangeAnimation(false);
+                    m_playerInZone = false;
+                    return false;
+                }
+            }
             m_playerInZone = true;
             return true;
         }
@@ -524,23 +538,7 @@ public class AiController : MonoBehaviour, IPauseable
 
     void CheckForPlayer()
     {
-        if (m_target != null)
-        {
-
-            if (!PlayerInRadius())
-            {
-                m_target = null;
-            }
-        }
-        else
-        {
-            Collider2D playerCol = Physics2D.OverlapBox(transform.position, m_enemyType.m_detectionRadius, 0, m_playerLayer);
-            if (playerCol != null)
-            {
-
-                m_target = playerCol.gameObject;
-            }
-        }
+        m_enemyType.m_attackType.CheckForPlayer(this);
 
 
     }

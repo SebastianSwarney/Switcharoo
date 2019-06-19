@@ -14,12 +14,12 @@ public class AI_Enemy_Swarm : MonoBehaviour
     bool m_respawnEntity;
 
     public Transform m_target;
-    
+
 
     [Header("Detection Variables")]
-    public CircleCollider2D m_detectionCollider;
     public float m_detectionRadius;
     public string m_playerTag = "Player";
+    public LayerMask m_playerLayer;
 
     public float m_maxDistanceAway;
     public float m_maxEntityDistance;
@@ -32,15 +32,14 @@ public class AI_Enemy_Swarm : MonoBehaviour
     bool m_swarmReset = false;
 
 
-    AIAnimationController m_aiAnimCont;
+    public AIAnimationController m_aiAnimCont;
 
     private void Start()
     {
         m_entitySpawnDelay = new WaitForSeconds(m_entityRespawnTime);
         m_swarmEntities = new List<AI_Enemy_Swarm_Entity>();
-        m_detectionCollider.radius = m_detectionRadius;
         m_swarmReset = true;
-        m_aiAnimCont = GetComponent<AIAnimationController>();
+        
 
 
     }
@@ -59,7 +58,7 @@ public class AI_Enemy_Swarm : MonoBehaviour
 
     private void OnEnable()
     {
-        
+
         m_swarmReset = true;
         foreach (AI_Enemy_Swarm_Entity drone in m_swarmEntities)
         {
@@ -70,11 +69,12 @@ public class AI_Enemy_Swarm : MonoBehaviour
         m_swarmEntities.Clear();
 
         m_respawnEntity = false;
-        
+
 
     }
     private void Update()
     {
+        
         if (m_swarmReset)
         {
             SpawnNewEntities();
@@ -98,6 +98,7 @@ public class AI_Enemy_Swarm : MonoBehaviour
                 m_respawnEntity = false;
             }
         }
+        CheckRadius();
     }
 
     void CheckState()
@@ -151,14 +152,14 @@ public class AI_Enemy_Swarm : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, m_target.position) < m_maxDistanceAway)
         {
-            
+
             return true;
-            
+
         }
-        
+
         m_aiAnimCont.PlayerInRangeAnimation(false);
         return false;
-        
+
     }
     void SwitchEntityState(AiState p_newState)
     {
@@ -180,17 +181,17 @@ public class AI_Enemy_Swarm : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void CheckRadius()
     {
 
-        if (collision.gameObject.tag == m_playerTag && m_currentAiState != AiState.Attack)
-        {
-            m_target = collision.gameObject.transform;
-            SwitchEntityState(AiState.Attack);
-            NewTarget(m_target.position);
-            print("Player In Range");
-            m_aiAnimCont.PlayerInRangeAnimation(true);
-        }
+        Collider2D playerCol = Physics2D.OverlapCircle(transform.position, m_detectionRadius, m_playerLayer);
+        if (playerCol == null) return;
+        m_target = playerCol.gameObject.transform;
+        SwitchEntityState(AiState.Attack);
+        NewTarget(m_target.position);
+        print("Player In Range");
+        m_aiAnimCont.PlayerInRangeAnimation(true);
+
     }
 
     private void OnDrawGizmos()

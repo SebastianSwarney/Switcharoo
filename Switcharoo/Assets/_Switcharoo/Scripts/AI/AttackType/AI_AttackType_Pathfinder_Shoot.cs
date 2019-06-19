@@ -30,7 +30,7 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
 
             case AttackState.Perform:
                 //If the player is in range, perform the attack
-                if (PlayerInRange(p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
+                if (PlayerInRange(p_aiController, p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
                 {
 
                     AimAtTarget(p_bulletOrigin, p_player.transform.position);
@@ -44,7 +44,7 @@ public class AI_AttackType_Pathfinder_Shoot : AI_AttackType_Base
                     if (Mathf.Abs(p_player.transform.position.x - p_enemyObject.transform.position.x) > m_distanceFromPlayer)
                     {
                         p_aiController.ChangeAnimation(false);
-                        m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                        m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_aiController.m_aiBounds.PositionInBounds(p_targetPos), p_aiController.m_isGrounded);
 
                         
 

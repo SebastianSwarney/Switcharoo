@@ -23,6 +23,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
     ///Where all the attack logic is
     public override bool AttackFinished(AiController p_aiController, Rigidbody2D p_rb, Vector3 p_targetPos, GameObject p_player, GameObject p_enemyObject, Transform p_bulletOrigin, ShootController p_gun)
     {
+        Debug.DrawLine(p_aiController.transform.position, p_targetPos, Color.cyan);
         switch (p_aiController.m_currentAttackState)
         {
             case AttackState.Start:
@@ -37,7 +38,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
             case AttackState.Perform:
 
                 //If the player is in range, perform the attack
-                if (PlayerInRange(p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
+                if (PlayerInRange(p_aiController, p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
                 {
 
                     AimAtTarget(p_bulletOrigin, p_player.transform.position);
@@ -46,13 +47,15 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
                     //Different movement for when they are shooting
                     if (!m_shootingMovement.PostionReached(p_aiController.m_agent, p_enemyObject, p_targetPos, m_targetStoppingDistance))
                     {
-                        m_shootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
-                        m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
+                        m_shootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_aiController.m_aiBounds.PositionInBounds(p_targetPos));
+                        m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_aiController.m_aiBounds.PositionInBounds(p_targetPos), p_aiController.m_isGrounded);
 
                         p_aiController.ChangeAnimation(false);
+                        Debug.Log("Moving to position");
                     }
                     else
                     {
+                        Debug.Log("Position reached");
                         p_aiController.ChangeAnimation(true);
                         m_shootingMovement.StopMoving(p_rb);
                     }
@@ -84,7 +87,9 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
         Vector3 dir = (p_player.transform.position - p_enemyObject.transform.position).normalized;
 
         Vector3 targetPos = p_player.transform.position - dir * m_distanceFromPlayer;
-        return m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent, p_enemyObject, targetPos);
+
+        
+        return m_attackMovement.ConvertRelativePosition(p_aiCont.m_agent, p_enemyObject, p_aiCont.m_aiBounds.PositionInBounds(targetPos));
     }
 
 
@@ -106,5 +111,42 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
 
     }
 
+    public override bool PlayerInRange(AiController p_aiCont, GameObject p_player, GameObject p_enemyObject, Vector2 p_detectionRange)
+    {
+        
+        //return base.PlayerInRange(p_aiCont, p_player, p_enemyObject, p_detectionRange);
+        if (p_player.transform.position.x > p_enemyObject.transform.position.x + p_detectionRange.x / 2 ||
+                p_player.transform.position.x < p_enemyObject.transform.position.x - p_detectionRange.x / 2 ||
+                p_player.transform.position.y > p_enemyObject.transform.position.y + p_detectionRange.y / 2 ||
+                p_player.transform.position.y < p_enemyObject.transform.position.y - p_detectionRange.y / 2)
+        {
+            p_aiCont.PlayerSpotted(false);
+            p_aiCont.ChangeAnimation(false);
+
+            return false;
+        }
+        else
+        {
+            p_aiCont.PlayerSpotted(true);
+            p_aiCont.ChangeAnimation(true);
+
+            return true;
+        }
+    }
+
+    public override void CheckForPlayer(AiController p_aiCont)
+    {
+        if (p_aiCont.m_target == null)
+        {
+            Collider2D playerCol = Physics2D.OverlapBox(p_aiCont.transform.position, p_aiCont.m_enemyType.m_detectionRadius, 0, p_aiCont.m_playerLayer);
+            if (playerCol != null)
+            {
+
+                p_aiCont.m_target = playerCol.gameObject;
+            }
+
+
+        }
+    }
 
 }

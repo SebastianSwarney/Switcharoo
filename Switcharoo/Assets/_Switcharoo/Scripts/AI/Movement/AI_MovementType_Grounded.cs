@@ -34,12 +34,19 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
         {
             ///Sets gravity to be active
             p_rb.gravityScale = 1;
-
-            ///Only travels on the x axis
             Vector3 dir = p_targetPos - p_startPos;
             dir = new Vector3(Mathf.Sign(dir.x) * p_speed, p_rb.velocity.y, 0f);
             p_rb.velocity = dir;
+            if (p_aiCont.m_aiBounds != null)
+            {
+                if (!p_aiCont.m_aiBounds.TargetInBounds(p_aiCont.transform.position + (p_targetPos - p_startPos).normalized * p_aiCont.m_checkWallDistance/2))
+                {
+                    p_rb.velocity = new Vector3(0f, p_rb.velocity.y, 0f);
 
+                }
+            }
+
+            ///Only travels on the x axis
             if (Mathf.Sign(dir.x) != Mathf.Sign(p_aiCont.m_currentForward))
             {
                 p_aiCont.FlipEnemy((int)Mathf.Sign(dir.x));
@@ -74,7 +81,46 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
     public override bool WallInFront(AiController p_aiCont, Rigidbody2D p_rb, Vector2 p_castPos, float p_circleCastRad, int p_forwardDir, LayerMask p_hitLayer, bool p_isGrounded)
     {
+        if (p_aiCont.m_aiBounds != null)
+        {
+            
+            Vector3 checkDistance = p_aiCont.m_aiBounds.PositionInBounds((Vector2)p_aiCont.transform.position + (Vector2.right * p_forwardDir) * ((p_aiCont.m_checkWallDistance)*2 - (p_circleCastRad / 2)));
+
+
+            if (Vector3.Distance(p_aiCont.transform.position, checkDistance) < p_aiCont.m_checkWallDistance)
+            {
+                if (m_canJump)
+                {
+                    if (p_isGrounded)
+                    {
+                        JumpAnim(p_aiCont, p_rb);
+                        return false;
+                    }
+                    else
+                    {
+                        float distToObj = Vector3.Distance(p_rb.transform.position, checkDistance);
+
+                        if (distToObj < m_jumpTurnDistance)
+                        {
+                            if (p_aiCont.m_debugPhysicsChecks)
+                            {
+                                Debug.DrawLine(p_rb.gameObject.transform.position + p_aiCont.m_spriteOffset, checkDistance, Color.green, .5f);
+                            }
+
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
         RaycastHit2D[] hit = Physics2D.CircleCastAll(p_castPos, p_circleCastRad / 2, Vector2.right * p_forwardDir, p_aiCont.m_checkWallDistance - (p_circleCastRad / 2), p_hitLayer);
+
+
 
         foreach (RaycastHit2D rayHit in hit)
         {
@@ -108,6 +154,9 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
                 return true;
             }
         }
+
+        
+
         return false;
 
     }
