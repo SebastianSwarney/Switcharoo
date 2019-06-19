@@ -21,17 +21,26 @@ public class AI_AttackType_Rush : AI_AttackType_Base
         switch (p_aiController.m_currentAttackState)
         {
             case AttackState.Start:
+                if (PlayerInRange(p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
+                {
+                    p_aiController.FlipEnemy((int)Mathf.Sign(p_player.transform.position.x - p_aiController.transform.position.x));
+                    //Perform the visual tell
+                    VisualTell(p_aiController, p_rb);
+                    p_aiController.PlayerSpotted(true);
+                }
+                else
+                {
+                    p_aiController.m_target = null;
+                    p_aiController.PlayerSpotted(false);
+                    p_aiController.m_currentAttackState = AttackState.Finished;
 
-                p_aiController.FlipEnemy((int)Mathf.Sign(p_player.transform.position.x - p_aiController.transform.position.x));
-                //Perform the visual tell
-                VisualTell(p_aiController, p_rb);
-                p_aiController.PlayerSpotted(true);
+                }
                 break;
 
             case AttackState.Perform:
 
                 //If the player is in range, set a position that is in their direction
-                if (PlayerInRange(p_player, p_enemyObject))
+                if (PlayerInRange(p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
                 {
                     m_attackMovement.MoveToPosition(p_aiController,p_aiController.m_attackSpeed, p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
                     

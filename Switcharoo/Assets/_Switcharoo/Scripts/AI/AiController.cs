@@ -63,7 +63,7 @@ public class AiController : MonoBehaviour, IPauseable
     public bool m_isPooled = false;
 
 
-    
+
     Health m_enemyHealth;
     ObjectPooler m_pooler;
     #endregion
@@ -147,7 +147,6 @@ public class AiController : MonoBehaviour, IPauseable
     public OnPaused m_enemyPaused = new OnPaused();
     #endregion
 
-
     #region Physics Settings
     [Header("Physics Settings")]
     public bool m_debugPhysicsChecks;
@@ -160,7 +159,6 @@ public class AiController : MonoBehaviour, IPauseable
     public LayerMask m_movementFlipLayer;
 
     #endregion
-
 
     #region Animation Delay Events
     [HideInInspector]
@@ -179,12 +177,15 @@ public class AiController : MonoBehaviour, IPauseable
 
     #endregion
 
-
     #region Pause Settings
     Vector3 m_pausedVelocity;
     bool m_isPaused;
     #endregion
 
+
+    #region DEbugging Variablers
+    public bool m_playerInZone;
+    #endregion
     void Awake()
     {
         m_enemyHealth = GetComponent<Health>();
@@ -246,14 +247,14 @@ public class AiController : MonoBehaviour, IPauseable
     /// </summary>
     void OnEnable()
     {
-        
-        
+
+
         if (m_enemyType == null)
         {
             Debug.Log("Error: " + gameObject.name + " has no assigned enemy type");
             Debug.Break();
         }
-        
+
 
         InitiateAi();
     }
@@ -346,7 +347,7 @@ public class AiController : MonoBehaviour, IPauseable
         Debug.DrawLine(transform.position + m_spriteOffset, spherePos);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, m_enemyType.m_attackType.m_attackRadius);
+        Gizmos.DrawWireCube(transform.position, m_enemyType.m_detectionRadius);
 
     }
 
@@ -372,14 +373,19 @@ public class AiController : MonoBehaviour, IPauseable
     ///TODO: Create the following function
     bool PlayerInRadius()
     {
-        if (Vector3.Distance(transform.position, m_target.transform.position) < m_enemyType.m_attackType.m_attackRadius)
+        if (m_target.transform.position.x > transform.position.x + m_enemyType.m_detectionRadius.x / 2 ||
+                m_target.transform.position.x < transform.position.x - m_enemyType.m_detectionRadius.x / 2 ||
+                m_target.transform.position.y > transform.position.y + m_enemyType.m_detectionRadius.y / 2 ||
+                m_target.transform.position.y < transform.position.y - m_enemyType.m_detectionRadius.y / 2)
         {
-            return true;
+
+            m_playerInZone = false;
+            return false;
         }
         else
         {
-
-            return false;
+            m_playerInZone = true;
+            return true;
         }
     }
 
@@ -516,26 +522,22 @@ public class AiController : MonoBehaviour, IPauseable
 
     }
 
-
-
-
-
-
     void CheckForPlayer()
     {
         if (m_target != null)
         {
-            float dis = Vector3.Distance(transform.position, m_target.transform.position);
-            if (dis > m_enemyType.m_attackType.m_attackRadius)
+
+            if (!PlayerInRadius())
             {
                 m_target = null;
             }
         }
         else
         {
-            Collider2D playerCol = Physics2D.OverlapCircle(transform.position, m_enemyType.m_attackType.m_attackRadius, m_playerLayer);
-            if (playerCol!= null)
+            Collider2D playerCol = Physics2D.OverlapBox(transform.position, m_enemyType.m_detectionRadius, 0, m_playerLayer);
+            if (playerCol != null)
             {
+
                 m_target = playerCol.gameObject;
             }
         }
@@ -554,7 +556,7 @@ public class AiController : MonoBehaviour, IPauseable
     #region Enemy Death
     void Die()
     {
-        
+
         EnemyDied(true);
         if (m_deathParticle != null)
         {
