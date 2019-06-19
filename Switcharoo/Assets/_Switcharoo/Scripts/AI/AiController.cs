@@ -17,30 +17,44 @@ public class OnEnemyAttack : UnityEvent<bool> { }
 
 [System.Serializable]
 public class OnEnemyShoot : UnityEvent<bool> { }
+
 [System.Serializable]
-public class OnEnemyShootAlt : UnityEvent<bool> { }
+public class OnEnemyShootBreak : UnityEvent { }
+
+[System.Serializable]
+public class OnEnemyShootAlt : UnityEvent { }
+[System.Serializable]
+public class OnEnemyShootAltBreak : UnityEvent { }
 
 [System.Serializable]
 public class OnEnemyGrounded : UnityEvent<bool> { }
 
+[System.Serializable]
+public class OnPaused : UnityEvent<bool> { }
+
 ///<Summary>
 ///The brain of the AI. This is essentially an empty shell that requires components to function
-public class AiController : MonoBehaviour
+public class AiController : MonoBehaviour, IPauseable
 {
+
 
 
     public Enemy_Base m_enemyType;
     public bool m_spawnedOnSpawnerDestroy = false;
     [HideInInspector]
     public GameObject m_target;
+
+    public GameObject m_deathParticle;
     [Space(10)]
     public string m_playerTag = "Player";
+    public LayerMask m_playerLayer;
 
     #region Components on the Enemy
 
     Rigidbody2D m_rb;
     ShootController m_gun;
     public SpriteRenderer m_sRend;
+    public bool m_flipTransform;
 
     public Transform m_bulletOrigin;
 
@@ -49,8 +63,9 @@ public class AiController : MonoBehaviour
     public bool m_isPooled = false;
 
 
-    public CircleCollider2D m_detectionRange;
+
     Health m_enemyHealth;
+    ObjectPooler m_pooler;
     #endregion
 
     #region Attack Variables
@@ -66,7 +81,7 @@ public class AiController : MonoBehaviour
     public float m_visualTellTimer;
     float m_currentShootTimer, m_currentShootDelay;
 
-    bool m_isShooting;
+
 
 
 
@@ -75,7 +90,7 @@ public class AiController : MonoBehaviour
     #region Move Variables
     public float m_idleSpeed, m_attackSpeed;
     public int m_currentForward = 1;
-    
+
 
     public List<Transform> m_patrolPoints;
     Queue<Transform> m_patrolPointOrder;
@@ -106,16 +121,17 @@ public class AiController : MonoBehaviour
 
     #region Heavy Exclusive Variables
     [Header("Heavy Specific Variables")]
-    
+
     public Transform m_originPoint;
+    public Transform m_shootAltOrigin;
     [HideInInspector]
-    public int m_currentPatternChangeAmount; //Currently used exclusively for the heavy enemy;
+    public bool m_fireAlt;
     #endregion
 
     #region respawn Variables
     Vector3 m_respawnPos;
     int m_startingForward;
-    bool m_died = false;
+    public bool m_died = false;
     #endregion
 
     #region Events
@@ -124,10 +140,12 @@ public class AiController : MonoBehaviour
     public OnEnemyAttack m_enemyAttack = new OnEnemyAttack();
     public OnEnemyJump m_enemyJump = new OnEnemyJump();
     public OnEnemyShoot m_enemyShoot = new OnEnemyShoot();
+    public OnEnemyShootBreak m_enemyShootBreak = new OnEnemyShootBreak();
     public OnEnemyShootAlt m_enemyShootAlt = new OnEnemyShootAlt();
+    public OnEnemyShootAltBreak m_enemyShootAltBreak = new OnEnemyShootAltBreak();
     public OnEnemyGrounded m_enemyGrounded = new OnEnemyGrounded();
+    public OnPaused m_enemyPaused = new OnPaused();
     #endregion
-
 
     #region Physics Settings
     [Header("Physics Settings")]
@@ -139,19 +157,35 @@ public class AiController : MonoBehaviour
     public Vector3 m_groundCheckDimensions;
     public LayerMask m_wallLayer;
     public LayerMask m_movementFlipLayer;
-    
-    #endregion
 
+    #endregion
 
     #region Animation Delay Events
     [HideInInspector]
     public bool m_jumpAnim, m_beginJump, m_isJumping, m_shootingMovement;
 
+    [HideInInspector]
+    public bool m_startShootAnim, m_inShootingAnim;
     //[HideInInspector]
-    public bool m_startAttackAnim, m_beginAttack, m_isAttacking;
+    public int m_bulletsPerPattern;
+    public int m_currentBulletAmount;
+
+    [HideInInspector]
+    public float m_shootBreakTime, m_shootTriggerTime;
+    float m_currentShootBreakTimer, m_currentShootBreakTime;
+
 
     #endregion
 
+    #region Pause Settings
+    Vector3 m_pausedVelocity;
+    bool m_isPaused;
+    #endregion
+
+
+    #region DEbugging Variablers
+    public bool m_playerInZone;
+    #endregion
     void Awake()
     {
         m_enemyHealth = GetComponent<Health>();
@@ -165,12 +199,26 @@ public class AiController : MonoBehaviour
         {
             m_respawnPos = transform.position;
             m_startingForward = m_currentForward;
+
+        }
+    }
+
+    private void Start()
+    {
+        m_pooler = ObjectPooler.instance;
+        if (!m_isPooled)
+        {
+            m_pooler.AddObjectToPooler(this.gameObject);
         }
     }
 
     public void Respawn()
     {
-        m_died = false;
+        if (m_enemyHealth == null)
+        {
+            m_enemyHealth = GetComponent<Health>();
+        }
+        m_enemyHealth.ResetHealth();
         transform.position = m_respawnPos;
         m_currentForward = m_startingForward;
         FlipEnemy(m_currentForward);
@@ -178,16 +226,19 @@ public class AiController : MonoBehaviour
 
     private void Update()
     {
-        if (m_enemyHealth.m_isDead && !m_died)
+        if (!m_isPaused)
         {
-            m_died = true;
-            Die();
-        }
-        if (!m_died)
-        {
-            CheckState();
-        }
+            if (m_enemyHealth.m_isDead)
+            {
 
+                Die();
+            }
+            else
+            {
+                CheckForPlayer();
+                CheckState();
+            }
+        }
 
     }
 
@@ -196,13 +247,14 @@ public class AiController : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        m_enemyHealth.ResetHealth();
+
+
         if (m_enemyType == null)
         {
             Debug.Log("Error: " + gameObject.name + " has no assigned enemy type");
             Debug.Break();
         }
-        m_detectionRange.radius = m_enemyType.m_attackType.m_attackRadius;
+
 
         InitiateAi();
     }
@@ -268,6 +320,10 @@ public class AiController : MonoBehaviour
                     {
                         m_attackTargetPos = m_enemyType.m_attackType.SetAttackTargetPosition(this, gameObject, m_target);
                     }
+                    if (m_inShootingAnim)
+                    {
+                        CheckShootingTimer();
+                    }
                 }
             }
         }
@@ -283,45 +339,20 @@ public class AiController : MonoBehaviour
     {
         if (!m_debugPhysicsChecks) return;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(m_groundCheckPos+transform.position, m_groundCheckDimensions);
+        Gizmos.DrawWireCube(m_groundCheckPos + transform.position, m_groundCheckDimensions);
         Gizmos.color = Color.blue;
         Vector3 spherePos = transform.position + m_spriteOffset;
         spherePos = new Vector3(spherePos.x + m_checkWallDistance * m_currentForward, spherePos.y, 0f);
         Gizmos.DrawWireSphere(spherePos, m_circleCastRad);
         Debug.DrawLine(transform.position + m_spriteOffset, spherePos);
 
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, m_enemyType.m_detectionRadius);
+
     }
 
     #region Attacking Functions
 
-
-    ///<Summary>
-    ///Checks the shooting pattern, to see if the ai can currently shoot
-    public bool CanFireGun()
-    {
-        if (m_currentShootTimer <= m_currentShootDelay)
-        {
-            m_currentShootTimer += Time.deltaTime;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    ///<Summary>
-    ///Allows the AI to stop shooting, allowing for patterns
-    public void SwapShooting(bool p_isShooting, float p_newDelay)
-    {
-        if (p_isShooting != m_isShooting)
-        {
-            m_isShooting = p_isShooting;
-            m_currentShootDelay = p_newDelay;
-            m_currentShootTimer = 0;
-        }
-
-    }
 
     ///<Summary>
     ///If the player has moved a set distance from a spot
@@ -331,7 +362,7 @@ public class AiController : MonoBehaviour
         if (Vector3.Distance(m_target.transform.position, m_delayedPlayerPosition) > m_enemyType.m_attackType.m_playerMoveDistanceReaction)
         {
             m_delayedPlayerPosition = m_target.transform.position;
-            
+
             return true;
         }
         return false;
@@ -342,19 +373,79 @@ public class AiController : MonoBehaviour
     ///TODO: Create the following function
     bool PlayerInRadius()
     {
-        if (Vector3.Distance(transform.position, m_target.transform.position) < m_enemyType.m_attackType.m_attackRadius)
+        if (m_target.transform.position.x > transform.position.x + m_enemyType.m_detectionRadius.x / 2 ||
+                m_target.transform.position.x < transform.position.x - m_enemyType.m_detectionRadius.x / 2 ||
+                m_target.transform.position.y > transform.position.y + m_enemyType.m_detectionRadius.y / 2 ||
+                m_target.transform.position.y < transform.position.y - m_enemyType.m_detectionRadius.y / 2)
         {
-            return true;
+
+            m_playerInZone = false;
+            return false;
         }
         else
         {
-            
-            return false;
+            m_playerInZone = true;
+            return true;
         }
     }
 
     #endregion
 
+    #region Shooting Settings
+    public void ShootGun()
+    {
+
+        m_gun.Shoot(m_fireAlt ? m_shootAltOrigin : m_bulletOrigin);
+        m_currentBulletAmount++;
+        m_currentShootBreakTimer = Time.time;
+        if (m_currentBulletAmount >= m_bulletsPerPattern)
+        {
+            m_currentBulletAmount = 0;
+            m_currentShootBreakTime = m_shootTriggerTime;
+            if (m_originPoint != null)
+            {
+                m_currentAttackState = AI_AttackType_Base.AttackState.Start;
+            }
+            return;
+        }
+        m_currentShootBreakTime = m_shootBreakTime;
+    }
+
+    public void ChangeAnimation(bool p_active)
+    {
+
+
+        if (m_inShootingAnim != p_active)
+        {
+            m_enemyShoot.Invoke(p_active);
+
+            m_inShootingAnim = p_active;
+        }
+
+
+
+
+    }
+
+    void CheckShootingTimer()
+    {
+        if (Time.time - m_currentShootBreakTimer > m_currentShootBreakTime)
+        {
+            if (!m_fireAlt)
+            {
+                m_enemyShootBreak.Invoke();
+            }
+            else
+            {
+                m_enemyShootAlt.Invoke();
+            }
+
+
+
+        }
+    }
+
+    #endregion
 
     #region Move Functions
     void PerformIdleMovement()
@@ -368,12 +459,12 @@ public class AiController : MonoBehaviour
                 currentPatrolPoint = NewPatrolPoint();
             }
 
-            m_enemyType.m_idleMovementType.PerformIdleMovement(this,m_agent, m_rb, transform, m_currentForward, currentPatrolPoint.position, m_isGrounded);
+            m_enemyType.m_idleMovementType.PerformIdleMovement(this, m_agent, m_rb, transform, m_currentForward, currentPatrolPoint.position, m_isGrounded);
 
         }
         else
         {
-            m_enemyType.m_idleMovementType.PerformIdleMovement(this,m_agent, m_rb, transform, m_currentForward, transform.position, m_isGrounded);
+            m_enemyType.m_idleMovementType.PerformIdleMovement(this, m_agent, m_rb, transform, m_currentForward, transform.position, m_isGrounded);
         }
 
 
@@ -381,7 +472,7 @@ public class AiController : MonoBehaviour
         //Check for walls infront, and check if gronded
         Vector2 circleCastPos = new Vector2(transform.position.x + m_spriteOffset.x, transform.position.y + m_spriteOffset.y);
 
-        Vector2 floorBoxcastPos = transform.position + m_spriteOffset ;
+        Vector2 floorBoxcastPos = transform.position + m_spriteOffset;
         m_isGrounded = m_enemyType.m_idleMovementType.m_movementType.IsGrounded(this, m_wallLayer);
 
         if (m_enemyType.m_idleMovementType.m_movementType.WallInFront(this, m_rb, circleCastPos, m_circleCastRad, m_currentForward, m_movementFlipLayer, m_isGrounded))
@@ -392,7 +483,7 @@ public class AiController : MonoBehaviour
 
     }
 
-   
+
 
     bool CloseToPoint(Vector3 p_targetPoint)
     {
@@ -414,68 +505,68 @@ public class AiController : MonoBehaviour
     }
     #endregion
 
-    #region Heavy Function
-    public bool CheckPatternType(int p_patternChangeAmount, bool p_isShooting)
-    {
-        if (p_isShooting != m_isShooting)
-        {
-            m_currentPatternChangeAmount++;
-            if (m_currentPatternChangeAmount >= p_patternChangeAmount)
-            {
-                m_currentPatternChangeAmount = 0;
-                return true;
-            }
-        }
-        return false;
-    }
-    #endregion
+
 
     public void FlipEnemy(int p_newXDir)
     {
         m_currentForward = p_newXDir;
 
-        m_sRend.flipX = (m_currentForward > 0) ? false : true;
+        if (!m_flipTransform)
+        {
+            m_sRend.flipX = (m_currentForward > 0) ? false : true;
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * p_newXDir, transform.localScale.y, transform.localScale.z);
+        }
+
     }
 
-
-
-
-    void OnTriggerStay2D(Collider2D other)
+    void CheckForPlayer()
     {
         if (m_target != null)
         {
-            return;
-        }
-        if (other.gameObject.tag == m_playerTag)
-        {
 
-            float dis = Vector3.Distance(transform.position, other.gameObject.transform.position);
-            if (dis < m_enemyType.m_attackType.m_attackRadius)
+            if (!PlayerInRadius())
             {
-                m_target = other.gameObject;
+                m_target = null;
             }
         }
+        else
+        {
+            Collider2D playerCol = Physics2D.OverlapBox(transform.position, m_enemyType.m_detectionRadius, 0, m_playerLayer);
+            if (playerCol != null)
+            {
+
+                m_target = playerCol.gameObject;
+            }
+        }
+
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == m_playerTag)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(m_enemyType.m_collisionDamage);
+            collision.gameObject.transform.parent.GetComponent<Health>().TakeDamage(m_enemyType.m_collisionDamage);
         }
     }
 
-
+    #region Enemy Death
     void Die()
     {
+
         EnemyDied(true);
-        
+        if (m_deathParticle != null)
+        {
+            m_pooler.NewObject(m_deathParticle, transform.position, Quaternion.identity);
+        }
+        gameObject.SetActive(false);
+
     }
 
-    public void DeathAnimComplete()
-    {
-        gameObject.SetActive(false);
-    }
+
 
     void OnDisable()
     {
@@ -484,7 +575,7 @@ public class AiController : MonoBehaviour
             if (m_isPooled)
             {
                 m_patrolPoints.Clear();
-                ObjectPooler.instance.ReturnToPool(this.gameObject);
+                m_pooler.ReturnToPool(this.gameObject);
             }
             m_spawnerManager.EnemyKilled(this);
 
@@ -496,6 +587,7 @@ public class AiController : MonoBehaviour
 
     }
 
+    #endregion
 
     #region Fire Events
 
@@ -503,7 +595,7 @@ public class AiController : MonoBehaviour
     {
         m_enemyDied.Invoke(p_active);
     }
-    
+
     public void PlayerSpotted(bool p_active)
     {
         m_playerSpotted.Invoke(p_active);
@@ -517,21 +609,44 @@ public class AiController : MonoBehaviour
     public void EnemyShoot(bool p_active)
     {
         m_enemyShoot.Invoke(p_active);
-        
+
     }
 
-    public void EnemyShootAlt(bool p_active)
-    {
-        m_enemyShootAlt.Invoke(p_active);
-    }
+
 
     public void EnemyGrounded(bool p_active)
     {
         m_enemyGrounded.Invoke(p_active);
     }
 
+
     #endregion
 
+    public void SetPauseState(bool p_isPaused)
+    {
+        if (p_isPaused && !m_isPaused)
+        {
+            m_isPaused = true;
+            if (m_rb == null)
+            {
+                m_rb = GetComponent<Rigidbody2D>();
+            }
+            m_pausedVelocity = m_rb.velocity;
+            m_rb.velocity = Vector3.zero;
+            m_rb.isKinematic = true;
+
+        }
+        else if (!p_isPaused && m_isPaused)
+        {
+            m_isPaused = false;
+            m_rb.isKinematic = false;
+            m_rb.velocity = m_pausedVelocity;
+
+        }
+
+        m_enemyPaused.Invoke(p_isPaused);
+
+    }
 
 
 

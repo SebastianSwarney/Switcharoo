@@ -11,7 +11,8 @@ public class CollisionHazard_Timer : CollisionHazard_Base
 
 	private void Update()
 	{
-		HazardTimer();
+        if (m_paused) return;
+        HazardTimer();
 	}
 
 	private void HazardTimer()

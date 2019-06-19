@@ -26,7 +26,11 @@ public class AI_Spawner_Manager_TimedStart : AI_Spawner_Manager_Base
     
     public override void DeintializeAllSpawners()
     {
-        StopCoroutine(m_delayedSpawn);
+        if (m_delayedSpawn != null)
+        {
+            StopCoroutine(m_delayedSpawn);
+        }
+        
     }
 
     public override void InitializeAllSpawners()
@@ -36,7 +40,8 @@ public class AI_Spawner_Manager_TimedStart : AI_Spawner_Manager_Base
         {
             cols = GetComponents<Collider2D>();
         }
-        m_delayedSpawn = StartCoroutine(DelaySpawns(m_timeToStartSpawn));
+
+        //m_delayedSpawn = StartCoroutine(DelaySpawns(m_timeToStartSpawn));
     }
 
     public override void ResetSpawners()
@@ -51,6 +56,7 @@ public class AI_Spawner_Manager_TimedStart : AI_Spawner_Manager_Base
         }
         else
         {
+
             m_delayedSpawn = StartCoroutine(DelaySpawns(m_timeToStartSpawn));
         }
     }
@@ -58,8 +64,10 @@ public class AI_Spawner_Manager_TimedStart : AI_Spawner_Manager_Base
     IEnumerator DelaySpawns(float p_time)
     {
         yield return new WaitForSeconds(p_time);
+
         if (!m_isTrigger)
         {
+            
             StartAllSpawners();
         }
     }
@@ -68,6 +76,7 @@ public class AI_Spawner_Manager_TimedStart : AI_Spawner_Manager_Base
     {
         if (collision.gameObject.tag == m_playerTag)
         {
+            
             StartAllSpawners();
             foreach(Collider2D col in cols)
             {

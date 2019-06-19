@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionHazard_Move : CollisionHazard_Base
+public class CollisionHazard_Move : CollisionHazard_Base, IActivatable
 {
 	[Header("Moving Properties")]
 	public Vector3[] m_localWaypoints;
@@ -18,6 +18,10 @@ public class CollisionHazard_Move : CollisionHazard_Base
 	private float m_percentBetweenWaypoints;
 	private float m_nextMoveTime;
 
+    [Header("Active Properties")]
+    public bool m_startActive;
+    bool m_isActive;
+    Vector3 m_startPos;
 	public override void Start()
 	{
 		base.Start();
@@ -27,12 +31,20 @@ public class CollisionHazard_Move : CollisionHazard_Base
 		{
 			m_globalWaypoints[i] = m_localWaypoints[i] + transform.position;
 		}
+
+        m_startPos = transform.position;
+        m_isActive = m_startActive;
 	}
 
 	void Update()
 	{
-		Vector3 velocity = CalculatePlatformMovement();
-		transform.Translate(velocity);
+        if (m_paused) return;
+        if (m_isActive)
+        {
+            Vector3 velocity = CalculatePlatformMovement();
+            transform.Translate(velocity);
+        }
+
 	}
 
 	float Ease(float x)
@@ -92,4 +104,17 @@ public class CollisionHazard_Move : CollisionHazard_Base
 			}
 		}
 	}
+
+    #region IActivatable Methods
+    public void ActiveState(bool p_active)
+    {
+        m_isActive = p_active;
+    }
+
+    public void ResetMe()
+    {
+        m_isActive = m_startActive;
+        transform.position = m_startPos;
+    }
+    #endregion
 }

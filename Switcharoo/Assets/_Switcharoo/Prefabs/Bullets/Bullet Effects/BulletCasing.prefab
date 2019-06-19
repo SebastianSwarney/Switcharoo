@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1541188887766352045}
   - component: {fileID: 2124402897167522521}
   - component: {fileID: 8124493481491156138}
+  - component: {fileID: 7632707833397377747}
   m_Layer: 19
   m_Name: BulletCasing
   m_TagString: Untagged
@@ -131,3 +132,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb6d20299de52f4fbe6164805d8882c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_lifespan: 1
+  m_longLifespan: 3
+  m_startColor: {r: 1, g: 1, b: 1, a: 1}
+  m_endColor: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &7632707833397377747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615482957217548038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Gnomed-00
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0

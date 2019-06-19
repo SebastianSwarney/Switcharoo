@@ -1,52 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8307759868050588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6809314620150438908}
-  - component: {fileID: 7491690288337377126}
-  m_Layer: 0
-  m_Name: DetectionRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6809314620150438908
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8307759868050588}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3078133998956346258}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7491690288337377126
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8307759868050588}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &3078133998680829598
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +63,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3078133998680829569}
-  - {fileID: 6809314620150438908}
   - {fileID: 1048896979489019206}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -151,11 +103,15 @@ MonoBehaviour:
   m_enemyType: {fileID: 0}
   m_spawnedOnSpawnerDestroy: 0
   m_target: {fileID: 0}
+  m_deathParticle: {fileID: 0}
   m_playerTag: Player
+  m_playerLayer:
+    serializedVersion: 2
+    m_Bits: 12288
   m_sRend: {fileID: 2692124808337637456}
+  m_flipTransform: 0
   m_bulletOrigin: {fileID: 3078133998680829569}
   m_isPooled: 0
-  m_detectionRange: {fileID: 7491690288337377126}
   m_currentAttackState: 2
   m_delayedPlayerPosition: {x: 0, y: 0, z: 0}
   m_visualTellTimer: 0
@@ -170,7 +126,9 @@ MonoBehaviour:
   m_spawnerManager: {fileID: 0}
   m_parentSpawn: {fileID: 0}
   m_originPoint: {fileID: 0}
-  m_currentPatternChangeAmount: 0
+  m_shootAltOrigin: {fileID: 0}
+  m_fireAlt: 0
+  m_died: 0
   m_enemyDied:
     m_PersistentCalls:
       m_Calls: []
@@ -193,16 +151,41 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyShoot, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyShootBreak:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyShootBreak, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_enemyShootAlt:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyShootAlt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_enemyShootAltBreak:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyShootAltBreak, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_enemyGrounded:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyGrounded, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_enemyPaused:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4273551082856193393}
+        m_MethodName: PauseAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnPaused, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_debugPhysicsChecks: 0
   m_circleCastRad: 0
   m_checkWallDistance: 0
@@ -218,8 +201,13 @@ MonoBehaviour:
   m_jumpAnim: 0
   m_beginJump: 0
   m_isJumping: 0
-  m_startAttackAnim: 0
-  m_beginAttack: 0
+  m_shootingMovement: 0
+  m_startShootAnim: 0
+  m_inShootingAnim: 0
+  m_bulletsPerPattern: 0
+  m_currentBulletAmount: 0
+  m_shootBreakTime: 0
+  m_shootTriggerTime: 0
 --- !u!114 &3078133998956346287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +260,7 @@ MonoBehaviour:
   m_terrainLayer:
     serializedVersion: 2
     m_Bits: 256
+  m_movePoint: {x: 0, y: 0, z: 0}
 --- !u!114 &-6166238226835638072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3078133998956346258}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2692124808337637456
 SpriteRenderer:

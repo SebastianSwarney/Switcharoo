@@ -15,8 +15,11 @@ public class OnPlayerJump : UnityEvent { }
 [System.Serializable]
 public class OnPlayerLand : UnityEvent { }
 
+[System.Serializable]
+public class OnPlayerRespawn : UnityEvent { }
+
 [RequireComponent(typeof(Controller2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPauseable
 {
 	public enum MovementControllState {MovementEnabled, MovementDisabled}
 	public enum GravityState { GravityEnabled, GravityDisabled }
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour
 	public enum InputState { InputEnabled, InputDisabled }
 	public enum SwappingState { SwappingEnabled, SwappingDisabled }
 	public PlayerState m_states;
-	public enum PlayerType { Type0, Type1 }
+	public enum PlayerType { Robot, Alien }
 	public enum PlayerRole { Runner, Gunner }
 	public PlayerData[] m_players;
 	private LayerMask m_gunnerDamageTargetMask;
@@ -96,23 +99,6 @@ public class PlayerController : MonoBehaviour
 	[Space]
     #endregion
 
-    #region Dash Properties
-    [Header("Dash Properties")]
-    public float m_dashDistance;
-    public float m_dashTime;
-    public float m_groundDashCooldown;
-    public AnimationCurve m_dashCurve;
-
-    //bool m_canDash = true;
-    bool m_dashing;
-
-    float m_dashSpeed;
-    float m_dashingTime;
-    float m_groundDashTimer;
-    bool m_canDashGround;
-    [Space]
-    #endregion
-
     #region Shoot Properties
     [Header("Shooting Properties")]
     private ShootController m_shootController;
@@ -133,7 +119,10 @@ public class PlayerController : MonoBehaviour
 	public OnPlayerHurt m_playerHurt = new OnPlayerHurt();
 	public OnPlayerJump m_playerJumped = new OnPlayerJump();
 	public OnPlayerLand m_playerLanded = new OnPlayerLand();
+	public OnPlayerRespawn m_playerRespawned = new OnPlayerRespawn();
 	#endregion
+
+	public Transform m_spriteTarget;
 
 	[HideInInspector]
     public Vector3 m_velocity;
@@ -141,11 +130,20 @@ public class PlayerController : MonoBehaviour
     public Controller2D controller;
 	[HideInInspector]
 	public Vector2 m_directionalInput;
+	[HideInInspector]
 	public Vector2 m_gunnerAimInput;
+	[HideInInspector]
 	public Vector2 m_runnerAimInput;
 	private Health_Player m_health;
 	private PlayerInput m_input;
 	private SpriteRenderer m_spriteRenderer;
+
+	Vector3 m_velocityBeforePaused;
+
+	[HideInInspector]
+	public PlayerData[] m_playerDataAtRoomStart;
+
+	private bool m_isSwapping;
 
 	void Start()
     {
@@ -153,16 +151,15 @@ public class PlayerController : MonoBehaviour
 		m_shootController = GetComponent<ShootController>();
 		m_health = GetComponent<Health_Player>();
 		m_input = GetComponent<PlayerInput>();
-
 		m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 		CalculateJump();
-		UpdatePickups();
-		SwapLayers();
-		UpdateInput();
-		m_shootController.Reload();
-		ReloadMovementAbility();
-		UpdateCollider();
+
+		m_playerDataAtRoomStart = new PlayerData[m_players.Length];
+
+		InitalizePlayer();
+
+		PauseMenuController.instance.m_pauseables.Add(this);
 	}
 
 	void Update()
@@ -179,17 +176,46 @@ public class PlayerController : MonoBehaviour
 
 		m_moveDirection = m_velocity.normalized;
 
-		if (Mathf.Sign(controller.col.offset.x) != Mathf.Sign(controller.collisions.faceDir))
+		if (Mathf.Sign(m_spriteTarget.transform.localPosition.x) == Mathf.Sign(controller.collisions.faceDir))
 		{
-			controller.col.offset = new Vector2(Mathf.Sign(controller.col.offset.x) > 0 ? controller.col.offset.x * controller.collisions.faceDir : controller.col.offset.x * -controller.collisions.faceDir, controller.col.offset.y);
-			controller.CalculateRaySpacing();
-			controller.UpdateRaycastOrigins();
+			m_spriteTarget.transform.localPosition = new Vector2(Mathf.Sign(m_spriteTarget.transform.localPosition.x) > 0 ? m_spriteTarget.transform.localPosition.x * -controller.collisions.faceDir : m_spriteTarget.transform.localPosition.x * controller.collisions.faceDir, m_spriteTarget.transform.localPosition.y);
 		}
 
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
 		CalculateGroundPhysics();
     }
+
+	public void InitalizePlayer()
+	{
+		m_health.m_currentHealth = m_health.m_maxHealth;
+
+		m_players.CopyTo(m_playerDataAtRoomStart, 0);
+
+		UpdateLayers();
+		UpdateInput();
+		UpdatePickups();
+
+		m_shootController.Reload();
+		ReloadMovementAbility();
+
+		ZeroPlayerVelocity();
+	}
+
+	public void Respawn(Vector3 p_respawnPosition)
+	{
+		transform.position = p_respawnPosition;
+		m_playerRespawned.Invoke();
+		m_playerDataAtRoomStart.CopyTo(m_players, 0);
+		InitalizePlayer();	
+	}
+
+	public void ZeroPlayerVelocity()
+	{
+		m_velocityXSmoothing = 0;
+		m_velocitySmoothing = Vector3.zero;
+		m_velocity = Vector3.zero;
+	}
 
 	#region Input Code
 	public void SetDirectionalInput(Vector2 p_input)
@@ -209,7 +235,7 @@ public class PlayerController : MonoBehaviour
 	#endregion
 
 	#region Aim Code
-	void GunnerAim()
+	private void GunnerAim()
     {
         float theta = Mathf.Atan2(m_gunnerAimInput.y, m_gunnerAimInput.x);
 
@@ -319,19 +345,28 @@ public class PlayerController : MonoBehaviour
 
 	public void JumpMaxVelocityMultiplied(float p_jumpVelocityMultiplier)
 	{
-		m_velocity.y = m_maxJumpVelocity * p_jumpVelocityMultiplier;
-		m_playerJumped.Invoke();
+		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
+		{
+			m_velocity.y = m_maxJumpVelocity * p_jumpVelocityMultiplier;
+			m_playerJumped.Invoke();
+		}
 	}
 
 	public void JumpMaxVelocity()
 	{
-		m_velocity.y = m_maxJumpVelocity;
-		m_playerJumped.Invoke();
+		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
+		{
+			m_velocity.y = m_maxJumpVelocity;
+			m_playerJumped.Invoke();
+		}
 	}
 
 	public void JumpMinVelocity()
 	{
-		m_velocity.y = m_minJumpVelocity;
+		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
+		{
+			m_velocity.y = m_minJumpVelocity;
+		}
 	}
     #endregion
 
@@ -371,56 +406,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
-
-    #region Dash Code
-    public void OnDashInputDown()
-    {
-        if (!m_dashing)
-        {
-            StartCoroutine(Dash());
-        }
-    }
-
-    private IEnumerator Dash()
-    {
-        m_dashing = true;
-
-        m_velocity = Vector3.zero;
-
-        Vector3 initialPosition = transform.position;
-
-        float dashTargetX = (m_directionalInput.x > 0) ? transform.position.x + m_dashDistance : transform.position.x - m_dashDistance; //possibly change this as the velocity x smoothing variable may have been the problem
-
-        Vector3 dashTarget = new Vector3(dashTargetX, transform.position.y, transform.position.z);
-
-        float t = 0;
-
-        while (t < m_dashTime)
-        {
-            t += Time.deltaTime;
-
-            float progress = m_dashCurve.Evaluate(t / m_dashTime);
-
-            Vector3 targetPosition = Vector3.Lerp(initialPosition, dashTarget, progress);
-
-            PhysicsSeekTo(targetPosition);
-
-            yield return null;
-        }
-
-        m_velocity = Vector3.zero;
-
-        m_velocityXSmoothing = 0; //figure out how to do this somewhere else
-
-        m_dashing = false;
-    }
-
-	private void PhysicsSeekTo(Vector3 p_targetPosition)
-	{
-		Vector3 deltaPosition = p_targetPosition - transform.position;
-		m_velocity = deltaPosition / Time.deltaTime;
-	}
-	#endregion
 
 	#region Shoot Code
 	public void OnShootInputHold()
@@ -518,18 +503,12 @@ public class PlayerController : MonoBehaviour
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			m_players[i].Swap();
-			SwapLayers();
-			UpdatePickups();
-
-			if (m_players[i].m_currentRole == PlayerRole.Gunner)
-			{
-				//m_spriteRenderer.color = m_players[i].m_testColor;
-			}
 		}
 
 		m_playerSwapped.Invoke();
+		UpdateLayers();
+		UpdatePickups();
 		UpdateInput();
-		UpdateCollider();
 	}
 
 	private void UpdateInput()
@@ -544,7 +523,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private void SwapLayers()
+	private void UpdateLayers()
 	{
 		for (int i = 0; i < m_players.Length; i++)
 		{
@@ -552,7 +531,7 @@ public class PlayerController : MonoBehaviour
 			{
 				m_gunnerDamageTargetMask = m_players[i].m_damageTargetMask;
 				m_gunnerObstacleMask = m_players[i].m_obstacleMask;
-
+				gameObject.layer = LayerMask.NameToLayer(m_players[i].m_layerString);
 			}
 
 			if (m_players[i].m_currentRole == PlayerRole.Runner)
@@ -565,29 +544,16 @@ public class PlayerController : MonoBehaviour
 		SetLayersToComponents();
 	}
 
-	private void UpdateCollider()
-	{
-		for (int i = 0; i < m_players.Length; i++)
-		{
-			if (m_players[i].m_currentRole == PlayerRole.Runner)
-			{
-				controller.col.size = m_players[i].m_colliderBounds.extents;
-				controller.col.offset = m_players[i].m_colliderBounds.center;
-			}
-		}
-
-		controller.CalculateRaySpacing();
-		controller.UpdateRaycastOrigins();
-	}
-
 	public void DisableSwapping()
 	{
 		m_states.m_swappingState = SwappingState.SwappingDisabled;
+		m_isSwapping = true;
 	}
 
 	public void EnableSwapping()
 	{
 		m_states.m_swappingState = SwappingState.SwappingEnabled;
+		m_isSwapping = false;
 	}
 
 	private void SetLayersToComponents()
@@ -602,12 +568,11 @@ public class PlayerController : MonoBehaviour
 	{
 		public PlayerType m_type;
 		public PlayerRole m_currentRole;
+		public string m_layerString;
 		public LayerMask m_damageTargetMask;
 		public LayerMask m_obstacleMask;
 		public ShootController.WeaponComposition m_weaponComposition;
 		public MovementAbilityComposition m_movementAbilityComposition;
-		public Bounds m_colliderBounds;
-		public Color m_testColor;
 
 		public void Swap()
 		{
@@ -765,29 +730,45 @@ public class PlayerController : MonoBehaviour
 				break;
 		}
 
-		switch (m_states.m_inputState)
-		{
-			case InputState.InputEnabled:
-
-				//Nothing
-
-				break;
-
-			case InputState.InputDisabled:
-
-
-
-				break;
-		}
-
 		if (m_usingMovementAbility)
 		{
-			//m_states.m_swappingState = SwappingState.SwappingDisabled;
+			m_states.m_swappingState = SwappingState.SwappingDisabled;
 		}
 		else
 		{
-			//m_states.m_swappingState = SwappingState.SwappingEnabled;
+			m_states.m_swappingState = SwappingState.SwappingEnabled;
+		}
+
+		if (m_isSwapping)
+		{
+			m_states.m_swappingState = SwappingState.SwappingDisabled;
 		}
 	}
 	#endregion
+
+	public void SetPauseState(bool p_isPaused)
+	{
+		if (p_isPaused)
+		{
+			m_velocityBeforePaused = m_velocity;
+
+			if (m_usingMovementAbility)
+			{
+				m_usingMovementAbility = false;
+				m_states.m_gravityControllState = GravityState.GravityDisabled;
+			}
+
+			m_velocity = Vector3.zero;
+			m_states.m_inputState = InputState.InputDisabled;
+			m_states.m_movementControllState = MovementControllState.MovementDisabled;
+		}
+		else
+		{
+			m_states.m_inputState = InputState.InputEnabled;
+			m_states.m_movementControllState = MovementControllState.MovementEnabled;
+			m_states.m_gravityControllState = GravityState.GravityEnabled;
+
+			m_velocity = m_velocityBeforePaused;
+		}
+	}
 }

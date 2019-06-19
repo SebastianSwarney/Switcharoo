@@ -7,6 +7,7 @@ public class PlayerGraphicsController : MonoBehaviour
 	[Header("Player Hit Properites")]
 	public float m_invulnerableTime;
 	public float m_movementControllLossTime;
+	public Color m_hurtColor;
 
 	private PlayerController m_player;
 	private Animator m_animationController;
@@ -16,17 +17,29 @@ public class PlayerGraphicsController : MonoBehaviour
 	private void Start()
 	{
 		m_player = GetComponent<PlayerController>();
-		m_animationController = GetComponent<Animator>();
-		m_spriteRenderer = GetComponent<SpriteRenderer>();
+		m_animationController = GetComponentInChildren<Animator>();
+		m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 	}
 
 	private void Update()
 	{
 		m_animationController.SetBool("IsGrounded", m_player.controller.collisions.below);
-
 		m_animationController.SetBool("IsMoving", (m_player.m_directionalInput.x != 0) ? true : false);
-
 		m_spriteRenderer.flipX = m_player.controller.collisions.faceDir == 1 ? true : false;
+	}
+
+	public void ResetPlayerGraphics()
+	{
+		if (m_player.m_playerDataAtRoomStart[0].m_currentRole == PlayerController.PlayerRole.Gunner && m_currentType == 1)
+		{
+			SwapAnimInt();
+			m_animationController.SetTrigger("SwapTrigger");
+		}
+		else if (m_player.m_playerDataAtRoomStart[1].m_currentRole == PlayerController.PlayerRole.Gunner && m_currentType == 0)
+		{
+			SwapAnimInt();
+			m_animationController.SetTrigger("SwapTrigger");
+		}
 	}
 
 	public void SwapAnimInt()
@@ -74,6 +87,10 @@ public class PlayerGraphicsController : MonoBehaviour
 		{
 			t += Time.deltaTime;
 
+			float pingPongValue = Mathf.PingPong(Time.time * 5, 1);
+
+			m_spriteRenderer.color = Color.Lerp(Color.white, m_hurtColor, pingPongValue);
+
 			if (t >= m_movementControllLossTime)
 			{
 				m_player.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;
@@ -83,5 +100,6 @@ public class PlayerGraphicsController : MonoBehaviour
 		}
 
 		m_player.m_states.m_damageState = PlayerController.DamageState.Vulnerable;
+		m_spriteRenderer.color = Color.white;
 	}
 }

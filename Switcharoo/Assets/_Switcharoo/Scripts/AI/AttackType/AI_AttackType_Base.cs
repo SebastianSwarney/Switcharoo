@@ -9,7 +9,6 @@ public abstract class AI_AttackType_Base : ScriptableObject
 {
     public enum AttackState { Start, Perform, Finished }
     public AI_MovementType_Base m_attackMovement;
-    public float m_attackRadius;
     public float m_tellTime;
     public float m_targetStoppingDistance;
     public float m_playerMoveDistanceReaction;
@@ -34,7 +33,7 @@ public abstract class AI_AttackType_Base : ScriptableObject
     ///The moment before an attack, the visual tell
     ///After this runs, the attack will commence
     ///Visual Tell animations may be done here
-    public void VisualTell(AiController p_aiController, Rigidbody2D p_rb)
+    public virtual void VisualTell(AiController p_aiController, Rigidbody2D p_rb)
     {
         float percent = p_aiController.m_visualTellTimer / m_tellTime;
 
@@ -49,17 +48,20 @@ public abstract class AI_AttackType_Base : ScriptableObject
     }
 
     ///Determines whether the player is in range
-    public bool PlayerInRange(GameObject p_player, GameObject p_enemyObject)
+    public bool PlayerInRange(GameObject p_player, GameObject p_enemyObject, Vector2 p_detectionRange)
     {
         if (p_player != null)
         {
-            if (Vector3.Distance(p_player.transform.position, p_enemyObject.transform.position) < m_attackRadius)
+            if (p_player.transform.position.x > p_enemyObject.transform.position.x + p_detectionRange.x / 2 ||
+                p_player.transform.position.x < p_enemyObject.transform.position.x - p_detectionRange.x / 2 ||
+                p_player.transform.position.y > p_enemyObject.transform.position.y + p_detectionRange.y / 2 ||
+                p_player.transform.position.y < p_enemyObject.transform.position.y - p_detectionRange.y / 2)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
         return false;
