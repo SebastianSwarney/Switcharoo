@@ -28,11 +28,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI_Rush_Robot
       objectReference: {fileID: 0}
-    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_maxHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,7 +92,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_enemyType
       value: 
-      objectReference: {fileID: 11400000, guid: d331723fbd17d9046b0e04bcb1a228da,
+      objectReference: {fileID: 11400000, guid: 1ddde8903588a06448cade9025b90fe3,
         type: 2}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -230,6 +225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 1.40625
+      objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}

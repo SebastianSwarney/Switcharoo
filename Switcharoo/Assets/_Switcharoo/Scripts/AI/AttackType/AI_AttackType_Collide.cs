@@ -27,13 +27,14 @@ public class AI_AttackType_Collide : AI_AttackType_Base
 
                 //Perform the visual tell
                 VisualTell(p_aiController, p_rb);
+                p_rb.velocity = new Vector3(0f, p_rb.velocity.y, 0f);
                 p_aiController.PlayerSpotted(true);
                 break;
 
             case AttackState.Perform:
 
                 //If the player is in range, set a position that is in their direction
-                if (PlayerInRange(p_player, p_enemyObject))
+                if (PlayerInRange(p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
                 {
                     m_attackMovement.MoveToPosition(p_aiController,p_aiController.m_attackSpeed, p_rb,p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos,p_aiController.m_isGrounded);
 

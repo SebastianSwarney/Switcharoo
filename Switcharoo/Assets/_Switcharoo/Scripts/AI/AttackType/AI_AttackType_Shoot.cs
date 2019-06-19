@@ -37,7 +37,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
             case AttackState.Perform:
 
                 //If the player is in range, perform the attack
-                if (PlayerInRange(p_player, p_enemyObject))
+                if (PlayerInRange(p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
                 {
 
                     AimAtTarget(p_bulletOrigin, p_player.transform.position);
