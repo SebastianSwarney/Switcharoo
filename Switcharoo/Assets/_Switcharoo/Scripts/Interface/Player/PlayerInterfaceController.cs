@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class PlayerInterfaceController : MonoBehaviour
 {
 	public Text m_runnerAmmoText;
-	public Text m_gunnerAmmoText;
+	public Image m_healthBar;
+	public Image m_gunnerAmmoBar;
 
-	public Text m_healthText;
+	public WeaponCompositionDisplay m_weaponCompositionDisplay;
+	public MovementCompositionDisplay m_movementCompostionDisplay;
 
 	public PlayerController m_player;
 	private ShootController m_shootController;
@@ -22,19 +24,52 @@ public class PlayerInterfaceController : MonoBehaviour
 
 	private void Update()
 	{
+		UpdateBarDisplay(m_healthBar, m_health.m_currentHealth / m_health.m_maxHealth);
+		UpdateBarDisplay(m_gunnerAmmoBar, (float)m_shootController.m_ammoCount / (float)m_shootController.m_currentWeaponComposition.m_shotPattern.m_ammoCount);
+
+		m_weaponCompositionDisplay.UpdateDisplay(m_shootController.m_currentWeaponComposition);
+		m_movementCompostionDisplay.UpdateDisplay(m_player.m_currentMovementAbilityComposition);
+
 		UpdateAmmoText();
-		UpdateHealthText();
 	}
 
 	private void UpdateAmmoText()
 	{
 		m_runnerAmmoText.text = m_player.m_movementAbilityAmmoCount.ToString();
-		m_gunnerAmmoText.text = m_shootController.m_ammoCount.ToString();
 	}
 
-	private void UpdateHealthText()
+	private void UpdateBarDisplay(Image p_targetImage, float p_displayValue)
 	{
-		m_healthText.text = m_health.m_currentHealth.ToString();
+		p_targetImage.fillAmount = p_displayValue;
 	}
 
+	[System.Serializable]
+	public struct WeaponCompositionDisplay
+	{
+		public Image m_shotPatternImage;
+		public Image m_bulletTypeImage;
+		public Image m_damageTypeImage;
+
+		public void UpdateDisplay(ShootController.WeaponComposition p_weaponComposition)
+		{
+			m_shotPatternImage.sprite = p_weaponComposition.m_shotPattern.m_uiSprite;
+			m_bulletTypeImage.sprite = p_weaponComposition.m_bulletType.m_uiSprite;
+			m_damageTypeImage.sprite = p_weaponComposition.m_damageType.m_uiSprite;
+		}
+	}
+
+	[System.Serializable]
+	public struct MovementCompositionDisplay
+	{
+		public Image m_movementTypeImage;
+		public Image m_trailTypeImage;
+		public Image m_buffTypeImage;
+
+		public void UpdateDisplay(PlayerController.MovementAbilityComposition p_movementAbilityCompostion)
+		{
+			m_movementTypeImage.sprite = p_movementAbilityCompostion.m_movementType.m_uiSprite;
+			m_trailTypeImage.sprite = p_movementAbilityCompostion.m_trailType.m_uiSprite;
+			m_buffTypeImage.sprite = p_movementAbilityCompostion.m_buffType.m_uiSprite;
+		}
+	}
 }

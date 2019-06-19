@@ -107,8 +107,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 	#region Movement Ability Properties
 	[Header("Movement Ability Properties")]
-	[SerializeField]
-	private MovementAbilityComposition m_currentMovementAbilityComposition;
+	public MovementAbilityComposition m_currentMovementAbilityComposition;
 	public bool m_usingMovementAbility;
 	public int m_movementAbilityAmmoCount;
 	#endregion

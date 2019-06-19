@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class ShotPattern_Base : ScriptableObject
 {
+	public Sprite m_uiSprite;
 	[Header("Base Properties")]
 	public float m_fireRate;
 	public float m_baseDamage;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b4262e4919e3a49ab9e2bc8ba0d8c0, type: 3}
   m_Name: MovementType_Blink
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 21300000, guid: 31494bb1ec82b934e997b046efac5f42, type: 3}
   m_movementTime: 0.2
   m_amountOfTrailsToSpawn: 3
   m_ammoCount: 3

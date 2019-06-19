@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class MovementType_Base : ScriptableObject
 {
+	public Sprite m_uiSprite;
 	public float m_movementTime;
 	public float m_amountOfTrailsToSpawn;
 	public int m_ammoCount;

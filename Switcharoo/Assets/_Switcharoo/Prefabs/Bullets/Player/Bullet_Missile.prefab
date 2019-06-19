@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db498ea18a3af846889dc6bf6bf8b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 21300000, guid: e86c8aefca51fb0479cbd3b0b96a2bf4, type: 3}
   m_moveSpeedMultiplier: 2
   m_moveSpeed: 10
   m_damageTargetMask:

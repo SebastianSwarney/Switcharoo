@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aafe3faf460d774c857d6b182421eeb, type: 3}
   m_Name: ShotPattern_Burst
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 21300000, guid: 4b2f645937e4fc14e81862f92243a94e, type: 3}
   m_fireRate: 1
   m_baseDamage: 15
   m_baseBulletSpeed: 25
-  m_ammoCount: 1000
+  m_ammoCount: 100
   m_bulletsPerBurst: 3
   m_burstDelay: 0.1

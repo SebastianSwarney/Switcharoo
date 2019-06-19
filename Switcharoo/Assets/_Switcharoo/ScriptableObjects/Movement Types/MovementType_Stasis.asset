@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9ff8a05ef50e2438339e0c368f4994, type: 3}
   m_Name: MovementType_Stasis
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 21300000, guid: b8407e575a4277a4aa8f959409454290, type: 3}
   m_movementTime: 5
   m_amountOfTrailsToSpawn: 5
   m_ammoCount: 2

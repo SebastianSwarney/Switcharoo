@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet_Base : MonoBehaviour, IPauseable
 {
+	public Sprite m_uiSprite;
 	[Header("Movement Properties")]
 	public float m_moveSpeedMultiplier = 1;
 	[HideInInspector]

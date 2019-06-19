@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class TrailType_Base : ScriptableObject
 {
+	public Sprite m_uiSprite;
 	public float m_trailDamageAmount;
 
 	public abstract void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask);

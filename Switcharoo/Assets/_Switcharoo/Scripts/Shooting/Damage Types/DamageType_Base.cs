@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class DamageType_Base : ScriptableObject
 {
+	public Sprite m_uiSprite;
 	public abstract void OnContact(Bullet_Base p_bulletRefrence, Collider2D p_collision, float p_damageBase, LayerMask p_obstacleMask, LayerMask p_damageTargetMask);
 
 	public bool CheckCollisionLayer(LayerMask p_layerMask, Collider2D p_collision)
