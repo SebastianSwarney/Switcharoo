@@ -40,6 +40,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 4876064
   Exists: 1
+--- !u!114 &-8949657299879744982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Users\Joshua\Documents\Unavailable Games\Switcharoo\Game\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636926691382055881
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-8734316694777789252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +182,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
+
   lastModified: 636957985872711702
+
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -234,6 +256,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 267000
+--- !u!114 &-7952580690558365425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\sebas\Desktop\Switcharoo\Project File\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636918753376639545
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-7847488541988794837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +319,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-7500712745173671983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\sebas\Desktop\Switcharoo\Project File\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636918753376639545
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-7447486428249218795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +600,46 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1694
+--- !u!114 &-3588423861870030865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636965419163614833
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
+--- !u!114 &-3082616891751799756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636957579977601325
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-2907850206685844555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,7 +755,9 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 7844
+
 --- !u!114 &-2369425799727641910
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -662,6 +766,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -676,6 +781,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1671
+
 --- !u!114 &-1441308449505216413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,6 +845,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 17504
   Exists: 1
+--- !u!114 &-1326297553481346405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636957579977601325
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-1097730343107167690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,6 +888,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1557
+--- !u!114 &-911892094080990322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636957579977601325
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-679775337959922146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +931,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1878
+--- !u!114 &-473114238885965554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\sebas\Desktop\Switcharoo\Project File\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636918753376639545
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &-287448244846354026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,17 +1031,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -8299777326734704806}
+
   - {fileID: 7905176603275440096}
+
   EditorEvents:
   - {fileID: 9109858367759026603}
   - {fileID: 3718478749741352112}
   - {fileID: -7322319229120608464}
   - {fileID: -2369425799727641910}
   MasterBanks:
+
   - {fileID: 7905176603275440096}
   StringsBanks:
   - {fileID: -8299777326734704806}
   stringsBankWriteTime: 636957985872711702
+
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -956,6 +1126,26 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &1254884400091122811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\sebas\Desktop\Switcharoo\Project File\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636918753376639545
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &1283289483378018100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,6 +1247,46 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 362
+--- !u!114 &2365404408460688384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\sebas\Desktop\Switcharoo\Project File\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636918753376639545
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
+--- !u!114 &2625619019244639867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636957579977601325
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &2805943771191441285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,6 +1396,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 16673
+--- !u!114 &4059239981572742053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636957579977601325
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &4081340038268979257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,6 +1622,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 88000
+--- !u!114 &5461801145522610527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636957579977601325
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &6057213376838237374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,6 +1827,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 2308
   Exists: 1
+--- !u!114 &8815174344251772656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Users\Joshua\Documents\Unavailable Games\Switcharoo\Game\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636926691382055881
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 17504
+  Exists: 1
 --- !u!114 &9109858367759026603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,7 +1862,9 @@ MonoBehaviour:
   Path: event:/Gnomed-00
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
+
   - {fileID: 7905176603275440096}
+
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

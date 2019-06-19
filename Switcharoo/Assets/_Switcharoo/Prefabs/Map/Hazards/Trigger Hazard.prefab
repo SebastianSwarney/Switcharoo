@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 377189893050982066}
   - component: {fileID: 377189893050982069}
   - component: {fileID: 377189893050982068}
-  m_Layer: 17
+  m_Layer: 16
   m_Name: Trigger Hazard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_rigidbody: {fileID: 0}
   m_canDamage: 0
   m_renderer: {fileID: 0}
+  m_paused: 0
   m_triggerArea:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 3, y: 3, z: 0}

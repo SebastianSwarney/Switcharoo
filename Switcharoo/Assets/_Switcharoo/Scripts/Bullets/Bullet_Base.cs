@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet_Base : MonoBehaviour
+public class Bullet_Base : MonoBehaviour, IPauseable
 {
 	[Header("Movement Properties")]
 	public float m_moveSpeedMultiplier = 1;
@@ -21,10 +21,13 @@ public class Bullet_Base : MonoBehaviour
 	public DamageType_Base m_damageType;
 	[HideInInspector]
 	public float m_bulletDamageAmount;
+	[HideInInspector]
+	public Rigidbody2D m_rigidbody;
 
 	public virtual void OnEnable()
 	{
 		m_deactivateTimer = 0;
+		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
 	public virtual void Update()
@@ -52,4 +55,29 @@ public class Bullet_Base : MonoBehaviour
 		m_damageTargetMask = p_damageTargetMask;
 		m_obstacleMask = p_obstacleMask;
 	}
+
+	public bool CheckCollisionLayer(LayerMask p_layerMask, Collider2D p_collision)
+	{
+		if (p_layerMask == (p_layerMask | (1 << p_collision.gameObject.layer)))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public void SetPauseState(bool p_isPaused)
+	{
+		if (p_isPaused)
+		{
+			m_rigidbody.simulated = false;
+		}
+		else
+		{
+			m_rigidbody.simulated = true;
+		}
+	}
+
 }

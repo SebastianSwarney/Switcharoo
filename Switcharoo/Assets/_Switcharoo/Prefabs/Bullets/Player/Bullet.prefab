@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 318290044110178634}
   - component: {fileID: 318290044110178629}
   - component: {fileID: 504732419026082140}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,14 +93,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6adb9f31a2d344eb7f9e3aa7c337a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletObject: {fileID: 0}
-  m_chargeSprites:
-  - {fileID: 21300000, guid: ccc42257c145a49409e53b5023526c0e, type: 3}
-  - {fileID: 21300000, guid: 2fb5371a591dc3b4d8d77ce0a898cf1d, type: 3}
-  - {fileID: 21300000, guid: bfa5a0fa093534f4f8034798487a288d, type: 3}
-  - {fileID: 21300000, guid: 7589694c6558a414aa09e12a8586f766, type: 3}
-  - {fileID: 21300000, guid: 7a10ba8ad815fb840a42a7363d9637b6, type: 3}
+  m_moveSpeedMultiplier: 1
   m_moveSpeed: 20
+  m_damageTargetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_damageType: {fileID: 0}
+  m_bulletDamageAmount: 0
+  m_rigidbody: {fileID: 0}
 --- !u!61 &504732419026082140
 BoxCollider2D:
   m_ObjectHideFlags: 0

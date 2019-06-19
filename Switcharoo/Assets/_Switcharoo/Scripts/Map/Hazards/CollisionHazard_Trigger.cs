@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionHazard_Trigger : CollisionHazard_Base
+public class CollisionHazard_Trigger : CollisionHazard_Base, IActivatable
 {
 	[Header("Trigger Hazard Properties")]
 	public Bounds m_triggerArea;
@@ -11,6 +11,7 @@ public class CollisionHazard_Trigger : CollisionHazard_Base
 
 	private bool m_isTriggered;
 
+    Coroutine m_hazardStartCoroutine;
 	public override void Start()
 	{
 		base.Start();
@@ -24,7 +25,8 @@ public class CollisionHazard_Trigger : CollisionHazard_Base
 
 	private void Update()
 	{
-		if (!m_isTriggered)
+        if (m_paused) return;
+        if (!m_isTriggered)
 		{
 			CheckForTarget();
 		}
@@ -37,7 +39,7 @@ public class CollisionHazard_Trigger : CollisionHazard_Base
 		if (collider)
 		{
 			m_isTriggered = true;
-			StartCoroutine(PopOut());
+			m_hazardStartCoroutine = StartCoroutine(PopOut());
 		}
 	}
 
@@ -79,4 +81,30 @@ public class CollisionHazard_Trigger : CollisionHazard_Base
 
 		DebugExtension.DebugBounds(drawBounds, Color.red);
 	}
+
+
+    #region IActivatable Methods
+    public void ActiveState(bool p_active)
+    {
+        if (p_active)
+        {
+            m_isTriggered = true;
+            StartCoroutine(PopOut());
+        }
+    }
+
+    public void ResetMe()
+    {
+        m_isTriggered = false;
+        if(m_hazardStartCoroutine != null)
+        {
+            StopCoroutine(m_hazardStartCoroutine);
+        }
+        m_canDamage = false;
+        m_renderer.color = Color.clear;
+        
+        
+    }
+
+    #endregion
 }

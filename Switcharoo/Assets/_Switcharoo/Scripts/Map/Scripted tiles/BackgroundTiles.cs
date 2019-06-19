@@ -10,14 +10,14 @@ public class BackgroundTiles : Tile
     public string m_tileType;
 
 
-    [SerializeField]
-    private Sprite[] m_tileSprites;
+    
+    public Sprite[] m_tileSprites;
 
-    [SerializeField]
-    private Sprite m_errorSprite;
+    
+    public Sprite m_errorSprite;
 
-    [SerializeField]
-    private Sprite m_tilePreview;
+    
+    public Sprite m_tilePreview;
 
     #region Tile Set up
     public override bool StartUp(Vector3Int p_position, ITilemap p_tilemap, GameObject p_go)

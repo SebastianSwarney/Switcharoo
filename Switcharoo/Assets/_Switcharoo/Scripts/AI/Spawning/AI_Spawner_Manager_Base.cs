@@ -24,7 +24,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
     public int m_maxAiInRoom;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int m_currentAiCount;
 
     [HideInInspector]
@@ -71,7 +71,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
             m_spawnersInRoom.Add(m_enemySpawnersParent.transform.GetChild(i).GetComponent<AI_Spawner>());
         }
 
-
+        
         InitializeAllSpawners();
 
     }
@@ -79,6 +79,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     //Sets up all the spawners, when the object is enabled
     public virtual void InitializeAllSpawners()
     {
+        
         foreach (AiController placedEnemy in m_currentEnemiesInRoom)
         {
             placedEnemy.gameObject.SetActive(true);
@@ -110,6 +111,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     //The method that is called to enable spawning in this room
     public void StartAllSpawners()
     {
+
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.ChangeSpawning(true);
@@ -119,10 +121,11 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     //The method that is called to stop all spawning in this room
     public void StopAllSpawners()
     {
+        
         foreach (AI_Spawner spawner in m_spawnersInRoom)
         {
             spawner.ChangeSpawning(false);
-            print("Stop all spawns");
+
         }
     }
 

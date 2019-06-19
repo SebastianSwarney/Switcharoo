@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/_Switcharoo/Scenes/PlayerTesting/PlayerTest.unity
+    guid: cca12896ad4836c4f97ecd09e0d13644
   - enabled: 0
     path: Assets/_Switcharoo/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Switcharoo/Scenes/Room Generation Example.unity
     guid: b26f35e05ce17ee48a835cb1ec29080d
   m_configObjects: {}

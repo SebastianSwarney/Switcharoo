@@ -20,7 +20,13 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     public LayerMask m_terrainLayer;
 
     AiController m_aiCont;
+    public Vector3 m_movePoint;
 
+    float m_jumpAnimStuckTime = .5f, m_jumpAnimTimer;
+    bool m_startEdgeCaseTimer;
+
+    float m_jumpStateStuckTime = .5f, m_jumpStateTimer;
+    bool m_jumpStateStuck;
 
 
     private void Start()
@@ -32,17 +38,21 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
 
     public void MoveToNode(float p_speed, float p_jumpHeight, bool p_isGrounded)
     {
-        if (m_aiCont.m_isAttacking) return;
-        
 
 
-            if (m_tracedPath.Count > 0)
+
+        if (m_tracedPath.Count > 0)
+        {
+            m_currentNode = m_tracedPath[0];
+            if (Mathf.Sign(m_aiCont.m_currentForward) != Mathf.Sign(m_tracedPath[0].m_worldPos.x - transform.position.x))
             {
-                m_currentNode = m_tracedPath[0];
-                if (Mathf.Sign(m_aiCont.m_currentForward) != Mathf.Sign(m_tracedPath[0].m_worldPos.x - transform.position.x))
-                {
-                    m_aiCont.FlipEnemy((int)Mathf.Sign(m_tracedPath[0].m_worldPos.x - transform.position.x));
-                }
+                m_aiCont.FlipEnemy((int)Mathf.Sign(m_tracedPath[0].m_worldPos.x - transform.position.x));
+            }
+
+            if (!m_aiCont.m_jumpAnim)
+            {
+
+
 
                 if (!IsCloseToPosition(m_currentNode.m_worldPos, p_jumpHeight, p_isGrounded))
                 {
@@ -50,7 +60,7 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
                     {
 
 
-                        if (!Physics2D.Linecast(transform.position, m_currentNode.m_worldPos, m_terrainLayer))
+                        if (!Physics2D.Linecast(m_movePoint + transform.position, m_currentNode.m_worldPos, m_terrainLayer))
                         {
 
                             if (!p_isGrounded)
@@ -90,25 +100,78 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
 
 
                 }
-            }
-        
-    }
 
-    void Jump(float p_maxJumpHeight, bool p_isGrounded)
-    {
-        if (p_isGrounded)
-        {
-            Node occupiedGrid = m_navGrid.NodeFromWorldPoint(transform.position);
-            float smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.y - m_currentNode.m_gridPos.y);
-            if(smartJumpHeight == 0)
-            {
-                smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.x - m_currentNode.m_gridPos.x);
             }
-            if (smartJumpHeight > p_maxJumpHeight) smartJumpHeight = p_maxJumpHeight;
-            float jumpForce = Mathf.Sqrt(2f * m_gravityValue * smartJumpHeight);
-            m_rb.velocity = new Vector3(m_rb.velocity.x, jumpForce, 0);
+            else
+            {
+                
+                m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f);
+                if (m_aiCont.m_beginJump)
+                {
+                    //print("JUmp Heright: " + p_jumpHeight);
+                    Jump(p_jumpHeight, p_isGrounded);
+                    m_aiCont.m_jumpAnim = false;
+                    m_aiCont.m_beginJump = false;
+                }
+            }
 
         }
+
+        CheckJumpStuck();
+    }
+
+    void CheckJumpStuck()
+    {
+        if (m_aiCont.m_inShootingAnim) return;
+
+        if (m_aiCont.m_jumpAnim == true && m_startEdgeCaseTimer != true)
+        {
+            m_startEdgeCaseTimer = true;
+            m_jumpAnimTimer = Time.time;
+        }
+        if (m_startEdgeCaseTimer && Time.time - m_jumpAnimTimer > m_jumpAnimStuckTime)
+        {
+            if (m_aiCont.m_isGrounded)
+            {
+                m_aiCont.m_jumpAnim = false;
+                m_startEdgeCaseTimer = false;
+                m_aiCont.EnemyGrounded(true);
+            }
+            
+        }
+
+        if (m_aiCont.m_isJumping && !m_jumpStateStuck)
+        {
+            m_jumpStateStuck = true;
+            m_jumpStateTimer = Time.time;
+        }
+        if (m_jumpStateStuck && Time.time - m_jumpStateTimer > m_jumpStateStuckTime)
+        {
+            if (m_aiCont.m_isGrounded)
+            {
+                m_jumpStateStuck = false;
+                m_aiCont.m_isJumping = false;
+                m_aiCont.EnemyGrounded(true);
+            }
+            
+        }
+    }
+    void Jump(float p_maxJumpHeight, bool p_isGrounded)
+    {
+
+        Node occupiedGrid = m_navGrid.NodeFromWorldPoint(transform.position);
+        float smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.y - m_currentNode.m_gridPos.y);
+        if (smartJumpHeight == 0)
+        {
+            smartJumpHeight = Mathf.Abs(occupiedGrid.m_gridPos.x - m_currentNode.m_gridPos.x);
+        }
+        if (smartJumpHeight > p_maxJumpHeight) smartJumpHeight = p_maxJumpHeight;
+
+        float jumpForce = Mathf.Sqrt(2f * m_gravityValue * smartJumpHeight + 1);
+        Debug.Log("Jump Force: " + jumpForce);
+        m_rb.velocity = new Vector3(m_rb.velocity.x, jumpForce, 0);
+
+
     }
     bool IsCloseToPosition(Vector3 p_position, float p_jumpHeight, bool p_isGrounded)
     {
@@ -121,7 +184,14 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
                 m_tracedPath.RemoveAt(0);
                 if (ShouldIJump())
                 {
-                    Jump(p_jumpHeight, p_isGrounded);
+                    if (!m_aiCont.m_isJumping)
+                    {
+
+                        m_aiCont.EnemyJump();
+                        m_aiCont.EnemyGrounded(false);
+                        m_aiCont.m_jumpAnim = true;
+                    }
+                    
                 }
                 return true;
             }
@@ -133,7 +203,14 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
         }
         if (ShouldIJump())
         {
-            Jump(p_jumpHeight, p_isGrounded);
+            if (!m_aiCont.m_isJumping)
+            {
+               
+                m_aiCont.EnemyJump();
+                m_aiCont.EnemyGrounded(false);
+                m_aiCont.m_jumpAnim = true;
+            }
+
         }
         return false;
     }
@@ -273,6 +350,8 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
     /// </summary>
     void OnDrawGizmos()
     {
+
+        
         if (!m_drawPath) return;
 
         if (m_tracedPath != null)

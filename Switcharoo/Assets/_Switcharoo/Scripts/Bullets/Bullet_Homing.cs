@@ -6,14 +6,7 @@ public class Bullet_Homing : Bullet_Base
 {
 	[Header("Homing Properties")]
 	public float m_rotateSpeed = 100f;
-	private Rigidbody2D m_rigidbody;
 	private Transform m_target;
-
-	public override void OnEnable()
-	{
-		base.OnEnable();
-		m_rigidbody = GetComponent<Rigidbody2D>();
-	}
 
 	public override void Update()
 	{

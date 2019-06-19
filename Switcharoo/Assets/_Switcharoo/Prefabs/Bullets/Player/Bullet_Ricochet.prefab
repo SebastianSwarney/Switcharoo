@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 504732419026082140}
   - component: {fileID: -1996426917697744598}
   - component: {fileID: 4770555201825618356}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Bullet_Ricochet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,10 +145,11 @@ MonoBehaviour:
   m_moveSpeed: 20
   m_damageTargetMask:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 0
   m_obstacleMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   m_damageType: {fileID: 0}
   m_bulletDamageAmount: 0
+  m_rigidbody: {fileID: 0}
   m_amountOfRicochets: 3
