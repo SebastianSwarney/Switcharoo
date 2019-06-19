@@ -64,7 +64,6 @@ public class BulletCasing : MonoBehaviour
         {
             StopCoroutine(m_despawnCoroutine);
         }
-        print(collision.gameObject.name);
         m_soundEmitter.Play();
 	}
 

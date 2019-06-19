@@ -9,7 +9,8 @@ public class CollisionHazard_Base : MonoBehaviour, IPauseable
 	public float m_damageInterval;
 	public LayerMask m_targetMask;
 
-	private float m_damageTimer;
+	[HideInInspector]
+	public float m_damageTimer;
 	[HideInInspector]
 	public Rigidbody2D m_rigidbody;
 	[HideInInspector]
