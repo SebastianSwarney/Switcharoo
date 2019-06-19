@@ -82,6 +82,12 @@ MonoBehaviour:
   m_forceFieldGizmoColor: {r: 0.9327146, g: 0.4666667, b: 1, a: 0.57254905}
   m_forceFieldObject: {fileID: 1814312205134241933, guid: 76393fe6cbeba0b41ab8d9094ed3f477,
     type: 3}
+  m_topEmitter: {fileID: 9111223205470975798, guid: b7674032328c8144ebb10821152656a7,
+    type: 3}
+  m_centerEmitter: {fileID: 6104893978660626661, guid: 5f4fa79e959df664494467e226c88c38,
+    type: 3}
+  m_bottomEmitter: {fileID: 5898171591708606546, guid: 136d2cddb51100b4584e67d811d04382,
+    type: 3}
   m_playerLayers:
     serializedVersion: 2
     m_Bits: 49152

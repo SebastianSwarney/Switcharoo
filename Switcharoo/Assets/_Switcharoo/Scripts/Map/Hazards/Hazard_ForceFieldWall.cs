@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
 {
     [Header("Set Up")]
-    bool m_displayGizmos = true;
+    public bool m_displayGizmos = true;
     public Vector3Int m_wallDimensions = new Vector3Int(1, 1, 0);
 
     [Header("Wall Properties")]
@@ -18,6 +18,7 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
     [Header("Preset values")]
     public Color m_forceFieldGizmoColor;
     public GameObject m_forceFieldObject;
+    public GameObject m_topEmitter, m_centerEmitter, m_bottomEmitter;
     public LayerMask m_playerLayers;
     BoxCollider2D m_collider;
     Transform m_forceFieldParent;
@@ -70,6 +71,7 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
         m_collider = GetComponent<BoxCollider2D>();
         m_collider.offset = OriginPosition();
         m_collider.size = (Vector2Int)m_wallDimensions;
+        m_displayGizmos = false;
     }
 
     private void OnEnable()
@@ -88,7 +90,23 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
             for (int y = 0; y < m_wallDimensions.y; y++)
             {
                 ObjectPooler.instance.NewObject(m_forceFieldObject, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity).transform.parent = m_forceFieldParent;
-
+                if (x == 0 || x == m_wallDimensions.x - 1)
+                {
+                    GameObject emitterPiece = null;
+                    if (y == 0) {
+                        emitterPiece = ObjectPooler.instance.NewObject(m_bottomEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                    }else if(y == m_wallDimensions.y - 1)
+                    {
+                        emitterPiece = ObjectPooler.instance.NewObject(m_topEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                    }
+                    else
+                    {
+                        emitterPiece = ObjectPooler.instance.NewObject(m_centerEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                    }
+                    emitterPiece.transform.localScale = new Vector3((x == 0 ) ? 1 : -1, 1, 1);
+                    emitterPiece.transform.GetChild(0).transform.parent = m_forceFieldParent;
+                    emitterPiece.transform.parent = this.transform;
+                }
             }
         }
 
