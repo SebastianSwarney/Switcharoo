@@ -41,9 +41,10 @@ GameObject:
   - component: {fileID: 3078133998956346258}
   - component: {fileID: 3078133998956346257}
   - component: {fileID: 3078133998956346286}
+  - component: {fileID: -6166238226835638072}
   - component: {fileID: 3078133998956346287}
   - component: {fileID: 1780877241023508681}
-  - component: {fileID: -6166238226835638072}
+  - component: {fileID: -5651543943986591805}
   m_Layer: 10
   m_Name: AI_Base
   m_TagString: Untagged
@@ -118,6 +119,7 @@ MonoBehaviour:
   m_idleSpeed: 0
   m_attackSpeed: 0
   m_currentForward: -1
+  m_aiBounds: {fileID: 0}
   m_patrolPoints: []
   currentPatrolPoint: {fileID: 0}
   m_isGrounded: 0
@@ -125,13 +127,24 @@ MonoBehaviour:
   m_patrolStoppingDistance: 0
   m_spawnerManager: {fileID: 0}
   m_parentSpawn: {fileID: 0}
-  m_originPoint: {fileID: 0}
   m_shootAltOrigin: {fileID: 0}
   m_fireAlt: 0
+  m_canSwitchToAlt: 0
   m_died: 0
   m_enemyDied:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -5651543943986591805}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OnEnemyDied, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_playerSpotted:
     m_PersistentCalls:
@@ -197,7 +210,7 @@ MonoBehaviour:
     m_Bits: 256
   m_movementFlipLayer:
     serializedVersion: 2
-    m_Bits: 3840
+    m_Bits: 3328
   m_jumpAnim: 0
   m_beginJump: 0
   m_isJumping: 0
@@ -208,6 +221,31 @@ MonoBehaviour:
   m_currentBulletAmount: 0
   m_shootBreakTime: 0
   m_shootTriggerTime: 0
+  m_playerInZone: 0
+--- !u!114 &-6166238226835638072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078133998956346284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f73b03023067b46ac9dcddd1fac869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isDead: 0
+  m_maxHealth: 10
+  m_currentHealth: 0
+  m_canTakeDamage: 1
+  m_currentIceState: 0
+  m_currentFireState: 0
+  m_onFire: 0
+  m_minFireHitsPerEffect: 5
+  m_maxFireHitsPerEffect: 15
+  m_maxFireEffectInterval: 1
+  m_minFireEffectInterval: 0.1
+  m_fireDamageAmount: 10
 --- !u!114 &3078133998956346287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +299,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   m_movePoint: {x: 0, y: 0, z: 0}
---- !u!114 &-6166238226835638072
+--- !u!114 &-5651543943986591805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,21 +308,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3078133998956346284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f73b03023067b46ac9dcddd1fac869, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isDead: 0
-  m_maxHealth: 10
-  m_currentHealth: 0
-  m_canTakeDamage: 1
-  m_currentIceState: 0
-  m_currentFireState: 0
-  m_onFire: 0
-  m_minFireHitsPerEffect: 5
-  m_maxFireHitsPerEffect: 15
-  m_maxFireEffectInterval: 1
-  m_minFireEffectInterval: 0.1
-  m_fireDamageAmount: 10
+  Event: event:/Gnomed-00
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &4585522047904063786
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5393287606865019667
+--- !u!1 &3665461726690400897
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5393287606865019670}
-  - component: {fileID: 5393287606865019671}
-  - component: {fileID: 5393287606865019668}
-  - component: {fileID: 5393287606865019669}
-  - component: {fileID: 5393287606865019666}
+  - component: {fileID: 7631075445794133983}
+  - component: {fileID: 1009190377322679605}
+  - component: {fileID: 6870213805150257102}
   m_Layer: 16
-  m_Name: Moving Hazard
+  m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5393287606865019670
+--- !u!4 &7631075445794133983
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5393287606865019667}
+  m_GameObject: {fileID: 3665461726690400897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 5393287606865019670}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5393287606865019671
+--- !u!95 &1009190377322679605
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3665461726690400897}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 043eb66a3133217489e6f2dbc02e3a4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &6870213805150257102
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5393287606865019667}
+  m_GameObject: {fileID: 3665461726690400897}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,8 +88,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3180871680ec61d49b4dc302bb80d43d, type: 3}
-  m_Color: {r: 0.764151, g: 0.18409547, b: 0, a: 1}
+  m_Sprite: {fileID: -1703126615885443886, guid: 50032a7c1c764bc459b2a84aedce1177,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,6 +100,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5393287606865019667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5393287606865019670}
+  - component: {fileID: 5393287606865019668}
+  - component: {fileID: 5393287606865019669}
+  - component: {fileID: 5393287606865019666}
+  m_Layer: 16
+  m_Name: Moving Hazard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5393287606865019670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393287606865019667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7631075445794133983}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5393287606865019668
 Rigidbody2D:
   serializedVersion: 4
@@ -146,6 +198,7 @@ MonoBehaviour:
   m_targetMask:
     serializedVersion: 2
     m_Bits: 12288
+  m_damageTimer: 0
   m_rigidbody: {fileID: 0}
   m_canDamage: 0
   m_renderer: {fileID: 0}
@@ -153,8 +206,8 @@ MonoBehaviour:
   m_localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: -1, z: 0}
-  m_moveSpeed: 20
+  m_moveSpeed: 5
   m_isCyclic: 0
-  m_waitTime: 0.5
-  m_easeAmount: 1
+  m_waitTime: 0
+  m_easeAmount: 0
   m_startActive: 1

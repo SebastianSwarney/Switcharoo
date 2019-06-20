@@ -26,6 +26,7 @@ public class ConveyorBelt : TranslationZone_Base, IActivatable, IPauseable
     public GameObject m_tilesCenter, m_tilesRight;
     public Color m_gizmosColor;
     public bool m_displayGizmos;
+    List<Animator> m_tileAnimations = new List<Animator>();
 
     private void OnDrawGizmos()
     {
@@ -88,6 +89,9 @@ public class ConveyorBelt : TranslationZone_Base, IActivatable, IPauseable
             GameObject conveyor = ObjectPooler.instance.NewObject(platformType, new Vector3(transform.position.x + x, transform.position.y, 0f), Quaternion.identity);
             conveyor.transform.localScale = new Vector3((m_moveDir == MoveDirection.Left) ? 1 : -1, transform.localScale.y, 1f);
             conveyor.transform.parent = this.transform;
+            Animator newAnimator = conveyor.GetComponent<Animator>();
+            newAnimator.enabled = m_startActive;
+            m_tileAnimations.Add(newAnimator);
 
 
 
@@ -113,11 +117,19 @@ public class ConveyorBelt : TranslationZone_Base, IActivatable, IPauseable
     public void ActiveState(bool p_active)
     {
         m_isActive = p_active;
+        foreach (Animator anim in m_tileAnimations)
+        {
+            anim.enabled = p_active;
+        }
     }
 
     public void ResetMe()
     {
         m_isActive = !m_startActive;
+        foreach (Animator anim in m_tileAnimations)
+        {
+            anim.enabled = m_startActive;
+        }
     }
 
 
@@ -126,5 +138,6 @@ public class ConveyorBelt : TranslationZone_Base, IActivatable, IPauseable
     public void SetPauseState(bool p_isPaused)
     {
         m_isPaused = p_isPaused;
+
     }
 }

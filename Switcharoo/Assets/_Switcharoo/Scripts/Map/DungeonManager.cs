@@ -27,6 +27,7 @@ public class DungeonManager : MonoBehaviour
 
     void Awake()
     {
+        m_playerRespawnPoint = m_playerGameObject.transform.position;
         if (Camera.main == null)
         {
             Debug.Log("DUNGEON MANAGER ERROR! The Camera is either disabled or nonexistant");

@@ -54,6 +54,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
         }
         else
         {
+            Debug.Log("Freeze: " + p_aiCont.transform.name);
             p_rb.velocity = Vector3.zero;
             if (p_aiCont.m_beginJump)
             {

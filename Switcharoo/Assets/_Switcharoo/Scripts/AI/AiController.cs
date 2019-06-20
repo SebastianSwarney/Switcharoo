@@ -223,6 +223,7 @@ public class AiController : MonoBehaviour, IPauseable
         m_enemyHealth.ResetHealth();
         transform.position = m_respawnPos;
         m_currentForward = m_startingForward;
+        m_jumpAnim = false;
         FlipEnemy(m_currentForward);
     }
 
