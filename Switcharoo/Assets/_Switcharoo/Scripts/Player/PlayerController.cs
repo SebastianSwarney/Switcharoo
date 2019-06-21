@@ -21,6 +21,7 @@ public class OnPlayerRespawn : UnityEvent { }
 [RequireComponent(typeof(Controller2D))]
 public class PlayerController : MonoBehaviour, IPauseable
 {
+
 	public enum MovementControllState {MovementEnabled, MovementDisabled}
 	public enum GravityState { GravityEnabled, GravityDisabled }
 	public enum DamageState { Vulnerable, Invulnerable }
@@ -258,12 +259,11 @@ public class PlayerController : MonoBehaviour, IPauseable
 	#endregion
 
 	#region Input Buffering Code
-	void InputBuffering()
+	private void InputBuffering()
     {
         if (controller.collisions.below)
         {
             m_graceTimer = 0;
-
         }
 
         if (!controller.collisions.below)
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 
         if (m_bufferTimer > 0 && controller.collisions.below)
         {
-            m_bufferTimer = 0;
+			m_bufferTimer = 0;
 
             if (controller.collisions.slidingDownMaxSlope)
             {
@@ -290,8 +290,8 @@ public class PlayerController : MonoBehaviour, IPauseable
             }
             else
             {
-				//JumpMaxVelocity();
-            }
+				m_playerJumped.Invoke();
+			}
 		}
 		else if (controller.collisions.below && !m_isLanded)
 		{
@@ -306,9 +306,7 @@ public class PlayerController : MonoBehaviour, IPauseable
     {
         m_bufferTimer = m_bufferTime;
 
-		m_playerJumped.Invoke();
-
-		if (m_wallSliding)
+        if (m_wallSliding)
         {
             if (m_wallDirX == m_directionalInput.x)
             {
@@ -329,8 +327,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 
         if (!controller.collisions.below && m_graceTimer <= m_graceTime && m_velocity.y <= 0)
         {
-			//JumpMaxVelocity();
-			
+			m_playerJumped.Invoke();
 			m_graceTimer = m_graceTime;
         }
     }
@@ -341,7 +338,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 
         if (m_velocity.y > m_minJumpVelocity)
         {
-			//JumpMinVelocity();
+			JumpMinVelocity();
         }
     }
 
@@ -350,7 +347,6 @@ public class PlayerController : MonoBehaviour, IPauseable
 		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
 		{
 			m_velocity.y = m_maxJumpVelocity * p_jumpVelocityMultiplier;
-			m_playerJumped.Invoke();
 		}
 	}
 
@@ -359,7 +355,6 @@ public class PlayerController : MonoBehaviour, IPauseable
 		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
 		{
 			m_velocity.y = m_maxJumpVelocity;
-			//m_playerJumped.Invoke();
 		}
 	}
 
