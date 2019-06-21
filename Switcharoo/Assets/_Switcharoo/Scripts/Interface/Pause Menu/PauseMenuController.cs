@@ -35,6 +35,8 @@ public class PauseMenuController : MonoBehaviour
 
 	private void Start()
 	{
+		m_canPause = true;
+
 		SetUnPause();
 	}
 

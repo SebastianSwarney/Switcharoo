@@ -16,8 +16,6 @@ public class DungeonManager : MonoBehaviour
     PlayerController m_playerCont;
     public GameObject m_currentLoadedTilemap;
 
-
-
     [Header("Room Transition")]
     public float m_roomTransitionTime;
     Coroutine m_roomTransitionCoroutine;
@@ -79,7 +77,6 @@ public class DungeonManager : MonoBehaviour
                 
                 m_playerCont.m_states.m_inputState = PlayerController.InputState.InputDisabled;
             }
-            
         }
     }
 
