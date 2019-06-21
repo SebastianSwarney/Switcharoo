@@ -49,7 +49,7 @@ public class PauseMenuController : MonoBehaviour
 		}
 	}
 
-	private void TogglePause()
+	public void TogglePause()
 	{
 		m_isPaused = !m_isPaused;
 
