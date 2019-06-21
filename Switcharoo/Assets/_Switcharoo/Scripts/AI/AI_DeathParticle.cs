@@ -13,10 +13,10 @@ public class AI_DeathParticle : MonoBehaviour
 
     private void OnEnable()
     {
+        
         if (m_particles == null)
         {
             m_particles = GetComponent<ParticleSystem>();
-            m_pooler = ObjectPooler.instance;
             m_delay = new WaitForSeconds(m_lifespan);
         }
 
@@ -34,7 +34,10 @@ public class AI_DeathParticle : MonoBehaviour
     IEnumerator LifeSpan()
     {
         yield return m_delay;
-
+        if(m_pooler == null)
+        {
+            m_pooler = ObjectPooler.instance;
+        }
         m_pooler.ReturnToPool(gameObject);
 
     }

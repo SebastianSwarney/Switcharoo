@@ -18,10 +18,17 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
     [HideInInspector]
     public string m_playerTag;
 
+    ObjectPooler m_pooler;
+
 
     public Vector3 m_currentTarget;
     private void Start()
     {
+        if (m_pooler == null)
+        {
+            m_pooler = ObjectPooler.instance;
+        }
+        m_pooler.AddObjectToDespawn(this.gameObject);
         m_health = GetComponent<Health>();
         m_rb = GetComponent<Rigidbody2D>();
     }
@@ -109,7 +116,11 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
                 m_swarmBase.m_swarmEntities.Remove(this);
             }
         }
-        
+        if (m_pooler == null)
+        {
+            m_pooler = ObjectPooler.instance;
+        }
+
     }
 
 }

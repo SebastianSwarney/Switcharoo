@@ -21,6 +21,8 @@ public class BulletCasing : MonoBehaviour
         m_spriteRender = GetComponent<SpriteRenderer>();
         m_pooler = ObjectPooler.instance;
         m_soundEmitter = GetComponent<FMODUnity.StudioEventEmitter>();
+
+        m_pooler.AddObjectToDespawn(this.gameObject);
     }
     private void OnEnable()
     {

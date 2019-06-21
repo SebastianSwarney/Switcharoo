@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9183830813937762439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShotEnergy
+  guid: 11d3eb3453535549802ea6bb392e8179
+  Banks:
+  - {fileID: 3810731733705092917}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 852
 --- !u!114 &-9075527786935517366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +661,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2621
+--- !u!114 &-3971691143648405350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShotBallistic
+  guid: 7183ae29badcc649a13865e552f64b02
+  Banks:
+  - {fileID: 3810731733705092917}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3500
 --- !u!114 &-3598164063865283198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,18 +1175,18 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1818824948532211320}
-  - {fileID: 5472693624378299766}
+  - {fileID: 3060593750653169670}
+  - {fileID: 3810731733705092917}
   EditorEvents:
-  - {fileID: -6989111560564368890}
-  - {fileID: 1370781014222598250}
-  - {fileID: 6335393615462752706}
-  - {fileID: -8529969278088525624}
+  - {fileID: -9183830813937762439}
+  - {fileID: -3971691143648405350}
+  - {fileID: 7876838488869506827}
+  - {fileID: 7154245158634735873}
   MasterBanks:
-  - {fileID: 5472693624378299766}
+  - {fileID: 3810731733705092917}
   StringsBanks:
-  - {fileID: -1818824948532211320}
-  stringsBankWriteTime: 636965508952078479
+  - {fileID: 3060593750653169670}
+  stringsBankWriteTime: 636967164394919680
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -1468,6 +1514,25 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 16673
+--- !u!114 &3060593750653169670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636967164394919680
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 896
+  Exists: 1
 --- !u!114 &3313045838773106609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1534,6 +1599,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 16673
+--- !u!114 &3810731733705092917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636967164394869816
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 461088
+  Exists: 1
 --- !u!114 &4059239981572742053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1922,6 +2007,29 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &7154245158634735873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShellCasingBounce
+  guid: c942937061be41479001b501522794be
+  Banks:
+  - {fileID: 3810731733705092917}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1671
 --- !u!114 &7316608455786909837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1945,6 +2053,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1959
+--- !u!114 &7876838488869506827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Gnomed-00
+  guid: beed25ea8e1f1048a11d8dd2dbad7052
+  Banks:
+  - {fileID: 3810731733705092917}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 362
 --- !u!114 &7905176603275440096
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,16 +15,9 @@ public class ObjectPooler : MonoBehaviour, IPauseable
     public static ObjectPooler instance { get; private set; }
 
 
-
-
-
-
-
-
-
-
     List<Rigidbody2D> m_pauseRbs = new List<Rigidbody2D>();
     List<IPauseable> m_pauseableObjectsIPause = new List<IPauseable>();
+    List<GameObject> m_reloadObjects = new List<GameObject>();
     #endregion
 
     void Awake()
@@ -164,27 +157,7 @@ public class ObjectPooler : MonoBehaviour, IPauseable
 
 
 
-    public void AddObjectToPooler(GameObject pooledObject)
-    {
-
-
-        IPauseable pauseMe = pooledObject.GetComponent<IPauseable>();
-        if (pauseMe != null)
-        {
-            m_pauseableObjectsIPause.Add(pauseMe);
-            return;
-        }
-
-        Rigidbody2D rb = pooledObject.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            m_pauseRbs.Add(rb);
-        }
-
-
-    }
-
-
+    
     ///<summary>
     ///This function is only called at start
     ///creates all the pools, and puts then under the right transform
@@ -224,6 +197,54 @@ public class ObjectPooler : MonoBehaviour, IPauseable
         IncreasePool(newPool.name, newPool, newParent);
 
     }
+   
+
+
+
+
+
+    #region Despawning Objects at respawn
+    public void AddObjectToDespawn(GameObject despawnedObject)
+    {
+        if (!m_reloadObjects.Contains(despawnedObject))
+        {
+            m_reloadObjects.Add(despawnedObject);
+        }
+    }
+
+    public void DespawnObjects()
+    {
+        foreach (GameObject despawnMe in m_reloadObjects)
+        {
+            if (!objectPool[despawnMe.name].Contains(despawnMe))
+            {
+                print("Depsawn: " + despawnMe.name);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Pausing OBjects
+    public void AddObjectToPauser(GameObject pooledObject)
+    {
+
+
+        IPauseable pauseMe = pooledObject.GetComponent<IPauseable>();
+        if (pauseMe != null)
+        {
+            m_pauseableObjectsIPause.Add(pauseMe);
+            return;
+        }
+
+        Rigidbody2D rb = pooledObject.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            m_pauseRbs.Add(rb);
+        }
+
+
+    }
 
     public void SetPauseState(bool p_isPaused)
     {
@@ -231,9 +252,10 @@ public class ObjectPooler : MonoBehaviour, IPauseable
         {
             pauseMe.SetPauseState(p_isPaused);
         }
-        foreach(Rigidbody2D rb in m_pauseRbs)
+        foreach (Rigidbody2D rb in m_pauseRbs)
         {
             rb.simulated = !p_isPaused;
         }
     }
+    #endregion
 }

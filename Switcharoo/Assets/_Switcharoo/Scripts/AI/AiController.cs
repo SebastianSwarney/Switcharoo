@@ -210,7 +210,7 @@ public class AiController : MonoBehaviour, IPauseable
         m_pooler = ObjectPooler.instance;
         if (!m_isPooled)
         {
-            m_pooler.AddObjectToPooler(this.gameObject);
+            m_pooler.AddObjectToPauser(this.gameObject);
         }
     }
 
