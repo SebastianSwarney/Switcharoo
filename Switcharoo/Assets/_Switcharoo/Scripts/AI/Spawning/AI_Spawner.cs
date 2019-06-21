@@ -65,8 +65,11 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     private void Start()
     {
-        ObjectPooler.instance.AddObjectToPooler(this.gameObject);
-        m_navGrid = m_aiBoundsFromSpawner.GetComponent<PlatformerNavigation>();
+        ObjectPooler.instance.AddObjectToPauser(this.gameObject);
+        if (m_aiBoundsFromSpawner != null)
+        {
+            m_navGrid = m_aiBoundsFromSpawner.GetComponent<PlatformerNavigation>();
+        }
     }
     void InitateSpawning()
     {

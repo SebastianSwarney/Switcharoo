@@ -23,7 +23,10 @@ public class DungeonManager : MonoBehaviour
     Coroutine m_roomTransitionCoroutine;
     public RoomManager_Base m_currentRoom;
 
+    [Header("Death Screen")]
+    public GameObject m_deathCanvas;
 
+    ObjectPooler m_pooler;
 
     void Awake()
     {
@@ -52,7 +55,10 @@ public class DungeonManager : MonoBehaviour
         }
         m_playerRespawnPoint = m_playerGameObject.transform.position;
     }
-
+    private void Start()
+    {
+        m_pooler = ObjectPooler.instance;
+    }
     private void Update()
     {
         CheckPlayerHealth();
@@ -61,15 +67,27 @@ public class DungeonManager : MonoBehaviour
     {
         if (m_playerHealth.m_isDead)
         {
-            Debug.Log("TODO: Place fancy died transition here");
-            m_playerHealth.m_isDead = false;
-            m_playerCont.Respawn(m_playerRespawnPoint);
-            m_currentRoom.gameObject.SetActive(false);
-            m_currentRoom.ResetRoom();
-            m_currentRoom.gameObject.SetActive(true);            
-            m_cameraController.transform.position = m_cameraController.m_cameraBoundsArea.ClosestPoint(m_playerGameObject.transform.position);
-
+            m_deathCanvas.SetActive(true);
+            m_playerCont.m_states.m_inputState = PlayerController.InputState.InputDisabled;
         }
+    }
+
+    public void RespawnPlayer ()
+    {
+        
+        m_playerHealth.m_isDead = false;
+        m_playerCont.Respawn(m_playerRespawnPoint);
+        m_currentRoom.gameObject.SetActive(false);
+        
+        m_currentRoom.ResetRoom();
+        m_currentRoom.gameObject.SetActive(true);
+        m_cameraController.transform.position = m_cameraController.m_cameraBoundsArea.ClosestPoint(m_playerGameObject.transform.position);
+
+        m_pooler.DespawnObjects();
+
+        m_deathCanvas.SetActive(false);
+        m_playerCont.m_states.m_inputState = PlayerController.InputState.InputEnabled;
+
     }
 
     public void LoadNewMap(RoomManager_Base p_loadMap, Vector3 p_playerSpawnPos)

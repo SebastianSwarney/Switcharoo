@@ -29,7 +29,7 @@ public class CollisionHazard_Base : MonoBehaviour, IPauseable
 
 		m_canDamage = true;
 
-        ObjectPooler.instance.AddObjectToPooler(gameObject);
+        ObjectPooler.instance.AddObjectToPauser(gameObject);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

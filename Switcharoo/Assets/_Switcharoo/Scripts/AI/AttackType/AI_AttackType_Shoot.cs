@@ -23,7 +23,6 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
     ///Where all the attack logic is
     public override bool AttackFinished(AiController p_aiController, Rigidbody2D p_rb, Vector3 p_targetPos, GameObject p_player, GameObject p_enemyObject, Transform p_bulletOrigin, ShootController p_gun)
     {
-        Debug.DrawLine(p_aiController.transform.position, p_targetPos, Color.cyan);
         switch (p_aiController.m_currentAttackState)
         {
             case AttackState.Start:
@@ -51,11 +50,11 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
                         m_shootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_aiController.m_aiBounds.PositionInBounds(p_targetPos), p_aiController.m_isGrounded);
 
                         p_aiController.ChangeAnimation(false);
-                        Debug.Log("Moving to position");
+
                     }
                     else
                     {
-                        Debug.Log("Position reached");
+
                         p_aiController.ChangeAnimation(true);
                         m_shootingMovement.StopMoving(p_rb);
                     }

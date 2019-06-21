@@ -59,7 +59,7 @@ public class ConveyorBelt : TranslationZone_Base, IActivatable, IPauseable
     private void Start()
     {
 
-        ObjectPooler.instance.AddObjectToPooler(gameObject);
+        ObjectPooler.instance.AddObjectToPauser(gameObject);
         m_isActive = m_startActive;
 
         BoxCollider2D col = GetComponent<BoxCollider2D>();

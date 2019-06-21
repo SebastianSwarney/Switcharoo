@@ -25,13 +25,33 @@ public class Bullet_Base : MonoBehaviour, IPauseable
 	[HideInInspector]
 	public Rigidbody2D m_rigidbody;
 
-	public virtual void OnEnable()
+    [HideInInspector]
+    public ObjectPooler m_pooler;
+
+    public virtual void OnEnable()
 	{
 		m_deactivateTimer = 0;
 		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	public virtual void Update()
+    private void Start()
+    {
+        if (m_pooler == null)
+        {
+            m_pooler = ObjectPooler.instance;
+        }
+        m_pooler.AddObjectToDespawn(this.gameObject);   
+    }
+
+    private void OnDisable()
+    {
+        if (m_pooler == null)
+        {
+            m_pooler = ObjectPooler.instance;
+        }
+    }
+
+    public virtual void Update()
 	{
 		RemoveAfterTime();
 	}
@@ -44,7 +64,7 @@ public class Bullet_Base : MonoBehaviour, IPauseable
 		{
 			m_deactivateTimer = 0;
 
-			ObjectPooler.instance.ReturnToPool(gameObject);
+            m_pooler.ReturnToPool(gameObject);
 		}
 	}
 
