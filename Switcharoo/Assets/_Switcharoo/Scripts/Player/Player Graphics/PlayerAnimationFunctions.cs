@@ -13,7 +13,7 @@ public class PlayerAnimationFunctions : MonoBehaviour
 
 	public void AnimationJump()
 	{
-		m_player.JumpMaxVelocity();
+		m_player.EvaluateJumpOnAnimationFinish();
 	}
 
 	public void AnimationDisableSwapping()

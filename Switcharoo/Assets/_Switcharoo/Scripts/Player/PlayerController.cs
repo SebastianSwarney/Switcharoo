@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour, IPauseable
     float m_gravity;
     float m_maxJumpVelocity;
     float m_minJumpVelocity;
+	private bool m_holdingJump;
     [Space]
     #endregion
 
@@ -304,6 +305,7 @@ public class PlayerController : MonoBehaviour, IPauseable
     #region Jump Code
     public void OnJumpInputDown()
     {
+		m_holdingJump = true;
         m_bufferTimer = m_bufferTime;
 
         if (m_wallSliding)
@@ -334,13 +336,26 @@ public class PlayerController : MonoBehaviour, IPauseable
 
     public void OnJumpInputUp()
     {
-        m_bufferTimer = 0;
+		m_holdingJump = false;
+		m_bufferTimer = 0;
 
         if (m_velocity.y > m_minJumpVelocity)
         {
 			JumpMinVelocity();
         }
     }
+
+	public void EvaluateJumpOnAnimationFinish()
+	{
+		if (m_holdingJump)
+		{
+			JumpMaxVelocity();
+		}
+		else
+		{
+			JumpMinVelocity();
+		}
+	}
 
 	public void JumpMaxVelocityMultiplied(float p_jumpVelocityMultiplier)
 	{
