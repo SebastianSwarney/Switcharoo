@@ -11,6 +11,11 @@ public class PlayerAnimationFunctions : MonoBehaviour
 		m_player = GetComponentInParent<PlayerController>();
 	}
 
+	public void AnimationJump()
+	{
+		m_player.JumpMaxVelocity();
+	}
+
 	public void AnimationDisableSwapping()
 	{
 		m_player.DisableSwapping();

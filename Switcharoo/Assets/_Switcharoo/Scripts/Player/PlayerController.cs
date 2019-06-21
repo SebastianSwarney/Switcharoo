@@ -290,7 +290,7 @@ public class PlayerController : MonoBehaviour, IPauseable
             }
             else
             {
-				JumpMaxVelocity();
+				//JumpMaxVelocity();
             }
 		}
 		else if (controller.collisions.below && !m_isLanded)
@@ -306,7 +306,9 @@ public class PlayerController : MonoBehaviour, IPauseable
     {
         m_bufferTimer = m_bufferTime;
 
-        if (m_wallSliding)
+		m_playerJumped.Invoke();
+
+		if (m_wallSliding)
         {
             if (m_wallDirX == m_directionalInput.x)
             {
@@ -327,8 +329,9 @@ public class PlayerController : MonoBehaviour, IPauseable
 
         if (!controller.collisions.below && m_graceTimer <= m_graceTime && m_velocity.y <= 0)
         {
-			JumpMaxVelocity();
-            m_graceTimer = m_graceTime;
+			//JumpMaxVelocity();
+			
+			m_graceTimer = m_graceTime;
         }
     }
 
@@ -338,7 +341,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 
         if (m_velocity.y > m_minJumpVelocity)
         {
-			JumpMinVelocity();
+			//JumpMinVelocity();
         }
     }
 
@@ -356,7 +359,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 		if (m_states.m_movementControllState == MovementControllState.MovementEnabled)
 		{
 			m_velocity.y = m_maxJumpVelocity;
-			m_playerJumped.Invoke();
+			//m_playerJumped.Invoke();
 		}
 	}
 

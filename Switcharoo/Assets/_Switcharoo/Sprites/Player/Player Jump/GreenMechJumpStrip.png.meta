@@ -1,0 +1,749 @@
+fileFormatVersion: 2
+guid: 81f672a2aa92de8498abafae681cfbc4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6866457581865747299
+    second: GreenMechJumpStrip_0
+  - first:
+      213: -7277388496369215298
+    second: GreenMechJumpStrip_1
+  - first:
+      213: 8437650376558742061
+    second: GreenMechJumpStrip_2
+  - first:
+      213: 5917961494798136145
+    second: GreenMechJumpStrip_3
+  - first:
+      213: 2209754355748832170
+    second: GreenMechJumpStrip_4
+  - first:
+      213: 4261336861091462308
+    second: GreenMechJumpStrip_5
+  - first:
+      213: 5376564430924041905
+    second: GreenMechJumpStrip_6
+  - first:
+      213: -2376633483379909871
+    second: GreenMechJumpStrip_7
+  - first:
+      213: -8561749087449003035
+    second: GreenMechJumpStrip_8
+  - first:
+      213: 2673544807806034151
+    second: GreenMechJumpStrip_9
+  - first:
+      213: 8659213289707506022
+    second: GreenMechJumpStrip_10
+  - first:
+      213: -2572587564208777612
+    second: GreenMechJumpStrip_11
+  - first:
+      213: 4315137826739617519
+    second: GreenMechJumpStrip_12
+  - first:
+      213: -950772226529643573
+    second: GreenMechJumpStrip_13
+  - first:
+      213: -1957969693588764709
+    second: GreenMechJumpStrip_14
+  - first:
+      213: 3182277808746234543
+    second: GreenMechJumpStrip_15
+  - first:
+      213: -2802670330944270271
+    second: GreenMechJumpStrip_16
+  - first:
+      213: -898774965669744249
+    second: GreenMechJumpStrip_17
+  - first:
+      213: -7218612166346067358
+    second: GreenMechJumpStrip_18
+  - first:
+      213: 1271161544915443081
+    second: GreenMechJumpStrip_19
+  - first:
+      213: -5311994787350346787
+    second: GreenMechJumpStrip_20
+  - first:
+      213: -3128851610604616670
+    second: GreenMechJumpStrip_21
+  - first:
+      213: -5091835890346185953
+    second: GreenMechJumpStrip_22
+  - first:
+      213: -7615789133708748639
+    second: GreenMechJumpStrip_23
+  - first:
+      213: -8837951974880259497
+    second: GreenMechJumpStrip_24
+  - first:
+      213: -86173042711129353
+    second: GreenMechJumpStrip_25
+  - first:
+      213: 7226152743351051521
+    second: GreenMechJumpStrip_26
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3cfc4804f6879b4d929bc7d90af8fa1
+      internalID: 6866457581865747299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0556f58abcc0b040bb16aaaeab76794
+      internalID: -7277388496369215298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_2
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea12e61da784d34583347212842b60a
+      internalID: 8437650376558742061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_3
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1fba71a988fb3f46ab28c421249c83d
+      internalID: 5917961494798136145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_4
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a9523b0ee77bd4c9f74e49d49c98c6
+      internalID: 2209754355748832170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_5
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77fda33b403f86741a4a62ffb06a7866
+      internalID: 4261336861091462308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_6
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b09475c20f47444b200f42ff936607
+      internalID: 5376564430924041905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_7
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 351e5750dc6018b46afefd3225068c9e
+      internalID: -2376633483379909871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_8
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21708eeeff8d0594d82bd5685635e1f1
+      internalID: -8561749087449003035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_9
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82e2edd5669c694e90464b23d1d5e69
+      internalID: 2673544807806034151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_10
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab117939e366ac44bb905a1ded2d2453
+      internalID: 8659213289707506022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_11
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee403b9bf3e6a75489a06adb14d41832
+      internalID: -2572587564208777612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_12
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d84866f3303f842af2ac96e57ae28e
+      internalID: 4315137826739617519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_13
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e7deed6337ab348b57df52c33aff20
+      internalID: -950772226529643573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_14
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab268c3ede3173349b79f7be72ac1d44
+      internalID: -1957969693588764709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_15
+      rect:
+        serializedVersion: 2
+        x: 2010
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70a097156526ad4aba93d3f1b6af4aa
+      internalID: 3182277808746234543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_16
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fda2c5432674e438042e5416ecb334
+      internalID: -2802670330944270271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_17
+      rect:
+        serializedVersion: 2
+        x: 2278
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e11b56a31142ee4f961a7a4bf9103f9
+      internalID: -898774965669744249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_18
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2f45d1a21e5a34aafb930ab854c619
+      internalID: -7218612166346067358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_19
+      rect:
+        serializedVersion: 2
+        x: 2546
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d35413ab37b7041a63507c8b62f1e4
+      internalID: 1271161544915443081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_20
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4359fdf6579944bbb43d5fd50a58a9
+      internalID: -5311994787350346787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_21
+      rect:
+        serializedVersion: 2
+        x: 2814
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17420a9399d98944a9c378a64a586539
+      internalID: -3128851610604616670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_22
+      rect:
+        serializedVersion: 2
+        x: 2948
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c225542c571877344bb5dafcdb77478f
+      internalID: -5091835890346185953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_23
+      rect:
+        serializedVersion: 2
+        x: 3082
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29963aa46242e244693c74dac08546da
+      internalID: -7615789133708748639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_24
+      rect:
+        serializedVersion: 2
+        x: 3215
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8baa2c7f4af825e49ba5f1bac3afaf48
+      internalID: -8837951974880259497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_25
+      rect:
+        serializedVersion: 2
+        x: 3350
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f27c1fc549d17a4da5ca87f7b36acb7
+      internalID: -86173042711129353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMechJumpStrip_26
+      rect:
+        serializedVersion: 2
+        x: 3484
+        y: 0
+        width: 134
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47761193, y: 0.45890412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8baa64d4a3f16304a9bdf4a54a3463a6
+      internalID: 7226152743351051521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8f7fa5f84f79937498ca55fc2d8bac35
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
