@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShotEnergy
   guid: 11d3eb3453535549802ea6bb392e8179
   Banks:
-  - {fileID: 3973190288588187734}
+  - {fileID: 4004211751913067884}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -676,7 +676,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShotBallistic
   guid: 7183ae29badcc649a13865e552f64b02
   Banks:
-  - {fileID: 3973190288588187734}
+  - {fileID: 4004211751913067884}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1176,17 +1176,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 3060593750653169670}
-  - {fileID: 3973190288588187734}
+  - {fileID: 4004211751913067884}
   EditorEvents:
   - {fileID: -9183830813937762439}
   - {fileID: -3971691143648405350}
   - {fileID: 7876838488869506827}
   - {fileID: 7154245158634735873}
   MasterBanks:
-  - {fileID: 3973190288588187734}
+  - {fileID: 4004211751913067884}
   StringsBanks:
   - {fileID: 3060593750653169670}
-  stringsBankWriteTime: 636965508952078479
+  stringsBankWriteTime: 636967164394919680
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636965508952078479
+  lastModified: 636967164394919680
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1634,6 +1634,26 @@ MonoBehaviour:
   Path: C:\Users\sebas\Desktop\Switcharoo\Project File\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
     Bank.bank
   lastModified: 636965508951888998
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 461088
+  Exists: 1
+--- !u!114 &4004211751913067884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636967164394869816
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -2042,7 +2062,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShellCasingBounce
   guid: c942937061be41479001b501522794be
   Banks:
-  - {fileID: 3973190288588187734}
+  - {fileID: 4004211751913067884}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2088,7 +2108,7 @@ MonoBehaviour:
   Path: event:/Gnomed-00
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
-  - {fileID: 3973190288588187734}
+  - {fileID: 4004211751913067884}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
