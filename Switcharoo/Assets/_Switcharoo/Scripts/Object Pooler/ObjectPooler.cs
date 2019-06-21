@@ -20,12 +20,13 @@ public class ObjectPooler : MonoBehaviour, IPauseable
     List<GameObject> m_reloadObjects = new List<GameObject>();
     #endregion
 
+
+    #region Object pooler
     void Awake()
     {
         instance = this;
         InitialGrowth();
     }
-
 
     private void Start()
     {
@@ -197,9 +198,9 @@ public class ObjectPooler : MonoBehaviour, IPauseable
         IncreasePool(newPool.name, newPool, newParent);
 
     }
-   
 
 
+    #endregion
 
 
 
@@ -216,9 +217,9 @@ public class ObjectPooler : MonoBehaviour, IPauseable
     {
         foreach (GameObject despawnMe in m_reloadObjects)
         {
-            if (!objectPool[despawnMe.name].Contains(despawnMe))
+            if (despawnMe.activeSelf)
             {
-                print("Depsawn: " + despawnMe.name);
+                ReturnToPool(despawnMe);
             }
         }
     }
@@ -248,6 +249,7 @@ public class ObjectPooler : MonoBehaviour, IPauseable
 
     public void SetPauseState(bool p_isPaused)
     {
+        DungeonManager.instance.m_playerUi.SetActive(!p_isPaused);
         foreach (IPauseable pauseMe in m_pauseableObjectsIPause)
         {
             pauseMe.SetPauseState(p_isPaused);

@@ -23,10 +23,13 @@ public class DungeonManager : MonoBehaviour
     Coroutine m_roomTransitionCoroutine;
     public RoomManager_Base m_currentRoom;
 
-    [Header("Death Screen")]
+    [Header("Cavas Objects")]
     public GameObject m_deathCanvas;
+    public GameObject m_playerUi;
 
     ObjectPooler m_pooler;
+
+    PauseMenuController m_pauser;
 
     void Awake()
     {
@@ -58,6 +61,7 @@ public class DungeonManager : MonoBehaviour
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
+        m_pauser = PauseMenuController.instance;
     }
     private void Update()
     {
@@ -67,8 +71,15 @@ public class DungeonManager : MonoBehaviour
     {
         if (m_playerHealth.m_isDead)
         {
-            m_deathCanvas.SetActive(true);
-            m_playerCont.m_states.m_inputState = PlayerController.InputState.InputDisabled;
+            if (!m_deathCanvas.activeSelf)
+            {
+                m_pauser.m_canPause = false;
+                m_playerUi.SetActive(false);
+                m_deathCanvas.SetActive(true);
+                
+                m_playerCont.m_states.m_inputState = PlayerController.InputState.InputDisabled;
+            }
+            
         }
     }
 
@@ -86,6 +97,8 @@ public class DungeonManager : MonoBehaviour
         m_pooler.DespawnObjects();
 
         m_deathCanvas.SetActive(false);
+        m_playerUi.SetActive(true);
+        m_pauser.m_canPause = true;
         m_playerCont.m_states.m_inputState = PlayerController.InputState.InputEnabled;
 
     }

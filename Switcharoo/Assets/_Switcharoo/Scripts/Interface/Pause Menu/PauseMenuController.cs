@@ -14,6 +14,8 @@ public class PauseMenuController : MonoBehaviour
 
 	[SerializeField]
 	private bool m_isPaused;
+    [HideInInspector]
+    public bool m_canPause;
 
 	public Canvas m_pauseCanvans;
 
@@ -38,6 +40,7 @@ public class PauseMenuController : MonoBehaviour
 
 	private void Update()
 	{
+        if (!m_canPause) return;
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			TogglePause();
