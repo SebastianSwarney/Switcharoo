@@ -96,7 +96,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 12288
   m_moveDir: 0
-  m_moveSpeed: 5
+  m_moveSpeed: 1.5
   m_conveyorDimensions: 3
   m_startActive: 1
   m_tilesLeft: {fileID: 7285424000477186670, guid: d25fa7bbdba95ea4d9f62e137cacdb23,

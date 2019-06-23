@@ -168,18 +168,18 @@ TextureImporter:
       name: SilverMechJumpStrip_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 9
+        y: 19
+        width: 109
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89f49e34e90531a4aaecef66646127c9
+      spriteID: dd9adab9f9588754dafa29ab4d17d1c1
       internalID: -6339126200200223412
       vertices: []
       indices: 
@@ -189,18 +189,18 @@ TextureImporter:
       name: SilverMechJumpStrip_1
       rect:
         serializedVersion: 2
-        x: 134
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 148
+        y: 18
+        width: 109
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8becbab2e9a31fc41946496134b41757
+      spriteID: 673e848c66edfb84f95e539989b603e3
       internalID: -1616454532047213519
       vertices: []
       indices: 
@@ -210,18 +210,18 @@ TextureImporter:
       name: SilverMechJumpStrip_2
       rect:
         serializedVersion: 2
-        x: 268
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 288
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34fa89b8c091bb84ab5a2ea7727e9bf4
+      spriteID: 6a3c22ec49bf1014f9612a48a83d7fea
       internalID: -1367104194857491377
       vertices: []
       indices: 
@@ -231,18 +231,18 @@ TextureImporter:
       name: SilverMechJumpStrip_3
       rect:
         serializedVersion: 2
-        x: 402
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 427
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e3a6e216c7ee94438e8dd6aeea20a0e
+      spriteID: 8ce8bcd775acbde43b9fbbb34228a5e2
       internalID: 8961916116138997173
       vertices: []
       indices: 
@@ -252,18 +252,18 @@ TextureImporter:
       name: SilverMechJumpStrip_4
       rect:
         serializedVersion: 2
-        x: 536
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 567
+        y: 17
+        width: 107
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd1980761b88faa46b086a1b9d74938d
+      spriteID: 75a5d5f2c58a42d449bb15f63935c6b0
       internalID: -946809662357636525
       vertices: []
       indices: 
@@ -273,18 +273,18 @@ TextureImporter:
       name: SilverMechJumpStrip_5
       rect:
         serializedVersion: 2
-        x: 670
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 705
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d74170faa0bc840b2a208ad91b2a03
+      spriteID: 81c2d93919e5fbd46a9f41ac4745dc33
       internalID: 4575199522836489867
       vertices: []
       indices: 
@@ -294,18 +294,18 @@ TextureImporter:
       name: SilverMechJumpStrip_6
       rect:
         serializedVersion: 2
-        x: 804
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 844
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5764659e2b41a849944bfe243cc616f
+      spriteID: c639e19519a91ee45baf2caef669b1eb
       internalID: 3906641781944417654
       vertices: []
       indices: 
@@ -315,18 +315,18 @@ TextureImporter:
       name: SilverMechJumpStrip_7
       rect:
         serializedVersion: 2
-        x: 938
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 982
+        y: 18
+        width: 109
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aa5918012269354e93447350507ad6d
+      spriteID: 92e1d34be748b644bbdc60d21fed72b0
       internalID: -1388990693038807911
       vertices: []
       indices: 
@@ -336,18 +336,18 @@ TextureImporter:
       name: SilverMechJumpStrip_8
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1121
+        y: 20
+        width: 109
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc9b97bc05133024ebd5bb57aae3a62f
+      spriteID: 2a65011d28a410a4c8e045722051e602
       internalID: -4993514180496616746
       vertices: []
       indices: 
@@ -357,18 +357,18 @@ TextureImporter:
       name: SilverMechJumpStrip_9
       rect:
         serializedVersion: 2
-        x: 1206
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1262
+        y: 12
+        width: 107
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e413213979399d4babc4d07aed8dc8e
+      spriteID: 71d44499c33f08a45a62371a7f3af564
       internalID: 1164750970235512429
       vertices: []
       indices: 
@@ -378,18 +378,18 @@ TextureImporter:
       name: SilverMechJumpStrip_10
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1401
+        y: 6
+        width: 107
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41841ae6903756049b1c1e9f39d9e03c
+      spriteID: a57b9789cb8895f4f9bbb39904131934
       internalID: 671587325123347577
       vertices: []
       indices: 
@@ -399,18 +399,18 @@ TextureImporter:
       name: SilverMechJumpStrip_11
       rect:
         serializedVersion: 2
-        x: 1474
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1540
+        y: 3
+        width: 107
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a8057d6b06a3a940bf319f96236eecf
+      spriteID: eedf47a882853dc43b2e60195c040890
       internalID: 961349182768778392
       vertices: []
       indices: 
@@ -420,18 +420,18 @@ TextureImporter:
       name: SilverMechJumpStrip_12
       rect:
         serializedVersion: 2
-        x: 1608
+        x: 1679
         y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        width: 107
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ba16c2326435ed48bd7c4c8454232cb
+      spriteID: 63be8615a6be813439a432fa7308f670
       internalID: 3759379371881229424
       vertices: []
       indices: 
@@ -441,18 +441,18 @@ TextureImporter:
       name: SilverMechJumpStrip_13
       rect:
         serializedVersion: 2
-        x: 1742
+        x: 1818
         y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        width: 107
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c6686135d7653049a4ead0fc20044ca
+      spriteID: 348d9acc4095eb343ac5c500ceea91b1
       internalID: -1666053666458927776
       vertices: []
       indices: 
@@ -462,18 +462,18 @@ TextureImporter:
       name: SilverMechJumpStrip_14
       rect:
         serializedVersion: 2
-        x: 1876
+        x: 1957
         y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        width: 107
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b11ea93801322c49a1097bc4106492c
+      spriteID: 695992c517c58d346b8e551eed9c707a
       internalID: 68058107105393986
       vertices: []
       indices: 
@@ -483,18 +483,18 @@ TextureImporter:
       name: SilverMechJumpStrip_15
       rect:
         serializedVersion: 2
-        x: 2010
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2096
+        y: 2
+        width: 107
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36924a6fffd9a7548a6416787ab4d24a
+      spriteID: 707a2666fb9233d4ab560ba54abd5a55
       internalID: -2077244286648263629
       vertices: []
       indices: 
@@ -504,18 +504,18 @@ TextureImporter:
       name: SilverMechJumpStrip_16
       rect:
         serializedVersion: 2
-        x: 2144
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2235
+        y: 5
+        width: 107
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c09383b978b039545b7200b085589f98
+      spriteID: e2d8b72e0e1cb144ba84d8d0facc790d
       internalID: 7081359594641229419
       vertices: []
       indices: 
@@ -525,18 +525,18 @@ TextureImporter:
       name: SilverMechJumpStrip_17
       rect:
         serializedVersion: 2
-        x: 2278
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2374
+        y: 11
+        width: 107
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da44ac2a763364a4196e459a83842583
+      spriteID: 89648cdb71d5b094ba096f9a9397bbb4
       internalID: -6797361876374474616
       vertices: []
       indices: 
@@ -546,18 +546,18 @@ TextureImporter:
       name: SilverMechJumpStrip_18
       rect:
         serializedVersion: 2
-        x: 2412
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2511
+        y: 19
+        width: 109
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28d1146f934a3ed4c8a8b66a93934cb2
+      spriteID: 84cce759854d237449da2cb626bd9851
       internalID: -2648771907471164211
       vertices: []
       indices: 
@@ -567,18 +567,18 @@ TextureImporter:
       name: SilverMechJumpStrip_19
       rect:
         serializedVersion: 2
-        x: 2546
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2650
+        y: 18
+        width: 109
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3f40302f6b5a3048ab5b10cfdd4b99f
+      spriteID: 0651530fc67abb14194a34b1dd86243d
       internalID: -2770664406668278719
       vertices: []
       indices: 
@@ -588,18 +588,18 @@ TextureImporter:
       name: SilverMechJumpStrip_20
       rect:
         serializedVersion: 2
-        x: 2680
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2790
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5408022bb61944498a0e070a2bdab41
+      spriteID: ac95cc2e19be4d449b742b2d87aae9fd
       internalID: -687004992691788720
       vertices: []
       indices: 
@@ -609,18 +609,18 @@ TextureImporter:
       name: SilverMechJumpStrip_21
       rect:
         serializedVersion: 2
-        x: 2814
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2929
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7066ea8a6e7a6642b8cf9e221264192
+      spriteID: d126aa9fa92450f47b336dd416823de2
       internalID: 7230718146680951811
       vertices: []
       indices: 
@@ -630,18 +630,18 @@ TextureImporter:
       name: SilverMechJumpStrip_22
       rect:
         serializedVersion: 2
-        x: 2948
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3069
+        y: 17
+        width: 107
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f9b5622168b83c4c873ef4991aded2b
+      spriteID: d9e8a4f722096d541b0a09a9afbed2ed
       internalID: -6939766883358181228
       vertices: []
       indices: 
@@ -651,18 +651,18 @@ TextureImporter:
       name: SilverMechJumpStrip_23
       rect:
         serializedVersion: 2
-        x: 3082
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3207
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 349a35fb1d926334182c6ca46ea1d54e
+      spriteID: 20ffa113f80c18f4f8f0767449fb0119
       internalID: -1359977866535974157
       vertices: []
       indices: 
@@ -672,18 +672,18 @@ TextureImporter:
       name: SilverMechJumpStrip_24
       rect:
         serializedVersion: 2
-        x: 3216
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3346
+        y: 18
+        width: 108
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee4aa66ff5f506c4c96fe3bc329e4fc7
+      spriteID: 524c314a18914224399b25c173a245d5
       internalID: 3023117319203034837
       vertices: []
       indices: 
@@ -693,18 +693,18 @@ TextureImporter:
       name: SilverMechJumpStrip_25
       rect:
         serializedVersion: 2
-        x: 3350
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3484
+        y: 18
+        width: 109
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0244dfaf69af63440b0f0dbf7c50227e
+      spriteID: 2d41aa6c046a5e944858257c432b95d7
       internalID: 1973360304049204783
       vertices: []
       indices: 
@@ -714,18 +714,18 @@ TextureImporter:
       name: SilverMechJumpStrip_26
       rect:
         serializedVersion: 2
-        x: 3484
-        y: 0
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3623
+        y: 19
+        width: 109
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8da0369af4128d24c91a09ddcf532789
+      spriteID: 704ffe2f444729a4892f9f1a765dadd9
       internalID: 2507631916300473167
       vertices: []
       indices: 

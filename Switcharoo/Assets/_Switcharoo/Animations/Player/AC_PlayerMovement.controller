@@ -35,7 +35,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Alien Landed
-  m_Speed: 10
+  m_Speed: 30
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7891259652809245499}
@@ -114,7 +114,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Alien Jump
-  m_Speed: 8
+  m_Speed: 32
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5286112225167093678}
@@ -191,7 +191,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Robot Landed
-  m_Speed: 10
+  m_Speed: 30
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7213053454257012340}
@@ -1706,7 +1706,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Robot Jump
-  m_Speed: 8
+  m_Speed: 32
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -712426591492486526}
