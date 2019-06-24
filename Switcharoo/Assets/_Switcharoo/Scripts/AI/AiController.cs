@@ -166,7 +166,7 @@ public class AiController : MonoBehaviour, IPauseable
     #endregion
 
     #region Animation Delay Events
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_jumpAnim, m_beginJump, m_isJumping, m_shootingMovement;
 
     [HideInInspector]
@@ -241,6 +241,7 @@ public class AiController : MonoBehaviour, IPauseable
             {
                 CheckForPlayer();
                 CheckState();
+
             }
         }
 

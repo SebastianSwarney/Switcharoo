@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05daf48dd1fc0004abfa670227704d88, type: 3}
-  m_Name: AI_AttackType_Shoot - Spitshot
+  m_Name: AI_AttackType_Shoot - Instant Aim
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
   m_tellTime: 2
-  m_targetStoppingDistance: 0.1
+  m_targetStoppingDistance: 1
   m_playerMoveDistanceReaction: 2
   m_distanceFromPlayer: 5
-  m_bulletsPerPattern: 3
-  m_shootBreakTime: 3
-  m_shootTriggerTime: 1
-  m_shootingMovement: {fileID: 11400000, guid: 8fa5da3ea9435ea42b846ae8dffcd6e6, type: 2}
+  m_bulletsPerPattern: 0
+  m_shootBreakTime: 2
+  m_shootTriggerTime: 0
+  m_shootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
   m_weaponComposition:
-    m_shotPattern: {fileID: 11400000, guid: 213d56b6aae586a488755803f3f3d948, type: 2}
-    m_bulletType: {fileID: -5114918403831490374, guid: b840469af62920844a6f29a2694ee043,
+    m_shotPattern: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb, type: 2}
+    m_bulletType: {fileID: 7315616157899850491, guid: d29c4385a2d5c5e4e97078efa025ea29,
       type: 3}
-    m_damageType: {fileID: 11400000, guid: 4f7ce457328c4ab40a732917b2417f58, type: 2}
+    m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+[System.Serializable]
+public class OnEnemyHurt : UnityEvent { }
 public class Health : MonoBehaviour
 {
 	public enum IceState { _0 , _25, _50, _75, _100 }
@@ -33,6 +36,8 @@ public class Health : MonoBehaviour
 
 	private float m_currentFireInterval;
 	private int m_currentEffectHitAmount;
+
+    public OnEnemyHurt m_enemyHit = new OnEnemyHurt();
 
 	public virtual void Start()
 	{
@@ -72,6 +77,7 @@ public class Health : MonoBehaviour
 		{
 			m_currentHealth -= p_damage;
 			CheckDamage();
+            m_enemyHit.Invoke();
 		}
 	}
 
