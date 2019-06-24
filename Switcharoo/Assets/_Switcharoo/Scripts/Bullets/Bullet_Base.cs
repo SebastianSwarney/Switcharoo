@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Bullet_Base : MonoBehaviour, IPauseable
 {
+	[Header("Visual Properties")]
 	public Sprite m_uiSprite;
+	public bool m_isPlayer;
+	public Sprite m_robotSprite;
+	public Sprite m_alienSprite;
+	[HideInInspector]
+	public PlayerController.PlayerType m_type;
+
 	[Header("Movement Properties")]
 	public float m_moveSpeedMultiplier = 1;
 	[HideInInspector]
@@ -28,10 +35,14 @@ public class Bullet_Base : MonoBehaviour, IPauseable
     [HideInInspector]
     public ObjectPooler m_pooler;
 
+	[HideInInspector]
+	SpriteRenderer m_renderer;
+
     public virtual void OnEnable()
 	{
 		m_deactivateTimer = 0;
 		m_rigidbody = GetComponent<Rigidbody2D>();
+		m_renderer = GetComponent<SpriteRenderer>();
 	}
 
     private void Start()
@@ -75,6 +86,30 @@ public class Bullet_Base : MonoBehaviour, IPauseable
 		m_bulletDamageAmount = p_damageAmount;
 		m_damageTargetMask = p_damageTargetMask;
 		m_obstacleMask = p_obstacleMask;
+	}
+
+	public virtual void InitializeParameters(DamageType_Base p_damageType, float p_moveSpeed, float p_damageAmount, LayerMask p_damageTargetMask, LayerMask p_obstacleMask, PlayerController.PlayerType m_playerType)
+	{
+		m_moveSpeed = p_moveSpeed * m_moveSpeedMultiplier;
+		m_damageType = p_damageType;
+		m_bulletDamageAmount = p_damageAmount;
+		m_damageTargetMask = p_damageTargetMask;
+		m_obstacleMask = p_obstacleMask;
+
+		switch (m_playerType)
+		{
+			case PlayerController.PlayerType.Robot:
+
+				m_renderer.sprite = m_robotSprite;
+
+				break;
+
+			case PlayerController.PlayerType.Alien:
+
+				m_renderer.sprite = m_alienSprite;
+
+				break;
+		}
 	}
 
 	public bool CheckCollisionLayer(LayerMask p_layerMask, Collider2D p_collision)

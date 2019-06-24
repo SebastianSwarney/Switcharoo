@@ -13,6 +13,11 @@ public class ShotPattern_Single : ShotPattern_Base
 		ShootSingleShot(p_bulletOrigin, p_bulletType, p_damageType, p_damageTargetMask, p_obstacleMask);
 	}
 
+	public override void Shoot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask, PlayerController p_player)
+	{
+		ShootSingleShot(p_bulletOrigin, p_bulletType, p_damageType, p_damageTargetMask, p_obstacleMask, p_player);
+	}
+
 	private void ShootSingleShot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		float bulletRotation = p_bulletOrigin.rotation.z + Random.Range(m_maxBulletSpread, -m_maxBulletSpread);
@@ -22,6 +27,24 @@ public class ShotPattern_Single : ShotPattern_Base
 		GameObject newBullet = ObjectPooler.instance.NewObject(p_bulletType.gameObject, p_bulletOrigin);
 
 		newBullet.transform.rotation = p_bulletOrigin.rotation * bulletRotationQuaternion;
+
+		newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_damageType, m_baseBulletSpeed, m_baseDamage, p_damageTargetMask, p_obstacleMask);
+	}
+
+	private void ShootSingleShot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask, PlayerController p_player)
+	{
+		float bulletRotation = p_bulletOrigin.rotation.z + Random.Range(m_maxBulletSpread, -m_maxBulletSpread);
+		Quaternion bulletRotationQuaternion = Quaternion.Euler(0, 0, bulletRotation);
+		GameObject newBullet = ObjectPooler.instance.NewObject(p_bulletType.gameObject, p_bulletOrigin);
+		newBullet.transform.rotation = p_bulletOrigin.rotation * bulletRotationQuaternion;
+
+		for (int i = 0; i < p_player.m_players.Length; i++)
+		{
+			if (p_player.m_players[i].m_currentRole == PlayerController.PlayerRole.Gunner)
+			{
+				newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_damageType, m_baseBulletSpeed, m_baseDamage, p_damageTargetMask, p_obstacleMask, p_player.m_players[i].m_type);
+			}
+		}
 
 		newBullet.GetComponent<Bullet_Base>().InitializeParameters(p_damageType, m_baseBulletSpeed, m_baseDamage, p_damageTargetMask, p_obstacleMask);
 	}
