@@ -1,0 +1,18 @@
+-----------------------------------------------------------------
+CHANGE LOG
+-----------------------------------------------------------------
+
+v1.1: Jan 16, 2018
+    - Upgraded to Unity 5.5.0f3.
+    - 4 new effects
+        - Nature: 4 effects
+
+v1.0: Feb 1, 2017
+    - Initial release
+    - 44 effects
+        - Fire: 5 effects.
+        - Explosions: 6 effects.
+        - Smoke: 16 effects.
+        - Water: 4 effects.
+        - Electricity: 9 effects.
+        - Light: 4 effects.

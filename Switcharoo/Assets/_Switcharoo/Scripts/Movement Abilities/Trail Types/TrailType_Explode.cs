@@ -6,6 +6,7 @@ using UnityEngine;
 public class TrailType_Explode : TrailType_Base
 {
 	[Header("Explosion Properites")]
+	public ParticleSystem m_explosionVisual;
 	public float m_explosionRadius;
 
 	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
@@ -36,6 +37,10 @@ public class TrailType_Explode : TrailType_Base
 	private void Explode(Vector3 p_explosionOrigin, LayerMask p_damageTargetMask)
 	{
 		DebugExtension.DebugCircle(p_explosionOrigin, Vector3.forward, Color.yellow, m_explosionRadius, 0.1f);
+
+		ParticleSystem newParticleSystem = Instantiate(m_explosionVisual, p_explosionOrigin, Quaternion.identity);
+		ParticleSystem.ShapeModule shapeModule = newParticleSystem.shape;
+		shapeModule.radius = m_explosionRadius;
 
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_explosionOrigin, m_explosionRadius, p_damageTargetMask);
 		foreach (Collider2D collider in colliders)

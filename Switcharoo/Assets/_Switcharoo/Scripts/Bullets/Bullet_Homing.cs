@@ -46,8 +46,8 @@ public class Bullet_Homing : Bullet_Base
 		m_rigidbody.velocity = transform.right * m_moveSpeed;
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		m_damageType.OnContact(this, collision.collider, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+		m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 	}
 }
