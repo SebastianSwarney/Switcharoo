@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Are you sure you want to quit? All progress will not be saved!
+  m_Text: Are you sure you want to quit? All progress will be lost!
 --- !u!1 &83370328278259744
 GameObject:
   m_ObjectHideFlags: 0

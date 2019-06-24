@@ -456,6 +456,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2440844054878156606, guid: 0fa73c241ae581844ab05d1d8bd48a51,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440844055116664732, guid: 0fa73c241ae581844ab05d1d8bd48a51,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440844054592320790, guid: 0fa73c241ae581844ab05d1d8bd48a51,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440844053826031454, guid: 0fa73c241ae581844ab05d1d8bd48a51,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2440844054592320791, guid: 0fa73c241ae581844ab05d1d8bd48a51,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
