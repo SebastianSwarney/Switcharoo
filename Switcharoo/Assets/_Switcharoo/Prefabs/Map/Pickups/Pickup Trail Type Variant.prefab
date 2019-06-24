@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8914240141590040897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827562054233817117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4092b7ee71a3a92429ec8b5d999d0aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerLayer:
+    serializedVersion: 2
+    m_Bits: 12288
+  m_itemIconRenderer: {fileID: 7827562053099708071}
+  m_switchItemTime: 1
+  m_currentItem: 0
+  m_amountOfItems: 0
+  m_trailTypes:
+  - {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
+  - {fileID: 11400000, guid: 67fe97535c831de48b3e7de132ed15f6, type: 2}
+  - {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323, type: 2}
+  - {fileID: 11400000, guid: 06f4b7386a4d49f4ca807cbea01bb2cd, type: 2}
+--- !u!1001 &5510093636462726689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2366323573321059900, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_Name
+      value: Pickup Trail Type Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059888, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a815910d33de8748a023630906e713f, type: 3}
+--- !u!1 &7827562054233817117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2366323573321059900, guid: 0a815910d33de8748a023630906e713f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5510093636462726689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7827562053099708071 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2366323574351171718, guid: 0a815910d33de8748a023630906e713f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5510093636462726689}
+  m_PrefabAsset: {fileID: 0}
