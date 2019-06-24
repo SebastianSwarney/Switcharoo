@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05daf48dd1fc0004abfa670227704d88, type: 3}
-  m_Name: AI_AttackType_Shoot - Instant Aim
+  m_Name: AI_AttackType_Shoot - Instant Aim_Spit
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
   m_tellTime: 2
@@ -23,6 +23,6 @@ MonoBehaviour:
   m_shootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
   m_weaponComposition:
     m_shotPattern: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb, type: 2}
-    m_bulletType: {fileID: 7315616157899850491, guid: d29c4385a2d5c5e4e97078efa025ea29,
+    m_bulletType: {fileID: 7315616157899850491, guid: d6f105e8aeba44d4e958f0a351aaca4e,
       type: 3}
     m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
