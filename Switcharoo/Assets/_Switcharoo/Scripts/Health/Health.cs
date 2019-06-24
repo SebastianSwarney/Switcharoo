@@ -34,6 +34,8 @@ public class Health : MonoBehaviour
 	private float m_currentFireInterval;
 	private int m_currentEffectHitAmount;
 
+	public ParticleSystem m_fireParticalEffect;
+
 	public virtual void Start()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D>();
@@ -101,6 +103,8 @@ public class Health : MonoBehaviour
 	{
 		m_onFire = true;
 
+		m_fireParticalEffect.Play();
+
 		int amountOfEffects = 0;
 
 		while (amountOfEffects < m_currentEffectHitAmount)
@@ -122,6 +126,8 @@ public class Health : MonoBehaviour
 		}
 
 		m_currentFireState = FireState._0;
+
+		m_fireParticalEffect.Stop();
 
 		m_onFire = false;
 	}
