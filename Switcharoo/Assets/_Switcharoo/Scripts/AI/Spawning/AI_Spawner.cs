@@ -60,11 +60,18 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     bool m_isPaused;
 
+    public enum SpawnerType { Alien, Robot }
+    [Header("Visual")]
+    public SpawnerType m_spawnerType;
+    public RuntimeAnimatorController m_alienAnim, m_robotAnim;
+    //SpriteRenderer m_spriteRender;
+
     [Header("Events")]
     public OnSpawnerDeath m_spawnerDestroyed = new OnSpawnerDeath();
 
     private void Start()
     {
+        GetComponent<Animator>().runtimeAnimatorController = (m_spawnerType == SpawnerType.Alien) ? m_alienAnim : m_robotAnim;
         ObjectPooler.instance.AddObjectToPauser(this.gameObject);
         if (m_aiBoundsFromSpawner != null)
         {
