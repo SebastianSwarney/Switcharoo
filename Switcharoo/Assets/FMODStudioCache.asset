@@ -657,7 +657,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 17504
-  Exists: 1
+  Exists: 0
 --- !u!114 &-4892927498635242388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +876,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 852
+--- !u!114 &-3319405617713472123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\sebas\Desktop\Switcharoo\Project File\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636965508951888998
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 461088
+  Exists: 1
 --- !u!114 &-3082616891751799756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1096,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 896
   Exists: 1
+--- !u!114 &-1648199150715309625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShotBallistic
+  guid: 7183ae29badcc649a13865e552f64b02
+  Banks:
+  - {fileID: -3319405617713472123}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3500
 --- !u!114 &-1441308449505216413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,14 +1368,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 3060593750653169670}
-  - {fileID: -5455234193820048569}
+  - {fileID: -3319405617713472123}
   EditorEvents:
   - {fileID: 7876838488869506827}
+  - {fileID: 2289686117401954955}
+  - {fileID: -1648199150715309625}
+  - {fileID: 7972256464066079946}
   MasterBanks:
-  - {fileID: -5455234193820048569}
+  - {fileID: -3319405617713472123}
   StringsBanks:
   - {fileID: 3060593750653169670}
-  stringsBankWriteTime: 636926691382106047
+  stringsBankWriteTime: 636965508952078479
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -1620,6 +1666,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 362
+--- !u!114 &2289686117401954955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShotEnergy
+  guid: 11d3eb3453535549802ea6bb392e8179
+  Banks:
+  - {fileID: -3319405617713472123}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 852
 --- !u!114 &2365404408460688384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1716,11 +1785,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636926691382106047
+  lastModified: 636965508952078479
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 720
+    Value: 896
   Exists: 1
 --- !u!114 &3313045838773106609
 MonoBehaviour:
@@ -2363,7 +2432,7 @@ MonoBehaviour:
   Path: event:/Gnomed-00
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
-  - {fileID: -5455234193820048569}
+  - {fileID: -3319405617713472123}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2391,6 +2460,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 461088
   Exists: 1
+--- !u!114 &7972256464066079946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShellCasingBounce
+  guid: c942937061be41479001b501522794be
+  Banks:
+  - {fileID: -3319405617713472123}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1671
 --- !u!114 &8244991225235072140
 MonoBehaviour:
   m_ObjectHideFlags: 0
