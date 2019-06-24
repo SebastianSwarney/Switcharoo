@@ -269,7 +269,7 @@ MonoBehaviour:
   m_rotateTarget: {fileID: 1419149068456260768}
   m_layerObstacleMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8388864
   m_particleSystem: {fileID: 8146465313863612837, guid: 3689c343225729e4f93f5b832aa0d798,
     type: 3}
   m_startActive: 1
