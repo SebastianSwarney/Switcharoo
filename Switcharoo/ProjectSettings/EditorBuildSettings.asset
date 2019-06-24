@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Switcharoo/Scenes/Menus/SplashScreen.unity
+    guid: 8e0636af379ac2f4c9ccf48f83db1d34
+  - enabled: 1
     path: Assets/_Switcharoo/Scenes/Menus/StartScreen.unity
     guid: c6a9c2defa293784f89c01285e8eaa3e
   - enabled: 1

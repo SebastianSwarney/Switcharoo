@@ -1,4 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine;
 public class LoadNewScene : MonoBehaviour
 {
@@ -15,4 +16,7 @@ public class LoadNewScene : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+    
 }

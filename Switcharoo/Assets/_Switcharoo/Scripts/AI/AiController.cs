@@ -41,7 +41,7 @@ public class AiController : MonoBehaviour, IPauseable
 
     public Enemy_Base m_enemyType;
     public bool m_spawnedOnSpawnerDestroy = false;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject m_target;
 
     public GameObject m_deathParticle;
@@ -80,6 +80,7 @@ public class AiController : MonoBehaviour, IPauseable
 
     [HideInInspector]
     public float m_visualTellTimer;
+
     float m_currentShootTimer, m_currentShootDelay;
 
 
@@ -92,8 +93,10 @@ public class AiController : MonoBehaviour, IPauseable
     public float m_idleSpeed, m_attackSpeed;
     public int m_currentForward = 1;
 
+    [Header("Bounds")]
     public AI_Bounds m_aiBounds;
-    public List<Transform> m_patrolPoints;
+    [Header("Patrol points")]
+    public List<Transform> m_patrolPoints;  
     Queue<Transform> m_patrolPointOrder;
 
     [HideInInspector]
@@ -125,13 +128,14 @@ public class AiController : MonoBehaviour, IPauseable
     public Transform m_shootAltOrigin;
     [HideInInspector]
     public bool m_fireAlt;
-
+    [HideInInspector]
     public bool m_canSwitchToAlt;
     #endregion
 
     #region respawn Variables
     Vector3 m_respawnPos;
     int m_startingForward;
+    [HideInInspector]
     public bool m_died = false;
     #endregion
 
@@ -167,8 +171,9 @@ public class AiController : MonoBehaviour, IPauseable
 
     [HideInInspector]
     public bool m_startShootAnim, m_inShootingAnim;
-    //[HideInInspector]
+    [HideInInspector]
     public int m_bulletsPerPattern;
+    [HideInInspector]
     public int m_currentBulletAmount;
 
     [HideInInspector]
@@ -181,10 +186,6 @@ public class AiController : MonoBehaviour, IPauseable
     #region Pause Settings
     Vector3 m_pausedVelocity;
     bool m_isPaused;
-    #endregion
-
-    #region DEbugging Variablers
-    public bool m_playerInZone;
     #endregion
 
 
