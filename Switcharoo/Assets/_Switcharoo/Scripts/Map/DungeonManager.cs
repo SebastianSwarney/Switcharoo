@@ -46,6 +46,8 @@ public class DungeonManager : MonoBehaviour
 
         m_playerHealth = m_playerGameObject.GetComponent<Health>();
         m_playerCont = m_playerGameObject.GetComponent<PlayerController>();
+
+        m_playerUi.GetComponent<PlayerInterfaceController>().m_player = m_playerCont;
         if (instance == null)
         {
             instance = this;

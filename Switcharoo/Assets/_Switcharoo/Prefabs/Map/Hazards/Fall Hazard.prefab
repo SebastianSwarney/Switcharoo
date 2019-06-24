@@ -155,3 +155,6 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 2, y: 2, z: 0}
   m_drawBoundsInWorldSpace: 0
+  m_lifespan: 3
+  m_fadeTimeStart: 2
+  m_endColor: {r: 1, g: 1, b: 1, a: 0}
