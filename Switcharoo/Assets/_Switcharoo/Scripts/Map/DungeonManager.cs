@@ -71,6 +71,7 @@ public class DungeonManager : MonoBehaviour
     {
         if (m_playerHealth.m_isDead)
         {
+            m_playerCont.m_directionalInput = Vector2.zero;
             if (!m_deathCanvas.activeSelf)
             {
                 m_pauser.m_canPause = false;
