@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3180871680ec61d49b4dc302bb80d43d, type: 3}
-  m_Color: {r: 0.764151, g: 0.18409547, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d820aa9736a56404bbc502bac5cf65fc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,3 +158,6 @@ MonoBehaviour:
   m_lifespan: 3
   m_fadeTimeStart: 2
   m_endColor: {r: 1, g: 1, b: 1, a: 0}
+  m_hazardType: 0
+  m_alienSprite: {fileID: 21300000, guid: 638dd8696abab5b4798c28f65375b0e0, type: 3}
+  m_robotSprite: {fileID: 21300000, guid: 089c535ea8faed646ba3d555c5535117, type: 3}

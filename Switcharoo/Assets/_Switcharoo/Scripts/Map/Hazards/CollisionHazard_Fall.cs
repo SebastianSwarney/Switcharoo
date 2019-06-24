@@ -17,6 +17,11 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
     public Color m_endColor;
     Color m_startColor;
 
+
+    [Header("Visuals")]
+    public AI_Spawner.RaceType m_hazardType;
+    public Sprite m_alienSprite;
+    public Sprite m_robotSprite;
     //IActivatable value
     Vector3 m_StartPos;
 
@@ -32,6 +37,8 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
         m_StartPos = transform.position;
         m_sRend = GetComponent<SpriteRenderer>();
         m_startColor = m_sRend.color;
+
+        m_sRend.sprite = (m_hazardType == AI_Spawner.RaceType.Alien) ? m_alienSprite : m_robotSprite;
     }
 
 	private void Update()
