@@ -180,7 +180,7 @@ MonoBehaviour:
     m_layerString: PlayerRobot
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 1536
+      m_Bits: 2098688
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 16640
@@ -198,7 +198,7 @@ MonoBehaviour:
     m_layerString: PlayerAlien
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 2560
+      m_Bits: 4196864
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 33024

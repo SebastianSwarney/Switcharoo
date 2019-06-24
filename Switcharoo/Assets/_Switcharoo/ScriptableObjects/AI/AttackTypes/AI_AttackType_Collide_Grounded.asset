@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: AI_AttackType_Collide_Grounded
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
-  m_attackRadius: 10
-  m_tellTime: 1
+  m_tellTime: 0
   m_targetStoppingDistance: 0.1
   m_playerMoveDistanceReaction: 4
   m_targetOvershootPlayerDistance: 3

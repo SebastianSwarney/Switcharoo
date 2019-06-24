@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: AI_AttackType_Shoot_Pathfinder - Instant Aim
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: bd9bf3053fe98f54bb10b85d7d22ebb3, type: 2}
-  m_attackRadius: 12
   m_tellTime: 2
   m_targetStoppingDistance: 0.1
   m_playerMoveDistanceReaction: 3

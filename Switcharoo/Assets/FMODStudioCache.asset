@@ -721,6 +721,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 461088
   Exists: 1
+--- !u!114 &-4042892321304384719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShotEnergy
+  guid: 11d3eb3453535549802ea6bb392e8179
+  Banks:
+  - {fileID: 8458566421590420927}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 852
 --- !u!114 &-3971691143648405350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +899,29 @@ MonoBehaviour:
   MinDistance: 5
   MaxDistance: 600
   Length: 16673
+--- !u!114 &-2892151089798182425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShellCasingBounce
+  guid: c942937061be41479001b501522794be
+  Banks:
+  - {fileID: 8458566421590420927}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1671
 --- !u!114 &-2875631996243807628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,14 +1305,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 3060593750653169670}
-  - {fileID: 7668731267434419387}
+  - {fileID: 8458566421590420927}
   EditorEvents:
   - {fileID: 7876838488869506827}
+  - {fileID: -4042892321304384719}
+  - {fileID: 5350506588594991316}
+  - {fileID: -2892151089798182425}
   MasterBanks:
-  - {fileID: 7668731267434419387}
+  - {fileID: 8458566421590420927}
   StringsBanks:
   - {fileID: 3060593750653169670}
-  stringsBankWriteTime: 636926691382106047
+  stringsBankWriteTime: 636967164394919680
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -1650,11 +1699,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636926691382106047
+  lastModified: 636967164394919680
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 720
+    Value: 896
   Exists: 1
 --- !u!114 &3313045838773106609
 MonoBehaviour:
@@ -2008,6 +2057,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 88000
+--- !u!114 &5350506588594991316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/ShotBallistic
+  guid: 7183ae29badcc649a13865e552f64b02
+  Banks:
+  - {fileID: 8458566421590420927}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3500
 --- !u!114 &5461801145522610527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2274,7 +2346,7 @@ MonoBehaviour:
   Path: event:/Gnomed-00
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
-  - {fileID: 7668731267434419387}
+  - {fileID: 8458566421590420927}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2344,6 +2416,26 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 2308
+  Exists: 1
+--- !u!114 &8458566421590420927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: A:\Libraries\_Projects\Switcheroo\_UnityFile\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636967164394869816
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 461088
   Exists: 1
 --- !u!114 &8815174344251772656
 MonoBehaviour:
