@@ -40,7 +40,7 @@ public class TrailType_Explode : TrailType_Base
 
 		ParticleSystem newParticleSystem = Instantiate(m_explosionVisual, p_explosionOrigin, Quaternion.identity);
 		ParticleSystem.ShapeModule shapeModule = newParticleSystem.shape;
-		shapeModule.radius = m_explosionRadius;
+		shapeModule.radius = m_explosionRadius - 1f;
 
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_explosionOrigin, m_explosionRadius, p_damageTargetMask);
 		foreach (Collider2D collider in colliders)
