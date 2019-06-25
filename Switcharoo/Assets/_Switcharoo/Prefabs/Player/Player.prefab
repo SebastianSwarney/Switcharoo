@@ -180,7 +180,7 @@ MonoBehaviour:
     m_layerString: PlayerRobot
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 1536
+      m_Bits: 2098688
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 16640
@@ -198,7 +198,7 @@ MonoBehaviour:
     m_layerString: PlayerAlien
     m_damageTargetMask:
       serializedVersion: 2
-      m_Bits: 2560
+      m_Bits: 4196864
     m_obstacleMask:
       serializedVersion: 2
       m_Bits: 33024
@@ -317,6 +317,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Landed
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2094756095}
+        m_MethodName: LandedParticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: OnPlayerLand, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_playerRespawned:
@@ -448,6 +459,9 @@ MonoBehaviour:
   m_invulnerableTime: 1
   m_movementControllLossTime: 0.3
   m_hurtColor: {r: 1, g: 0, b: 0, a: 1}
+  m_landedParticle: {fileID: 5835075415712630249, guid: 249f3d44aac0399499b43d0ed5aa3d49,
+    type: 3}
+  m_landedParticleOffset: {x: 0, y: -1, z: 0}
 --- !u!114 &6769283472543434872
 MonoBehaviour:
   m_ObjectHideFlags: 0

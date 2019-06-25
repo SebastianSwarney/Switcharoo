@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -202,7 +202,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_checkWallDistance
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -210,6 +210,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4698223260410642679, guid: 5a3f2ad80f057bf499ac7718f9547aae,
         type: 3}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_movementFlipLayer.m_Bits
+      value: 6291712
+      objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Sprite
@@ -232,11 +237,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2433419486793325122, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0aba6f4370b89334ea681a3d29e96f95, type: 2}
-    - target: {fileID: 1323150876451145197, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Controller
       value: 
@@ -281,6 +281,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323150876451145197, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0aba6f4370b89334ea681a3d29e96f95, type: 2}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}

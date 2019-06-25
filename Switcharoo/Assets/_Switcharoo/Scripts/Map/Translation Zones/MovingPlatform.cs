@@ -32,7 +32,7 @@ public class MovingPlatform : PlayerRaycastController, IActivatable, IPauseable
     public override void Start()
     {
         base.Start();
-
+        m_startPos = transform.position;
         ObjectPooler.instance.AddObjectToPauser(gameObject);
 
         globalWaypoints = new Vector3[localWaypoints.Length];

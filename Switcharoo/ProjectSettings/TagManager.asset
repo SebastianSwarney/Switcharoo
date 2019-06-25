@@ -26,9 +26,9 @@ TagManager:
   - TranslationZones
   - BulletsPlayer
   - BulletsEnemy
-  - 
-  - 
-  - 
+  - RushRobot
+  - RushAlien
+  - Pipes
   - 
   - 
   - 

@@ -1,6 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class OnEnemyHurt : UnityEvent { }
+
+
+[System.Serializable]
+public class OnEnemyFrozen : UnityEvent { }
+
+[System.Serializable]
+public class OnEffectActivate : UnityEvent { }
 
 public class Health : MonoBehaviour
 {
@@ -34,6 +45,15 @@ public class Health : MonoBehaviour
 	private float m_currentFireInterval;
 	private int m_currentEffectHitAmount;
 
+    public OnEnemyHurt m_enemyHit = new OnEnemyHurt();
+    public OnEnemyFrozen m_enemyFrozen = new OnEnemyFrozen();
+
+	public OnEffectActivate m_onFireActivate;
+	public OnEffectActivate m_onFireDeactivate;
+
+	public OnEffectActivate m_onIceActivate;
+	public OnEffectActivate m_onIceDeactivate;
+
 	public virtual void Start()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D>();
@@ -43,17 +63,21 @@ public class Health : MonoBehaviour
 
 	private void Update()
 	{
-		SlowFromIce();
 		SetFireProperites();
 		SetSelfOnFire();
 	}
+    private void LateUpdate()
+    {
+        SlowFromIce(); 
+    }
 
-	public void ResetHealth()
+    public void ResetHealth()
 	{
 		m_currentHealth = m_maxHealth;
 		m_currentIceState = IceState._0;
 		m_currentFireState = FireState._0;
         m_isDead = false;
+		m_onIceDeactivate.Invoke();
 	}
 
 	public void HealDamage(float p_healAmount)
@@ -72,6 +96,7 @@ public class Health : MonoBehaviour
 		{
 			m_currentHealth -= p_damage;
 			CheckDamage();
+            m_enemyHit.Invoke();
 		}
 	}
 
@@ -103,14 +128,14 @@ public class Health : MonoBehaviour
 
 		int amountOfEffects = 0;
 
+		m_onFireActivate.Invoke();
+
 		while (amountOfEffects < m_currentEffectHitAmount)
 		{
 			amountOfEffects++;
 
 			if (m_currentFireState == FireState._100)
 			{
-				Debug.Log("I exploaded");
-
 				amountOfEffects = m_currentEffectHitAmount;
 			}
 
@@ -122,6 +147,8 @@ public class Health : MonoBehaviour
 		}
 
 		m_currentFireState = FireState._0;
+
+		m_onFireDeactivate.Invoke();
 
 		m_onFire = false;
 	}
@@ -211,6 +238,7 @@ public class Health : MonoBehaviour
 			case IceState._100:
 
 				m_rigidbody.velocity *= 0f;
+                m_enemyFrozen.Invoke();
 
 				break;
 		}
@@ -223,6 +251,8 @@ public class Health : MonoBehaviour
 			case IceState._0:
 
 				m_currentIceState = IceState._25;
+
+				m_onIceActivate.Invoke();
 
 				return;
 

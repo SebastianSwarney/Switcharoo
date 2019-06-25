@@ -294,26 +294,12 @@ PrefabInstance:
       propertyPath: m_flipTransform
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_damageTargetMask.m_Bits
-      value: 12288
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+      propertyPath: m_deathParticle
+      value: 
+      objectReference: {fileID: 927512681004298319, guid: 37dfa2009ba0aad4db5990ba897dfb2a,
         type: 3}
-      propertyPath: m_obstacleMask.m_Bits
-      value: 49408
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.379
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.647
-      objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Sprite
@@ -334,11 +320,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829598, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_Name
-      value: Turret Origin
       objectReference: {fileID: 0}
     - target: {fileID: 2433419486793325122, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -375,6 +356,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 1.71875
+      objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_damageTargetMask.m_Bits
+      value: 12288
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_obstacleMask.m_Bits
+      value: 49408
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.379
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829598, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret Origin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370924326335409647, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548078513444975570, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}

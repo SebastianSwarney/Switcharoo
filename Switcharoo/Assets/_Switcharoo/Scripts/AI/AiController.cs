@@ -31,6 +31,9 @@ public class OnEnemyGrounded : UnityEvent<bool> { }
 
 [System.Serializable]
 public class OnPaused : UnityEvent<bool> { }
+[System.Serializable]
+public class OnRespawn : UnityEvent { }
+
 
 ///<Summary>
 ///The brain of the AI. This is essentially an empty shell that requires components to function
@@ -41,7 +44,7 @@ public class AiController : MonoBehaviour, IPauseable
 
     public Enemy_Base m_enemyType;
     public bool m_spawnedOnSpawnerDestroy = false;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject m_target;
 
     public GameObject m_deathParticle;
@@ -80,9 +83,11 @@ public class AiController : MonoBehaviour, IPauseable
 
     [HideInInspector]
     public float m_visualTellTimer;
+
     float m_currentShootTimer, m_currentShootDelay;
 
-
+    [HideInInspector]
+    public bool m_isFrozen = false;
 
 
 
@@ -92,8 +97,10 @@ public class AiController : MonoBehaviour, IPauseable
     public float m_idleSpeed, m_attackSpeed;
     public int m_currentForward = 1;
 
+    [Header("Bounds")]
     public AI_Bounds m_aiBounds;
-    public List<Transform> m_patrolPoints;
+    [Header("Patrol points")]
+    public List<Transform> m_patrolPoints;  
     Queue<Transform> m_patrolPointOrder;
 
     [HideInInspector]
@@ -125,13 +132,14 @@ public class AiController : MonoBehaviour, IPauseable
     public Transform m_shootAltOrigin;
     [HideInInspector]
     public bool m_fireAlt;
-
+    [HideInInspector]
     public bool m_canSwitchToAlt;
     #endregion
 
     #region respawn Variables
     Vector3 m_respawnPos;
     int m_startingForward;
+    [HideInInspector]
     public bool m_died = false;
     #endregion
 
@@ -146,6 +154,7 @@ public class AiController : MonoBehaviour, IPauseable
     public OnEnemyShootAltBreak m_enemyShootAltBreak = new OnEnemyShootAltBreak();
     public OnEnemyGrounded m_enemyGrounded = new OnEnemyGrounded();
     public OnPaused m_enemyPaused = new OnPaused();
+    public OnRespawn m_enemyRespawned = new OnRespawn();
     #endregion
 
     #region Physics Settings
@@ -162,13 +171,14 @@ public class AiController : MonoBehaviour, IPauseable
     #endregion
 
     #region Animation Delay Events
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_jumpAnim, m_beginJump, m_isJumping, m_shootingMovement;
 
     [HideInInspector]
     public bool m_startShootAnim, m_inShootingAnim;
-    //[HideInInspector]
+    [HideInInspector]
     public int m_bulletsPerPattern;
+    [HideInInspector]
     public int m_currentBulletAmount;
 
     [HideInInspector]
@@ -181,10 +191,6 @@ public class AiController : MonoBehaviour, IPauseable
     #region Pause Settings
     Vector3 m_pausedVelocity;
     bool m_isPaused;
-    #endregion
-
-    #region DEbugging Variablers
-    public bool m_playerInZone;
     #endregion
 
 
@@ -225,6 +231,8 @@ public class AiController : MonoBehaviour, IPauseable
         m_currentForward = m_startingForward;
         m_jumpAnim = false;
         FlipEnemy(m_currentForward);
+        m_isFrozen = false;
+        m_enemyRespawned.Invoke();
     }
 
     private void Update()
@@ -238,11 +246,14 @@ public class AiController : MonoBehaviour, IPauseable
             }
             else
             {
-                CheckForPlayer();
-                CheckState();
+                if (!m_isFrozen)
+                {
+                    CheckForPlayer();
+                    CheckState();
+                }
+
             }
         }
-
     }
 
     /// <summary>
@@ -623,5 +634,10 @@ public class AiController : MonoBehaviour, IPauseable
     }
 
 
+    public void FreezeEnemy()
+    {
+        m_isFrozen = true;
+
+    }
 
 }

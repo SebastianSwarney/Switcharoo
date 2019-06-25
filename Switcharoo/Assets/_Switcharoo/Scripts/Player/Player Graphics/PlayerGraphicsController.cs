@@ -14,11 +14,19 @@ public class PlayerGraphicsController : MonoBehaviour
 	private int m_currentType;
 	private SpriteRenderer m_spriteRenderer;
 
+    private ObjectPooler m_pooler;
+
+    [Header("Particle Systems")]
+    public GameObject m_landedParticle;
+    public Vector3 m_landedParticleOffset;
+
+
 	private void Start()
 	{
 		m_player = GetComponent<PlayerController>();
 		m_animationController = GetComponentInChildren<Animator>();
 		m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        m_pooler = ObjectPooler.instance;
 	}
 
 	private void Update()
@@ -102,4 +110,12 @@ public class PlayerGraphicsController : MonoBehaviour
 		m_player.m_states.m_damageState = PlayerController.DamageState.Vulnerable;
 		m_spriteRenderer.color = Color.white;
 	}
+
+
+    #region Particle Systems
+    public void LandedParticle()
+    {
+        m_pooler.NewObject(m_landedParticle, transform.position + m_landedParticleOffset, Quaternion.identity);   
+    }
+    #endregion
 }

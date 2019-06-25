@@ -21,14 +21,14 @@ public class Hazard_PlayerSpecificTerrain : MonoBehaviour, IActivatable
 
     private void Update()
     {
-        Collider2D hit = Physics2D.OverlapBox(OriginPosition() + transform.position, new Vector3(m_numOfPlatforms.x - .1f, m_numOfPlatforms.y - .1f, 0), 0, (m_playerTarget == PlayerController.PlayerType.Robot) ? m_alienLayerMask : m_robotLayerMask);
+        Collider2D hit = Physics2D.OverlapBox(OriginPosition() + transform.position, new Vector3(m_numOfPlatforms.x - .1f, m_numOfPlatforms.y - .1f, 0), 0, (m_playerTarget == PlayerController.PlayerType.Alien) ? m_alienLayerMask : m_robotLayerMask);
         if (hit != null)
         {
-            gameObject.layer = LayerMask.NameToLayer((m_playerTarget == PlayerController.PlayerType.Robot) ? m_alienPlayerLayer : m_humanPlayerLayer);
+            gameObject.layer = LayerMask.NameToLayer((m_playerTarget == PlayerController.PlayerType.Alien) ? m_alienPlayerLayer : m_humanPlayerLayer);
         }
         else
         {
-            gameObject.layer = LayerMask.NameToLayer((m_playerTarget == PlayerController.PlayerType.Robot) ? m_humanPlayerLayer : m_alienPlayerLayer);
+            gameObject.layer = LayerMask.NameToLayer((m_playerTarget == PlayerController.PlayerType.Alien) ? m_humanPlayerLayer : m_alienPlayerLayer);
         }
 
     }
@@ -38,12 +38,12 @@ public class Hazard_PlayerSpecificTerrain : MonoBehaviour, IActivatable
         if (!m_displayGizmos) return;
         switch (m_playerTarget)
         {
-            case (PlayerController.PlayerType.Robot):
-                Gizmos.color = m_humanColor;
-                break;
-
             case (PlayerController.PlayerType.Alien):
                 Gizmos.color = m_alienColor;
+                break;
+
+            case (PlayerController.PlayerType.Robot):
+                Gizmos.color = m_humanColor;
                 break;
         }
         Vector3 newPos = OriginPosition() + transform.position;
@@ -87,13 +87,14 @@ public class Hazard_PlayerSpecificTerrain : MonoBehaviour, IActivatable
         GameObject platformType = m_alienPlatform;
         switch (m_playerTarget)
         {
-            case (PlayerController.PlayerType.Robot):
-                currentLayer = m_humanPlayerLayer;
-                platformType = m_humanPlatform;
-                break;
             case (PlayerController.PlayerType.Alien):
-                currentLayer = m_alienPlayerLayer;
+                currentLayer = m_humanPlayerLayer;
                 platformType = m_alienPlatform;
+                break;
+            case (PlayerController.PlayerType.Robot):
+                currentLayer = m_alienPlayerLayer;
+                
+                platformType = m_humanPlatform;
                 break;
         }
 

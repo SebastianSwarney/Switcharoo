@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5948296371411213610}
+  - component: {fileID: 8319353519710110319}
+  - component: {fileID: 1125491104351460940}
   - component: {fileID: 5948296371411213609}
   - component: {fileID: 5948296371411213611}
   - component: {fileID: 5948296371411213608}
-  - component: {fileID: 8319353519710110319}
   m_Layer: 9
   m_Name: AiSpawner
   m_TagString: Untagged
@@ -34,81 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5948296371411213609
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5948296371411213604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &5948296371411213611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5948296371411213604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f73b03023067b46ac9dcddd1fac869, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isDead: 0
-  m_maxHealth: Infinity
-  m_currentHealth: Infinity
-  m_canTakeDamage: 1
-  m_currentIceState: 0
-  m_currentFireState: 0
-  m_onFire: 0
-  m_minFireHitsPerEffect: 0
-  m_maxFireHitsPerEffect: 0
-  m_maxFireEffectInterval: 0
-  m_minFireEffectInterval: 0
-  m_fireDamageAmount: 0
---- !u!114 &5948296371411213608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5948296371411213604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f436fe1c41ef4546aaa21959837a8f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_showGizmos: 1
-  m_triggerStart: 0
-  m_playerLayers:
-    serializedVersion: 2
-    m_Bits: 12288
-  m_triggerOrigin: {x: 0, y: 0}
-  m_triggerDimensions: {x: 0, y: 0}
-  m_spawnManager: {fileID: 0}
-  m_currentSpawnDir: 0
-  m_spawnerRadius: 0
-  m_spawnPerMinute: 0
-  m_maxEnemyFromThis: 0
-  m_enemyToSpawn: {fileID: 0}
-  m_aiBoundsFromSpawner: {fileID: 0}
-  m_spawnedEnemyPatrolPoints: []
-  m_currentEnemyNumber: 0
-  m_disableObjectsOnDisable: []
-  m_spawnOnDestroyed: []
-  m_spawnerDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OnSpawnerDeath, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!212 &8319353519710110319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -146,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 76efadd8bb7ad2745bedf1cd56885156, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,6 +80,107 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1125491104351460940
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948296371411213604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &5948296371411213609
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948296371411213604}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &5948296371411213611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948296371411213604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f73b03023067b46ac9dcddd1fac869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isDead: 0
+  m_maxHealth: 50
+  m_currentHealth: Infinity
+  m_canTakeDamage: 1
+  m_currentIceState: 0
+  m_currentFireState: 0
+  m_onFire: 0
+  m_minFireHitsPerEffect: 0
+  m_maxFireHitsPerEffect: 0
+  m_maxFireEffectInterval: 0
+  m_minFireEffectInterval: 0
+  m_fireDamageAmount: 0
+  m_enemyHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &5948296371411213608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948296371411213604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f436fe1c41ef4546aaa21959837a8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_showGizmos: 1
+  m_triggerStart: 0
+  m_playerLayers:
+    serializedVersion: 2
+    m_Bits: 12288
+  m_triggerOrigin: {x: 0, y: 0}
+  m_triggerDimensions: {x: 0, y: 0}
+  m_spawnManager: {fileID: 0}
+  m_currentSpawnDir: 0
+  m_spawnerRadius: 1.45
+  m_spawnPerMinute: 5
+  m_maxEnemyFromThis: 5
+  m_enemyToSpawn: {fileID: 0}
+  m_aiBoundsFromSpawner: {fileID: 0}
+  m_spawnedEnemyPatrolPoints: []
+  m_currentEnemyNumber: 0
+  m_disableObjectsOnDisable: []
+  m_spawnOnDestroyed: []
+  m_spawnerType: 0
+  m_alienAnim: {fileID: 9100000, guid: 130e1a2814e6e4b419d36f70062799ba, type: 2}
+  m_robotAnim: {fileID: 9100000, guid: 632a2ec3e911c49419d742e95fb3cf75, type: 2}
+  m_spawnerDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnSpawnerDeath, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

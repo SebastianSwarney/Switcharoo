@@ -10,16 +10,11 @@ PrefabInstance:
     - target: {fileID: 1400589148580030306, guid: 38b045dbd60fee044bec53c5f826b297,
         type: 3}
       propertyPath: m_Name
-      value: Room 005 - KoTH
+      value: Room 005 - KoTH Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 1400589148580030304, guid: 38b045dbd60fee044bec53c5f826b297,
+    - target: {fileID: 1400589148580030306, guid: 38b045dbd60fee044bec53c5f826b297,
         type: 3}
-      propertyPath: displayGizmos
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1400589148580030304, guid: 38b045dbd60fee044bec53c5f826b297,
-        type: 3}
-      propertyPath: displayPaths
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400589148580030305, guid: 38b045dbd60fee044bec53c5f826b297,

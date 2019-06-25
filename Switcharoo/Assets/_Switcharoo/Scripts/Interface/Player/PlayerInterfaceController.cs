@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerInterfaceController : MonoBehaviour
 {
-	public Text m_runnerAmmoText;
 	public Image m_healthBar;
 	public Image m_gunnerAmmoBar;
+	public Image m_runnerAmmoBar;
 
 	public WeaponCompositionDisplay m_weaponCompositionDisplay;
 	public MovementCompositionDisplay m_movementCompostionDisplay;
@@ -26,16 +26,10 @@ public class PlayerInterfaceController : MonoBehaviour
 	{
 		UpdateBarDisplay(m_healthBar, m_health.m_currentHealth / m_health.m_maxHealth);
 		UpdateBarDisplay(m_gunnerAmmoBar, (float)m_shootController.m_ammoCount / (float)m_shootController.m_currentWeaponComposition.m_shotPattern.m_ammoCount);
+		UpdateBarDisplay(m_runnerAmmoBar, (float)m_player.m_movementAbilityAmmoCount / (float)m_player.m_currentMovementAbilityComposition.m_movementType.m_ammoCount);
 
 		m_weaponCompositionDisplay.UpdateDisplay(m_shootController.m_currentWeaponComposition);
 		m_movementCompostionDisplay.UpdateDisplay(m_player.m_currentMovementAbilityComposition);
-
-		UpdateAmmoText();
-	}
-
-	private void UpdateAmmoText()
-	{
-		m_runnerAmmoText.text = m_player.m_movementAbilityAmmoCount.ToString();
 	}
 
 	private void UpdateBarDisplay(Image p_targetImage, float p_displayValue)

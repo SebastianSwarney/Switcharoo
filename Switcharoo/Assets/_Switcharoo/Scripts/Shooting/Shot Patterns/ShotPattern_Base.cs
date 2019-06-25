@@ -12,4 +12,6 @@ public abstract class ShotPattern_Base : ScriptableObject
 	public int m_ammoCount;
 
 	public abstract void Shoot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask);
+
+	public abstract void Shoot(Transform p_bulletOrigin, Bullet_Base p_bulletType, DamageType_Base p_damageType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask, PlayerController p_player);
 }

@@ -43,6 +43,7 @@ public class PlatformerNavigation : MonoBehaviour
     public void CreateGrid()
     {
         m_nodeDiameter = m_nodeRadius * 2;
+        m_gridOrigin = transform.position + m_gridOrigin;
         m_gridSize = new Vector2Int(Mathf.RoundToInt(m_gridWorldSize.x / m_nodeDiameter), Mathf.RoundToInt(m_gridWorldSize.y / m_nodeDiameter));
         m_nodeGrid = new Node[m_gridSize.x, m_gridSize.y];
         Vector2 p_worldBottomLeft = m_gridOrigin - Vector3.right * m_gridWorldSize.x / 2 - Vector3.up * m_gridWorldSize.y / 2;
@@ -401,7 +402,7 @@ public class PlatformerNavigation : MonoBehaviour
     {
         if (!displayGizmos) return;
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(m_gridOrigin + transform.position, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 0) );
+        Gizmos.DrawWireCube((Application.isPlaying) ? m_gridOrigin : m_gridOrigin + transform.position, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 0) );
 
 
         if (m_nodeGrid != null)

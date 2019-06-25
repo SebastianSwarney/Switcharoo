@@ -24,6 +24,8 @@ public class DungeonManager : MonoBehaviour
     [Header("Cavas Objects")]
     public GameObject m_deathCanvas;
     public GameObject m_playerUi;
+    public UnityEngine.EventSystems.EventSystem m_eventSystem;
+    public GameObject m_deathScreenButton, m_pauseScreenButton;
 
     ObjectPooler m_pooler;
 
@@ -46,6 +48,8 @@ public class DungeonManager : MonoBehaviour
 
         m_playerHealth = m_playerGameObject.GetComponent<Health>();
         m_playerCont = m_playerGameObject.GetComponent<PlayerController>();
+
+        m_playerUi.GetComponent<PlayerInterfaceController>().m_player = m_playerCont;
         if (instance == null)
         {
             instance = this;
@@ -69,12 +73,13 @@ public class DungeonManager : MonoBehaviour
     {
         if (m_playerHealth.m_isDead)
         {
+            m_playerCont.m_directionalInput = Vector2.zero;
             if (!m_deathCanvas.activeSelf)
             {
                 m_pauser.m_canPause = false;
                 m_playerUi.SetActive(false);
                 m_deathCanvas.SetActive(true);
-                
+                m_eventSystem.SetSelectedGameObject(m_deathScreenButton);
                 m_playerCont.m_states.m_inputState = PlayerController.InputState.InputDisabled;
             }
         }
@@ -97,6 +102,7 @@ public class DungeonManager : MonoBehaviour
         m_playerUi.SetActive(true);
         m_pauser.m_canPause = true;
         m_playerCont.m_states.m_inputState = PlayerController.InputState.InputEnabled;
+        m_eventSystem.SetSelectedGameObject(m_pauseScreenButton);
 
     }
 

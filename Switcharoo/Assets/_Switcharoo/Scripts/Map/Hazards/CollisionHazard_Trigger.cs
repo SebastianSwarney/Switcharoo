@@ -21,6 +21,11 @@ public class CollisionHazard_Trigger : CollisionHazard_Base, IActivatable
 		{
 			m_triggerArea.center = m_triggerArea.center + transform.position;
 		}
+
+		if (!m_isTriggered)
+		{
+			m_canDamage = false;
+		}
 	}
 
 	private void Update()

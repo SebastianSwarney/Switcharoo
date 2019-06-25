@@ -125,7 +125,7 @@ public class ConveyorBelt : TranslationZone_Base, IActivatable, IPauseable
 
     public void ResetMe()
     {
-        m_isActive = !m_startActive;
+        m_isActive = m_startActive;
         foreach (Animator anim in m_tileAnimations)
         {
             anim.enabled = m_startActive;

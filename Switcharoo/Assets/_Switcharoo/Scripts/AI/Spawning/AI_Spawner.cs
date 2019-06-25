@@ -29,6 +29,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     public SpawnDir m_currentSpawnDir;
     public float m_spawnerRadius;
+    public Vector3 m_spawnerOffset;
     public float m_spawnPerMinute;
     public int m_maxEnemyFromThis;
     float m_timeToSpawn;
@@ -40,8 +41,10 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
 
 
-    public AI_Bounds m_aiBoundsFromSpawner;
+    
     PlatformerNavigation m_navGrid;
+    [Header("Bounds & Patrol Points")]
+    public AI_Bounds m_aiBoundsFromSpawner;
     public List<Transform> m_spawnedEnemyPatrolPoints;
 
 
@@ -60,11 +63,17 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     bool m_isPaused;
 
+    public enum RaceType { Alien, Robot }
+    [Header("Visual")]
+    public RaceType m_spawnerType;
+    public RuntimeAnimatorController m_alienAnim, m_robotAnim;
+
     [Header("Events")]
     public OnSpawnerDeath m_spawnerDestroyed = new OnSpawnerDeath();
 
     private void Start()
     {
+        GetComponent<Animator>().runtimeAnimatorController = (m_spawnerType == RaceType.Alien) ? m_alienAnim : m_robotAnim;
         ObjectPooler.instance.AddObjectToPauser(this.gameObject);
         if (m_aiBoundsFromSpawner != null)
         {

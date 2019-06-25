@@ -52,7 +52,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -182,11 +182,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0509b1e839a2e6d40831251876b94621, type: 2}
-    - target: {fileID: 1323150876451145197, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0509b1e839a2e6d40831251876b94621, type: 2}
     - target: {fileID: 3078133998956346259, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Color.r
@@ -222,6 +217,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 1.296875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323150876451145197, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0509b1e839a2e6d40831251876b94621, type: 2}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}

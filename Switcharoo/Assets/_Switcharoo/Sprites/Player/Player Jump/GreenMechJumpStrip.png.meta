@@ -168,18 +168,18 @@ TextureImporter:
       name: GreenMechJumpStrip_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 9
+        y: 17
+        width: 111
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1549e01c9cd4850478964db9d6523481
+      spriteID: 7e01cce6827c356438714d4e9e73897c
       internalID: 6866457581865747299
       vertices: []
       indices: 
@@ -189,18 +189,18 @@ TextureImporter:
       name: GreenMechJumpStrip_1
       rect:
         serializedVersion: 2
-        x: 134
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 148
+        y: 17
+        width: 111
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa40419aab524434985e8eaca2de7030
+      spriteID: bb0b094c611844e46ba623d14edb4d3f
       internalID: -7277388496369215298
       vertices: []
       indices: 
@@ -210,18 +210,18 @@ TextureImporter:
       name: GreenMechJumpStrip_2
       rect:
         serializedVersion: 2
-        x: 268
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 287
+        y: 17
+        width: 111
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23dbd00069d9b7c4e852ea245e4577fb
+      spriteID: d0f4a4c923fe6cc4f838054e2c3d2813
       internalID: 8437650376558742061
       vertices: []
       indices: 
@@ -231,18 +231,18 @@ TextureImporter:
       name: GreenMechJumpStrip_3
       rect:
         serializedVersion: 2
-        x: 402
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 425
+        y: 17
+        width: 112
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8bdf91008e97074fb3e181a45451c84
+      spriteID: 9a9e16a1e5652e84db04dfd40a4c8091
       internalID: 5917961494798136145
       vertices: []
       indices: 
@@ -252,18 +252,18 @@ TextureImporter:
       name: GreenMechJumpStrip_4
       rect:
         serializedVersion: 2
-        x: 536
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 563
+        y: 17
+        width: 113
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a161aa0a4a1beb94383843956f7754b5
+      spriteID: 9d303169eac9448499b01b2fa4a2f6dd
       internalID: 2209754355748832170
       vertices: []
       indices: 
@@ -273,18 +273,18 @@ TextureImporter:
       name: GreenMechJumpStrip_5
       rect:
         serializedVersion: 2
-        x: 670
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 702
+        y: 17
+        width: 113
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 374a31795ba6db74a89585ab5869617e
+      spriteID: c5641d1fb277cd845b652bc766b2cf8b
       internalID: 4261336861091462308
       vertices: []
       indices: 
@@ -294,18 +294,18 @@ TextureImporter:
       name: GreenMechJumpStrip_6
       rect:
         serializedVersion: 2
-        x: 804
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 840
+        y: 17
+        width: 114
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8633872cd5de624439afc64db3f4ea12
+      spriteID: c49b7aee66878684fbb2c6a9b700c1a9
       internalID: 5376564430924041905
       vertices: []
       indices: 
@@ -315,18 +315,18 @@ TextureImporter:
       name: GreenMechJumpStrip_7
       rect:
         serializedVersion: 2
-        x: 938
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 979
+        y: 17
+        width: 114
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1b7656a17489f24baf2ec55dc31a1d4
+      spriteID: b65ff749418c0a64d9ed93165c93d181
       internalID: -2376633483379909871
       vertices: []
       indices: 
@@ -336,18 +336,18 @@ TextureImporter:
       name: GreenMechJumpStrip_8
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1119
+        y: 17
+        width: 113
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4719ccd428218b488f62e3a7d12875f
+      spriteID: 7d7f954cf60f87a4388406337beb8956
       internalID: -8561749087449003035
       vertices: []
       indices: 
@@ -357,18 +357,18 @@ TextureImporter:
       name: GreenMechJumpStrip_9
       rect:
         serializedVersion: 2
-        x: 1206
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1262
+        y: 13
+        width: 109
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62de9fef33b93664f8d36b0d7bfde99a
+      spriteID: 1c4ea091c8c21e74a8178b84cf8e7015
       internalID: 2673544807806034151
       vertices: []
       indices: 
@@ -378,18 +378,18 @@ TextureImporter:
       name: GreenMechJumpStrip_10
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1405
+        y: 10
+        width: 105
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6964888017c69fa42b2786f8584d7df1
+      spriteID: 39f1e39879e737b48915e956f5191983
       internalID: 8659213289707506022
       vertices: []
       indices: 
@@ -399,18 +399,18 @@ TextureImporter:
       name: GreenMechJumpStrip_11
       rect:
         serializedVersion: 2
-        x: 1474
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1545
+        y: 7
+        width: 111
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62f1fdfb80b713d4e897ae93cb54d073
+      spriteID: 8091e8b1654961240972a8e45af54e69
       internalID: -2572587564208777612
       vertices: []
       indices: 
@@ -420,18 +420,18 @@ TextureImporter:
       name: GreenMechJumpStrip_12
       rect:
         serializedVersion: 2
-        x: 1608
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1684
+        y: 5
+        width: 104
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e38736a670fbbd40bee5d2fcf2bad9e
+      spriteID: fc1d3eeec2f5dbb4c87b16f0412bd1ec
       internalID: 4315137826739617519
       vertices: []
       indices: 
@@ -441,18 +441,18 @@ TextureImporter:
       name: GreenMechJumpStrip_13
       rect:
         serializedVersion: 2
-        x: 1742
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1823
+        y: 2
+        width: 104
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bf265e9f2af4b04e809f66e7ee20a94
+      spriteID: edaff110738d43541a64c14d9ad3c472
       internalID: -950772226529643573
       vertices: []
       indices: 
@@ -462,18 +462,18 @@ TextureImporter:
       name: GreenMechJumpStrip_14
       rect:
         serializedVersion: 2
-        x: 1876
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 1962
+        y: 0
+        width: 108
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40f17d78a7430b747b829f930bcc56fb
+      spriteID: d0e095f661db22248a45e15ce16f2aee
       internalID: -1957969693588764709
       vertices: []
       indices: 
@@ -483,18 +483,18 @@ TextureImporter:
       name: GreenMechJumpStrip_15
       rect:
         serializedVersion: 2
-        x: 2010
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2101
+        y: 0
+        width: 108
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07990cf9a5c33e349b5fa3d7899fadcc
+      spriteID: ff1a92e6ad453bc42815688da9dc496f
       internalID: 3182277808746234543
       vertices: []
       indices: 
@@ -504,18 +504,18 @@ TextureImporter:
       name: GreenMechJumpStrip_16
       rect:
         serializedVersion: 2
-        x: 2144
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2240
+        y: 0
+        width: 108
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1711c5d6c19be6448de8607ede2a0cd
+      spriteID: f048b838007657844af83dda6e7aa302
       internalID: -2802670330944270271
       vertices: []
       indices: 
@@ -525,18 +525,18 @@ TextureImporter:
       name: GreenMechJumpStrip_17
       rect:
         serializedVersion: 2
-        x: 2278
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2379
+        y: 3
+        width: 104
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d649ea15fa1eaba4b82645e89fd7cf6d
+      spriteID: f45a250a18585a245a0f038c8a40c8c5
       internalID: -898774965669744249
       vertices: []
       indices: 
@@ -546,18 +546,18 @@ TextureImporter:
       name: GreenMechJumpStrip_18
       rect:
         serializedVersion: 2
-        x: 2412
-        y: 1
-        width: 134
+        x: 2518
+        y: 6
+        width: 104
         height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f508d29750691249a08c6f1bf4ce0c5
+      spriteID: 442d87d835fb7d1438dd63dbe72e4428
       internalID: -7218612166346067358
       vertices: []
       indices: 
@@ -567,18 +567,18 @@ TextureImporter:
       name: GreenMechJumpStrip_19
       rect:
         serializedVersion: 2
-        x: 2546
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2655
+        y: 10
+        width: 106
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9d45d9acbab4a34090c22db63aaecd8
+      spriteID: b6a34cd4f18ab064882a2fbcf610e9af
       internalID: 1271161544915443081
       vertices: []
       indices: 
@@ -588,18 +588,18 @@ TextureImporter:
       name: GreenMechJumpStrip_20
       rect:
         serializedVersion: 2
-        x: 2680
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2788
+        y: 15
+        width: 112
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 913439e3d4c50a247aa441bd7b263571
+      spriteID: 1eed48ae3adb60d44b8099f94269f48b
       internalID: -5311994787350346787
       vertices: []
       indices: 
@@ -609,18 +609,18 @@ TextureImporter:
       name: GreenMechJumpStrip_21
       rect:
         serializedVersion: 2
-        x: 2814
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 2927
+        y: 15
+        width: 112
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c936605f7e20e64986969b853f61529
+      spriteID: d358d4cb28be80e48ba2747a0cef1232
       internalID: -3128851610604616670
       vertices: []
       indices: 
@@ -630,18 +630,18 @@ TextureImporter:
       name: GreenMechJumpStrip_22
       rect:
         serializedVersion: 2
-        x: 2948
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3067
+        y: 16
+        width: 111
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbd95c096d3911646a2adaba55cae47d
+      spriteID: 1baf231a8fa5fa44e8a3fa22af50edd0
       internalID: -5091835890346185953
       vertices: []
       indices: 
@@ -651,18 +651,18 @@ TextureImporter:
       name: GreenMechJumpStrip_23
       rect:
         serializedVersion: 2
-        x: 3082
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3206
+        y: 16
+        width: 111
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d62d513c8f5d640a750db6cccaa265
+      spriteID: 03a51593002e9814f9dfcc47265d435f
       internalID: -7615789133708748639
       vertices: []
       indices: 
@@ -672,18 +672,18 @@ TextureImporter:
       name: GreenMechJumpStrip_24
       rect:
         serializedVersion: 2
-        x: 3216
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3346
+        y: 16
+        width: 110
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0fac88bd25fabb409b91bd21a533ddd
+      spriteID: a803ecff32f89d348b03147600948788
       internalID: -8837951974880259497
       vertices: []
       indices: 
@@ -693,18 +693,18 @@ TextureImporter:
       name: GreenMechJumpStrip_25
       rect:
         serializedVersion: 2
-        x: 3350
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3486
+        y: 17
+        width: 109
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ba660e3b628864499bed93e8ec95273
+      spriteID: 33e29b6f4d41aee4da39b1e2d92cc949
       internalID: -86173042711129353
       vertices: []
       indices: 
@@ -714,18 +714,18 @@ TextureImporter:
       name: GreenMechJumpStrip_26
       rect:
         serializedVersion: 2
-        x: 3484
-        y: 1
-        width: 134
-        height: 145
-      alignment: 9
-      pivot: {x: 0.4776119, y: 0.4589041}
+        x: 3626
+        y: 17
+        width: 108
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cff700bdbe9223c49b02bc19552b28eb
+      spriteID: c2ec2d0862ee26a49a148897f4722faf
       internalID: 7226152743351051521
       vertices: []
       indices: 

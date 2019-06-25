@@ -6,20 +6,69 @@ public abstract class Pickup_Base : MonoBehaviour
 {
 	public LayerMask m_playerLayer;
 
+	public SpriteRenderer m_itemIconRenderer;
+
+	public float m_switchItemTime;
+	private float m_switchTimer;
+
+	[HideInInspector]
+	public int m_currentItem;
+	private int m_lastItem;
+
+	[HideInInspector]
+	public int m_amountOfItems;
+	private bool m_isUsed;
+
 	public abstract void SetPickup(PlayerController p_playerRefrence);
 
-	public int RandomIndex(int p_amountOfTypes)
+	public int RandomItemSelection()
 	{
-		 return Random.Range(0, p_amountOfTypes);
+		int random = Random.Range(0, m_amountOfItems);
+		if (random == m_lastItem)
+		{
+			random = Random.Range(0, m_amountOfItems);
+		}
+		m_lastItem = random;
+		return random;
+	}
+
+	private void Update()
+	{
+		ChangeItemTimer();
+	}
+
+	private void ChangeItemTimer()
+	{
+		if (!m_isUsed)
+		{
+			m_switchTimer += Time.deltaTime;
+
+			if (m_switchTimer >= m_switchItemTime)
+			{
+				m_switchTimer = 0;
+				ChangeItem();
+			}
+		}
+	}
+
+	public virtual void ChangeItem()
+	{
+		m_currentItem = RandomItemSelection();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (CheckCollisionLayer(m_playerLayer, collision))
+		if (!m_isUsed)
 		{
-			SetPickup(collision.gameObject.GetComponent<PlayerController>());
+			if (CheckCollisionLayer(m_playerLayer, collision))
+			{
+				SetPickup(collision.gameObject.GetComponent<PlayerController>());
 
-			gameObject.SetActive(false);
+				m_itemIconRenderer.color = Color.clear;
+				m_isUsed = true;
+
+				//gameObject.SetActive(false);
+			}
 		}
 	}
 

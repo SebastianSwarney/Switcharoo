@@ -104,7 +104,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.42}
   m_EdgeRadius: 0
 --- !u!1 &1419149068456260775
 GameObject:
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d62bbdbbc5c1d3c4d9e6bd950a2ee7d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -259,6 +259,7 @@ MonoBehaviour:
   m_targetMask:
     serializedVersion: 2
     m_Bits: 12288
+  m_damageTimer: 0
   m_rigidbody: {fileID: 0}
   m_canDamage: 0
   m_renderer: {fileID: 0}
@@ -268,7 +269,9 @@ MonoBehaviour:
   m_rotateTarget: {fileID: 1419149068456260768}
   m_layerObstacleMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8388864
+  m_particleSystem: {fileID: 8146465313863612837, guid: 3689c343225729e4f93f5b832aa0d798,
+    type: 3}
   m_startActive: 1
 --- !u!120 &1419149069058994722
 LineRenderer:
@@ -287,7 +290,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f7d79da055c6f76419e3c44f003ef031, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,7 +309,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}

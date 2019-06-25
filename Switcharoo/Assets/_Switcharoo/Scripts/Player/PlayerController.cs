@@ -21,7 +21,6 @@ public class OnPlayerRespawn : UnityEvent { }
 [RequireComponent(typeof(Controller2D))]
 public class PlayerController : MonoBehaviour, IPauseable
 {
-
 	public enum MovementControllState {MovementEnabled, MovementDisabled}
 	public enum GravityState { GravityEnabled, GravityDisabled }
 	public enum DamageState { Vulnerable, Invulnerable }

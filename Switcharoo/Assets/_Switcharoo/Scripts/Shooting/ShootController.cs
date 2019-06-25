@@ -19,17 +19,27 @@ public class ShootController : MonoBehaviour
 	[HideInInspector]
     public float m_nextTimeToFire;
 	public int m_ammoCount;
-	private bool isPlayer;
+	private bool m_isPlayer;
 
 	public OnShoot m_onShootEvent = new OnShoot();
 	public OnReload m_onReloadEvent = new OnReload();
+
+	private PlayerController m_playerController;
 
 	public void Shoot(Transform p_bulletOrigin)
     {
         if (CanShoot())
         {
-            m_currentWeaponComposition.m_shotPattern.Shoot(p_bulletOrigin, m_currentWeaponComposition.m_bulletType, m_currentWeaponComposition.m_damageType, m_damageTargetMask, m_obstacleMask);
-			m_onShootEvent.Invoke();
+			if (m_isPlayer)
+			{
+				m_currentWeaponComposition.m_shotPattern.Shoot(p_bulletOrigin, m_currentWeaponComposition.m_bulletType, m_currentWeaponComposition.m_damageType, m_damageTargetMask, m_obstacleMask, m_playerController);
+				m_onShootEvent.Invoke();
+			}
+			else
+			{
+				m_currentWeaponComposition.m_shotPattern.Shoot(p_bulletOrigin, m_currentWeaponComposition.m_bulletType, m_currentWeaponComposition.m_damageType, m_damageTargetMask, m_obstacleMask);
+				m_onShootEvent.Invoke();
+			}
         }
     }
 
@@ -37,7 +47,12 @@ public class ShootController : MonoBehaviour
 	{
 		if (m_currentWeaponComposition.m_shotPattern.m_ammoCount > 0)
 		{
-			isPlayer = true;
+			m_isPlayer = true;
+
+			if (m_playerController == null)
+			{
+				m_playerController = GetComponent<PlayerController>();
+			}
 		}
 
 		m_ammoCount = m_currentWeaponComposition.m_shotPattern.m_ammoCount;
@@ -46,7 +61,7 @@ public class ShootController : MonoBehaviour
 
 	public bool CanShoot()
 	{
-		if (isPlayer)
+		if (m_isPlayer)
 		{
 			if (Time.time >= m_nextTimeToFire && m_ammoCount > 0)
 			{

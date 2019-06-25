@@ -16,6 +16,12 @@ public class Bullet_Launch : Bullet_Base
 		Launch();
 	}
 
+	public override void InitializeParameters(DamageType_Base p_damageType, float p_moveSpeed, float p_damageAmount, LayerMask p_damageTargetMask, LayerMask p_obstacleMask, PlayerController.PlayerType m_playerType)
+	{
+		base.InitializeParameters(p_damageType, p_moveSpeed, p_damageAmount, p_damageTargetMask, p_obstacleMask, m_playerType);
+		Launch();
+	}
+
 	public void Launch()
 	{
 		m_rigidbody.AddForce(transform.right * m_moveSpeed, ForceMode2D.Impulse);
@@ -30,8 +36,8 @@ public class Bullet_Launch : Bullet_Base
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		m_damageType.OnContact(this, collision.collider, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+		m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 	}
 }

@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
+[System.Serializable]
+public class FadeComplete : UnityEvent { }
 public class ColorFade : MonoBehaviour
 {
     float m_currentTime;
 
-
+    
     public List<ColorChange> m_changeColors;
-
-
+    public float m_invokeFadeCompleteTime;
+    bool m_invokedEvent;
+    public FadeComplete m_fadeComplete = new FadeComplete();
     private void OnEnable()
     {
         m_currentTime = 0;
@@ -28,6 +32,14 @@ public class ColorFade : MonoBehaviour
         foreach (ColorChange currentItem in m_changeColors)
         {
             currentItem.ChangeColor(m_currentTime);
+        }
+        if (m_currentTime > m_invokeFadeCompleteTime && !m_invokedEvent)
+        {
+            m_invokedEvent = true;
+            m_fadeComplete.Invoke();
+        }else if (m_currentTime < m_invokeFadeCompleteTime)
+        {
+            m_invokedEvent = false;
         }
     }
 

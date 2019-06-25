@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: ff9f72b63601b114c88768d22d1003a9, type: 3}
   m_trailDamageAmount: 10
-  m_explosionRadius: 5
+  m_explosionVisual: {fileID: 658332429810894688, guid: 9eb391405a534b341b84c050df0d0c07,
+    type: 3}
+  m_explosionRadius: 2

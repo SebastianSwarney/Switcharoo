@@ -24,7 +24,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
     public int m_maxAiInRoom;
 
-    //[HideInInspector]
+    [HideInInspector]
     public int m_currentAiCount;
 
     [HideInInspector]
@@ -35,8 +35,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     [HideInInspector]
     public List<AiController> m_currentEnemiesInRoom;
 
-    [HideInInspector]
-    public PlatformerNavigation m_currentNavGrid;
+
     private void Awake()
     {
         m_placedEnemies = new List<GameObject>();
@@ -50,7 +49,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     public void InitializeSpawnerManager()
     {
         m_player = DungeonManager.instance.m_playerGameObject;
-        m_currentNavGrid = m_roomBase.m_navGrid;
+
         m_currentAiCount = 0;
         m_placedEnemies.Clear();
 
@@ -83,7 +82,6 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
         foreach (AiController placedEnemy in m_currentEnemiesInRoom)
         {
             placedEnemy.gameObject.SetActive(true);
-            placedEnemy.m_agent.m_navGrid = m_currentNavGrid;
             if (placedEnemy.m_spawnedOnSpawnerDestroy)
             {
                 placedEnemy.gameObject.SetActive(false);

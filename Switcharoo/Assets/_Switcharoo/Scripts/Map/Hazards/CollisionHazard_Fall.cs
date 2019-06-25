@@ -10,7 +10,18 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 
 	private bool m_isTriggered;
 
+    public float m_lifespan;
+    public float m_fadeTimeStart;
+    float m_currentTimer;
+    SpriteRenderer m_sRend;
+    public Color m_endColor;
+    Color m_startColor;
 
+
+    [Header("Visuals")]
+    public AI_Spawner.RaceType m_hazardType;
+    public Sprite m_alienSprite;
+    public Sprite m_robotSprite;
     //IActivatable value
     Vector3 m_StartPos;
 
@@ -24,6 +35,10 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 		}
 
         m_StartPos = transform.position;
+        m_sRend = GetComponent<SpriteRenderer>();
+        m_startColor = m_sRend.color;
+
+        m_sRend.sprite = (m_hazardType == AI_Spawner.RaceType.Alien) ? m_alienSprite : m_robotSprite;
     }
 
 	private void Update()
@@ -31,7 +46,11 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 		if (!m_isTriggered)
 		{
 			CheckForTarget();
-		}
+        }
+        else
+        {
+            FadeAway();
+        }
 	}
 
 	void CheckForTarget()
@@ -42,8 +61,30 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 		{
 			m_rigidbody.isKinematic = false;
 			m_isTriggered = true;
+            m_currentTimer = 0;
 		}
 	}
+
+    void FadeAway()
+    {
+        float percent = m_currentTimer / m_fadeTimeStart;
+        if (percent >= 1)
+        {
+            percent = (m_currentTimer - m_fadeTimeStart) / (m_lifespan - m_fadeTimeStart);
+            if (percent <= 1)
+            {
+                m_sRend.color = Color.Lerp(m_startColor, m_endColor, percent);
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+            
+            
+        }
+        m_currentTimer += Time.deltaTime;
+
+    }
 
 	void OnDrawGizmos()
 	{
@@ -89,10 +130,11 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 
     public void ResetMe()
     {
-        
+        m_sRend.color = m_startColor;
         m_rigidbody.isKinematic = true;
         m_isTriggered = false;
         transform.position = m_StartPos;
+        this.gameObject.SetActive(true);
     }
     #endregion
 }
