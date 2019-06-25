@@ -31,6 +31,9 @@ public class OnEnemyGrounded : UnityEvent<bool> { }
 
 [System.Serializable]
 public class OnPaused : UnityEvent<bool> { }
+[System.Serializable]
+public class OnRespawn : UnityEvent { }
+
 
 ///<Summary>
 ///The brain of the AI. This is essentially an empty shell that requires components to function
@@ -151,6 +154,7 @@ public class AiController : MonoBehaviour, IPauseable
     public OnEnemyShootAltBreak m_enemyShootAltBreak = new OnEnemyShootAltBreak();
     public OnEnemyGrounded m_enemyGrounded = new OnEnemyGrounded();
     public OnPaused m_enemyPaused = new OnPaused();
+    public OnRespawn m_enemyRespawned = new OnRespawn();
     #endregion
 
     #region Physics Settings
@@ -228,6 +232,7 @@ public class AiController : MonoBehaviour, IPauseable
         m_jumpAnim = false;
         FlipEnemy(m_currentForward);
         m_isFrozen = false;
+        m_enemyRespawned.Invoke();
     }
 
     private void Update()

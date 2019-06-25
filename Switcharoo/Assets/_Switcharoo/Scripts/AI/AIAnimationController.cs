@@ -12,11 +12,15 @@ public class AIAnimationController : MonoBehaviour
     public Color m_startColor, m_endColor;
     SpriteRenderer m_sRend;
     Coroutine m_displayHurtCoroutine;
+
+    public Color m_frozenColor;
+    Color m_enemyInitialColor;
     private void Awake()
     {
         m_animCont = GetComponent<Animator>();
         m_aiCont = transform.parent.GetComponent<AiController>();
         m_sRend = GetComponent<SpriteRenderer>();
+        m_enemyInitialColor = m_sRend.color;
     }
 
     #region Animation Start Events
@@ -103,6 +107,24 @@ public class AIAnimationController : MonoBehaviour
         m_animCont.enabled = !p_pause;
     }
     #endregion
+
+
+    public void RespawnEnemy()
+    {
+        m_sRend.color = m_enemyInitialColor;
+        m_animCont.enabled = true;
+    }
+
+    public void FreezeEnemy()
+    {
+        m_sRend.color = m_frozenColor;
+        if (m_animCont == null)
+        {
+            m_animCont = GetComponent<Animator>();
+        }
+
+        m_animCont.enabled = false;
+    }
 
 
     public void EnemyHurt()

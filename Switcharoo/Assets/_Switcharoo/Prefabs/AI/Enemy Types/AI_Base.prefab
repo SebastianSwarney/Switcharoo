@@ -202,6 +202,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: OnPaused, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyRespawned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4273551082856193393}
+        m_MethodName: RespawnEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnRespawn, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_debugPhysicsChecks: 0
   m_circleCastRad: 0
   m_checkWallDistance: 0
@@ -278,8 +293,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 4273551082856193393}
-        m_MethodName: PauseAnimation
-        m_Mode: 6
+        m_MethodName: FreezeEnemy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5225,6 +5240,7 @@ MonoBehaviour:
   m_displayHurtTime: 1
   m_startColor: {r: 1, g: 0, b: 0, a: 1}
   m_endColor: {r: 1, g: 1, b: 1, a: 1}
+  m_frozenColor: {r: 0, g: 1, b: 0.8300319, a: 1}
 --- !u!1 &9058290525882856391
 GameObject:
   m_ObjectHideFlags: 0
