@@ -38,7 +38,6 @@ public class DamageType_Shock : DamageType_Base
 
 			foreach (Collider2D collider in initialCast)
 			{
-				//Debug.DrawLine(p_collision.ClosestPoint(p_bulletRefrence.transform.position), collider.transform.position, Color.red, 1f);
 				SpawnLightingEffects(p_collision.ClosestPoint(p_bulletRefrence.transform.position), collider.transform.position);
 			}
 
@@ -59,7 +58,6 @@ public class DamageType_Shock : DamageType_Base
 				if (i < shockedObjects.Count - 1)
 				{
 					SpawnLightingEffects(shockedObjects[i].transform.position, shockedObjects[i + 1].transform.position);
-					//Debug.DrawLine(shockedObjects[i].transform.position, shockedObjects[i + 1].transform.position, Color.red, 1f);
 				}
 			}
 
@@ -74,7 +72,6 @@ public class DamageType_Shock : DamageType_Base
 
 	public void SpawnLightingEffects(Vector3 p_startPos, Vector3 p_endPos)
 	{
-
 		Vector2 reletivePos = p_startPos - p_endPos;
 
 		float theta = Mathf.Atan2(reletivePos.y, reletivePos.x);
@@ -89,10 +86,10 @@ public class DamageType_Shock : DamageType_Base
 
 		for (int i = 0; i < effectsAmount; i++)
 		{
-			float spacing = i * (1 + m_effectSpacing);
+			float spacing = i * (m_effectsPerUnit + m_effectSpacing);
 
 			Vector3 spawnPos = p_endPos + pCircle * spacing;
-			GameObject newObject = ObjectPooler.instance.NewObject(m_lightingEffect, spawnPos, Quaternion.Euler(0 ,180 ,thetaDegrees + 90));
+			ObjectPooler.instance.NewObject(m_lightingEffect, spawnPos, Quaternion.Euler(0 ,180 , -thetaDegrees));
 		}
 	}
 }

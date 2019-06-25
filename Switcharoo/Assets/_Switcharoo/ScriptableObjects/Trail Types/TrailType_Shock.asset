@@ -19,3 +19,7 @@ MonoBehaviour:
   m_shockRadius: 5
   m_shockChainAmount: 3
   m_shockDamage: 10
+  m_lightingEffect: {fileID: 7494326978189673820, guid: 55aec48c2779e974cac38eabb3740587,
+    type: 3}
+  m_effectsPerUnit: 1
+  m_effectSpacing: 0

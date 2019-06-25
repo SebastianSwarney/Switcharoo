@@ -4839,6 +4839,31 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyFrozen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!61 &176686914
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5124,6 +5149,31 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyFrozen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!50 &311488339
 Rigidbody2D:
   serializedVersion: 4
@@ -14618,6 +14668,31 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyFrozen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!61 &734742427
 BoxCollider2D:
   m_ObjectHideFlags: 0

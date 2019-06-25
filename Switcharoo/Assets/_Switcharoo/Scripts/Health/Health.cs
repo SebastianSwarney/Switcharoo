@@ -9,6 +9,10 @@ public class OnEnemyHurt : UnityEvent { }
 
 [System.Serializable]
 public class OnEnemyFrozen : UnityEvent { }
+
+[System.Serializable]
+public class OnEffectActivate : UnityEvent { }
+
 public class Health : MonoBehaviour
 {
 	public enum IceState { _0 , _25, _50, _75, _100 }
@@ -44,6 +48,12 @@ public class Health : MonoBehaviour
     public OnEnemyHurt m_enemyHit = new OnEnemyHurt();
     public OnEnemyFrozen m_enemyFrozen = new OnEnemyFrozen();
 
+	public OnEffectActivate m_onFireActivate;
+	public OnEffectActivate m_onFireDeactivate;
+
+	public OnEffectActivate m_onIceActivate;
+	public OnEffectActivate m_onIceDeactivate;
+
 	public virtual void Start()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D>();
@@ -53,7 +63,6 @@ public class Health : MonoBehaviour
 
 	private void Update()
 	{
-		
 		SetFireProperites();
 		SetSelfOnFire();
 	}
@@ -68,6 +77,7 @@ public class Health : MonoBehaviour
 		m_currentIceState = IceState._0;
 		m_currentFireState = FireState._0;
         m_isDead = false;
+		m_onIceDeactivate.Invoke();
 	}
 
 	public void HealDamage(float p_healAmount)
@@ -118,14 +128,14 @@ public class Health : MonoBehaviour
 
 		int amountOfEffects = 0;
 
+		m_onFireActivate.Invoke();
+
 		while (amountOfEffects < m_currentEffectHitAmount)
 		{
 			amountOfEffects++;
 
 			if (m_currentFireState == FireState._100)
 			{
-				Debug.Log("I exploaded");
-
 				amountOfEffects = m_currentEffectHitAmount;
 			}
 
@@ -137,6 +147,8 @@ public class Health : MonoBehaviour
 		}
 
 		m_currentFireState = FireState._0;
+
+		m_onFireDeactivate.Invoke();
 
 		m_onFire = false;
 	}
@@ -239,6 +251,8 @@ public class Health : MonoBehaviour
 			case IceState._0:
 
 				m_currentIceState = IceState._25;
+
+				m_onIceActivate.Invoke();
 
 				return;
 
