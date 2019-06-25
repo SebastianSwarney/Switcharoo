@@ -13,7 +13,7 @@
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
 		_FillColor ("Fill Color",Color ) = (1,1,1,1)
-		[PerRenderData]_EffectAmount("Effect Amount", Range(0, 1)) = 1.0
+		[PerRendererData]_EffectAmount("Effect Amount", Range(0, 1)) = 0.0
 
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
 		[HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
