@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{00bac909-e6e6-4007-82ff-43f6c99af015}">
+        <property name="assetPath">
+            <value>Sound Effects/EnemyRobotHit/EnemyRobotHit09.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.6299999999999999</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{638c631a-49b4-48a4-9c9f-3f3acf16e073}</destination>
+        </relationship>
+    </object>
+</objects>
