@@ -20,6 +20,9 @@ public class PauseMenuController : MonoBehaviour
 	public Canvas m_pauseCanvans;
 
 	public List<IPauseable> m_pauseables = new List<IPauseable>();
+    public UnityEngine.EventSystems.EventSystem m_eventSystem;
+    public GameObject m_pauseScreenButton;
+
 
 	private void Awake()
 	{
@@ -55,7 +58,9 @@ public class PauseMenuController : MonoBehaviour
 
 		if (m_isPaused)
 		{
-			SetPause();
+            ResetPauseMenu();
+            SetPause();
+            
 		}
 		else
 		{
@@ -82,4 +87,16 @@ public class PauseMenuController : MonoBehaviour
 			pauseable.SetPauseState(false);
 		}
 	}
+
+
+    private void ResetPauseMenu()
+    {
+        Transform pauseMenu = transform.GetChild(0);
+        for (int i = 0; i < pauseMenu.childCount; i++)
+        {
+            pauseMenu.GetChild(i).gameObject.SetActive(false);
+        }
+        pauseMenu.GetChild(0).gameObject.SetActive(true);
+        m_eventSystem.SetSelectedGameObject(m_pauseScreenButton);
+    }
 }

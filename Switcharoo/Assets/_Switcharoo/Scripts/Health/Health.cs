@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class OnEnemyHurt : UnityEvent { }
+
+
+[System.Serializable]
+public class OnEnemyFrozen : UnityEvent { }
 public class Health : MonoBehaviour
 {
 	public enum IceState { _0 , _25, _50, _75, _100 }
@@ -38,6 +42,7 @@ public class Health : MonoBehaviour
 	private int m_currentEffectHitAmount;
 
     public OnEnemyHurt m_enemyHit = new OnEnemyHurt();
+    public OnEnemyFrozen m_enemyFrozen = new OnEnemyFrozen();
 
 	public virtual void Start()
 	{
@@ -48,12 +53,16 @@ public class Health : MonoBehaviour
 
 	private void Update()
 	{
-		SlowFromIce();
+		
 		SetFireProperites();
 		SetSelfOnFire();
 	}
+    private void LateUpdate()
+    {
+        SlowFromIce(); 
+    }
 
-	public void ResetHealth()
+    public void ResetHealth()
 	{
 		m_currentHealth = m_maxHealth;
 		m_currentIceState = IceState._0;
@@ -217,6 +226,7 @@ public class Health : MonoBehaviour
 			case IceState._100:
 
 				m_rigidbody.velocity *= 0f;
+                m_enemyFrozen.Invoke();
 
 				break;
 		}

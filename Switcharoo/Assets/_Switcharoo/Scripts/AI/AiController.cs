@@ -83,7 +83,8 @@ public class AiController : MonoBehaviour, IPauseable
 
     float m_currentShootTimer, m_currentShootDelay;
 
-
+    [HideInInspector]
+    public bool m_isFrozen = false;
 
 
 
@@ -239,12 +240,14 @@ public class AiController : MonoBehaviour, IPauseable
             }
             else
             {
-                CheckForPlayer();
-                CheckState();
+                if (!m_isFrozen)
+                {
+                    CheckForPlayer();
+                    CheckState();
+                }
 
             }
         }
-
     }
 
     /// <summary>
@@ -625,5 +628,10 @@ public class AiController : MonoBehaviour, IPauseable
     }
 
 
+    public void FreezeEnemy()
+    {
+        m_isFrozen = true;
+
+    }
 
 }

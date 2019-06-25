@@ -96,6 +96,10 @@ public class AIAnimationController : MonoBehaviour
         {
             m_animCont = GetComponent<Animator>();
         }
+        if (!p_pause)
+        {
+            if (m_aiCont.m_isFrozen) return;
+        }
         m_animCont.enabled = !p_pause;
     }
     #endregion
