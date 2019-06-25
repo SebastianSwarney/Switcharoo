@@ -227,6 +227,7 @@ public class AiController : MonoBehaviour, IPauseable
         m_currentForward = m_startingForward;
         m_jumpAnim = false;
         FlipEnemy(m_currentForward);
+        m_isFrozen = false;
     }
 
     private void Update()
