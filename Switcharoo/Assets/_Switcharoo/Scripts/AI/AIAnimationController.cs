@@ -7,10 +7,16 @@ public class AIAnimationController : MonoBehaviour
     Animator m_animCont;
     AiController m_aiCont;
 
+    [Header("Enemy Hurt visuals")]
+    public float m_displayHurtTime;
+    public Color m_startColor, m_endColor;
+    SpriteRenderer m_sRend;
+    Coroutine m_displayHurtCoroutine;
     private void Awake()
     {
         m_animCont = GetComponent<Animator>();
         m_aiCont = transform.parent.GetComponent<AiController>();
+        m_sRend = GetComponent<SpriteRenderer>();
     }
 
     #region Animation Start Events
@@ -94,4 +100,28 @@ public class AIAnimationController : MonoBehaviour
     }
     #endregion
 
+
+    public void EnemyHurt()
+    {
+        m_sRend.color = m_startColor;
+        if(m_displayHurtCoroutine != null)
+        {
+            StopCoroutine(m_displayHurtCoroutine);
+        }
+        m_displayHurtCoroutine = StartCoroutine(DisplayHurt());
+    }
+
+    IEnumerator DisplayHurt()
+    {
+        float percent = 0, currentTime = 0;
+        while (currentTime <= m_displayHurtTime)
+        {
+            percent = currentTime / m_displayHurtTime;
+            m_sRend.color = Color.Lerp(m_startColor, m_endColor, percent);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        m_sRend.color = Color.Lerp(m_startColor, m_endColor, 1);
+
+    }
 }
