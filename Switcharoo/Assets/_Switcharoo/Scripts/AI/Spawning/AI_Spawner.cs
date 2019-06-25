@@ -29,6 +29,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     public SpawnDir m_currentSpawnDir;
     public float m_spawnerRadius;
+    public Vector3 m_spawnerOffset;
     public float m_spawnPerMinute;
     public int m_maxEnemyFromThis;
     float m_timeToSpawn;
@@ -40,8 +41,10 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
 
 
-    public AI_Bounds m_aiBoundsFromSpawner;
+    
     PlatformerNavigation m_navGrid;
+    [Header("Bounds & Patrol Points")]
+    public AI_Bounds m_aiBoundsFromSpawner;
     public List<Transform> m_spawnedEnemyPatrolPoints;
 
 
@@ -64,7 +67,6 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     [Header("Visual")]
     public RaceType m_spawnerType;
     public RuntimeAnimatorController m_alienAnim, m_robotAnim;
-    //SpriteRenderer m_spriteRender;
 
     [Header("Events")]
     public OnSpawnerDeath m_spawnerDestroyed = new OnSpawnerDeath();
