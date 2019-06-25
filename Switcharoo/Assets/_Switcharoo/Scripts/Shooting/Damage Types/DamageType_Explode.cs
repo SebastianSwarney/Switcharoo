@@ -6,6 +6,7 @@ using UnityEngine;
 public class DamageType_Explode : DamageType_Base
 {
 	[Header("Explosion Properites")]
+	public GameObject m_explosionVisual;
 	public float m_explosionRadius;
 	public float m_explosionDamage;
 
@@ -26,6 +27,12 @@ public class DamageType_Explode : DamageType_Base
 			Collider2D[] colliders = Physics2D.OverlapCircleAll(p_collision.ClosestPoint(p_bulletRefrence.transform.position), m_explosionRadius, p_damageTargetMask);
 
 			DebugExtension.DebugCircle(p_collision.ClosestPoint(p_bulletRefrence.transform.position), Vector3.forward, Color.yellow, m_explosionRadius, 0.1f);
+
+			GameObject newObject = ObjectPooler.instance.NewObject(m_explosionVisual, p_collision.ClosestPoint(p_bulletRefrence.transform.position), Quaternion.identity);
+			ParticleSystem newParticleSystem = newObject.GetComponent<ParticleSystem>();
+			newParticleSystem.Play();
+			ParticleSystem.ShapeModule shapeModule = newParticleSystem.shape;
+			shapeModule.radius = m_explosionRadius - 1f;
 
 			foreach (Collider2D collider in colliders)
 			{

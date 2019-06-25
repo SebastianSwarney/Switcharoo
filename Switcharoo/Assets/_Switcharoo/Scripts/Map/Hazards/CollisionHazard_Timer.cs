@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class ActivateEvent : UnityEvent { }
 
 public class CollisionHazard_Timer : CollisionHazard_Base
 {
@@ -8,6 +12,9 @@ public class CollisionHazard_Timer : CollisionHazard_Base
 	public float m_timeOn;
 	public float m_timeOff;
 	public float m_startDelay;
+
+	public ActivateEvent m_onEvent;
+	public ActivateEvent m_offEvent;
 
 	private bool m_isOn;
 	private float m_timer;
@@ -75,13 +82,15 @@ public class CollisionHazard_Timer : CollisionHazard_Base
 
 	private void TurnOff()
 	{
-		m_renderer.color = Color.clear;
+		m_offEvent.Invoke();
+		//m_renderer.color = Color.clear;
 		m_canDamage = false;
 	}
 
 	private void TurnOn()
 	{
-		m_renderer.color = Color.white;
+		m_onEvent.Invoke();
+		//m_renderer.color = Color.white;
 		m_canDamage = true;
 	}
 }
