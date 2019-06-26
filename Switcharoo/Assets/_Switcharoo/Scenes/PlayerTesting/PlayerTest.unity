@@ -15706,6 +15706,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7220302174730930199, guid: d27749c25024a47409f7042fe3e45fb9,
         type: 3}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[1].m_movementAbilityComposition.m_movementType
+      value: 
+      objectReference: {fileID: 11400000, guid: c05f055b956a1fa4f91bdb3ca87587b9,
+        type: 2}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.x

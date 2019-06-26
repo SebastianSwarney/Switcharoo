@@ -7,6 +7,7 @@ public class MovementType_Grapple : MovementType_Base
 {
 	[Header("Grapple Properties")]
 	public AnimationCurve m_grappleCurve;
+	public float m_grappleDistance;
 	public LayerMask m_grappleMask;
 
 	public override void UseAbility(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
@@ -22,10 +23,20 @@ public class MovementType_Grapple : MovementType_Base
 		float t = 0;
 
 		Vector3 initialPosition = p_playerRefrence.transform.position;
-		RaycastHit2D hit = Physics2D.Raycast(initialPosition, p_playerRefrence.m_runnerAimInput, Mathf.Infinity, m_grappleMask);
-		Vector3 grappleTarget = hit.point;
+		RaycastHit2D hit = Physics2D.Raycast(initialPosition, p_playerRefrence.m_runnerAimInput, m_grappleDistance, p_obstacleMask);
 
-		p_trailType.UseTrail(p_playerRefrence, this, p_damageTargetMask, p_obstacleMask);
+		Vector3 grappleTarget = Vector3.zero;
+
+		if (hit)
+		{
+			grappleTarget = hit.point;
+
+			p_trailType.UseTrail(p_playerRefrence, this, p_damageTargetMask, p_obstacleMask);
+		}
+		else
+		{
+			t = m_movementTime;
+		}
 
 		while (t < m_movementTime)
 		{
