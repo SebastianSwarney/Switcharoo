@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: AI_AttackType_Shoot - Instant Aim_Spit
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
-  m_tellTime: 2
+  m_tellTime: 3
   m_targetStoppingDistance: 1
-  m_playerMoveDistanceReaction: 2
-  m_distanceFromPlayer: 5
+  m_playerMoveDistanceReaction: 3
+  m_distanceFromPlayer: 6
   m_bulletsPerPattern: 0
-  m_shootBreakTime: 2
-  m_shootTriggerTime: 0
+  m_shootBreakTime: 6
+  m_shootTriggerTime: 6
   m_shootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
   m_weaponComposition:
     m_shotPattern: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb, type: 2}

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3048f71e841f740a3c572e81b7fd09, type: 3}
   m_Name: AI_ShotPattern_Linear
   m_EditorClassIdentifier: 
-  m_fireRate: 5
-  m_baseDamage: 15
-  m_baseBulletSpeed: 15
+  m_uiSprite: {fileID: 0}
+  m_fireRate: 1
+  m_baseDamage: 25
+  m_baseBulletSpeed: 9
   m_ammoCount: 1000
-  m_maxBulletSpread: 0
+  m_maxBulletSpread: 2.8125

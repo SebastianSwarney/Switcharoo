@@ -189,7 +189,7 @@ MonoBehaviour:
       m_shotPattern: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
         type: 3}
-      m_damageType: {fileID: 11400000, guid: 50711f81098ef3a46bdfd8de5b4cd7a2, type: 2}
+      m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 171e52338bb7bb744a9bd93b9a7dcba4, type: 2}
       m_trailType: {fileID: 11400000, guid: 67fe97535c831de48b3e7de132ed15f6, type: 2}
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isDead: 0
-  m_maxHealth: 10
+  m_maxHealth: 500
   m_currentHealth: 0
   m_canTakeDamage: 0
   m_currentIceState: 0

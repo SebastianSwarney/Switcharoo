@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enemyDimensions: {x: 0, y: 0, z: 0}
   m_groundCheckDimensions: {x: 0, y: 0, z: 0}
-  m_detectionRadius: {x: 10, y: 15}
-  m_collisionDamage: 20
+  m_detectionRadius: {x: 15, y: 15}
+  m_detectionOffset: {x: 0, y: 0}
+  m_collisionDamage: 15
   m_attackType: {fileID: 11400000, guid: 86091b91af4de7440ad063bc1dc31c8a, type: 2}
   m_idleMovementType: {fileID: 11400000, guid: 0d4a085c48c3f84489f93e3caad1aa19, type: 2}
