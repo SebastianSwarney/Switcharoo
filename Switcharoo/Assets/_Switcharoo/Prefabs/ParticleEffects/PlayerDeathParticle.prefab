@@ -46,7 +46,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4882,7 +4882,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e99028266bbc2d043a23b94abee143ff, type: 2}
+  - {fileID: 2100000, guid: c0c563b1ca12a0c419e7c0804646d678, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

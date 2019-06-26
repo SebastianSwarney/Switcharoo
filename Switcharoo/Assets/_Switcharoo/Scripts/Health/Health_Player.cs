@@ -42,8 +42,11 @@ public class Health_Player : Health
     {
         //Add delay here and particle effect
         m_isDead = true;
+		m_player.m_playerDeath.Invoke();
+
         StartCoroutine(ChangeDeathColour());
-        StartCoroutine(SpawnDeathParticles());
+
+       // StartCoroutine(SpawnDeathParticles());
     }
 
 
@@ -71,7 +74,6 @@ public class Health_Player : Health
 
     private IEnumerator SpawnDeathParticles()
     {
-
         while (numberOfRings < maxNumberOfRings)
         {
             float particleCountF = (float)particleCount;
@@ -96,8 +98,6 @@ public class Health_Player : Health
             }
             yield return new WaitForSeconds(ringTimerDelay);
             numberOfRings++;
-
         }
-
     }
 }
