@@ -18,7 +18,7 @@ GameObject:
   m_Layer: 16
   m_Name: Timer Hazard
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_canDamage: 0
   m_renderer: {fileID: 0}
   m_paused: 0
-  m_timeOn: 0
-  m_timeOff: 0
+  m_timeOn: 2
+  m_timeOff: 2.5
   m_startDelay: 0
   m_onEvent:
     m_PersistentCalls:

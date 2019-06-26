@@ -313,11 +313,7 @@ MonoBehaviour:
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0
-  m_minFireHitsPerEffect: 5
-  m_maxFireHitsPerEffect: 15
-  m_maxFireEffectInterval: 1
-  m_minFireEffectInterval: 0.1
-  m_fireDamageAmount: 10
+  m_fireData: {fileID: 11400000, guid: 15f1c8df6fca1764188c2017f553cdf7, type: 2}
   m_enemyHit:
     m_PersistentCalls:
       m_Calls:
