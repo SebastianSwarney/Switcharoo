@@ -17,7 +17,9 @@ public class TrailType_Shock : TrailType_Base
 	public float m_effectsPerUnit;
 	public float m_effectSpacing;
 
-	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+
+
+    public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.StartCoroutine(ShockTrail(p_playerRefrence, p_movementType, p_damageTargetMask, p_obstacleMask));
 	}

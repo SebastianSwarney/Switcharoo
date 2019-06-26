@@ -11,7 +11,9 @@ public class TrailType_Ice : TrailType_Base
 	[Header("Ice Explosion Properites")]
 	public float m_iceExplosionRadius;
 
-	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+
+
+    public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.StartCoroutine(IceTrail(p_playerRefrence, p_movementType, p_damageTargetMask, p_obstacleMask));
 	}

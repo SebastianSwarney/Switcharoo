@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MovementType_Stasis
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: b8407e575a4277a4aa8f959409454290, type: 3}
-  m_movementTime: 5
-  m_amountOfTrailsToSpawn: 5
-  m_ammoCount: 2
-  m_stasisRadius: 5
+  m_movementTime: 9
+  m_amountOfTrailsToSpawn: 18
+  m_ammoCount: 3
+  m_stasisRadius: 12
   m_stasisVisual: {fileID: 7942232567553327572, guid: 80cc5d4d52c887a4692f10d87ff140da,
     type: 3}

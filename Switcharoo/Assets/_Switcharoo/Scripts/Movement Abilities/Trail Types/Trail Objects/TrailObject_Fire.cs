@@ -22,6 +22,7 @@ public class TrailObject_Fire : TrailObject_Base
     private void OnEnable()
     {
         StartCoroutine(SpawnDelete());
+        ObjectPooler.instance.AddObjectToDespawn(this.gameObject);
     }
     private void OnCollisionEnter2D(Collision2D collision)
 	{

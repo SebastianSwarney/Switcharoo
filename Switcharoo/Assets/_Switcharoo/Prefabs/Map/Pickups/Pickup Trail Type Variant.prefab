@@ -16,7 +16,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 12288
   m_itemIconRenderer: {fileID: 7827562053099708071}
-  m_switchItemTime: 1
+  m_switchItemTime: 6
   m_currentItem: 0
   m_amountOfItems: 0
   m_trailTypes:

@@ -9,7 +9,8 @@ public class TrailType_Explode : TrailType_Base
 	public GameObject m_explosionVisual;
 	public float m_explosionRadius;
 
-	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+
+    public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.StartCoroutine(ExplosionTrail(p_playerRefrence, p_movementType, p_damageTargetMask, p_obstacleMask));
 	}

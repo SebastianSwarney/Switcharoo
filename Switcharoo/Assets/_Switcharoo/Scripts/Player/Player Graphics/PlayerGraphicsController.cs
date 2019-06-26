@@ -11,7 +11,8 @@ public class PlayerGraphicsController : MonoBehaviour
 
 	private PlayerController m_player;
 	private Animator m_animationController;
-	private int m_currentType;
+	[HideInInspector]
+	public int m_currentType;
 	private SpriteRenderer m_spriteRenderer;
 
     private ObjectPooler m_pooler;
