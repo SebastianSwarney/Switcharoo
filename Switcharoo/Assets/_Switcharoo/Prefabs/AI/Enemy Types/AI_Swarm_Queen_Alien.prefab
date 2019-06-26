@@ -79,6 +79,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -132,6 +137,16 @@ PrefabInstance:
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346257, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346257, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
@@ -216,6 +231,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4698223260410642679, guid: 5a3f2ad80f057bf499ac7718f9547aae,
         type: 3}
+    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Sprite
@@ -283,21 +303,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 69b1f63134b7d6e44b8b0976859f7549, type: 2}
-    - target: {fileID: 3078133998956346257, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346257, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_maxHealth
-      value: 400
-      objectReference: {fileID: 0}
     - target: {fileID: 7491690288337377126, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Radius

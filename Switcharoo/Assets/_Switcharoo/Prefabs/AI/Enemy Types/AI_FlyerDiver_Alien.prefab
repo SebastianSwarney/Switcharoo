@@ -54,6 +54,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -156,6 +161,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4698223260410642679, guid: 5a3f2ad80f057bf499ac7718f9547aae,
         type: 3}
+    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Sprite
@@ -176,6 +186,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2433419486793325122, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -223,11 +248,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0509b1e839a2e6d40831251876b94621, type: 2}
-    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_maxHealth
-      value: 40
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}
 --- !u!1 &6551127981345506681 stripped

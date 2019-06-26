@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd378aff8dbc052458806a758513aa57, type: 3}
   m_Name: AI_DamageType_Shock
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 0}
   m_shockRadius: 5
   m_shockChainAmount: 3
   m_shockDamage: 10
+  m_lightingEffect: {fileID: 7494326978189673820, guid: 55aec48c2779e974cac38eabb3740587,
+    type: 3}
+  m_effectsPerUnit: 0
+  m_effectSpacing: 0

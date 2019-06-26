@@ -207,7 +207,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: -1, z: 0}
   m_moveSpeed: 5
-  m_isCyclic: 0
+  m_isCyclic: 1
   m_waitTime: 0
   m_easeAmount: 0
   m_startActive: 1

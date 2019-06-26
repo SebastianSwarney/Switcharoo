@@ -71,6 +71,11 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     [Header("Events")]
     public OnSpawnerDeath m_spawnerDestroyed = new OnSpawnerDeath();
 
+
+    MaterialPropertyBlock m_materialBlock;
+    SpriteRenderer m_sRend;
+    Coroutine m_displayHurtCoroutine;
+    float m_displayHurtTime = 0.5f;
     private void Start()
     {
         GetComponent<Animator>().runtimeAnimatorController = (m_spawnerType == RaceType.Alien) ? m_alienAnim : m_robotAnim;
@@ -79,6 +84,9 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         {
             m_navGrid = m_aiBoundsFromSpawner.GetComponent<PlatformerNavigation>();
         }
+
+        m_sRend = GetComponent<SpriteRenderer>();
+        m_materialBlock = new MaterialPropertyBlock();
     }
     void InitateSpawning()
     {
@@ -304,4 +312,32 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         public List<Transform> m_patrolPoints;
     }
 
+    public void EnemyHurt()
+    {
+        m_sRend.GetPropertyBlock(m_materialBlock);
+        m_materialBlock.SetFloat("_EffectAmount", 1);
+        if (m_displayHurtCoroutine != null)
+        {
+            StopCoroutine(m_displayHurtCoroutine);
+        }
+        m_displayHurtCoroutine = StartCoroutine(DisplayHurt());
+    }
+
+    IEnumerator DisplayHurt()
+    {
+        float percent = 0, currentTime = 0;
+        while (currentTime <= m_displayHurtTime)
+        {
+            percent = currentTime / m_displayHurtTime;
+            m_sRend.GetPropertyBlock(m_materialBlock);
+            m_materialBlock.SetFloat("_EffectAmount", 1 - percent);
+            m_sRend.SetPropertyBlock(m_materialBlock);
+            currentTime += Time.deltaTime;
+            
+            yield return null;
+        }
+        m_materialBlock.SetFloat("_EffectAmount",0);
+        m_sRend.SetPropertyBlock(m_materialBlock);
+
+    }
 }

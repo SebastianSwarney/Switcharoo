@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &71002342239170421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075225522401454713}
+  - component: {fileID: 7313987094725962948}
+  m_Layer: 11
+  m_Name: Shoot Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075225522401454713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71002342239170421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7089855851483828483}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7313987094725962948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71002342239170421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Sound Effects/EnemyAlienShoot
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!70 &2676414359908890176
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -37,6 +91,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780877241023508681, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780877241023508681, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_navGrid
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780877241023508681, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_drawPath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -93,6 +167,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_currentWeaponComposition.m_bulletType
+      value: 
+      objectReference: {fileID: 7315616157899850491, guid: d29c4385a2d5c5e4e97078efa025ea29,
+        type: 3}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_currentWeaponComposition.m_shotPattern
+      value: 
+      objectReference: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb,
+        type: 2}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_currentWeaponComposition.m_damageType
+      value: 
+      objectReference: {fileID: 11400000, guid: 46cedc9626b14764ebc156eb150f67a8,
+        type: 2}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.size
@@ -320,6 +412,11 @@ PrefabInstance:
       propertyPath: m_movementFlipLayer.m_Bits
       value: 3328
       objectReference: {fileID: 0}
+    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Sprite
@@ -340,6 +437,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.796
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7313987094725962948}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2433419486793325122, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -387,59 +539,17 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4e2881d6fcedc2a41b714c23f7d00942, type: 2}
-    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_maxHealth
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_currentWeaponComposition.m_bulletType
-      value: 
-      objectReference: {fileID: 7315616157899850491, guid: d29c4385a2d5c5e4e97078efa025ea29,
-        type: 3}
-    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_currentWeaponComposition.m_shotPattern
-      value: 
-      objectReference: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb,
-        type: 2}
-    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_currentWeaponComposition.m_damageType
-      value: 
-      objectReference: {fileID: 11400000, guid: 46cedc9626b14764ebc156eb150f67a8,
-        type: 2}
-    - target: {fileID: 1780877241023508681, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1780877241023508681, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_navGrid
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1780877241023508681, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_drawPath
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.796
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.24
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}
 --- !u!1 &7089855851483828541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5247679576203815569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7089855851483828483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
     type: 3}
   m_PrefabInstance: {fileID: 5247679576203815569}
   m_PrefabAsset: {fileID: 0}
