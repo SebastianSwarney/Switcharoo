@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Health_Player : Health
 {
-    [Header("Player Hit Properites")]
-    public float m_invulnerableTime;
-    public float m_movementControllLossTime;
-
     private PlayerController m_player;
 
     [SerializeField]
