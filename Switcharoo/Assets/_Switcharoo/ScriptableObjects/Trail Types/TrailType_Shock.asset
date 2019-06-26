@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: TrailType_Shock
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: 0b29c4bdfd41b754a92bc8c8d3e3e0af, type: 3}
-  m_trailDamageAmount: 10
+  m_trailDamageAmount: 1
   m_dropObject: {fileID: 8025584017552049092, guid: 02ac5629a9b30154ab994b8434f93be2,
     type: 3}
-  m_shockRadius: 5
-  m_shockChainAmount: 3
-  m_shockDamage: 10
+  m_shockRadius: 6
+  m_shockChainAmount: 6
+  m_shockDamage: 6
   m_lightingEffect: {fileID: 7494326978189673820, guid: 55aec48c2779e974cac38eabb3740587,
     type: 3}
   m_effectsPerUnit: 1

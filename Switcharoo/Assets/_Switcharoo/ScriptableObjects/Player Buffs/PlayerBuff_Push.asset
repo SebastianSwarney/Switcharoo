@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerBuff_Push
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: e720d94dcab380745929cebd7c9d9543, type: 3}
-  m_pushForce: 25
-  m_pushRadius: 10
+  m_pushForce: 24
+  m_pushRadius: 15

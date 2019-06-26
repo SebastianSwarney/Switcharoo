@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerBuff_SlowMotion
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: fa5c0ebe90c10ee44958e8ad254013a0, type: 3}
-  m_slowAmount: 0.5
+  m_slowAmount: 0.33
   m_slowLength: 3

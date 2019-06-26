@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ShotPattern_Scatter
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: d4dcb9615e1042d48889a76822c6a641, type: 3}
-  m_fireRate: 1.25
+  m_fireRate: 1.33
   m_baseDamage: 6
-  m_baseBulletSpeed: 20
+  m_baseBulletSpeed: 21
   m_ammoCount: 25
   m_bulletSpacing: 30
   m_amountOfBulletsPerShot: 5

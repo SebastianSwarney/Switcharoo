@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerBuff_Reflect
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: 1d7b7266772defb4c9b1867fc1d83015, type: 3}
-  m_reflectRadius: 5
+  m_reflectRadius: 15
