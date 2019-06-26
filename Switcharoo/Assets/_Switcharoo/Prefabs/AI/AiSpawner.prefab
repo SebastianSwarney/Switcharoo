@@ -146,6 +146,31 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_enemyFrozen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onFireDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_onIceDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEffectActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &5948296371411213608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +193,7 @@ MonoBehaviour:
   m_spawnManager: {fileID: 0}
   m_currentSpawnDir: 0
   m_spawnerRadius: 1.45
+  m_spawnerOffset: {x: 0, y: 0, z: 0}
   m_spawnPerMinute: 5
   m_maxEnemyFromThis: 5
   m_enemyToSpawn: {fileID: 0}
