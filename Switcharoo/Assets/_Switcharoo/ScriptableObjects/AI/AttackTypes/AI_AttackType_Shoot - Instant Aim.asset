@@ -16,7 +16,7 @@ MonoBehaviour:
   m_tellTime: 3
   m_targetStoppingDistance: 1
   m_playerMoveDistanceReaction: 3
-  m_distanceFromPlayer: 6
+  m_distanceFromPlayer: 3
   m_bulletsPerPattern: 0
   m_shootBreakTime: 6
   m_shootTriggerTime: 6

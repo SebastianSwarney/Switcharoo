@@ -16,6 +16,6 @@ MonoBehaviour:
   m_groundCheckDimensions: {x: 0.8, y: 0.8, z: 0}
   m_detectionRadius: {x: 20, y: 10}
   m_detectionOffset: {x: 0, y: 0}
-  m_collisionDamage: 15
+  m_collisionDamage: 20
   m_attackType: {fileID: 11400000, guid: ac4241b3ac4263544864693cfd48c047, type: 2}
   m_idleMovementType: {fileID: 11400000, guid: 12f7e75f84acb4a469f2eb81ae276050, type: 2}
