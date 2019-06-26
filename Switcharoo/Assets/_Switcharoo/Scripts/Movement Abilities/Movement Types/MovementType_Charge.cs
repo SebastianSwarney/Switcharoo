@@ -21,6 +21,8 @@ public class MovementType_Charge : MovementType_Base
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
 		p_playerRefrence.m_usingMovementAbility = true;
 
+		p_playerRefrence.m_movementAbilityUsed.Invoke();
+
 		float t = 0;
 
 		Vector3 initialPosition = p_playerRefrence.transform.position;
