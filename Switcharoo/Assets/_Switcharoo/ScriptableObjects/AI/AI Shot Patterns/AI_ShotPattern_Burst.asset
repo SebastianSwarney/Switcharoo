@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aafe3faf460d774c857d6b182421eeb, type: 3}
   m_Name: AI_ShotPattern_Burst
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 0}
   m_fireRate: 1
   m_baseDamage: 15
   m_baseBulletSpeed: 25

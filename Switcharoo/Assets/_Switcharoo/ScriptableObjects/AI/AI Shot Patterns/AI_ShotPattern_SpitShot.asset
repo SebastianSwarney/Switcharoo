@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ba4c5b6db826b478620216dbcb0362, type: 3}
   m_Name: AI_ShotPattern_SpitShot
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 0}
   m_fireRate: 6
   m_baseDamage: 30
   m_baseBulletSpeed: 10
   m_ammoCount: 1000
   m_bulletSpacing: 30
-  m_amountOfBulletsPerShot: 4
-  m_randomRotation: 4.67
-  m_verticalOffset: 1
+  m_amountOfBulletsPerShot: 3
+  m_randomRotation: 7.98
+  m_verticalOffset: 0
