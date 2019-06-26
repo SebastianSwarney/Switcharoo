@@ -186,10 +186,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 16640
     m_weaponComposition:
-      m_shotPattern: {fileID: 11400000, guid: 1fd15566db4407145ad20bbb281c6150, type: 2}
+      m_shotPattern: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3, type: 2}
       m_bulletType: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
         type: 3}
-      m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
+      m_damageType: {fileID: 11400000, guid: 50711f81098ef3a46bdfd8de5b4cd7a2, type: 2}
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 171e52338bb7bb744a9bd93b9a7dcba4, type: 2}
       m_trailType: {fileID: 11400000, guid: 67fe97535c831de48b3e7de132ed15f6, type: 2}
@@ -210,7 +210,7 @@ MonoBehaviour:
       m_damageType: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
     m_movementAbilityComposition:
       m_movementType: {fileID: 11400000, guid: 7cdca6db0730a524088b6a61538a31c9, type: 2}
-      m_trailType: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323, type: 2}
+      m_trailType: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf, type: 2}
       m_buffType: {fileID: 11400000, guid: 55dc2f67a28c0094d8dd78539ec12c40, type: 2}
   m_maxJumpHeight: 7
   m_minJumpHeight: 1
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isDead: 0
-  m_maxHealth: 100
+  m_maxHealth: 10
   m_currentHealth: 0
   m_canTakeDamage: 0
   m_currentIceState: 0
@@ -537,12 +537,14 @@ MonoBehaviour:
       PublicKeyToken=null
   m_invulnerableTime: 1
   m_movementControllLossTime: 0.3
-  deathparticle: {fileID: 0}
-  playerSprite: {fileID: 0}
-  particleCount: 0
+  deathparticle: {fileID: 5054866457465444057, guid: b1f6b84cdb9a38e45b71aad761988209,
+    type: 3}
+  playerSprite: {fileID: 5054866457465444059, guid: b1f6b84cdb9a38e45b71aad761988209,
+    type: 3}
+  particleCount: 8
   numberOfRings: 0
-  maxNumberOfRings: 0
-  ringTimerDelay: 0
+  maxNumberOfRings: 3
+  ringTimerDelay: 0.5
 --- !u!114 &2094756095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,7 +614,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 54ed4bb6dff5d7147ac03a9a75f05eb3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

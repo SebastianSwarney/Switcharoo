@@ -15712,36 +15712,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_players.Array.data[0].m_weaponComposition.m_bulletType
-      value: 
-      objectReference: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
-        type: 3}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_players.Array.data[1].m_weaponComposition.m_bulletType
-      value: 
-      objectReference: {fileID: 7315616157899850491, guid: 9b5b05ba3833c1f4297ceb613f5f24e1,
-        type: 3}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_players.Array.data[1].m_movementAbilityComposition.m_trailType
-      value: 
-      objectReference: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf,
-        type: 2}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_players.Array.data[0].m_weaponComposition.m_damageType
-      value: 
-      objectReference: {fileID: 11400000, guid: 50711f81098ef3a46bdfd8de5b4cd7a2,
-        type: 2}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_players.Array.data[0].m_weaponComposition.m_shotPattern
-      value: 
-      objectReference: {fileID: 11400000, guid: badaf616f4cc9da4b84d445b288712a3,
-        type: 2}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15796,68 +15766,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: playerSprite
-      value: 
-      objectReference: {fileID: 5054866457465444059, guid: b1f6b84cdb9a38e45b71aad761988209,
-        type: 3}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: deathparticle
-      value: 
-      objectReference: {fileID: 5054866457465444057, guid: b1f6b84cdb9a38e45b71aad761988209,
-        type: 3}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: particleCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: ringTimerDelay
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: numberOfRings
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: maxNumberOfRings
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868476, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 288033318001868476, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868476, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868476, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868476, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}

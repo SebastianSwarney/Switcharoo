@@ -32,7 +32,8 @@ public class Health_Player : Health
     public override void TakeDamage(float p_damage)
     {
         base.TakeDamage(p_damage);
-        if (m_canTakeDamage)
+
+		if (m_canTakeDamage)
         {
             m_player.m_playerHurt.Invoke();
         }
@@ -40,16 +41,15 @@ public class Health_Player : Health
 
     public override void Die()
     {
-        //Add delay here and particle effect
-        m_isDead = true;
-
+		//Add delay here and particle effect
 		if (!m_isDead)
 		{
 			m_player.m_playerDeath.Invoke();
 		}
 
-        StartCoroutine(ChangeDeathColour());
+		m_isDead = true;
 
+       // StartCoroutine(ChangeDeathColour());
        // StartCoroutine(SpawnDeathParticles());
     }
 
