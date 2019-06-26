@@ -54,7 +54,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
                     }
                     else
                     {
-
+                        p_aiController.FlipEnemy((int)Mathf.Sign(p_aiController.m_target.transform.position.x - p_aiController.transform.position.x));
                         p_aiController.ChangeAnimation(true);
                         m_shootingMovement.StopMoving(p_rb);
                     }
