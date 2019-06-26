@@ -25,4 +25,9 @@ public class PlayerAnimationFunctions : MonoBehaviour
 	{
 		m_player.EnableSwapping();
 	}
+
+	public void AnimationFootstep()
+	{
+		m_player.m_playerStep.Invoke();
+	}
 }

@@ -18,6 +18,9 @@ public class OnPlayerLand : UnityEvent { }
 [System.Serializable]
 public class OnPlayerRespawn : UnityEvent { }
 
+[System.Serializable]
+public class OnPlayerStep : UnityEvent { }
+
 [RequireComponent(typeof(Controller2D))]
 public class PlayerController : MonoBehaviour, IPauseable
 {
@@ -120,6 +123,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 	public OnPlayerJump m_playerJumped = new OnPlayerJump();
 	public OnPlayerLand m_playerLanded = new OnPlayerLand();
 	public OnPlayerRespawn m_playerRespawned = new OnPlayerRespawn();
+	public OnPlayerStep m_playerStep = new OnPlayerStep();
 	#endregion
 
 	public Transform m_spriteTarget;

@@ -69,6 +69,7 @@ Transform:
   - {fileID: 288033318001868467}
   - {fileID: 288033318095290243}
   - {fileID: 4252143975672608746}
+  - {fileID: 5904819290133488409}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,6 +347,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: OnPlayerRespawn, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_playerStep:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnPlayerStep, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_spriteTarget: {fileID: 288033318001868467}
   m_velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
@@ -473,6 +489,12 @@ MonoBehaviour:
       PublicKeyToken=null
   m_invulnerableTime: 1
   m_movementControllLossTime: 0.3
+  deathparticle: {fileID: 0}
+  playerSprite: {fileID: 0}
+  particleCount: 0
+  numberOfRings: 0
+  maxNumberOfRings: 0
+  ringTimerDelay: 0
 --- !u!114 &2094756095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,6 +927,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2958864433492991169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5904819290133488409}
+  - component: {fileID: 2565973222729611437}
+  m_Layer: 12
+  m_Name: Player Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5904819290133488409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958864433492991169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2614129601496203831}
+  - {fileID: 6188489530206728957}
+  m_Father: {fileID: 288033317153994165}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2565973222729611437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958864433492991169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2daf190b9be821f4a9393b10a6642336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ballisticShotSound: {fileID: 0}
+  m_energyShotSound: {fileID: 0}
 --- !u!1 &3748095518956332723
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +1031,66 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.94}
   m_EdgeRadius: 0
+--- !u!1 &6286785193191310501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6188489530206728957}
+  m_Layer: 12
+  m_Name: Energy Shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6188489530206728957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286785193191310501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5904819290133488409}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6755916127534485759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2614129601496203831}
+  m_Layer: 12
+  m_Name: Ballistic Shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2614129601496203831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6755916127534485759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5904819290133488409}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8960749416785522003
 GameObject:
   m_ObjectHideFlags: 0
