@@ -8,8 +8,11 @@ public class TrailObject_Shock : TrailObject_Base
 	public TrailType_Shock m_trailType;
 	[HideInInspector]
 	public LayerMask m_damageTargetMask;
-
-	private void OnCollisionEnter2D(Collision2D collision)
+    private void OnEnable()
+    {
+        ObjectPooler.instance.AddObjectToDespawn(this.gameObject);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
 	{
 		m_trailType.ShockBlast(transform.position, m_damageTargetMask);
 		ObjectPooler.instance.ReturnToPool(gameObject);
