@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 	public OnPlayerRespawn m_playerRespawned = new OnPlayerRespawn();
 	public OnPlayerStep m_playerStep = new OnPlayerStep();
 	public PlayerEvent m_playerDeath = new PlayerEvent();
+	public PlayerEvent m_movementAbilityUsed = new PlayerEvent();
 	#endregion
 
 	public Transform m_spriteTarget;

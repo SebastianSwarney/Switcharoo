@@ -21,6 +21,8 @@ public class MovementType_Blink : MovementType_Base
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
 		p_playerRefrence.m_usingMovementAbility = true;
 
+		
+
 		int blinksUsed = 0;
 
 		while (blinksUsed < m_blinkAmount)
@@ -28,6 +30,8 @@ public class MovementType_Blink : MovementType_Base
 			p_trailType.UseTrail(p_playerRefrence, this, p_damageTargetMask, p_obstacleMask);
 
 			float t = 0;
+
+			p_playerRefrence.m_movementAbilityUsed.Invoke();
 
 			Vector3 initialPosition = p_playerRefrence.transform.position;
 			Vector3 blinkTarget = ((Vector3)p_playerRefrence.m_runnerAimInput.normalized * m_blinkDistance) + p_playerRefrence.transform.position;
@@ -53,6 +57,8 @@ public class MovementType_Blink : MovementType_Base
 			p_playerRefrence.m_velocity = Vector3.zero;
 
 			blinksUsed++;
+
+			//p_playerRefrence.m_movementAbilityUsed.Invoke();
 
 			yield return new WaitForSeconds(m_pauseBetweenBlinkTime);
 		}

@@ -19,6 +19,8 @@ public class MovementType_Stasis : MovementType_Base
 	{
 		p_playerRefrence.m_usingMovementAbility = true;
 
+		p_playerRefrence.m_movementAbilityUsed.Invoke();
+
 		List<Collider2D> castObjects = new List<Collider2D>();
 		Vector3 stasisOrigin = p_playerRefrence.transform.position;
 

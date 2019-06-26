@@ -15,6 +15,9 @@ public class MovementType_DoubleJump : MovementType_Base
 	private void DoubleJump(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.JumpMaxVelocityMultiplied(m_jumpMultiplier);
+
+		p_playerRefrence.m_movementAbilityUsed.Invoke();
+
 		p_trailType.UseTrail(p_playerRefrence, this, p_damageTargetMask, p_obstacleMask);
 		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);
 	}
