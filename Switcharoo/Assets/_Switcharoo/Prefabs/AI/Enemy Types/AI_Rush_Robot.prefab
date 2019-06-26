@@ -33,6 +33,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -175,6 +180,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 927512681004298319, guid: 37dfa2009ba0aad4db5990ba897dfb2a,
         type: 3}
+    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyRobotDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Sprite
@@ -242,10 +252,20 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b2a8f8c4683569a41a0ce46d55bc5e16, type: 2}
-    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_maxHealth
-      value: 60
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyRobotHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}
