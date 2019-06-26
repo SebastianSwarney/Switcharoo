@@ -4830,11 +4830,7 @@ MonoBehaviour:
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0
-  m_minFireHitsPerEffect: 5
-  m_maxFireHitsPerEffect: 20
-  m_maxFireEffectInterval: 1
-  m_minFireEffectInterval: 0.1
-  m_fireDamageAmount: 10
+  m_fireData: {fileID: 0}
   m_enemyHit:
     m_PersistentCalls:
       m_Calls: []
@@ -4946,7 +4942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176686909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.71, y: 5.47, z: 0}
+  m_LocalPosition: {x: -245.23999, y: 85.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5089,7 +5085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311488334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.71, y: 0.96, z: 0}
+  m_LocalPosition: {x: -245.23999, y: 81.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5140,11 +5136,7 @@ MonoBehaviour:
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0
-  m_minFireHitsPerEffect: 5
-  m_maxFireHitsPerEffect: 20
-  m_maxFireEffectInterval: 1
-  m_minFireEffectInterval: 0.1
-  m_fireDamageAmount: 10
+  m_fireData: {fileID: 0}
   m_enemyHit:
     m_PersistentCalls:
       m_Calls: []
@@ -14659,11 +14651,7 @@ MonoBehaviour:
   m_currentIceState: 0
   m_currentFireState: 0
   m_onFire: 0
-  m_minFireHitsPerEffect: 5
-  m_maxFireHitsPerEffect: 20
-  m_maxFireEffectInterval: 1
-  m_minFireEffectInterval: 0.1
-  m_fireDamageAmount: 10
+  m_fireData: {fileID: 0}
   m_enemyHit:
     m_PersistentCalls:
       m_Calls: []
@@ -14775,7 +14763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734742422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.53, y: 6.42, z: 0}
+  m_LocalPosition: {x: -232, y: 86.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15712,6 +15700,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[0].m_weaponComposition.m_bulletType
+      value: 
+      objectReference: {fileID: 7220302174730930199, guid: d27749c25024a47409f7042fe3e45fb9,
+        type: 3}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[1].m_movementAbilityComposition.m_movementType
+      value: 
+      objectReference: {fileID: 11400000, guid: c05f055b956a1fa4f91bdb3ca87587b9,
+        type: 2}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15766,6 +15766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}

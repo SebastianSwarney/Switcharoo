@@ -40,6 +40,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_grappleDistance: 10
   m_grappleMask:
     serializedVersion: 2
     m_Bits: 256

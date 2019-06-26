@@ -44,11 +44,7 @@ public class BulletCasing : MonoBehaviour
     {
         if (m_startFade)
         {
-
-
             float percent = m_currentLife / (m_lifespan);
-            
-
             m_spriteRender.color = Color.Lerp(m_startColor, m_endColor, percent);
             m_currentLife += Time.deltaTime;
 

@@ -314,6 +314,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     public void EnemyHurt()
     {
+        if (m_health.m_currentHealth == Mathf.Infinity) return;
         m_sRend.GetPropertyBlock(m_materialBlock);
         m_materialBlock.SetFloat("_EffectAmount", 1);
         if (m_displayHurtCoroutine != null)

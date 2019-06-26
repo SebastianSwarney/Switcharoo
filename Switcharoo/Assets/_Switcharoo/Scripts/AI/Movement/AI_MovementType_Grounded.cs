@@ -167,7 +167,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
 
         RaycastHit2D hit = Physics2D.BoxCast(p_aiCont.m_groundCheckPos + p_aiCont.transform.position, p_aiCont.m_groundCheckDimensions, 0, -Vector3.up, 0f, p_hitLayer);
-        if (!p_aiCont.m_isGrounded && hit)
+        if (hit)
         {
             p_aiCont.EnemyGrounded(true);
         }

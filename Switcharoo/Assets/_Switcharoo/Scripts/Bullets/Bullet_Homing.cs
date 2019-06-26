@@ -11,11 +11,19 @@ public class Bullet_Homing : Bullet_Base
 	public override void Update()
 	{
 		base.Update();
-		MoveToTarget();
 
-		if (m_target.gameObject.activeSelf == false)
+		if (m_target != null)
 		{
-			FindTarget();
+			MoveToTarget();
+
+			if (m_target.gameObject.activeSelf == false)
+			{
+				FindTarget();
+			}
+		}
+		else
+		{
+			MoveForward();
 		}
 	}
 
@@ -34,7 +42,16 @@ public class Bullet_Homing : Bullet_Base
 	private void FindTarget()
 	{
 		Collider2D collider = Physics2D.OverlapCircle(transform.position, 100, m_damageTargetMask); //May need to be made a variable range
-		m_target = collider.transform;
+
+		if (collider != null)
+		{
+			m_target = collider.transform;
+		}
+	}
+
+	private void MoveForward()
+	{
+		m_rigidbody.velocity = transform.right * m_moveSpeed;
 	}
 
 	public void MoveToTarget()

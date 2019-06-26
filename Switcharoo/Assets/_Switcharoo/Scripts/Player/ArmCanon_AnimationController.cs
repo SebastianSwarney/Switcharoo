@@ -9,6 +9,8 @@ public class ArmCanon_AnimationController : MonoBehaviour
     public float m_bulletEjectionForce;
     [Range(0, 100)]
     public float m_randomCasingAngularForce;
+	public Color m_robotCasingColor;
+	public Color m_alienCasingColor;
 
 	private PlayerController m_player;
 
@@ -47,6 +49,21 @@ public class ArmCanon_AnimationController : MonoBehaviour
 
 		GameObject casing = ObjectPooler.instance.NewObject(m_bulletCasing, m_casingOrgin);
         Rigidbody2D rb2D = casing.GetComponent<Rigidbody2D>();
+
+		for (int i = 0; i < m_player.m_players.Length; i++)
+		{
+			if (m_player.m_players[i].m_currentRole == PlayerController.PlayerRole.Gunner)
+			{
+				if (m_player.m_players[i].m_type == PlayerController.PlayerType.Robot)
+				{
+					casing.GetComponent<SpriteRenderer>().color = m_robotCasingColor;
+				}
+				else if (m_player.m_players[i].m_type == PlayerController.PlayerType.Alien)
+				{
+					casing.GetComponent<SpriteRenderer>().color = m_alienCasingColor;
+				}
+			}
+		}
 
 		casing.transform.rotation = m_casingOrgin.rotation * bulletRotationQuaternion;
 
