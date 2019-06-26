@@ -10,7 +10,8 @@ public class TrailType_Fire : TrailType_Base
 	public float m_orbShootForce;
 	public float m_orbSpawnAngleMax;
 
-	public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
+
+    public override void UseTrail(PlayerController p_playerRefrence, MovementType_Base p_movementType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.StartCoroutine(FireTrail(p_playerRefrence, p_movementType, p_damageTargetMask, p_obstacleMask));
 	}

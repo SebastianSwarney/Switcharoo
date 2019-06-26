@@ -20,10 +20,13 @@ public class ArmCanon_AnimationController : MonoBehaviour
 
 	private Animator m_animator;
 
+	private PlayerGraphicsController m_playerGraphicsController;
+
 	private void Start()
 	{
 		m_player = GetComponentInParent<PlayerController>();
 		m_shootController = GetComponentInParent<ShootController>();
+		m_playerGraphicsController = GetComponentInParent<PlayerGraphicsController>();
 
 		m_animator = GetComponent<Animator>();
 	}
@@ -35,6 +38,7 @@ public class ArmCanon_AnimationController : MonoBehaviour
 
 	public void ShootBullet()
 	{
+		m_animator.SetInteger("CurrentType", m_playerGraphicsController.m_currentType);
 		m_animator.speed = m_shootController.m_currentWeaponComposition.m_shotPattern.m_fireRate;
 		m_animator.SetTrigger("Fire");
 	}

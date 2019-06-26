@@ -9,7 +9,10 @@ public class AI_DeathParticle : MonoBehaviour
     WaitForSeconds m_delay;
     ParticleSystem m_particles;
     Coroutine m_lifeCor;
-
+    private void Start()
+    {
+        ObjectPooler.instance.AddObjectToDespawn(this.gameObject);
+    }
 
     private void OnEnable()
     {

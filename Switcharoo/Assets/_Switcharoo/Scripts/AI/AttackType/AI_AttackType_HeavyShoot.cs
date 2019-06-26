@@ -49,18 +49,10 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
 
 
 
-                
 
 
-                if (p_aiController.m_fireAlt)
-                {
-                    AimAtTarget(p_aiController, p_aiController.m_shootAltOrigin, p_player.transform.position, p_gun);
-
-                }
-                else
-                {
-                    AimAtTarget(p_aiController, p_aiController.m_bulletOrigin, p_player.transform.position, p_gun);
-                }
+                AimAtTarget(p_aiController, p_aiController.m_shootAltOrigin, p_player.transform.position, p_gun);
+                AimAtTarget(p_aiController, p_aiController.m_bulletOrigin, p_player.transform.position, p_gun);
                 //If the player is in range, perform the attack
                 if (PlayerInRange(p_aiController, p_player, p_enemyObject, p_aiController.m_enemyType.m_detectionRadius))
                 {
