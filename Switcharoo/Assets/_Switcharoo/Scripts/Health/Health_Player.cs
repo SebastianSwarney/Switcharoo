@@ -42,7 +42,11 @@ public class Health_Player : Health
     {
         //Add delay here and particle effect
         m_isDead = true;
-		m_player.m_playerDeath.Invoke();
+
+		if (!m_isDead)
+		{
+			m_player.m_playerDeath.Invoke();
+		}
 
         StartCoroutine(ChangeDeathColour());
 
@@ -60,13 +64,13 @@ public class Health_Player : Health
         {
             totalTime += Time.deltaTime;
 
-            Debug.Log("total time is" + totalTime);
+            //Debug.Log("total time is" + totalTime);
             Color lerpedColor = Color.clear;
             lerpedColor = Color.Lerp(Color.white, Color.clear, totalTime*100f);
             playerSprite.color = lerpedColor;
 
             yield return null;
-            Debug.Log("This Runs!!!");
+            //Debug.Log("This Runs!!!");
         }
         //StartCoroutine(SpawnDeathParticles());
         //StartCoroutine(SpawnDeathParticles());
@@ -94,7 +98,7 @@ public class Health_Player : Health
                 particlesArray[i]
 
                  = Instantiate(deathparticle, transform.position + SpiralRadiusCombined, Quaternion.Euler(0, 0, (i * (360 / particleCountF))));
-                Debug.Log("particle Ring is " + numberOfRings);
+                //Debug.Log("particle Ring is " + numberOfRings);
             }
             yield return new WaitForSeconds(ringTimerDelay);
             numberOfRings++;
