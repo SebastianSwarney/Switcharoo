@@ -34,13 +34,15 @@ public class Health : MonoBehaviour
 	public FireState m_currentFireState;
 	public bool m_onFire;
 
-	public int m_minFireHitsPerEffect;
-	public int m_maxFireHitsPerEffect;
+	public FireData m_fireData;
 
-	public float m_maxFireEffectInterval;
-	public float m_minFireEffectInterval;
+	private int m_minFireHitsPerEffect;
+	private int m_maxFireHitsPerEffect;
 
-	public float m_fireDamageAmount;
+	private float m_maxFireEffectInterval;
+	private float m_minFireEffectInterval;
+
+	private float m_fireDamageAmount;
 
 	private float m_currentFireInterval;
 	private int m_currentEffectHitAmount;
@@ -59,6 +61,19 @@ public class Health : MonoBehaviour
 		m_rigidbody = GetComponent<Rigidbody2D>();
 		ResetHealth();
 		SetFireProperites();
+
+		SetFireData(m_fireData);
+	}
+
+	private void SetFireData(FireData p_newData)
+	{
+		m_minFireHitsPerEffect = p_newData.m_minFireHitsPerEffect;
+		m_maxFireHitsPerEffect = p_newData.m_maxFireHitsPerEffect;
+
+		m_maxFireEffectInterval = p_newData.m_maxFireEffectInterval;
+		m_minFireEffectInterval = p_newData.m_minFireEffectInterval;
+
+		m_fireDamageAmount = p_newData.m_fireDamageAmount;
 	}
 
 	private void Update()
