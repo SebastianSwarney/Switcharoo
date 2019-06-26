@@ -176,6 +176,12 @@ PrefabInstance:
       propertyPath: m_maxHealth
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireData
+      value: 
+      objectReference: {fileID: 11400000, guid: 15f1c8df6fca1764188c2017f553cdf7,
+        type: 2}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_patrolPoints.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -269,6 +275,11 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_enemyShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_playerSpotted.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
@@ -395,7 +406,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_idleSpeed
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -423,6 +434,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 927512681004298319, guid: 37dfa2009ba0aad4db5990ba897dfb2a,
         type: 3}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_playerSpotted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_playerSpotted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_playerSpotted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4338448024518366650}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_playerSpotted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_playerSpotted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: Event

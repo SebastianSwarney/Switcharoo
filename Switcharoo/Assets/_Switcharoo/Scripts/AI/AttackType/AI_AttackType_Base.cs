@@ -101,8 +101,9 @@ public abstract class AI_AttackType_Base : ScriptableObject
         if (p_aiCont.m_target != null)
         {
 
-            if (PlayerInRange(p_aiCont, p_aiCont.m_target, p_aiCont.gameObject, p_aiCont.m_enemyType.m_detectionRadius))
+            if (!PlayerInRange(p_aiCont, p_aiCont.m_target, p_aiCont.gameObject, p_aiCont.m_enemyType.m_detectionRadius))
             {
+                Debug.Log("Target : null : Base");
                 p_aiCont.m_target = null;
 
             }

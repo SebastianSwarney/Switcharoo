@@ -146,7 +146,7 @@ MonoBehaviour:
   m_robotSprite: {fileID: 21300000, guid: db7d6e7f90e8ea2489c9b0c1304d0690, type: 3}
   m_alienSprite: {fileID: 21300000, guid: 6a5e47972c96d5b4bbfdd43673c60afb, type: 3}
   m_type: 0
-  m_moveSpeedMultiplier: 2
+  m_moveSpeedMultiplier: 1
   m_moveSpeed: 10
   m_damageTargetMask:
     serializedVersion: 2
@@ -158,4 +158,4 @@ MonoBehaviour:
   m_bulletDamageAmount: 0
   m_rigidbody: {fileID: 0}
   m_pooler: {fileID: 0}
-  m_rotateSpeed: 150
+  m_rotateSpeed: 217.5
