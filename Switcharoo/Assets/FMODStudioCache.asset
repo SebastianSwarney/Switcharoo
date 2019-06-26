@@ -272,7 +272,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/Explosion
   guid: e255eed4b3e1c9429a159eee3b25f72c
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -378,7 +378,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/PlayerHit
   guid: 7bc2858567688447b51d870ec6d8b758
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -556,7 +556,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/PlayerDash
   guid: fa63b4823a49bd4ea00b5885c61900a0
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -642,7 +642,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/EnemyRobotMissileShoot
   guid: 82fe25d4cdc8c24d9401d54f165dc5e4
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -857,7 +857,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/GameOver
   guid: b72cc2e7f9452d4da2ad27dcb775d2e5
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -966,7 +966,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/EnemyAlienDeath
   guid: 747e9523e8b0aa4d9fa1bb0c5efb1d15
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/PlayerLand
   guid: 94703445b1adb943906c675dbf6ef512
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/SwitchETB
   guid: 8074ca6055c68c4e8d5bb40b57a81063
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 3060593750653169670}
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   EditorEvents:
   - {fileID: 7876838488869506827}
   - {fileID: 1315854610390014352}
@@ -1473,10 +1473,10 @@ MonoBehaviour:
   - {fileID: -1660183164278675286}
   - {fileID: -8058310017259077539}
   MasterBanks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   StringsBanks:
   - {fileID: 3060593750653169670}
-  stringsBankWriteTime: 636971585165992766
+  stringsBankWriteTime: 636971591710059443
   cacheVersion: 3
 --- !u!114 &3358554283880251
 MonoBehaviour:
@@ -1533,7 +1533,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/EnemyAlienHit
   guid: b11be7e427498943bed5e4c3c88170e5
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1675,7 +1675,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShotEnergy
   guid: 11d3eb3453535549802ea6bb392e8179
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1893,26 +1893,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 17504
   Exists: 1
---- !u!114 &2735370436951677984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: D:\Users\Joshua\Documents\Unavailable Games\Switcharoo\Game\Switcharoo\Switcharoo\FMODSwitcharoo\Build\Desktop\Master
-    Bank.bank
-  lastModified: 636971585165932923
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 1928032
-  Exists: 1
 --- !u!114 &2742102064307680228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1989,7 +1969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODSwitcharoo\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636971585165992766
+  lastModified: 636971591710059443
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -2139,7 +2119,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/FootstepsMetal
   guid: 213b6d4e12e196408539f18196971849
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2202,7 +2182,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/EnemyRobotHit
   guid: e7e33d1739bfb4448c5f304c8beb6cfd
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2271,7 +2251,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShellCasingBounce
   guid: c942937061be41479001b501522794be
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2360,7 +2340,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShotDeflected
   guid: 2a617956140cb749a5d883eac0e6c00e
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2406,7 +2386,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/EnemyAlienShoot
   guid: 2468edd7579506478d97a92751c65d07
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2672,7 +2652,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/PlayerJump
   guid: ccabb90742f1d34e9c8495dcd436ab41
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2820,7 +2800,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/EnemyRobotShoot
   guid: 685d3eb186e97f49938017b263242e18
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2843,7 +2823,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/ShotBallistic
   guid: 7183ae29badcc649a13865e552f64b02
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2866,7 +2846,7 @@ MonoBehaviour:
   Path: event:/Gnomed-00
   guid: beed25ea8e1f1048a11d8dd2dbad7052
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2975,7 +2955,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/EnemyRobotDeath
   guid: 6977dfd724dde84fb07af3442032414e
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3018,7 +2998,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/SteamVent
   guid: 3a5f1837758fa2489c3e29f2f126a287
   Banks:
-  - {fileID: 2735370436951677984}
+  - {fileID: 178200866710766165}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
