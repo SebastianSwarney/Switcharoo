@@ -14899,11 +14899,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 5592034707182385537, guid: 3b4ca41f933e23742895511e934a1e5b,
-        type: 3}
-      propertyPath: orthographic size
-      value: 8.4375
-      objectReference: {fileID: 0}
     - target: {fileID: 5592034707182385536, guid: 3b4ca41f933e23742895511e934a1e5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14969,6 +14964,11 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 260180900}
+    - target: {fileID: 5592034707182385537, guid: 3b4ca41f933e23742895511e934a1e5b,
+        type: 3}
+      propertyPath: orthographic size
+      value: 8.4375
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b4ca41f933e23742895511e934a1e5b, type: 3}
 --- !u!114 &1188227296 stripped
@@ -15241,7 +15241,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1399501288
@@ -15252,7 +15252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399501285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.58, y: 0.22, z: -6.9587526}
+  m_LocalPosition: {x: 4.543, y: 2.521, z: -6.9587526}
   m_LocalScale: {x: 2.6648, y: 2.6648, z: 2.6648}
   m_Children: []
   m_Father: {fileID: 0}
