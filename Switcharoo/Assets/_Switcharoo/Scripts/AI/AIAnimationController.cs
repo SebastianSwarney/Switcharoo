@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+
+[System.Serializable]
+public class OnEventActive : UnityEvent { }
 public class AIAnimationController : MonoBehaviour
 {
     Animator m_animCont;
@@ -15,6 +19,8 @@ public class AIAnimationController : MonoBehaviour
 
     public Color m_frozenColor;
     Color m_enemyInitialColor;
+
+    public OnEventActive m_fireBulletSound, m_heavyAltFireSound;
     private void Awake()
     {
         m_animCont = GetComponent<Animator>();
@@ -80,6 +86,14 @@ public class AIAnimationController : MonoBehaviour
     public void FireBullet()
     {
         m_aiCont.ShootGun();
+        if (!m_aiCont.m_fireAlt)
+        {
+            m_fireBulletSound.Invoke();
+        }
+        else
+        {
+            m_heavyAltFireSound.Invoke();
+        }
     }
 
     public void SwitchToAltFire()
