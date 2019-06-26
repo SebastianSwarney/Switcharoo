@@ -378,6 +378,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6069586170455522629}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OnPlayerRespawn, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_playerStep:
@@ -398,16 +409,16 @@ MonoBehaviour:
   m_playerDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6373415939852608866}
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 6069586170455522629}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 8385909804330445121}
         m_MethodName: Play
@@ -1522,6 +1533,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerDeathParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 4898695639368506000, guid: 295d0e47ba703ac458121b9a3cd613f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3033728512853409851, guid: 295d0e47ba703ac458121b9a3cd613f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1577,17 +1593,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5742869952876331703, guid: 295d0e47ba703ac458121b9a3cd613f9,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295d0e47ba703ac458121b9a3cd613f9, type: 3}
---- !u!4 &4456823990317836270 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3033728512853409851, guid: 295d0e47ba703ac458121b9a3cd613f9,
+--- !u!1 &6069586170455522629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4898695639368506000, guid: 295d0e47ba703ac458121b9a3cd613f9,
     type: 3}
   m_PrefabInstance: {fileID: 1711413814564448213}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &6373415939852608866 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5742869952876331703, guid: 295d0e47ba703ac458121b9a3cd613f9,
+--- !u!4 &4456823990317836270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3033728512853409851, guid: 295d0e47ba703ac458121b9a3cd613f9,
     type: 3}
   m_PrefabInstance: {fileID: 1711413814564448213}
   m_PrefabAsset: {fileID: 0}
