@@ -13,16 +13,15 @@ MonoBehaviour:
   m_Name: AI_AttackType_HeavyShoot
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e, type: 2}
-  m_attackRadius: 12.99
-  m_tellTime: 2
+  m_tellTime: 3
   m_targetStoppingDistance: 1
-  m_playerMoveDistanceReaction: 4
-  m_closeDistanceMax: 10
-  m_closeShootBulletCount: 20
-  m_farShootBulletCount: 4
+  m_playerMoveDistanceReaction: 4.5
+  m_closeDistanceMax: 36
+  m_closeShootBulletCount: 10000
+  m_farShootBulletCount: 10000
   m_closeShootTriggerTime: 0.25
   m_farShootTriggerTime: 0.5
-  m_closeShootBreakTime: 0.5
+  m_closeShootBreakTime: 1
   m_farShootBreakTime: 1
   m_farShootAimUp: 20
   m_closeShootingMovement: {fileID: 11400000, guid: 1ac062304b15216419b357f2bab6d44e,

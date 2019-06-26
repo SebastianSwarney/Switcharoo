@@ -16,5 +16,5 @@ MonoBehaviour:
   m_fireRate: 6
   m_baseDamage: 6
   m_baseBulletSpeed: 12
-  m_ammoCount: 55
+  m_ammoCount: 60
   m_maxBulletSpread: 0

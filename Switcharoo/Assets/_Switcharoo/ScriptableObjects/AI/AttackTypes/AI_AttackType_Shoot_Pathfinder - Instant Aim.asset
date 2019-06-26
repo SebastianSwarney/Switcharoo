@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: AI_AttackType_Shoot_Pathfinder - Instant Aim
   m_EditorClassIdentifier: 
   m_attackMovement: {fileID: 11400000, guid: bd9bf3053fe98f54bb10b85d7d22ebb3, type: 2}
-  m_tellTime: 2
+  m_tellTime: 4.5
   m_targetStoppingDistance: 0.1
   m_playerMoveDistanceReaction: 6
   m_distanceFromPlayer: 6
   m_bulletsPerPattern: 3
-  m_shootBreakTime: 3
-  m_shootTriggerTime: 1
+  m_shootBreakTime: 4.5
+  m_shootTriggerTime: 3
   m_shootingMovement: {fileID: 11400000, guid: bd9bf3053fe98f54bb10b85d7d22ebb3, type: 2}
   m_weaponComposition:
     m_shotPattern: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb, type: 2}

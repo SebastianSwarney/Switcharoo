@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_debugPhysicsChecks
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}

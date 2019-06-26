@@ -319,12 +319,12 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_attackSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_idleSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -400,7 +400,7 @@ PrefabInstance:
     - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_maxHealth
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: AI_ShotPattern_Scatter
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 0}
-  m_fireRate: 6
-  m_baseDamage: 30
-  m_baseBulletSpeed: 15
-  m_ammoCount: 1000
-  m_bulletSpacing: 30
-  m_amountOfBulletsPerShot: 4
-  m_randomRotation: 2
-  m_verticalOffset: 0.2
+  m_fireRate: 1
+  m_baseDamage: 10
+  m_baseBulletSpeed: 10
+  m_ammoCount: 10000
+  m_bulletSpacing: 150
+  m_amountOfBulletsPerShot: 5
+  m_randomRotation: 3
+  m_verticalOffset: 0.5

@@ -15,5 +15,5 @@ MonoBehaviour:
   m_uiSprite: {fileID: 0}
   m_explosionVisual: {fileID: 658332429810894688, guid: 9eb391405a534b341b84c050df0d0c07,
     type: 3}
-  m_explosionRadius: 1
-  m_explosionDamage: 5
+  m_explosionRadius: 0.5
+  m_explosionDamage: 3
