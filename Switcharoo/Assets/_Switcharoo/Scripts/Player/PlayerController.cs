@@ -753,10 +753,12 @@ public class PlayerController : MonoBehaviour, IPauseable
 		if (m_usingMovementAbility)
 		{
 			m_states.m_swappingState = SwappingState.SwappingDisabled;
+			m_states.m_damageState = DamageState.Invulnerable;
 		}
 		else
 		{
 			m_states.m_swappingState = SwappingState.SwappingEnabled;
+			m_states.m_damageState = DamageState.Vulnerable;
 		}
 
 		if (m_isSwapping)
