@@ -13,7 +13,8 @@ public class ParticleSelfDestruct : MonoBehaviour
 	{
 		m_attachedParticalSystem = GetComponent<ParticleSystem>();
 		m_destructTime = m_attachedParticalSystem.main.duration + m_attachedParticalSystem.main.startLifetimeMultiplier;
-	}
+        ObjectPooler.instance.AddObjectToDespawn(this.gameObject);
+    }
 
 	private void Update()
 	{
