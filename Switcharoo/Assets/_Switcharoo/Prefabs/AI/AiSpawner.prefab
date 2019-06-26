@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 686a68f63c6aaa54d805abc20fd450e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,18 @@ MonoBehaviour:
   m_fireDamageAmount: 0
   m_enemyHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5948296371411213608}
+        m_MethodName: EnemyHurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_enemyFrozen:
     m_PersistentCalls:
@@ -210,3 +221,4 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnSpawnerDeath, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_endColor: {r: 1, g: 0, b: 0, a: 0}
