@@ -117,7 +117,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!114 &5948296371411213611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isDead: 0
-  m_maxHealth: 50
+  m_maxHealth: 225
   m_currentHealth: Infinity
   m_canTakeDamage: 1
   m_currentIceState: 0
