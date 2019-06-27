@@ -151,13 +151,15 @@ MonoBehaviour:
   m_canDamage: 0
   m_renderer: {fileID: 0}
   m_paused: 0
+  m_bulletTag: Bullet
   m_triggerArea:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 2, y: 2, z: 0}
   m_drawBoundsInWorldSpace: 0
   m_lifespan: 3
-  m_fadeTimeStart: 2
-  m_endColor: {r: 1, g: 1, b: 1, a: 0}
+  m_respawnTime: 1.5
   m_hazardType: 0
   m_alienSprite: {fileID: 21300000, guid: 638dd8696abab5b4798c28f65375b0e0, type: 3}
   m_robotSprite: {fileID: 21300000, guid: 089c535ea8faed646ba3d555c5535117, type: 3}
+  m_fadeTimeStart: 2
+  m_endColor: {r: 1, g: 1, b: 1, a: 0}

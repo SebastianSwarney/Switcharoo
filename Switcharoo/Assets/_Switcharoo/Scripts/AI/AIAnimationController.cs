@@ -133,7 +133,7 @@ public class AIAnimationController : MonoBehaviour
         {
             m_animCont = GetComponent<Animator>();
         }
-        m_sRend.color = m_enemyInitialColor;
+        m_sRend.color = Color.white;
         m_animCont.enabled = true;
     }
 

@@ -31,8 +31,10 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     public float m_spawnerRadius;
     public Vector3 m_spawnerOffset;
     public float m_spawnPerMinute;
-    public int m_maxEnemyFromThis;
-    float m_timeToSpawn;
+    public int m_maxEnemyFromThis, m_stopSpawningAtCount = (int)1000000000;
+    private int m_enemyCount;
+    private float m_timeToSpawn;
+    
 
     [Header("Enemy Properties")]
     public GameObject m_enemyToSpawn;
@@ -91,7 +93,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     void InitateSpawning()
     {
 
-
+        print("Reset");
         m_timeToSpawn = 60 / m_spawnPerMinute;
         m_spawnDelay = new WaitForSeconds(m_timeToSpawn);
 
@@ -126,8 +128,15 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
         aiCont.InitiateAi();
         m_currentEnemyNumber++;
-
-
+        m_enemyCount++;
+        if (m_enemyCount >= m_stopSpawningAtCount)
+        {
+            if (m_spawnEnemies != null)
+            {
+                StopCoroutine(m_spawnEnemies);
+            }
+            
+        }
         m_spawnManager.m_currentEnemiesInRoom.Add(aiCont);
         return;
     }
@@ -246,6 +255,8 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         m_health.m_isDead = false;
         m_health.ResetHealth();
         gameObject.SetActive(true);
+        m_enemyCount = 0;
+
 
     }
 

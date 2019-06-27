@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 504732419026082140}
   m_Layer: 19
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,6 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6adb9f31a2d344eb7f9e3aa7c337a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_uiSprite: {fileID: 0}
+  m_isPlayer: 0
+  m_robotSprite: {fileID: 0}
+  m_alienSprite: {fileID: 0}
+  m_type: 0
   m_moveSpeedMultiplier: 1
   m_moveSpeed: 20
   m_damageTargetMask:
@@ -104,6 +109,7 @@ MonoBehaviour:
   m_damageType: {fileID: 0}
   m_bulletDamageAmount: 0
   m_rigidbody: {fileID: 0}
+  m_pooler: {fileID: 0}
 --- !u!61 &504732419026082140
 BoxCollider2D:
   m_ObjectHideFlags: 0

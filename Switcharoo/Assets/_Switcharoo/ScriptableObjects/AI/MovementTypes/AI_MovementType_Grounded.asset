@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AI_MovementType_Grounded
   m_EditorClassIdentifier: 
   m_usesPathfinding: 0
-  m_canJump: 1
+  m_canJump: 0
   m_jumpTurnDistance: 1
   m_gravityValue: 9.8
   m_jumpHeight: 3
