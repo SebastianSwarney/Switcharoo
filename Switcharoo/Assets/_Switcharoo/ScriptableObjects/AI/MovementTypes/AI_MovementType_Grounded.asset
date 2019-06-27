@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9ae2c848a8a9b488b42c35675c4bc4, type: 3}
   m_Name: AI_MovementType_Grounded
   m_EditorClassIdentifier: 
-  m_speed: 3
   m_usesPathfinding: 0
-  m_checkWallDistance: 1
-  m_canJump: 0
-  m_jumpTurnDistance: 0
-  m_gravityValue: 0
-  m_jumpHeight: 0
+  m_canJump: 1
+  m_jumpTurnDistance: 1
+  m_gravityValue: 1
+  m_jumpHeight: 2

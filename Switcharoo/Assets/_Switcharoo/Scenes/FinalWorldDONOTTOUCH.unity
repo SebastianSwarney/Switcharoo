@@ -3130,6 +3130,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room 004 - Arena Eliminate
       objectReference: {fileID: 0}
+    - target: {fileID: 4279236417756988938, guid: 8a1dfba585499314fb1d03e6b352d266,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4279236417756988937, guid: 8a1dfba585499314fb1d03e6b352d266,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3316,12 +3321,12 @@ PrefabInstance:
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.23
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -53.38
+      value: -110.7
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
@@ -3368,83 +3373,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868467, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868467, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868467, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868467, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318095290243, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384225815541603704, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994164, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: deathparticle
-      value: 
-      objectReference: {fileID: 5054866457465444057, guid: b1f6b84cdb9a38e45b71aad761988209,
-        type: 3}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: particleCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: maxNumberOfRings
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: ringTimerDelay
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_fireData
-      value: 
-      objectReference: {fileID: 11400000, guid: 15f1c8df6fca1764188c2017f553cdf7,
-        type: 2}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_invulnerableTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642809637188688157, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_maxHealth
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033318001868476, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}
 --- !u!1 &1711301911 stripped
@@ -3545,6 +3473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room 005 - KoTH Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951188113845611142, guid: 6cdc937aea858f640971c9c59c5e84cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951188113845611141, guid: 6cdc937aea858f640971c9c59c5e84cc,
         type: 3}

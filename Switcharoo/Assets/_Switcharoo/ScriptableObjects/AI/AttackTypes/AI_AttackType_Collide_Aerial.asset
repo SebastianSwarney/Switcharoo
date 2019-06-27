@@ -15,7 +15,7 @@ MonoBehaviour:
   m_attackMovement: {fileID: 11400000, guid: 8f45e1ddb1b705e4e9a0db67930f3fa9, type: 2}
   m_tellTime: 0
   m_targetStoppingDistance: 0.1
-  m_playerMoveDistanceReaction: 3
+  m_playerMoveDistanceReaction: 4.5
   m_targetOvershootPlayerDistance: 0
   m_jumpAtPlayer: 0
   m_jumpHeight: 0
