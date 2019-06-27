@@ -237,6 +237,11 @@ public class AiController : MonoBehaviour, IPauseable
 
     private void Update()
     {
+
+        if (m_debugPhysicsChecks)
+        {
+            Debug.DrawLine(transform.position, m_aiBounds.gameObject.transform.position, Color.red);
+        }
         if (!m_isPaused)
         {
             if (m_enemyHealth.m_isDead)
