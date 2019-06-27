@@ -121,7 +121,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
         aiCont.m_parentSpawn = this;
 
-        Vector3 randomPos = Random.insideUnitCircle * m_spawnerRadius + (Vector2)transform.position;
+        Vector3 randomPos = Random.insideUnitCircle * m_spawnerRadius + (Vector2)transform.position + (Vector2)m_spawnerOffset;
         aiCont.transform.position = randomPos;
 
         aiCont.InitiateAi();
@@ -294,7 +294,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(m_triggerOrigin + (Vector2)transform.position, m_triggerDimensions);
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, m_spawnerRadius);
+        Gizmos.DrawWireSphere(transform.position + m_spawnerOffset, m_spawnerRadius);
     }
 
     public void SetPauseState(bool p_isPaused)
