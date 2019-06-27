@@ -348,6 +348,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
+    - _id: 15
+      _name: MenuToggle
+      _type: 1
+      _descriptiveName: MenuToggle
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -364,7 +373,7 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 0000000003000000090000000a00000002000000040000000500000006000000
       - categoryId: 1
-        actionIds: 0b0000000c0000000d0000000e000000
+        actionIds: 0b0000000c0000000d0000000e0000000f000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -872,7 +881,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: 15
         _axisRange: 0
@@ -1225,7 +1234,7 @@ MonoBehaviour:
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 3
-    actionIdCounter: 15
+    actionIdCounter: 16
     actionCategoryIdCounter: 2
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 2

@@ -23,6 +23,8 @@ public class PauseMenuController : MonoBehaviour
     public UnityEngine.EventSystems.EventSystem m_eventSystem;
     public GameObject m_pauseScreenButton;
 
+	private Player m_player0InputController;
+	private Player m_player1InputController;
 
 	private void Awake()
 	{
@@ -38,6 +40,9 @@ public class PauseMenuController : MonoBehaviour
 
 	private void Start()
 	{
+		m_player0InputController = ReInput.players.GetPlayer(0);
+		m_player1InputController = ReInput.players.GetPlayer(1);
+
 		m_canPause = true;
 
 		SetUnPause();
@@ -46,7 +51,7 @@ public class PauseMenuController : MonoBehaviour
 	private void Update()
 	{
         if (!m_canPause) return;
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Escape) || m_player0InputController.GetButton("MenuToggle") || m_player1InputController.GetButton("MenuToggle"))
 		{
 			TogglePause();
 		}
