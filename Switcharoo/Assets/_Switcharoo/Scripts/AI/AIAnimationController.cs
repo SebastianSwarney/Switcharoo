@@ -125,6 +125,14 @@ public class AIAnimationController : MonoBehaviour
 
     public void RespawnEnemy()
     {
+        if (m_sRend == null)
+        {
+            m_sRend = GetComponent<SpriteRenderer>();
+        }
+        if (m_animCont == null)
+        {
+            m_animCont = GetComponent<Animator>();
+        }
         m_sRend.color = m_enemyInitialColor;
         m_animCont.enabled = true;
     }
