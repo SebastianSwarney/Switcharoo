@@ -15,5 +15,5 @@ MonoBehaviour:
   m_usesPathfinding: 0
   m_canJump: 1
   m_jumpTurnDistance: 1
-  m_gravityValue: 1
-  m_jumpHeight: 2
+  m_gravityValue: 9.8
+  m_jumpHeight: 3

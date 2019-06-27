@@ -154,7 +154,7 @@ MonoBehaviour:
   m_renderer: {fileID: 0}
   m_paused: 0
   m_timeOn: 2
-  m_timeOff: 2.5
+  m_timeOff: 3
   m_startDelay: 0
   m_onEvent:
     m_PersistentCalls:

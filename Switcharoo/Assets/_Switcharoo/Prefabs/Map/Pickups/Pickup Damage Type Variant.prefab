@@ -20,7 +20,6 @@ MonoBehaviour:
   m_currentItem: 0
   m_amountOfItems: 0
   m_damageTypes:
-  - {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76, type: 2}
   - {fileID: 11400000, guid: b2f38bc78b774bc4ca39d24132c75202, type: 2}
   - {fileID: 11400000, guid: fb3eede0ef9f1e641a2db337cdcac8a1, type: 2}
   - {fileID: 11400000, guid: a2a4a771a38738b40a4b1995ec450d4e, type: 2}

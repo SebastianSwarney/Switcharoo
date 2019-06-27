@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isDead: 0
-  m_maxHealth: 225
+  m_maxHealth: 125
   m_currentHealth: Infinity
   m_canTakeDamage: 1
   m_currentIceState: 0

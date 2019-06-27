@@ -3286,6 +3286,26 @@ PrefabInstance:
       propertyPath: m_nextRoom
       value: 
       objectReference: {fileID: 2146279469}
+    - target: {fileID: 5948296371330130946, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_spawnOnDestroyed.Array.data[0].m_spawnRadius
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948296371330130946, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_spawnOnDestroyed.Array.data[0].m_objectSpawnType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948296370654993683, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_spawnOnDestroyed.Array.data[0].m_spawnRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948296370654993683, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_spawnOnDestroyed.Array.data[0].m_objectSpawnType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67455a7d00abab04dbb98f329d9b2d17, type: 3}
 --- !u!114 &1194838525 stripped
@@ -3321,12 +3341,12 @@ PrefabInstance:
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.4
+      value: -43.3
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -110.7
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
