@@ -32,6 +32,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
 
         if (!p_aiCont.m_jumpAnim)
         {
+            
             ///Sets gravity to be active
             p_rb.gravityScale = 1;
             Vector3 dir = p_targetPos - p_startPos;
@@ -54,7 +55,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
         }
         else
         {
-
+            
             p_rb.velocity = Vector3.zero;
             if (p_aiCont.m_beginJump)
             {
