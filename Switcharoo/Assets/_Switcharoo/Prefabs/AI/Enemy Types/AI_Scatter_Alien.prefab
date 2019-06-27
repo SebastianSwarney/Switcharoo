@@ -77,6 +77,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8717893369455602391}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Name
@@ -86,11 +121,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: Event
-      value: event:/Sound Effects/EnemyAlienDeath
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -121,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_debugPhysicsChecks
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -300,45 +330,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 15f1c8df6fca1764188c2017f553cdf7,
         type: 2}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienHit
       objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      propertyPath: OverrideMinDistance
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8717893369455602391}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.29
+      propertyPath: OverrideMaxDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -375,21 +380,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: Event
-      value: event:/Sound Effects/EnemyAlienHit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: OverrideMinDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: OverrideMaxDistance
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2433419486793325122, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -437,6 +427,16 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: df99bc4831799724fab87ab1a1313d9a, type: 2}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}
 --- !u!1 &1546858493808718349 stripped

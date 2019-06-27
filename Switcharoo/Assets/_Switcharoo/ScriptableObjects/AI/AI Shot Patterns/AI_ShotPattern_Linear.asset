@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AI_ShotPattern_Linear
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 0}
-  m_fireRate: 1
+  m_fireRate: 20
   m_baseDamage: 25
   m_baseBulletSpeed: 9
   m_ammoCount: 1000

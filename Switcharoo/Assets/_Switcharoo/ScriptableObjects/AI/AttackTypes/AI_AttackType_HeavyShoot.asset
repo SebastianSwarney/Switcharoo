@@ -16,9 +16,9 @@ MonoBehaviour:
   m_tellTime: 3
   m_targetStoppingDistance: 1
   m_playerMoveDistanceReaction: 4.5
-  m_closeDistanceMax: 42
-  m_closeShootBulletCount: 10000
-  m_farShootBulletCount: 10000
+  m_closeDistanceMax: 18
+  m_closeShootBulletCount: 20
+  m_farShootBulletCount: 7
   m_closeShootTriggerTime: 0.25
   m_farShootTriggerTime: 0.5
   m_closeShootBreakTime: 1

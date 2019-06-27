@@ -20,6 +20,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     public Vector2 m_triggerOrigin;
     public Vector2 m_triggerDimensions;
     Coroutine m_triggerCheckCoroutine;
+    private bool m_active;
 
     [HideInInspector]
     public AI_Spawner_Manager_Base m_spawnManager;
@@ -93,12 +94,13 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     void InitateSpawning()
     {
 
-        print("Reset");
+        
         m_timeToSpawn = 60 / m_spawnPerMinute;
         m_spawnDelay = new WaitForSeconds(m_timeToSpawn);
 
-        if (m_spawnEnemies != null)
+        if (m_spawnEnemies != null && !m_active)
         {
+            print("Stop spawning");
             StopCoroutine(m_spawnEnemies);
         }
         if (!gameObject.activeSelf || m_triggerStart) return;
@@ -133,7 +135,9 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         {
             if (m_spawnEnemies != null)
             {
+                print("Stop spawning");
                 StopCoroutine(m_spawnEnemies);
+                
             }
             
         }
@@ -153,10 +157,12 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         {
             
             InitateSpawning();
+            
         }
         else
         {
             if (m_spawnEnemies == null) return;
+            print("Stop spawning");
             StopCoroutine(m_spawnEnemies);
 
         }
@@ -251,11 +257,15 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     public void Respawn()
     {
+        m_sRend.GetPropertyBlock(m_materialBlock);
+        m_materialBlock.SetFloat("_EffectAmount", 0);
+        m_sRend.SetPropertyBlock(m_materialBlock);
 
         m_health.m_isDead = false;
         m_health.ResetHealth();
         gameObject.SetActive(true);
         m_enemyCount = 0;
+        m_active = false;
 
 
     }
@@ -275,6 +285,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
                     {
                         m_spawnManager.m_currentAiCount++;
                         SpawnEnemy();
+                        
                     }
                 }
             }
@@ -293,6 +304,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
             if (Physics2D.OverlapBox(m_triggerOrigin + (Vector2)transform.position, m_triggerDimensions, 0, m_playerLayers) != null)
             {
                 m_playerFound = true;
+                m_active = true;
             }
         }
         InitateSpawning();

@@ -161,6 +161,71 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1163263393757717326}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2764499289903094251}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyRobotDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Name
@@ -170,21 +235,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: Event
-      value: event:/Sound Effects/EnemyRobotDeath
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_damageTargetMask.m_Bits
-      value: 12288
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_obstacleMask.m_Bits
-      value: 49408
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -290,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_debugPhysicsChecks
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -456,7 +506,7 @@ PrefabInstance:
     - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_maxHealth
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -464,80 +514,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 15f1c8df6fca1764188c2017f553cdf7,
         type: 2}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyRobotHit
       objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      propertyPath: OverrideMinDistance
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1163263393757717326}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_fireBulletSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2764499289903094251}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273551082856193393, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_heavyAltFireSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548078513444975570, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.379
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.647
+      propertyPath: OverrideMaxDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -559,36 +549,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370924326335409647, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8417317955701389940, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: Event
-      value: event:/Sound Effects/EnemyRobotHit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: OverrideMinDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7345399583718073974, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: OverrideMaxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078133998680829598, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: m_Name
-      value: Turret Origin
       objectReference: {fileID: 0}
     - target: {fileID: 2433419486793325122, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -625,6 +585,64 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 1.71875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_damageTargetMask.m_Bits
+      value: 12288
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_obstacleMask.m_Bits
+      value: 49408
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_currentWeaponComposition.m_shotPattern
+      value: 
+      objectReference: {fileID: 11400000, guid: 55793d2de417c9b4e8e34d3b03e195fb,
+        type: 2}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_currentWeaponComposition.m_bulletType
+      value: 
+      objectReference: {fileID: 7220302174730930199, guid: 22cee39f8b1513747a414d96b7f4573b,
+        type: 3}
+    - target: {fileID: 3078133998956346287, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_currentWeaponComposition.m_damageType
+      value: 
+      objectReference: {fileID: 11400000, guid: e43c8d368acd9014c9b7a8191e795fe2,
+        type: 2}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.379
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829569, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370924326335409647, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548078513444975570, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417317955701389940, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078133998680829598, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret Origin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}

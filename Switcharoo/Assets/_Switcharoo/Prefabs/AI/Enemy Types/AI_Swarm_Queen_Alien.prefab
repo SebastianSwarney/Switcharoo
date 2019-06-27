@@ -49,9 +49,9 @@ MonoBehaviour:
   m_entityPrefab: {fileID: 8515277832737761270, guid: be2dda85b46848d4dac4dccbf6cef502,
     type: 3}
   m_entityAmount: 24
-  m_entityRespawnTime: 3
+  m_entityRespawnTime: 1
   m_target: {fileID: 0}
-  m_detectionRadius: 5
+  m_detectionRadius: 7
   m_playerTag: Player
   m_playerLayer:
     serializedVersion: 2
@@ -69,6 +69,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sound Effects/EnemyAlienDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346284, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_Name
@@ -78,11 +83,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: -5651543943986591805, guid: db08449e2d24e0d468dea21746da98aa,
-        type: 3}
-      propertyPath: Event
-      value: event:/Sound Effects/EnemyAlienDeath
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -136,9 +136,9 @@ PrefabInstance:
       propertyPath: m_playerSpotted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3078133998956346257, guid: db08449e2d24e0d468dea21746da98aa,
+    - target: {fileID: 3078133998956346286, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
-      propertyPath: m_GravityScale
+      propertyPath: m_debugPhysicsChecks
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_maxHealth
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2692124808337637456, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 69b1f63134b7d6e44b8b0976859f7549, type: 2}
+    - target: {fileID: 3078133998956346257, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08449e2d24e0d468dea21746da98aa, type: 3}
 --- !u!1 &4763751906924356119 stripped
