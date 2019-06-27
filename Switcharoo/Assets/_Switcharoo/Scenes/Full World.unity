@@ -483,6 +483,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2067841595}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1215449322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4661171502365319815, guid: 00b056f9c53c0f04b808bdf5b44afe36,
+    type: 3}
+  m_PrefabInstance: {fileID: 514418357}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b3e3c96df0ef42aef16b63b27b87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1273230242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3623,6 +3635,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659039161170034402, guid: 392ab7df7c6d7cc49ba4151355698e39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963336970729342863, guid: 392ab7df7c6d7cc49ba4151355698e39,
+        type: 3}
+      propertyPath: rewiredInputManager
+      value: 
+      objectReference: {fileID: 1215449322}
+    - target: {fileID: 9038274508400833636, guid: 392ab7df7c6d7cc49ba4151355698e39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 392ab7df7c6d7cc49ba4151355698e39, type: 3}

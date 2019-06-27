@@ -51,7 +51,7 @@ public class PauseMenuController : MonoBehaviour
 	private void Update()
 	{
         if (!m_canPause) return;
-		if (Input.GetKeyDown(KeyCode.Escape) || m_player0InputController.GetButton("MenuToggle") || m_player1InputController.GetButton("MenuToggle"))
+		if (Input.GetKeyDown(KeyCode.Escape) || m_player0InputController.GetButtonDown("MenuToggle") || m_player1InputController.GetButtonDown("MenuToggle"))
 		{
 			TogglePause();
 		}
