@@ -40,7 +40,7 @@ public class AI_MovementType_Grounded : AI_MovementType_Base
             p_rb.velocity = dir;
             if (p_aiCont.m_aiBounds != null)
             {
-                if (p_aiCont.m_aiBounds.TargetInBounds(p_aiCont.transform.position + (p_targetPos - p_startPos).normalized * p_aiCont.m_checkWallDistance/2))
+                if (!p_aiCont.m_aiBounds.TargetInBounds(p_aiCont.transform.position + (p_targetPos - p_startPos).normalized * p_aiCont.m_checkWallDistance/2))
                 {
                     p_rb.velocity = new Vector3(0f, p_rb.velocity.y, 0f);
 

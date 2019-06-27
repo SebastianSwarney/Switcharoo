@@ -21,6 +21,7 @@ public class PlayerGraphicsController : MonoBehaviour
     public GameObject m_landedParticle;
     public Vector3 m_landedParticleOffset;
 
+	public GameObject m_shieldVisual;
 
 	private void Start()
 	{
@@ -35,6 +36,20 @@ public class PlayerGraphicsController : MonoBehaviour
 		m_animationController.SetBool("IsGrounded", m_player.controller.collisions.below);
 		m_animationController.SetBool("IsMoving", (m_player.m_directionalInput.x != 0) ? true : false);
 		m_spriteRenderer.flipX = m_player.controller.collisions.faceDir == 1 ? true : false;
+
+		CheckPlayerInvunrable();
+	}
+
+	private void CheckPlayerInvunrable()
+	{
+		if (m_player.m_states.m_damageState == PlayerController.DamageState.Invulnerable && !m_player.m_usingMovementAbility)
+		{
+			m_shieldVisual.SetActive(true);
+		}
+		else
+		{
+			m_shieldVisual.SetActive(false);
+		}
 	}
 
 	public void ResetPlayerGraphics()
