@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isDead: 0
-  m_maxHealth: 125
+  m_maxHealth: 100
   m_currentHealth: Infinity
   m_canTakeDamage: 1
   m_currentIceState: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_currentSpawnDir: 0
   m_spawnerRadius: 3
   m_spawnerOffset: {x: 0, y: 0, z: 0}
-  m_spawnPerMinute: 5
+  m_spawnPerMinute: 45
   m_maxEnemyFromThis: 5
   m_enemyToSpawn: {fileID: 0}
   m_aiBoundsFromSpawner: {fileID: 0}
