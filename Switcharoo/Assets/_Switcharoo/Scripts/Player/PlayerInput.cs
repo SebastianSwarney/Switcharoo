@@ -144,7 +144,7 @@ public class PlayerInput : MonoBehaviour
 		Vector2 directionalInput = new Vector2(p_playerInputController.GetAxisRaw("Move Horizontal"), p_playerInputController.GetAxisRaw("Move Vertical"));
 		m_playerController.SetDirectionalInput(directionalInput);
 
-		Vector2 aimInput = new Vector2(p_playerInputController.GetAxisRaw("Aim Horizontal"), p_playerInputController.GetAxisRaw("Aim Vertical"));
+		Vector2 aimInput = new Vector2(p_playerInputController.GetAxisRaw("Runner Aim Horizontal"), p_playerInputController.GetAxisRaw("Runner Aim Vertical"));
 
 		if (aimInput.normalized.magnitude != 0)
 		{

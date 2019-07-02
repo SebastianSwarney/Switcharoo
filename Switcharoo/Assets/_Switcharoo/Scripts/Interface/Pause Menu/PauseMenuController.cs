@@ -65,7 +65,6 @@ public class PauseMenuController : MonoBehaviour
 		{
             ResetPauseMenu();
             SetPause();
-            
 		}
 		else
 		{
@@ -75,7 +74,8 @@ public class PauseMenuController : MonoBehaviour
 
 	private void SetPause()
 	{
-		m_pauseCanvans.enabled = true;
+		//m_pauseCanvans.enabled = true;
+		m_pauseCanvans.gameObject.SetActive(true);
 
 		foreach (IPauseable pauseable in m_pauseables)
 		{
@@ -85,7 +85,8 @@ public class PauseMenuController : MonoBehaviour
 
 	private void SetUnPause()
 	{
-		m_pauseCanvans.enabled = false;
+		//m_pauseCanvans.enabled = false;
+		m_pauseCanvans.gameObject.SetActive(false);
 
 		foreach (IPauseable pauseable in m_pauseables)
 		{

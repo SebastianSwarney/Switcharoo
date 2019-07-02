@@ -9,5 +9,6 @@ public class Pickup_Health : Pickup_Base
 	public override void SetPickup(PlayerController p_playerRefrence)
 	{
 		p_playerRefrence.GetComponent<Health>().HealDamage(m_healthIncrease);
+		gameObject.SetActive(false);
 	}
 }
