@@ -190,7 +190,10 @@ public class PlayerInput : MonoBehaviour
             {
                 m_humanSwap = false;
             }
-            m_swapPressed.Invoke(true);
+            if (!m_gunnerSwap)
+            {
+                m_swapPressed.Invoke(true);
+            }
         }
 
 		if (p_playerInputController.GetButtonDown("Shoot"))
@@ -222,8 +225,11 @@ public class PlayerInput : MonoBehaviour
             {
                 m_humanSwap = false;
             }
-
-            m_swapPressed.Invoke(true);
+            if (!m_runnerSwap)
+            {
+                m_swapPressed.Invoke(true);
+            }
+            
         }
 	}
 	#endregion

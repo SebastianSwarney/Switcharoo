@@ -51,6 +51,8 @@ public class Health : MonoBehaviour
 
     public OnEnemyHurt m_enemyHit = new OnEnemyHurt();
     public OnEnemyFrozen m_enemyFrozen = new OnEnemyFrozen();
+    public OnEnemyFrozen m_enemyFrozenSound = new OnEnemyFrozen();
+    private bool m_soundPlayed;
 
 	public OnEffectActivate m_onFireActivate;
 	public OnEffectActivate m_onFireDeactivate;
@@ -94,7 +96,9 @@ public class Health : MonoBehaviour
 		m_currentIceState = IceState._0;
 		m_currentFireState = FireState._0;
         m_isDead = false;
-		m_onIceDeactivate.Invoke();
+        m_soundPlayed = false;
+
+        m_onIceDeactivate.Invoke();
 	}
 
 	public void HealDamage(float p_healAmount)
@@ -258,9 +262,15 @@ public class Health : MonoBehaviour
 			case IceState._100:
 
 				m_rigidbody.velocity *= 0f;
+                if (!m_soundPlayed)
+                {
+                    m_enemyFrozenSound.Invoke();
+                    
+                    m_soundPlayed = true;
+                }
                 m_enemyFrozen.Invoke();
 
-				break;
+                break;
 		}
 	}
 
