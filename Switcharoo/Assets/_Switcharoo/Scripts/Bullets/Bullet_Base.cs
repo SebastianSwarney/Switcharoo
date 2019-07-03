@@ -101,12 +101,14 @@ public class Bullet_Base : MonoBehaviour, IPauseable
 			case PlayerController.PlayerType.Robot:
 
 				m_renderer.sprite = m_robotSprite;
+				m_type = PlayerController.PlayerType.Robot;
 
 				break;
 
 			case PlayerController.PlayerType.Alien:
 
 				m_renderer.sprite = m_alienSprite;
+				m_type = PlayerController.PlayerType.Alien;
 
 				break;
 		}
