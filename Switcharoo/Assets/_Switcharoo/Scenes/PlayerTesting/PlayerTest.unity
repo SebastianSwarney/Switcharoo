@@ -4826,6 +4826,8 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 10000
   m_currentHealth: 0
+  m_healthDropValue: 0
+  m_healthDropObject: {fileID: 0}
   m_canTakeDamage: 1
   m_currentIceState: 0
   m_currentFireState: 0
@@ -4993,7 +4995,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &260180900 stripped
 MonoBehaviour:
@@ -5132,6 +5134,8 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 10000
   m_currentHealth: 0
+  m_healthDropValue: 0
+  m_healthDropObject: {fileID: 0}
   m_canTakeDamage: 1
   m_currentIceState: 0
   m_currentFireState: 0
@@ -9939,7 +9943,7 @@ Transform:
   m_LocalScale: {x: 30, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734742422
 GameObject:
@@ -14647,6 +14651,8 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 10000
   m_currentHealth: 0
+  m_healthDropValue: 0
+  m_healthDropObject: {fileID: 0}
   m_canTakeDamage: 1
   m_currentIceState: 0
   m_currentFireState: 0
@@ -15092,12 +15098,12 @@ PrefabInstance:
     - target: {fileID: 7803014931649151876, guid: 54aea898cdacc2e4891f3fe9d2dc1163,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8737464
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 7803014931649151876, guid: 54aea898cdacc2e4891f3fe9d2dc1163,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1907215
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 7803014931649151876, guid: 54aea898cdacc2e4891f3fe9d2dc1163,
         type: 3}
@@ -15508,7 +15514,7 @@ PrefabInstance:
     - target: {fileID: 4636690032265156613, guid: 3ae2eaf700fffa145b4c66efe533d25b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4636690032265156613, guid: 3ae2eaf700fffa145b4c66efe533d25b,
         type: 3}
@@ -15686,7 +15692,7 @@ Transform:
   m_LocalScale: {x: 30, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &288033317984033716
 PrefabInstance:
@@ -15738,7 +15744,7 @@ PrefabInstance:
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
@@ -15754,41 +15760,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpOff.x
-      value: 8.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpOff.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallLeap.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallLeap.y
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallStickTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpClimb.x
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpClimb.y
-      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}
@@ -15911,7 +15882,7 @@ PrefabInstance:
     - target: {fileID: 9035766357769307789, guid: 13a8b05686e8d0145a3e211ac6153a96,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9035766357769307789, guid: 13a8b05686e8d0145a3e211ac6153a96,
         type: 3}

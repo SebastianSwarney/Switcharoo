@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5948296371411213608}
   m_Layer: 9
   m_Name: AiSpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 100
   m_currentHealth: Infinity
+  m_healthDropValue: 0
+  m_healthDropObject: {fileID: 0}
   m_canTakeDamage: 1
   m_currentIceState: 0
   m_currentFireState: 0
@@ -190,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f436fe1c41ef4546aaa21959837a8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_spawnerType: 0
   m_showGizmos: 1
   m_triggerStart: 0
   m_playerLayers:
@@ -203,16 +206,21 @@ MonoBehaviour:
   m_spawnerOffset: {x: 0, y: 0, z: 0}
   m_spawnPerMinute: 45
   m_maxEnemyFromThis: 5
+  m_stopSpawningAtCount: 1000000000
   m_enemyToSpawn: {fileID: 0}
   m_aiBoundsFromSpawner: {fileID: 0}
   m_spawnedEnemyPatrolPoints: []
   m_currentEnemyNumber: 0
   m_disableObjectsOnDisable: []
   m_spawnOnDestroyed: []
-  m_spawnerType: 0
   m_alienAnim: {fileID: 9100000, guid: 130e1a2814e6e4b419d36f70062799ba, type: 2}
   m_robotAnim: {fileID: 9100000, guid: 632a2ec3e911c49419d742e95fb3cf75, type: 2}
   m_spawnerDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnSpawnerDeath, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_bulletResistant:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnSpawnerDeath, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,

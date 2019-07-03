@@ -22,6 +22,8 @@ public class Health : MonoBehaviour
 	public bool m_isDead;
 	public float m_maxHealth;
 	public float m_currentHealth;
+	public float m_healthDropValue;
+	public GameObject m_healthDropObject;
 
 	private Rigidbody2D m_rigidbody;
 	[HideInInspector]
@@ -126,6 +128,9 @@ public class Health : MonoBehaviour
 	public virtual void Die()
 	{
 		m_isDead = true;
+
+		GameObject newHealthDrop = ObjectPooler.instance.NewObject(m_healthDropObject, transform.position, Quaternion.identity);
+		newHealthDrop.GetComponent<Pickup_Health>().m_healthIncrease = m_healthDropValue;
 	}
 
 	#region Fire Code

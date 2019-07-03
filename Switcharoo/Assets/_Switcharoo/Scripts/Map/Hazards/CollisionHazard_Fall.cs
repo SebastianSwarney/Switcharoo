@@ -24,7 +24,7 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
     private bool m_canTrigger;
 
     [Header("Visuals")]
-    public AI_Spawner.RaceType m_hazardType;
+    public PlayerController.PlayerType m_hazardType;
     public Sprite m_alienSprite;
     public Sprite m_robotSprite;
     public float m_fadeTimeStart;
@@ -49,7 +49,7 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
         m_sRend = GetComponent<SpriteRenderer>();
         m_startColor = m_sRend.color;
 
-        m_sRend.sprite = (m_hazardType == AI_Spawner.RaceType.Alien) ? m_alienSprite : m_robotSprite;
+        m_sRend.sprite = (m_hazardType == PlayerController.PlayerType.Alien) ? m_alienSprite : m_robotSprite;
         m_startScale = transform.localScale;
         m_startRotation = transform.eulerAngles;
         m_repsawnDelay = new WaitForSeconds(m_respawnTime);

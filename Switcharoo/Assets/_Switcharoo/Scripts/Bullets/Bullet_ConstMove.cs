@@ -17,6 +17,36 @@ public class Bullet_ConstMove : Bullet_Base
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+		
+		if (collision.tag == "Enemy")
+		{
+			if (collision.gameObject.GetComponent<AiController>().m_entityType == m_type)
+			{
+				m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+			}
+			else
+			{
+				collision.gameObject.GetComponent<AiController>().BulletResitant();
+			}
+		}
+		else if (collision.tag == "Player")
+		{
+			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+		}else if (collision.tag == "EnemySpawner")
+        {
+            if (collision.gameObject.GetComponent<AI_Spawner>().m_spawnerType == m_type)
+            {
+                m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<AiController>().BulletResitant();
+            }
+        }
+
+		if (CheckCollisionLayer(m_obstacleMask, collision))
+		{
+			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+		}
 	}
 }

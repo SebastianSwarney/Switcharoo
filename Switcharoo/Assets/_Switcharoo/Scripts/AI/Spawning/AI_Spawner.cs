@@ -9,6 +9,7 @@ public class OnSpawnerDeath : UnityEvent { }
 
 public class AI_Spawner : MonoBehaviour, IPauseable
 {
+    public PlayerController.PlayerType m_spawnerType;
     public enum SpawnDir { Left, Right };
     public bool m_showGizmos = true;
 
@@ -66,14 +67,14 @@ public class AI_Spawner : MonoBehaviour, IPauseable
 
     bool m_isPaused;
 
-    public enum RaceType { Alien, Robot }
+    
     [Header("Visual")]
-    public RaceType m_spawnerType;
+    
     public RuntimeAnimatorController m_alienAnim, m_robotAnim;
 
     [Header("Events")]
     public OnSpawnerDeath m_spawnerDestroyed = new OnSpawnerDeath();
-
+    public OnSpawnerDeath m_bulletResistant = new OnSpawnerDeath();
 
     MaterialPropertyBlock m_materialBlock;
     SpriteRenderer m_sRend;
@@ -81,7 +82,7 @@ public class AI_Spawner : MonoBehaviour, IPauseable
     float m_displayHurtTime = 0.5f;
     private void Start()
     {
-        GetComponent<Animator>().runtimeAnimatorController = (m_spawnerType == RaceType.Alien) ? m_alienAnim : m_robotAnim;
+        GetComponent<Animator>().runtimeAnimatorController = (m_spawnerType == PlayerController.PlayerType.Alien) ? m_alienAnim : m_robotAnim;
         ObjectPooler.instance.AddObjectToPauser(this.gameObject);
         if (m_aiBoundsFromSpawner != null)
         {
@@ -162,7 +163,6 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         else
         {
             if (m_spawnEnemies == null) return;
-            print("Stop spawning");
             StopCoroutine(m_spawnEnemies);
 
         }
@@ -363,5 +363,10 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         m_materialBlock.SetFloat("_EffectAmount",0);
         m_sRend.SetPropertyBlock(m_materialBlock);
 
+    }
+
+    public void BulletResitant()
+    {
+        m_bulletResistant.Invoke();
     }
 }

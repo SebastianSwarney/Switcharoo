@@ -40,14 +40,14 @@ public class PlayerInterfaceController : MonoBehaviour
 	[System.Serializable]
 	public struct WeaponCompositionDisplay
 	{
-		public Image m_shotPatternImage;
-		public Image m_bulletTypeImage;
+		//public Image m_shotPatternImage;
+		//public Image m_bulletTypeImage;
 		public Image m_damageTypeImage;
 
 		public void UpdateDisplay(ShootController.WeaponComposition p_weaponComposition)
 		{
-			m_shotPatternImage.sprite = p_weaponComposition.m_shotPattern.m_uiSprite;
-			m_bulletTypeImage.sprite = p_weaponComposition.m_bulletType.m_uiSprite;
+			//m_shotPatternImage.sprite = p_weaponComposition.m_shotPattern.m_uiSprite;
+			//m_bulletTypeImage.sprite = p_weaponComposition.m_bulletType.m_uiSprite;
 			m_damageTypeImage.sprite = p_weaponComposition.m_damageType.m_uiSprite;
 		}
 	}
@@ -55,15 +55,15 @@ public class PlayerInterfaceController : MonoBehaviour
 	[System.Serializable]
 	public struct MovementCompositionDisplay
 	{
-		public Image m_movementTypeImage;
+		//public Image m_movementTypeImage;
 		public Image m_trailTypeImage;
-		public Image m_buffTypeImage;
+		//public Image m_buffTypeImage;
 
 		public void UpdateDisplay(PlayerController.MovementAbilityComposition p_movementAbilityCompostion)
 		{
-			m_movementTypeImage.sprite = p_movementAbilityCompostion.m_movementType.m_uiSprite;
+			//m_movementTypeImage.sprite = p_movementAbilityCompostion.m_movementType.m_uiSprite;
 			m_trailTypeImage.sprite = p_movementAbilityCompostion.m_trailType.m_uiSprite;
-			m_buffTypeImage.sprite = p_movementAbilityCompostion.m_buffType.m_uiSprite;
+			//m_buffTypeImage.sprite = p_movementAbilityCompostion.m_buffType.m_uiSprite;
 		}
 	}
 }
