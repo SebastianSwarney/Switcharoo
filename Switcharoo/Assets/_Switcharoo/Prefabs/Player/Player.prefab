@@ -517,6 +517,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8495909906103990858}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OnPlayerRespawn, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_playerStep:
@@ -548,16 +559,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 8385909804330445121}
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 8495909906103990858}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: PlayerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_movementAbilityUsed:
@@ -674,6 +685,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_enemyFrozen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_enemyFrozenSound:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
@@ -1654,7 +1670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1947235036219478259
 Transform:
   m_ObjectHideFlags: 0
@@ -1682,8 +1698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: event:/Sound Effects/GameOver
-  PlayEvent: 0
-  StopEvent: 0
+  PlayEvent: 11
+  StopEvent: 12
   CollisionTag: 
   AllowFadeout: 1
   TriggerOnce: 0

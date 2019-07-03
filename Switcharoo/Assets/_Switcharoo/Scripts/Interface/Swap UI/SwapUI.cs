@@ -2,27 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.Events;
+
+[System.Serializable]
+public class EventActivate : UnityEvent { }
 public class SwapUI : MonoBehaviour
 {
-    Coroutine m_colorFade;
+    private Coroutine m_colorFade;
     public Color m_startColor, m_endColorOrange, m_endColorBlue;
     public List<UnityEngine.UI.Image> m_images;
     public float m_blinkTime = 1f;
 
 
+    
+    private Coroutine m_sizeChange;
     [Header("Size Change")]
-    Coroutine m_sizeChange;
     public GameObject m_targetGameObject;
     public Vector3 m_startScale, m_targetScale;
     
     public float m_sizeChangeTime = .25f;
 
-    PlayerInput m_player;
-    
-    
+    private PlayerInput m_player;
 
-    bool m_enable;
-    public Color debugColor;
+    public EventActivate m_switchRequest = new EventActivate();
+
+    private bool m_enable;
+    private Color debugColor;
     private void Start()
     {
         m_player = DungeonManager.instance.m_playerGameObject.GetComponent<PlayerInput>();
@@ -48,6 +53,7 @@ public class SwapUI : MonoBehaviour
         }
         if (p_enable)
         {
+            
             m_sizeChange = StartCoroutine(StartChange());
         }
         else
@@ -58,6 +64,8 @@ public class SwapUI : MonoBehaviour
 
     IEnumerator StartChange()
     {
+        m_switchRequest.Invoke();
+        print("Switch request");
         m_targetGameObject.SetActive(true);
         float percent = 0, currentTime = 0;
         m_images[0].color = m_startColor;

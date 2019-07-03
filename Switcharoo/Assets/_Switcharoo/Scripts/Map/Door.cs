@@ -36,7 +36,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == m_playerTag)
+        if (other.gameObject.tag == m_playerTag && !DungeonManager.instance.m_inTransition)
         {
             DungeonManager.instance.LoadNewMap( m_nextRoom, m_nextRoomSpawnPosition.position);
         }
