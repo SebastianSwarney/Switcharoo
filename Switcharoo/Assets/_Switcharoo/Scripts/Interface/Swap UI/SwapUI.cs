@@ -118,7 +118,7 @@ public class SwapUI : MonoBehaviour
             percent = currentTime / (m_sizeChangeTime);
             m_images[0].color = Color.Lerp(startLerpColor, Color.clear, percent);
             m_images[1].color = Color.Lerp(Color.white, Color.clear, percent);
-            m_targetGameObject.transform.localScale = Vector3.Lerp(m_targetScale, m_startScale, percent);
+            m_targetGameObject.transform.localScale = Vector3.Lerp(m_targetScale, Vector3.zero, percent);
             currentTime += Time.deltaTime;
             yield return null;
         }
