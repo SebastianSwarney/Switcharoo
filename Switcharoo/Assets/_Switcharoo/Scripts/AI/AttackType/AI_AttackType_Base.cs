@@ -67,7 +67,6 @@ public abstract class AI_AttackType_Base : ScriptableObject
                 }
                 else
                 {
-                    Debug.Log("Player Not Spotted");
                     checkPlayer = false;
                     p_aiCont.PlayerSpotted(false);
                     p_aiCont.ChangeAnimation(false);
@@ -103,7 +102,6 @@ public abstract class AI_AttackType_Base : ScriptableObject
 
             if (!PlayerInRange(p_aiCont, p_aiCont.m_target, p_aiCont.gameObject, p_aiCont.m_enemyType.m_detectionRadius))
             {
-                Debug.Log("Target : null : Base");
                 p_aiCont.m_target = null;
 
             }

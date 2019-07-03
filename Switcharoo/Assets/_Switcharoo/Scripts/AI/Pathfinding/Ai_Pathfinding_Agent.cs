@@ -168,7 +168,6 @@ public class Ai_Pathfinding_Agent : MonoBehaviour
         if (smartJumpHeight > p_maxJumpHeight) smartJumpHeight = p_maxJumpHeight;
 
         float jumpForce = Mathf.Sqrt(2f * m_gravityValue * smartJumpHeight + 1);
-        Debug.Log("Jump Force: " + jumpForce);
         m_rb.velocity = new Vector3(m_rb.velocity.x, jumpForce, 0);
 
 

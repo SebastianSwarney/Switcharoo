@@ -36,7 +36,6 @@ public class ColorFade : MonoBehaviour
         if (m_currentTime > m_invokeFadeCompleteTime && !m_invokedEvent)
         {
             m_invokedEvent = true;
-            print("Invoke");
             m_fadeComplete.Invoke();
             
         }else if (m_currentTime < m_invokeFadeCompleteTime)

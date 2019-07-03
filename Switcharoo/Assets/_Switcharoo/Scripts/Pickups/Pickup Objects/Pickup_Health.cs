@@ -8,7 +8,13 @@ public class Pickup_Health : MonoBehaviour
 
 	public LayerMask m_playerLayer;
 
-	private void OnCollisionEnter2D(Collision2D collision)
+    private void Start()
+    {
+        ObjectPooler pooler = ObjectPooler.instance;
+        pooler.AddObjectToDespawn(this.gameObject);
+        pooler.AddObjectToPauser(this.gameObject);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (CheckCollisionLayer(m_playerLayer, collision.collider))
 		{
