@@ -15755,41 +15755,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpOff.x
-      value: 8.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpOff.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallLeap.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallLeap.y
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallStickTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpClimb.x
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
-        type: 3}
-      propertyPath: m_wallJumpClimb.y
-      value: 16
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}
 --- !u!1001 &4661171504036958735
