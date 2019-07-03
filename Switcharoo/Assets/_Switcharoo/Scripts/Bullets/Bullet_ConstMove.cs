@@ -33,5 +33,10 @@ public class Bullet_ConstMove : Bullet_Base
 		{
 			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
 		}
+
+		if (CheckCollisionLayer(m_obstacleMask, collision))
+		{
+			m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+		}
 	}
 }
