@@ -28,6 +28,8 @@ public class DungeonManager : MonoBehaviour
     public GameObject m_deathScreenButton, m_pauseScreenButton;
 
     ObjectPooler m_pooler;
+    [HideInInspector]
+    public bool m_inTransition;
 
     PauseMenuController m_pauser;
 
@@ -108,6 +110,7 @@ public class DungeonManager : MonoBehaviour
 
     public void LoadNewMap(RoomManager_Base p_loadMap, Vector3 p_playerSpawnPos)
     {
+        m_inTransition = true;
         m_playerCont.m_usingMovementAbility = false;
 
 
@@ -150,6 +153,7 @@ public class DungeonManager : MonoBehaviour
         m_playerCont.InitalizePlayer();
         m_cameraController.enabled = true;
         m_playerCont.m_velocity = Vector2.zero;
+        m_inTransition = false;
 
     }
 }
