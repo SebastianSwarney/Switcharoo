@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using UnityEngine.Events;
 
+
+[System.Serializable]
+public class SwapPressed : UnityEvent<bool> { }
 public class PlayerInput : MonoBehaviour
 {
 	public enum PlayerOrder { ZeroRunnerOneGunner, ZeroGunnerOneGunner }
@@ -22,8 +26,13 @@ public class PlayerInput : MonoBehaviour
 
 	private Vector2 m_lastRunnerInput;
 
-	private bool m_runnerSwap;
+    
+	private bool m_runnerSwap;   
 	private bool m_gunnerSwap;
+
+    [HideInInspector]
+    public bool m_humanSwap;
+    public SwapPressed m_swapPressed = new SwapPressed();
 
 	void Start()
 	{
@@ -92,8 +101,10 @@ public class PlayerInput : MonoBehaviour
 		{
 			m_gunnerSwap = false;
 			m_runnerSwap = false;
+            m_swapPressed.Invoke(false);
 
-			m_playerController.OnReloadInputDown();
+
+            m_playerController.OnReloadInputDown();
 		}
 	}
 
@@ -169,7 +180,18 @@ public class PlayerInput : MonoBehaviour
 		{
 			//m_playerController.OnReloadInputDown();
 			m_runnerSwap = true;
-		}
+
+
+            if(m_playerController.m_players[0].m_currentRole == PlayerController.PlayerRole.Runner)
+            {
+                m_humanSwap = true;
+            }
+            else
+            {
+                m_humanSwap = false;
+            }
+            m_swapPressed.Invoke(true);
+        }
 
 		if (p_playerInputController.GetButtonDown("Shoot"))
 		{
@@ -191,7 +213,18 @@ public class PlayerInput : MonoBehaviour
 		{
 			//m_playerController.OnReloadInputDown();
 			m_gunnerSwap = true;
-		}
+
+            if (m_playerController.m_players[0].m_currentRole == PlayerController.PlayerRole.Gunner)
+            {
+                m_humanSwap = true;
+            }
+            else
+            {
+                m_humanSwap = false;
+            }
+
+            m_swapPressed.Invoke(true);
+        }
 	}
 	#endregion
 }
