@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 951872444426221584}
   - component: {fileID: 951872444426221585}
   - component: {fileID: -2288412577565911287}
+  - component: {fileID: 6874507192384161336}
   m_Layer: 19
   m_Name: Ice Drop
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3180871680ec61d49b4dc302bb80d43d, type: 3}
-  m_Color: {r: 0.25938943, g: 0.799846, b: 0.8207547, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7e1719369768fee4885db6e7d7ba5e6b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -141,7 +142,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90db03be64bf1cd41a8689f2fbf476c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_iceLandSound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6874507192384161336}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnActivationEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_iceParticleBurst: {fileID: 5804364532621984000, guid: bc259a9ab97560041b6127aaf86c5579,
+    type: 3}
   m_trailType: {fileID: 0}
   m_damageTargetMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &6874507192384161336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951872444426221590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Sound Effects/IceShatter
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
