@@ -123,7 +123,7 @@ public class Health : MonoBehaviour
 
 	private void CheckDamage()
 	{
-		if (m_currentHealth <= 0)
+		if (m_currentHealth <= 0 && !m_isDead)
 		{
 			Die();
 		}
