@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8531472617450045712}
   - component: {fileID: 8531472617450045713}
   - component: {fileID: 8531472617450045726}
+  - component: {fileID: 5306835755510671698}
   m_Layer: 16
   m_Name: Fall Hazard
   m_TagString: Untagged
@@ -156,10 +157,29 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 2, y: 2, z: 0}
   m_drawBoundsInWorldSpace: 0
-  m_lifespan: 3
+  m_lifespan: 2
   m_respawnTime: 1.5
   m_hazardType: 0
   m_alienSprite: {fileID: 21300000, guid: 638dd8696abab5b4798c28f65375b0e0, type: 3}
   m_robotSprite: {fileID: 21300000, guid: 089c535ea8faed646ba3d555c5535117, type: 3}
-  m_fadeTimeStart: 2
+  m_fadeTimeStart: 1.75
   m_endColor: {r: 1, g: 1, b: 1, a: 0}
+--- !u!95 &5306835755510671698
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531472617450045727}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f44de6576f2eb3c4187d2d77528768bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
