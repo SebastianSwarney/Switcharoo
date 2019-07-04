@@ -9,7 +9,8 @@ public class Pickup_Health : MonoBehaviour, IActivatable
     [Space (10)]
     public bool m_isPlatform = false;
     public float m_healthIncrease;
-
+    public float m_regenTime = 30f;
+    Coroutine m_regenCoroutine;
 	public LayerMask m_playerLayer;
 
     private GameObject m_sprite;
@@ -49,6 +50,8 @@ public class Pickup_Health : MonoBehaviour, IActivatable
             {
                 m_sprite.SetActive(false);
                 m_collisionBox.enabled = false;
+                print("Collide");
+                m_regenCoroutine = StartCoroutine(RegenerateObject());
             }
             else
             {
@@ -78,7 +81,17 @@ public class Pickup_Health : MonoBehaviour, IActivatable
 
     public void ResetMe()
     {
+        if(m_regenCoroutine != null)
+        {
+            StopCoroutine(m_regenCoroutine);
+        }
         m_sprite.SetActive(m_startActive);
         m_collisionBox.enabled = m_startActive;
+    }
+
+    IEnumerator RegenerateObject()
+    {
+        yield return new WaitForSeconds(m_regenTime);
+        ActiveState(true);
     }
 }

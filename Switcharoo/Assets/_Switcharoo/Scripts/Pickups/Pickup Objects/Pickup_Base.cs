@@ -10,8 +10,10 @@ public abstract class Pickup_Base : MonoBehaviour, IActivatable
     public OnActivationEvent m_playerCollided = new OnActivationEvent();
     [Space(10)]
 	public LayerMask m_playerLayer;
+    public float m_regenerationTime = 30f;
+    Coroutine m_regenCoroutine;
 
-	public SpriteRenderer m_itemIconRenderer;
+    public SpriteRenderer m_itemIconRenderer;
 
 	public float m_switchItemTime;
 	private float m_switchTimer;
@@ -69,7 +71,7 @@ public abstract class Pickup_Base : MonoBehaviour, IActivatable
 			if (CheckCollisionLayer(m_playerLayer, collision))
 			{
                 m_playerCollided.Invoke();
-
+                m_regenCoroutine = StartCoroutine(RegenerateObject());
                 SetPickup(collision.gameObject.GetComponent<PlayerController>());
 
 				m_itemIconRenderer.color = Color.clear;
@@ -100,7 +102,18 @@ public abstract class Pickup_Base : MonoBehaviour, IActivatable
 
     public void ResetMe()
     {
+        if (m_regenCoroutine != null)
+        {
+            StopCoroutine(m_regenCoroutine);
+        }
         m_itemIconRenderer.color = Color.white;
         m_isUsed = false;
+    }
+
+    IEnumerator RegenerateObject()
+    {
+        yield return new WaitForSeconds(m_regenerationTime);
+        ActiveState(true);
+        m_regenCoroutine = null;
     }
 }
