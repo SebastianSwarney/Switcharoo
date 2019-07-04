@@ -135,7 +135,8 @@ MonoBehaviour:
   m_maxHealth: 100
   m_currentHealth: Infinity
   m_healthDropValue: 0
-  m_healthDropObject: {fileID: 0}
+  m_healthDropObject: {fileID: 1000010840630096, guid: 6aa2eaff95f17fa4e9c34417dece6d4b,
+    type: 3}
   m_canTakeDamage: 1
   m_currentIceState: 0
   m_currentFireState: 0

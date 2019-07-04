@@ -1,25 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Pickup_Health : MonoBehaviour
+public class Pickup_Health : MonoBehaviour, IActivatable
 {
-	public float m_healthIncrease;
+    public OnActivationEvent m_playerCollided = new OnActivationEvent();
+    [Space (10)]
+    public bool m_isPlatform = false;
+    public float m_healthIncrease;
 
 	public LayerMask m_playerLayer;
 
+    private GameObject m_sprite;
+    private Collider2D m_collisionBox;
+
+    [Header("Activate Variables")]
+    public bool m_startActive = true;
+
+
+    #region Drop Variables
+    ObjectPooler m_pooler;
+    #endregion
     private void Start()
     {
-        ObjectPooler pooler = ObjectPooler.instance;
-        pooler.AddObjectToDespawn(this.gameObject);
-        pooler.AddObjectToPauser(this.gameObject);
+        if (m_isPlatform)
+        {
+            m_collisionBox = GetComponent<Collider2D>();
+            m_sprite = transform.GetChild(0).gameObject;
+
+            ResetMe();
+        }
+        else
+        {
+            m_pooler = ObjectPooler.instance;
+            m_pooler.AddObjectToDespawn(this.gameObject);
+            m_pooler.AddObjectToPauser(this.gameObject);
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (CheckCollisionLayer(m_playerLayer, collision.collider))
 		{
+            m_playerCollided.Invoke();
 			collision.gameObject.GetComponent<Health>().HealDamage(m_healthIncrease);
-			ObjectPooler.instance.ReturnToPool(gameObject);
+            if (m_isPlatform)
+            {
+                m_sprite.SetActive(false);
+                m_collisionBox.enabled = false;
+            }
+            else
+            {
+                m_pooler.ReturnToPool(this.gameObject);
+            }
+            
 		}
 	}
 
@@ -34,4 +69,16 @@ public class Pickup_Health : MonoBehaviour
 			return false;
 		}
 	}
+
+    public void ActiveState(bool p_active)
+    {
+        m_sprite.SetActive(p_active);
+        m_collisionBox.enabled = p_active;
+    }
+
+    public void ResetMe()
+    {
+        m_sprite.SetActive(m_startActive);
+        m_collisionBox.enabled = m_startActive;
+    }
 }

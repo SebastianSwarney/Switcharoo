@@ -133,8 +133,13 @@ public class Health : MonoBehaviour
 	{
 		m_isDead = true;
 
-		GameObject newHealthDrop = ObjectPooler.instance.NewObject(m_healthDropObject, transform.position, Quaternion.identity);
-		newHealthDrop.GetComponent<Pickup_Health>().m_healthIncrease = m_healthDropValue;
+        Pickup_Health healthDrop = ObjectPooler.instance.NewObject(m_healthDropObject, transform.position, Quaternion.identity).GetComponent<Pickup_Health>();
+
+        if (healthDrop != null)
+        {
+            healthDrop.m_healthIncrease = m_healthDropValue;
+        }
+        
 	}
 
 	#region Fire Code

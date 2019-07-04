@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class Pickup_Base : MonoBehaviour
+[System.Serializable]
+public class OnActivationEvent : UnityEvent { }
+public abstract class Pickup_Base : MonoBehaviour, IActivatable
 {
+    public OnActivationEvent m_playerCollided = new OnActivationEvent();
+    [Space(10)]
 	public LayerMask m_playerLayer;
 
 	public SpriteRenderer m_itemIconRenderer;
@@ -18,8 +23,9 @@ public abstract class Pickup_Base : MonoBehaviour
 	[HideInInspector]
 	public int m_amountOfItems;
 	private bool m_isUsed;
+    
 
-	public abstract void SetPickup(PlayerController p_playerRefrence);
+    public abstract void SetPickup(PlayerController p_playerRefrence);
 
 	public int RandomItemSelection()
 	{
@@ -62,12 +68,14 @@ public abstract class Pickup_Base : MonoBehaviour
 		{
 			if (CheckCollisionLayer(m_playerLayer, collision))
 			{
-				SetPickup(collision.gameObject.GetComponent<PlayerController>());
+                m_playerCollided.Invoke();
+
+                SetPickup(collision.gameObject.GetComponent<PlayerController>());
 
 				m_itemIconRenderer.color = Color.clear;
 				m_isUsed = true;
 
-				//gameObject.SetActive(false);
+				
 			}
 		}
 	}
@@ -83,4 +91,16 @@ public abstract class Pickup_Base : MonoBehaviour
 			return false;
 		}
 	}
+
+    public void ActiveState(bool p_active)
+    {
+        m_itemIconRenderer.color = (p_active) ? Color.white : Color.clear;
+        m_isUsed = !p_active;
+    }
+
+    public void ResetMe()
+    {
+        m_itemIconRenderer.color = Color.white;
+        m_isUsed = false;
+    }
 }

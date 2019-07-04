@@ -12,6 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4092b7ee71a3a92429ec8b5d999d0aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerCollided:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 749322827358214588}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnActivationEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 12288
@@ -24,6 +40,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 67fe97535c831de48b3e7de132ed15f6, type: 2}
   - {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323, type: 2}
   - {fileID: 11400000, guid: 06f4b7386a4d49f4ca807cbea01bb2cd, type: 2}
+--- !u!114 &749322827358214588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827562054233817117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Sound Effects/PickupMovement
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &5510093636462726689
 PrefabInstance:
   m_ObjectHideFlags: 0
