@@ -191,7 +191,6 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
     {
         if (collision.gameObject.tag == m_bulletTag)
         {
-            print("Triggered");
             m_rigidbody.isKinematic = false;
             m_isTriggered = true;
             m_currentTimer = 0;

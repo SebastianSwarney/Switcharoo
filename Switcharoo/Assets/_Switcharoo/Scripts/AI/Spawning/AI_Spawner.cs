@@ -136,7 +136,6 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         {
             if (m_spawnEnemies != null)
             {
-                print("Stop spawning");
                 StopCoroutine(m_spawnEnemies);
                 
             }

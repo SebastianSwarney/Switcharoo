@@ -34,7 +34,6 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
                 if (p_aiController.m_canSwitchToAlt)
                 {
                     HeavyAttackPattern(p_enemyObject, p_player, p_gun);
-                    Debug.Log("Change Fire");
                     p_aiController.m_shootBreakTime = (IsCloseBehaviour(p_gun) ? m_closeShootBreakTime : m_farShootBreakTime);
                     p_aiController.m_shootTriggerTime = (IsCloseBehaviour(p_gun) ? m_closeShootTriggerTime : m_farShootTriggerTime);
                     p_aiController.m_bulletsPerPattern = (IsCloseBehaviour(p_gun) ? m_closeShootBulletCount : m_farShootBulletCount);

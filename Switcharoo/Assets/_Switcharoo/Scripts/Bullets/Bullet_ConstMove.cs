@@ -40,7 +40,7 @@ public class Bullet_ConstMove : Bullet_Base
             }
             else
             {
-                collision.gameObject.GetComponent<AiController>().BulletResitant();
+                collision.gameObject.GetComponent<AI_Spawner>().BulletResitant();
             }
         }
 

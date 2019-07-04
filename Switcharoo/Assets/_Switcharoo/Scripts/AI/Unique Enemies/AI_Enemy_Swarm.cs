@@ -189,7 +189,6 @@ public class AI_Enemy_Swarm : MonoBehaviour
         m_target = playerCol.gameObject.transform;
         SwitchEntityState(AiState.Attack);
         NewTarget(m_target.position);
-        print("Player In Range");
         m_aiAnimCont.PlayerInRangeAnimation(true);
 
     }
