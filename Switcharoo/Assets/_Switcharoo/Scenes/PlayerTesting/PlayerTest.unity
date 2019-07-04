@@ -4842,6 +4842,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_enemyFrozenSound:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_onFireActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -4944,7 +4949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176686909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -245.23999, y: 85.75, z: 0}
+  m_LocalPosition: {x: -4.5999947, y: 13.409999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5087,7 +5092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311488334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -245.23999, y: 81.24, z: 0}
+  m_LocalPosition: {x: -4.6, y: 8.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5146,6 +5151,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_enemyFrozen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_enemyFrozenSound:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
@@ -14667,6 +14677,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_enemyFrozenSound:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_onFireActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -14769,7 +14784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734742422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -232, y: 86.7, z: 0}
+  m_LocalPosition: {x: 8.639996, y: 14.359996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15761,6 +15776,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[0].m_weaponComposition.m_damageType
+      value: 
+      objectReference: {fileID: 11400000, guid: 50711f81098ef3a46bdfd8de5b4cd7a2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}
 --- !u!1001 &4661171504036958735

@@ -25,7 +25,7 @@ public class TrailType_Ice : TrailType_Base
 
 		while (amountOfDrops < p_movementType.m_amountOfTrailsToSpawn)
 		{
-			DropIce(p_playerRefrence.transform, p_damageTargetMask);
+			DropIce(p_playerRefrence.transform, p_damageTargetMask, p_playerRefrence);
 			amountOfDrops++;
 
 			yield return new WaitForSeconds(dropInterval);
@@ -37,21 +37,30 @@ public class TrailType_Ice : TrailType_Base
 		}
 	}
 
-	public void IceBlast(Vector3 p_blastOrigin, LayerMask p_damageTargetMask)
+	public void IceBlast(Vector3 p_blastOrigin, LayerMask p_damageTargetMask, PlayerController.PlayerType p_type)
 	{
 		DebugExtension.DebugCircle(p_blastOrigin, Vector3.forward, Color.cyan, m_iceExplosionRadius, 0.1f);
 
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_blastOrigin, m_iceExplosionRadius, p_damageTargetMask);
+
 		foreach (Collider2D collider in colliders)
 		{
-			collider.GetComponent<Health>().SetIceState();
+			if (collider.tag == "Enemy")
+			{
+				if (collider.gameObject.GetComponent<AiController>().m_entityType == p_type)
+				{
+					//collider.GetComponent<Health>().TakeDamage(m_trailDamageAmount);
+					collider.GetComponent<Health>().SetIceState();
+				}
+			}
 		}
 	}
 
-	private void DropIce(Transform p_spawnPoint, LayerMask p_damageTargetMask)
+	private void DropIce(Transform p_spawnPoint, LayerMask p_damageTargetMask, PlayerController p_playerRefrence)
 	{
 	 	GameObject newDropObject = ObjectPooler.instance.NewObject(m_dropObject.gameObject, p_spawnPoint, true);
 		newDropObject.GetComponent<TrailObject_Ice>().m_trailType = this;
 		newDropObject.GetComponent<TrailObject_Ice>().m_damageTargetMask = p_damageTargetMask;
+		newDropObject.GetComponent<TrailObject_Ice>().m_type = p_playerRefrence.m_currentRunnerType;
 	}
 }

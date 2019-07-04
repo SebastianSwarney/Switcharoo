@@ -34,9 +34,25 @@ public class DamageType_Shock : DamageType_Base
 
 			DebugExtension.DebugCircle(p_collision.ClosestPoint(p_bulletRefrence.transform.position), Vector3.forward, Color.blue, m_shockRadius, 0.1f);
 
-			shockedObjects.AddRange(initialCast);
-
 			foreach (Collider2D collider in initialCast)
+			{
+				if (collider.tag == "Enemy")
+				{
+					if (collider.gameObject.GetComponent<AiController>().m_entityType == p_bulletRefrence.m_type)
+					{
+						shockedObjects.Add(collider);
+					}
+				}
+				else if (collider.tag == "EnemySpawner")
+				{
+					if (collider.gameObject.GetComponent<AI_Spawner>().m_spawnerType == p_bulletRefrence.m_type)
+					{
+						shockedObjects.Add(collider);
+					}
+				}
+			}
+
+			foreach (Collider2D collider in shockedObjects)
 			{
 				SpawnLightingEffects(p_collision.ClosestPoint(p_bulletRefrence.transform.position), collider.transform.position);
 			}
@@ -49,10 +65,33 @@ public class DamageType_Shock : DamageType_Base
 
 				foreach (Collider2D collider in childCast)
 				{
+					if (collider.tag == "Enemy")
+					{
+						if (collider.gameObject.GetComponent<AiController>().m_entityType == p_bulletRefrence.m_type)
+						{
+							if (!shockedObjects.Contains(collider))
+							{
+								shockedObjects.Add(collider);
+							}
+						}
+					}
+					else if (collider.tag == "EnemySpawner")
+					{
+						if (collider.gameObject.GetComponent<AI_Spawner>().m_spawnerType == p_bulletRefrence.m_type)
+						{
+							if (!shockedObjects.Contains(collider))
+							{
+								shockedObjects.Add(collider);
+							}
+						}
+					}
+
+					/*
 					if (!shockedObjects.Contains(collider))
 					{
 						shockedObjects.Add(collider);
 					}
+					*/
 				}
 
 				if (i < shockedObjects.Count - 1)

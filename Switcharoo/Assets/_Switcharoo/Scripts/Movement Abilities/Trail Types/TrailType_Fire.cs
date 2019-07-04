@@ -24,7 +24,7 @@ public class TrailType_Fire : TrailType_Base
 		{
 			Vector3 moveDir = p_playerRefrence.m_moveDirection;
 			t += Time.deltaTime;
-			DropFire(p_playerRefrence.transform, moveDir, p_damageTargetMask);
+			DropFire(p_playerRefrence.transform, moveDir, p_damageTargetMask, p_playerRefrence);
 
 			if (!p_playerRefrence.m_usingMovementAbility)
 			{
@@ -35,12 +35,13 @@ public class TrailType_Fire : TrailType_Base
 		}
 	}
 
-	private void DropFire(Transform p_spawnPoint, Vector3 p_moveDirection, LayerMask p_damageTargetMask)
+	private void DropFire(Transform p_spawnPoint, Vector3 p_moveDirection, LayerMask p_damageTargetMask, PlayerController p_playerRefrence)
 	{
 		GameObject newDropObject = ObjectPooler.instance.NewObject(m_dropObject.gameObject, p_spawnPoint, true);
 		float randomAngle = Random.Range(-m_orbSpawnAngleMax / 2, m_orbSpawnAngleMax / 2);
 		Vector3 forceDir = Quaternion.Euler(0, 0, randomAngle) * -p_moveDirection;
 		newDropObject.GetComponent<Rigidbody2D>().AddForce(forceDir * m_orbShootForce, ForceMode2D.Impulse);
 		newDropObject.GetComponent<TrailObject_Fire>().m_damageTargetMask = p_damageTargetMask;
+		newDropObject.GetComponent<TrailObject_Fire>().m_type = p_playerRefrence.m_currentRunnerType;
 	}
 }

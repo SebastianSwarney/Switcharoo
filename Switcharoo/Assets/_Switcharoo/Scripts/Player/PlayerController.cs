@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour, IPauseable
 	private LayerMask m_gunnerObstacleMask;
 	private LayerMask m_runnerDamageTargetMask;
 	private LayerMask m_runnerObstacleMask;
+	[HideInInspector]
+	public PlayerType m_currentRunnerType;
 
 	#region Jump Properties
 	[Header("Jump Properties")]
@@ -578,6 +580,14 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 	private void SetLayersToComponents()
 	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i].m_currentRole == PlayerRole.Runner)
+			{
+				m_currentRunnerType = m_players[i].m_type;
+			}
+		}
+
 		m_shootController.m_damageTargetMask = m_gunnerDamageTargetMask;
 		m_shootController.m_obstacleMask = m_runnerObstacleMask;
 		controller.collisionMask = m_runnerObstacleMask;

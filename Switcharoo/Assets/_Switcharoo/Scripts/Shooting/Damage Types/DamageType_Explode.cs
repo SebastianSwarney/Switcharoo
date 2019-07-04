@@ -36,7 +36,32 @@ public class DamageType_Explode : DamageType_Base
 
 			foreach (Collider2D collider in colliders)
 			{
-				collider.GetComponent<Health>().TakeDamage(m_explosionDamage);
+				if (collider.tag == "Enemy")
+				{
+					if (collider.gameObject.GetComponent<AiController>().m_entityType == p_bulletRefrence.m_type)
+					{
+						collider.GetComponent<Health>().TakeDamage(m_explosionDamage);
+					}
+					else
+					{
+						collider.gameObject.GetComponent<AiController>().BulletResitant();
+					}
+				}
+				else if (collider.tag == "Player")
+				{
+					collider.GetComponent<Health>().TakeDamage(m_explosionDamage);
+				}
+				else if (collider.tag == "EnemySpawner")
+				{
+					if (collider.gameObject.GetComponent<AI_Spawner>().m_spawnerType == p_bulletRefrence.m_type)
+					{
+						collider.GetComponent<Health>().TakeDamage(m_explosionDamage);
+					}
+					else
+					{
+						collider.gameObject.GetComponent<AI_Spawner>().BulletResitant();
+					}
+				}
 			}
 
 			ObjectPooler.instance.ReturnToPool(p_bulletRefrence.gameObject);

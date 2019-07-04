@@ -23,7 +23,7 @@ public class TrailType_Explode : TrailType_Base
 
 		while (amountOfExplosions < p_movementType.m_amountOfTrailsToSpawn)
 		{
-			Explode(p_playerRefrence.transform.position, p_damageTargetMask);
+			Explode(p_playerRefrence.transform.position, p_damageTargetMask, p_playerRefrence);
 			amountOfExplosions++;
 
 			yield return new WaitForSeconds(explosionInterval);
@@ -35,11 +35,9 @@ public class TrailType_Explode : TrailType_Base
 		}
 	}
 
-	private void Explode(Vector3 p_explosionOrigin, LayerMask p_damageTargetMask)
+	private void Explode(Vector3 p_explosionOrigin, LayerMask p_damageTargetMask, PlayerController p_playerRefrence)
 	{
 		DebugExtension.DebugCircle(p_explosionOrigin, Vector3.forward, Color.yellow, m_explosionRadius, 0.1f);
-
-		//ParticleSystem newParticleSystem = Instantiate(m_explosionVisual, p_explosionOrigin, Quaternion.identity);
 
 		GameObject newObject = ObjectPooler.instance.NewObject(m_explosionVisual, p_explosionOrigin, Quaternion.identity);
 		ParticleSystem newParticleSystem = newObject.GetComponent<ParticleSystem>();
@@ -48,9 +46,23 @@ public class TrailType_Explode : TrailType_Base
 		shapeModule.radius = m_explosionRadius - 1f;
 
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(p_explosionOrigin, m_explosionRadius, p_damageTargetMask);
+
 		foreach (Collider2D collider in colliders)
 		{
-			collider.GetComponent<Health>().TakeDamage(m_trailDamageAmount);
+			if (collider.tag == "Enemy")
+			{
+				if (collider.gameObject.GetComponent<AiController>().m_entityType == p_playerRefrence.m_currentRunnerType)
+				{
+					collider.GetComponent<Health>().TakeDamage(m_trailDamageAmount);
+				}
+			}
+			else if (collider.tag == "EnemySpawner")
+			{
+				if (collider.gameObject.GetComponent<AI_Spawner>().m_spawnerType == p_playerRefrence.m_currentRunnerType)
+				{
+					collider.GetComponent<Health>().TakeDamage(m_trailDamageAmount);
+				}
+			}
 		}
 	}
 }

@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 55
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
@@ -631,7 +631,7 @@ PrefabInstance:
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 56
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
@@ -889,6 +889,18 @@ PrefabInstance:
       propertyPath: m_playerDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[0].m_weaponComposition.m_damageType
+      value: 
+      objectReference: {fileID: 11400000, guid: 50711f81098ef3a46bdfd8de5b4cd7a2,
+        type: 2}
+    - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
+        type: 3}
+      propertyPath: m_players.Array.data[1].m_movementAbilityComposition.m_trailType
+      value: 
+      objectReference: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323,
+        type: 2}
     - target: {fileID: 288033317153994167, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_swapPressed.m_PersistentCalls.m_Calls.Array.size
@@ -1024,7 +1036,7 @@ PrefabInstance:
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
@@ -1130,7 +1142,7 @@ PrefabInstance:
     - target: {fileID: 5592034707182385542, guid: 3b4ca41f933e23742895511e934a1e5b,
         type: 3}
       propertyPath: m_gunnerPanDistance
-      value: 1.75
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5592034707182385542, guid: 3b4ca41f933e23742895511e934a1e5b,
         type: 3}
@@ -4076,7 +4088,7 @@ PrefabInstance:
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
@@ -4260,7 +4272,7 @@ PrefabInstance:
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 54
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 9170800823856374447, guid: 28a037971e6804843a5374fbe212cae0,
         type: 3}

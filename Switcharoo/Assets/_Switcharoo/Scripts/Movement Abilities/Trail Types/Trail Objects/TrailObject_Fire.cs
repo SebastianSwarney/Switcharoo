@@ -24,11 +24,25 @@ public class TrailObject_Fire : TrailObject_Base
         StartCoroutine(SpawnDelete());
         ObjectPooler.instance.AddObjectToDespawn(this.gameObject);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (CheckCollisionLayer(m_damageTargetMask, collision.collider))
 		{
-			collision.gameObject.GetComponent<Health>().SetFireState();
+			if (collision.gameObject.tag == "Enemy")
+			{
+				if (collision.gameObject.GetComponent<AiController>().m_entityType == m_type)
+				{
+					collision.gameObject.GetComponent<Health>().SetFireState();
+				}
+			}
+			else if (collision.gameObject.tag == "EnemySpawner")
+			{
+				if (collision.gameObject.GetComponent<AI_Spawner>().m_spawnerType == m_type)
+				{
+					collision.gameObject.GetComponent<Health>().SetFireState();
+				}
+			}
 		}
 
 		ObjectPooler.instance.ReturnToPool(gameObject);

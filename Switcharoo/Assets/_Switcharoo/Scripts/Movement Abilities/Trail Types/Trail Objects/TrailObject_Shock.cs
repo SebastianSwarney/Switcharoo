@@ -14,7 +14,7 @@ public class TrailObject_Shock : TrailObject_Base
     }
     private void OnCollisionEnter2D(Collision2D collision)
 	{
-		m_trailType.ShockBlast(transform.position, m_damageTargetMask);
+		m_trailType.ShockBlast(transform.position, m_damageTargetMask, m_type);
 		ObjectPooler.instance.ReturnToPool(gameObject);
 	}
 }

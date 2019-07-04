@@ -22,7 +22,7 @@ public class TrailObject_Ice : TrailObject_Base
 	{
         m_iceLandSound.Invoke();
         m_pooler.NewObject(m_iceParticleBurst, transform.position, Quaternion.identity);
-		m_trailType.IceBlast(transform.position, m_damageTargetMask);
+		m_trailType.IceBlast(transform.position, m_damageTargetMask, m_type);
 		ObjectPooler.instance.ReturnToPool(gameObject);
 	}
 }

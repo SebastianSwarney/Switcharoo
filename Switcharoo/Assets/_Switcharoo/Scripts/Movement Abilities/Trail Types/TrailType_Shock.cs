@@ -31,7 +31,7 @@ public class TrailType_Shock : TrailType_Base
 
 		while (amountOfDrops < p_movementType.m_amountOfTrailsToSpawn)
 		{
-			DropShock(p_playerRefrence.transform, p_damageTargetMask);
+			DropShock(p_playerRefrence.transform, p_damageTargetMask, p_playerRefrence);
 			amountOfDrops++;
 
 			yield return new WaitForSeconds(dropInterval);
@@ -43,45 +43,77 @@ public class TrailType_Shock : TrailType_Base
 		}
 	}
 
-	private void DropShock(Transform p_spawnPoint, LayerMask p_damageTargetMask)
+	private void DropShock(Transform p_spawnPoint, LayerMask p_damageTargetMask, PlayerController p_playerRefrence)
 	{
 		GameObject newDropObject = ObjectPooler.instance.NewObject(m_dropObject.gameObject, p_spawnPoint, true);
 		newDropObject.GetComponent<TrailObject_Shock>().m_trailType = this;
 		newDropObject.GetComponent<TrailObject_Shock>().m_damageTargetMask = p_damageTargetMask;
+		newDropObject.GetComponent<TrailObject_Ice>().m_type = p_playerRefrence.m_currentRunnerType;
 	}
 
-	public void ShockBlast(Vector3 p_shockOrigin, LayerMask p_damageTargetMask)
+	public void ShockBlast(Vector3 p_shockOrigin, LayerMask p_damageTargetMask, PlayerController.PlayerType m_type)
 	{
 		List<Collider2D> shockedObjects = new List<Collider2D>();
+
 		Collider2D[] initialCast = Physics2D.OverlapCircleAll(p_shockOrigin, m_shockRadius, p_damageTargetMask);
-		shockedObjects.AddRange(initialCast);
 
 		foreach (Collider2D collider in initialCast)
 		{
-			SpawnLightingEffects(p_shockOrigin, collider.transform.position);
+			if (collider.tag == "Enemy")
+			{
+				if (collider.gameObject.GetComponent<AiController>().m_entityType == m_type)
+				{
+					shockedObjects.Add(collider);
+				}
+			}
+			else if (collider.tag == "EnemySpawner")
+			{
+				if (collider.gameObject.GetComponent<AI_Spawner>().m_spawnerType == m_type)
+				{
+					shockedObjects.Add(collider);
+				}
+			}
 		}
 
-		DebugExtension.DebugCircle(p_shockOrigin, Vector3.forward, Color.blue, m_shockRadius, 0.1f);
+		foreach (Collider2D collider in shockedObjects)
+		{
+			SpawnLightingEffects(p_shockOrigin, collider.transform.position);
+		}
 
 		for (int i = 0; i < shockedObjects.Count && i < m_shockChainAmount; i++)
 		{
 			Collider2D[] childCast = Physics2D.OverlapCircleAll(shockedObjects[i].transform.position, m_shockRadius, p_damageTargetMask);
 
+			DebugExtension.DebugCircle(shockedObjects[i].transform.position, Vector3.forward, Color.blue, m_shockRadius, 0.1f);
+
 			foreach (Collider2D collider in childCast)
 			{
-				if (!shockedObjects.Contains(collider))
+				if (collider.tag == "Enemy")
 				{
-					shockedObjects.Add(collider);
+					if (collider.gameObject.GetComponent<AiController>().m_entityType == m_type)
+					{
+						if (!shockedObjects.Contains(collider))
+						{
+							shockedObjects.Add(collider);
+						}
+					}
+				}
+				else if (collider.tag == "EnemySpawner")
+				{
+					if (collider.gameObject.GetComponent<AI_Spawner>().m_spawnerType == m_type)
+					{
+						if (!shockedObjects.Contains(collider))
+						{
+							shockedObjects.Add(collider);
+						}
+					}
 				}
 			}
-
-			DebugExtension.DebugCircle(shockedObjects[i].transform.position, Vector3.forward, Color.blue, m_shockRadius, 0.1f);
 
 			if (i < shockedObjects.Count - 1)
 			{
 				SpawnLightingEffects(shockedObjects[i].transform.position, shockedObjects[i + 1].transform.position);
 			}
-
 		}
 
 		foreach (Collider2D collider in shockedObjects)
