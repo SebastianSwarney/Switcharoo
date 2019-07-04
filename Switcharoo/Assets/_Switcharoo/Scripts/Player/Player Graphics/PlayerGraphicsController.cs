@@ -42,7 +42,7 @@ public class PlayerGraphicsController : MonoBehaviour
 
 	private void CheckPlayerInvunrable()
 	{
-		if (m_player.m_states.m_damageState == PlayerController.DamageState.Invulnerable && !m_player.m_usingMovementAbility)
+		if (m_player.m_states.m_damageState == PlayerController.DamageState.Invulnerable)
 		{
 			m_shieldVisual.SetActive(true);
 		}
