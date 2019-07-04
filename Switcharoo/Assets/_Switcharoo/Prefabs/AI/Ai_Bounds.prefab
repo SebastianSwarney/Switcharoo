@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7481f47ed83628941a18d9a3e8022c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayGizmos: 1
+  displayGizmos: 0
   displayPaths: 0
   m_gridWorldSize: {x: 1, y: 1}
   m_gridOrigin: {x: 0, y: 0, z: 0}

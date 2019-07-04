@@ -33,7 +33,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97d2988e422a23478ca06ae6938f73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_healthIncrease: 10
+  m_healthIncrease: 125
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 12288
