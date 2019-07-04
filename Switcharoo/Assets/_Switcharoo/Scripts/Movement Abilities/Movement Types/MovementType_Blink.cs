@@ -21,7 +21,8 @@ public class MovementType_Blink : MovementType_Base
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
 		p_playerRefrence.m_usingMovementAbility = true;
 
-		
+		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);
+
 
 		int blinksUsed = 0;
 
@@ -63,7 +64,7 @@ public class MovementType_Blink : MovementType_Base
 			yield return new WaitForSeconds(m_pauseBetweenBlinkTime);
 		}
 
-		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);
+		
 
 		p_playerRefrence.m_velocity = Vector3.zero;
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;

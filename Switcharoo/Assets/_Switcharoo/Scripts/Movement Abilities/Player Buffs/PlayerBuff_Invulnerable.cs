@@ -14,6 +14,8 @@ public class PlayerBuff_Invulnerable : PlayerBuff_Base
 
 	private IEnumerator Invulnerable(PlayerController p_playerRefrence)
 	{
+		Debug.Log("started");
+
 		p_playerRefrence.m_states.m_damageState = PlayerController.DamageState.Invulnerable;
 
 		float t = 0;
