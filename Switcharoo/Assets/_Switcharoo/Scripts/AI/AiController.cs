@@ -532,7 +532,8 @@ public class AiController : MonoBehaviour, IPauseable
 		}
 		else
 		{
-			transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * p_newXDir, transform.localScale.y, transform.localScale.z);
+            
+			transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * Mathf.Sign(p_newXDir), transform.localScale.y, transform.localScale.z);
 		}
 
 	}
