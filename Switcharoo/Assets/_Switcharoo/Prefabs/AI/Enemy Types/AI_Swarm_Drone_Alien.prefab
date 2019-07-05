@@ -197,8 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isDead: 0
   m_maxHealth: 10
-  m_currentHealth: 10
-  m_healthDropValue: 0
+  m_currentHealth: 2.5
+  m_healthDropValue: 24
   m_healthDropObject: {fileID: 0}
   m_canTakeDamage: 1
   m_currentIceState: 0
@@ -210,6 +210,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnEnemyHurt, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_enemyFrozen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_enemyFrozenSound:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnEnemyFrozen, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TrailType_Ice
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 21300000, guid: 97410f81f062a614f8bb06d5a27a391d, type: 3}
-  m_trailDamageAmount: 18
+  m_trailDamageAmount: 13.5
   m_dropObject: {fileID: -2288412577565911287, guid: ae676ff8c9d5dc74baed7f24a61d4b86,
     type: 3}
   m_iceExplosionRadius: 6

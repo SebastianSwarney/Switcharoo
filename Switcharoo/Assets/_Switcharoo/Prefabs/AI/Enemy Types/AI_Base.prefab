@@ -316,7 +316,7 @@ MonoBehaviour:
   m_isDead: 0
   m_maxHealth: 10
   m_currentHealth: 0
-  m_healthDropValue: 10
+  m_healthDropValue: 5
   m_healthDropObject: {fileID: 7855827685248084913, guid: 164e1b10a46a7d7449985234944b520b,
     type: 3}
   m_canTakeDamage: 1

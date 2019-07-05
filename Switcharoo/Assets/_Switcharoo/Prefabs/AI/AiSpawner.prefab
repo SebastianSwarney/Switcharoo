@@ -209,7 +209,7 @@ MonoBehaviour:
   m_triggerDimensions: {x: 0, y: 0}
   m_spawnManager: {fileID: 0}
   m_currentSpawnDir: 0
-  m_spawnerRadius: 3
+  m_spawnerRadius: 2.5
   m_spawnerOffset: {x: 0, y: 0, z: 0}
   m_spawnPerMinute: 45
   m_maxEnemyFromThis: 5

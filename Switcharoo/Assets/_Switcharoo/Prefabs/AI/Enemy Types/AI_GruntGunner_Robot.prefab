@@ -108,6 +108,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 15f1c8df6fca1764188c2017f553cdf7,
         type: 2}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_healthDropValue
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346258, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_LocalPosition.x

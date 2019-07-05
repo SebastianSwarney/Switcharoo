@@ -89,6 +89,11 @@ PrefabInstance:
       propertyPath: m_maxHealth
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: -6166238226835638072, guid: db08449e2d24e0d468dea21746da98aa,
+        type: 3}
+      propertyPath: m_healthDropValue
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3078133998956346257, guid: db08449e2d24e0d468dea21746da98aa,
         type: 3}
       propertyPath: m_GravityScale

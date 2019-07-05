@@ -74,6 +74,7 @@ MonoBehaviour:
       PublicKeyToken=null
   m_isPlatform: 1
   m_healthIncrease: 125
+  m_regenTime: 54
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 12288
