@@ -15,8 +15,8 @@ public class AI_Enemy_Swarm_Entity : MonoBehaviour
     AI_Enemy_Swarm m_swarmBase;
     Health m_health;
     Rigidbody2D m_rb;
-    [HideInInspector]
-    public string m_playerTag;
+    
+    private string m_playerTag = "Player";
 
     ObjectPooler m_pooler;
 

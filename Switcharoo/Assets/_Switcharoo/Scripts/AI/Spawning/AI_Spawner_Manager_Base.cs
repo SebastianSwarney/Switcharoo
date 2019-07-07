@@ -17,8 +17,10 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
     public GameObject m_enemySpawnersParent;
     public GameObject m_placedEnemiesParent;
 
-    List<AI_Spawner> m_spawnersInRoom;
-    List<GameObject> m_placedEnemies;
+    [HideInInspector]
+    public List<AI_Spawner> m_spawnersInRoom;
+    [HideInInspector]
+    public List<GameObject> m_placedEnemies;
 
 
 
@@ -29,6 +31,7 @@ public abstract class AI_Spawner_Manager_Base : MonoBehaviour
 
     [HideInInspector]
     public bool m_roomDeloaded = false;
+
 
 
 

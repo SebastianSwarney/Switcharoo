@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class RoomManager_Arena_Survival : RoomManager_Base
 {
+
     
-    [Header("Arena Survival Properties")]
-    public int m_enemiesLeft;
     public override void CheckRoomObjective()
     {
-        if (!m_roomTaskComplete && m_enemiesLeft <= 0)
+        bool roomComplete = true;
+        foreach(AI_Spawner spawner in m_roomAiManager[0].m_spawnersInRoom)
+        {
+            if (spawner.gameObject.activeSelf)
+            {
+                roomComplete = false;
+            }
+        }
+        foreach (GameObject spawner in m_roomAiManager[0].m_placedEnemies)
+        {
+            if (spawner.activeSelf)
+            {
+                roomComplete = false;
+            }
+        }
+        if (roomComplete)
         {
             m_roomTaskComplete = true;
-            if (m_stopEnemySpawnsOnComplete)
-            {
-                m_roomAiManager[0].StopAllSpawners();
-            }
-
         }
+
     }
 
     public override void EnemyKilled(AiController p_enemy)
     {
-        m_enemiesLeft -= 1;
+        
     }
 }

@@ -43,6 +43,12 @@ public class Bullet_ConstMove : Bullet_Base
             {
                 collision.gameObject.GetComponent<AI_Spawner>().BulletResitant();
             }
+        }else if (collision.gameObject.tag == "Drone")
+        {
+            if (m_type == PlayerController.PlayerType.Alien)
+            {
+                m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
+            }
         }
 
 		if (CheckCollisionLayer(m_obstacleMask, collision))
