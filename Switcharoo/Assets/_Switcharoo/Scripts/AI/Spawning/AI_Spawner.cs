@@ -117,7 +117,15 @@ public class AI_Spawner : MonoBehaviour, IPauseable
         aiCont.Respawn();
         aiCont.m_currentForward = (m_currentSpawnDir == SpawnDir.Left) ? -1 : 1;
         aiCont.m_spawnerManager = m_spawnManager;
-        aiCont.m_patrolPoints = m_spawnedEnemyPatrolPoints;
+        if (aiCont.m_patrolPoints == null)
+        {
+            aiCont.m_patrolPoints = new List<Transform>();
+        }
+        foreach(Transform patrolPoint in m_spawnedEnemyPatrolPoints)
+        {
+            aiCont.m_patrolPoints.Add(patrolPoint);
+        }
+        
         aiCont.m_aiBounds = m_aiBoundsFromSpawner;
         aiCont.m_agent.m_navGrid = m_navGrid;
         aiCont.gameObject.SetActive(true);
