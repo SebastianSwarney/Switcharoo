@@ -633,6 +633,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b4ca41f933e23742895511e934a1e5b, type: 3}
+--- !u!114 &600156316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6624824611894185297, guid: d7f52cda2897e854ba27d7be02e1b6e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1296392548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2abc69f1a1ada44bc483a599122b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &740825475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -838,12 +850,12 @@ PrefabInstance:
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.4
+      value: 36.8
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -37.4
+      value: -91
       objectReference: {fileID: 0}
     - target: {fileID: 288033317153994165, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
@@ -1225,6 +1237,11 @@ PrefabInstance:
       propertyPath: m_nextRoom
       value: 
       objectReference: {fileID: 1670793997}
+    - target: {fileID: 8607970681778372100, guid: d7f52cda2897e854ba27d7be02e1b6e7,
+        type: 3}
+      propertyPath: m_stopSpawningAtCount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8607970682024831683, guid: d7f52cda2897e854ba27d7be02e1b6e7,
         type: 3}
       propertyPath: m_spawnOnDestroyed.Array.size
@@ -1304,6 +1321,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_spawnerDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607970681778372104, guid: d7f52cda2897e854ba27d7be02e1b6e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607970681778372103, guid: d7f52cda2897e854ba27d7be02e1b6e7,
+        type: 3}
+      propertyPath: m_maxHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7f52cda2897e854ba27d7be02e1b6e7, type: 3}
@@ -1578,6 +1605,16 @@ PrefabInstance:
       propertyPath: m_spawnerDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2217076940721016628, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_roomTaskComplete
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446138838484582723, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_nextRoom
+      value: 
+      objectReference: {fileID: 600156316}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67455a7d00abab04dbb98f329d9b2d17, type: 3}
 --- !u!114 &1670793997 stripped
