@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7855827685248084914}
   - component: {fileID: 7855827685248084915}
   - component: {fileID: 7855827685248084912}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Health Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,10 +174,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97d2988e422a23478ca06ae6938f73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerCollided:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnActivationEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_isPlatform: 0
   m_healthIncrease: 10
+  m_regenTime: 30
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 12288
+  m_startActive: 1
 --- !u!58 &7855827685248084915
 CircleCollider2D:
   m_ObjectHideFlags: 0
