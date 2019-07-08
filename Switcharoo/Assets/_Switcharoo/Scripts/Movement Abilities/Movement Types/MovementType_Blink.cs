@@ -19,6 +19,7 @@ public class MovementType_Blink : MovementType_Base
 	IEnumerator UseBlink(PlayerController p_playerRefrence, TrailType_Base p_trailType, PlayerBuff_Base p_buffType, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementDisabled;
+		p_playerRefrence.m_states.m_swappingState = PlayerController.SwappingState.SwappingDisabled;
 		p_playerRefrence.m_usingMovementAbility = true;
 
 		p_buffType.UseBuff(p_playerRefrence, p_damageTargetMask, p_obstacleMask);
@@ -68,6 +69,7 @@ public class MovementType_Blink : MovementType_Base
 
 		p_playerRefrence.m_velocity = Vector3.zero;
 		p_playerRefrence.m_states.m_movementControllState = PlayerController.MovementControllState.MovementEnabled;
+		p_playerRefrence.m_states.m_swappingState = PlayerController.SwappingState.SwappingEnabled;
 		p_playerRefrence.m_usingMovementAbility = false;
 	}
 }

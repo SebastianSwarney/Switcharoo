@@ -760,6 +760,9 @@ public class PlayerController : MonoBehaviour, IPauseable
 				break;
 		}
 
+
+		// For futer notice: Only the blink works with the proper enabling and disabling of swapping
+		/*
 		if (m_usingMovementAbility)
 		{
 			m_states.m_swappingState = SwappingState.SwappingDisabled;
@@ -768,7 +771,9 @@ public class PlayerController : MonoBehaviour, IPauseable
 		{
 			m_states.m_swappingState = SwappingState.SwappingEnabled;
 		}
+		*/
 
+		/*
 		if (m_isSwapping)
 		{
 			m_states.m_swappingState = SwappingState.SwappingDisabled;
@@ -777,6 +782,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 		{
 			m_states.m_swappingState = SwappingState.SwappingEnabled;
 		}
+		*/
 	}
 	#endregion
 
