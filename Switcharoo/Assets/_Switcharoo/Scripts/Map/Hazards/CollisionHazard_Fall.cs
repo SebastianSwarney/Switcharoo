@@ -152,6 +152,7 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 
         float currentTimer = 0f, newPercent = 0f;
         bool m_completeFade = false;
+
         while (!m_completeFade)
         {
 
@@ -163,8 +164,8 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
 
             if (newPercent >= 1f)
             {
-
                 m_completeFade = true;
+
             }
             yield return null;
         }
@@ -216,6 +217,7 @@ public class CollisionHazard_Fall : CollisionHazard_Base, IActivatable
             m_rigidbody.isKinematic = false;
             m_isTriggered = true;
             m_currentTimer = 0;
+            m_animator.SetTrigger("isFalling");
         }
     }
 
