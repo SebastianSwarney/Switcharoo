@@ -8,7 +8,29 @@ public class Bullet_Homing : Bullet_Base
 	public float m_rotateSpeed = 100f;
 	private Transform m_target;
 
-	public override void Update()
+    [Header("Particle systems")]
+    public GameObject m_trailParticle;
+    GameObject m_currentTrail;
+    ParticleSelfDestruct m_selfDestruct;
+    public Transform m_trailEmitterPosition;
+
+    ParticleSystem.MainModule m_particleMain;
+    float m_currentTime;
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        if (m_currentTrail == null && m_trailParticle != null)
+        {
+            m_currentTrail = ObjectPooler.instance.NewObject(m_trailParticle, m_trailEmitterPosition.position, Quaternion.identity);
+            m_particleMain = m_currentTrail.GetComponent<ParticleSystem>().main;
+            m_selfDestruct = m_currentTrail.GetComponent<ParticleSelfDestruct>();
+            m_selfDestruct.m_destructTime = Mathf.Infinity;
+            m_particleMain.duration = Mathf.Infinity;
+            m_currentTime = 0;
+        }
+    }
+    public override void Update()
 	{
 		base.Update();
 
@@ -25,7 +47,14 @@ public class Bullet_Homing : Bullet_Base
 		{
 			MoveForward();
 		}
-	}
+
+        if (m_currentTrail != null)
+        {
+            m_currentTime += Time.deltaTime;
+            m_currentTrail.transform.position = m_trailEmitterPosition.position;
+        }
+        
+    }
 
 	public override void InitializeParameters(DamageType_Base p_damageType, float p_moveSpeed, float p_damageAmount, LayerMask p_damageTargetMask, LayerMask p_obstacleMask)
 	{
@@ -66,5 +95,13 @@ public class Bullet_Homing : Bullet_Base
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		m_damageType.OnContact(this, collision, m_bulletDamageAmount, m_obstacleMask, m_damageTargetMask);
-	}
+
+        if (m_currentTrail != null)
+        {
+            m_particleMain.duration = m_currentTime;
+            m_currentTrail = null;
+            m_selfDestruct.m_destructTime = m_currentTime + 1f;
+        }
+
+    }
 }

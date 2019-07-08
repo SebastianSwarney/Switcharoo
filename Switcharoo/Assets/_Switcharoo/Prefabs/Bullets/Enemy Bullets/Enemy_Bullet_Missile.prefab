@@ -30,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5970644240452171437}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: db7d6e7f90e8ea2489c9b0c1304d0690, type: 3}
-  m_Color: {r: 1, g: 0.3537736, b: 0.3537736, a: 1}
+  m_Color: {r: 1, g: 0.4575472, b: 0.5203448, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,4 +159,37 @@ MonoBehaviour:
   m_bulletDamageAmount: 0
   m_rigidbody: {fileID: 0}
   m_pooler: {fileID: 0}
-  m_rotateSpeed: 150
+  m_rotateSpeed: 90
+  m_trailParticle: {fileID: 2361204861979864634, guid: 3c4e73a5c905c6e4d9f2bf09598e85a9,
+    type: 3}
+  m_trailEmitterPosition: {fileID: 5970644240452171437}
+--- !u!1 &6138513535001840975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5970644240452171437}
+  m_Layer: 20
+  m_Name: Thrust Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5970644240452171437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138513535001840975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.463, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7432707025646295892}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

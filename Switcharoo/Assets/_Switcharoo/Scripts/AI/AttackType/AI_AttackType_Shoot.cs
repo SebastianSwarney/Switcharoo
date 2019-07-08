@@ -13,6 +13,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
     [Header("Shoot-Only variables")]
     public float m_distanceFromPlayer;
     public int m_bulletsPerPattern;
+    public float m_aimUpPercent;
 
     public float m_shootBreakTime, m_shootTriggerTime;
 
@@ -105,7 +106,7 @@ public class AI_AttackType_Shoot : AI_AttackType_Base
         Vector3 dir = p_targetPos - p_bulletOrigin.transform.position;
 
         float lookAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        p_bulletOrigin.rotation = Quaternion.AngleAxis(lookAngle, Vector3.forward);
+        p_bulletOrigin.rotation = Quaternion.AngleAxis(lookAngle + (m_aimUpPercent * p_bulletOrigin.parent.transform.localScale.x), Vector3.forward);
 
 
     }
