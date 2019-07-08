@@ -7,9 +7,10 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
     [Header("Set Up")]
     public bool m_displayGizmos = true;
     public Vector3Int m_wallDimensions = new Vector3Int(1, 1, 0);
+    public bool m_rotateZ = false;
 
     [Header("Wall Properties")]
-    
+
     public bool m_triggerActivated;
     bool m_activated;
     public Vector2 m_triggerOffset;
@@ -89,36 +90,69 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
         {
             for (int y = 0; y < m_wallDimensions.y; y++)
             {
-                ObjectPooler.instance.NewObject(m_forceFieldObject, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity).transform.parent = m_forceFieldParent;
-                if (x == 0 || x == m_wallDimensions.x - 1)
+                GameObject field = ObjectPooler.instance.NewObject(m_forceFieldObject, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                field.transform.parent = m_forceFieldParent;
+                if (!m_rotateZ)
                 {
-                    GameObject emitterPiece = null;
-                    if (y == 0) {
-                        emitterPiece = ObjectPooler.instance.NewObject(m_bottomEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
-                    }else if(y == m_wallDimensions.y - 1)
+                    if (x == 0 || x == m_wallDimensions.x - 1)
                     {
-                        emitterPiece = ObjectPooler.instance.NewObject(m_topEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        GameObject emitterPiece = null;
+                        if (y == 0)
+                        {
+                            emitterPiece = ObjectPooler.instance.NewObject(m_bottomEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        }
+                        else if (y == m_wallDimensions.y - 1)
+                        {
+                            emitterPiece = ObjectPooler.instance.NewObject(m_topEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        }
+                        else
+                        {
+                            emitterPiece = ObjectPooler.instance.NewObject(m_centerEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        }
+                        emitterPiece.transform.localScale = new Vector3((x == 0) ? 1 : -1, 1, 1);
+                        emitterPiece.transform.GetChild(0).transform.parent = m_forceFieldParent;
+                        emitterPiece.transform.parent = this.transform;
                     }
-                    else
+                }
+                else
+                {
+                    field.transform.eulerAngles = new Vector3(0, 0, 90);
+                    if (y == 0 || y == m_wallDimensions.x - 1)
                     {
-                        emitterPiece = ObjectPooler.instance.NewObject(m_centerEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        GameObject emitterPiece = null;
+                        if (x == 0)
+                        {
+                            emitterPiece = ObjectPooler.instance.NewObject(m_bottomEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        }
+                        else if (x == m_wallDimensions.x - 1)
+                        {
+                            emitterPiece = ObjectPooler.instance.NewObject(m_topEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        }
+                        else
+                        {
+                            emitterPiece = ObjectPooler.instance.NewObject(m_centerEmitter, new Vector3(transform.position.x + x, transform.position.y + y, 0f), Quaternion.identity);
+                        }
+                        emitterPiece.transform.eulerAngles = new Vector3(0f, 0f, -90);
+                        emitterPiece.transform.localScale = new Vector3((y == 0) ? -1 : 1, 1, 1);
+
+                        
+                        emitterPiece.transform.GetChild(0).transform.parent = m_forceFieldParent;
+                        emitterPiece.transform.parent = this.transform;
                     }
-                    emitterPiece.transform.localScale = new Vector3((x == 0 ) ? 1 : -1, 1, 1);
-                    emitterPiece.transform.GetChild(0).transform.parent = m_forceFieldParent;
-                    emitterPiece.transform.parent = this.transform;
                 }
             }
         }
-
     }
 
-    
+
+
+
     private void Update()
     {
         if (m_triggerActivated && !m_startActive && !m_activated)
         {
             Collider2D playerCollided = Physics2D.OverlapBox(m_triggerOffset + (Vector2)transform.position, m_triggerDimensions, 0f, m_playerLayers);
-            if(playerCollided != null)
+            if (playerCollided != null)
             {
                 m_activated = true;
                 BarrierActive(true);

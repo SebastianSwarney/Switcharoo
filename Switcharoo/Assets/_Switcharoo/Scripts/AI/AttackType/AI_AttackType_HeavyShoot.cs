@@ -9,6 +9,7 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
 
     [Header("Heavy-Only variables")]
     public float m_closeDistanceMax;
+    public float m_startMovingDistance = 10;
     public int m_closeShootBulletCount, m_farShootBulletCount;
     public float m_closeShootTriggerTime, m_farShootTriggerTime;
 
@@ -58,41 +59,55 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
 
 
 
-                    //Stop Moving after a certain point
-                    if (!m_closeShootingMovement.PostionReached(p_aiController.m_agent, p_enemyObject, p_targetPos, m_targetStoppingDistance))
+
+                    Vector3 dir = (p_targetPos - p_enemyObject.transform.position).normalized;
+
+                    //If the player is within the ai bounds
+                    if (p_aiController.m_aiBounds.TargetInBounds(p_aiController.transform.position + dir))
                     {
-                        Vector3 dir = (p_targetPos - p_enemyObject.transform.position).normalized;
-                        if (Vector3.Distance(p_enemyObject.transform.position + dir, p_aiController.m_aiBounds.transform.position) < p_aiController.m_aiBounds.m_boundsDimensions.x/2)
+
+                        //if the enemy is too far from the player, move towards the player
+                        if (Mathf.Abs(p_aiController.transform.position.x - p_player.transform.position.x) > m_startMovingDistance)
                         {
+
+
                             m_closeShootingMovement.ConvertRelativePosition(p_aiController.m_agent, p_enemyObject, p_targetPos);
                             m_closeShootingMovement.MoveToPosition(p_aiController, p_aiController.m_attackSpeed, p_rb, p_aiController.m_agent, p_enemyObject.transform.position, p_targetPos, p_aiController.m_isGrounded);
 
 
-                            //Debug.Log("Fire");
+                            Debug.Log("Move");
                             p_aiController.m_canSwitchToAlt = false;
                             p_aiController.ChangeAnimation(false);
                         }
+
+                        //if the enemy is close enough, shoot
                         else
                         {
-
+                            Debug.Log("Start shooting");
                             p_aiController.ChangeAnimation(true);
                             m_closeShootingMovement.StopMoving(p_rb);
                         }
 
                     }
+
+                    //If not in bounds, stop moving
                     else
                     {
+                        Debug.Log("Stop Moving");
 
                         p_aiController.ChangeAnimation(true);
                         m_closeShootingMovement.StopMoving(p_rb);
                     }
+
+
 
                 }
 
                 ///If the player gets out of range, end the attack
                 else
                 {
-                    //Debug.Log("Heavy attack end");
+                    Debug.Log("Heavy attack end");
+
                     p_aiController.m_currentAttackState = AttackState.Finished;
                     p_aiController.ChangeAnimation(false);
                 }
@@ -121,6 +136,10 @@ public class AI_AttackType_HeavyShoot : AI_AttackType_Base
 
     public void AimAtTarget(AiController p_aiController, Transform p_bulletOrigin, Vector3 p_targetPos, ShootController p_gun)
     {
+        if (Mathf.Sign(p_targetPos.x - p_aiController.transform.position.x ) != p_aiController.m_currentForward)
+        {
+            p_aiController.FlipEnemy(p_aiController.m_currentForward * -1);
+        }
         Vector3 dir = p_targetPos - p_bulletOrigin.transform.position;
 
         float lookAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
