@@ -47,4 +47,30 @@ public class TrailObject_Fire : TrailObject_Base
 
 		ObjectPooler.instance.ReturnToPool(gameObject);
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (CheckCollisionLayer(m_damageTargetMask, collision.GetComponent<Collider2D>()))
+            {
+                if (collision.gameObject.tag == "Enemy")
+                {
+                    if (collision.gameObject.GetComponent<AiController>().m_entityType == m_type)
+                    {
+                        collision.gameObject.GetComponent<Health>().SetFireState();
+                    }
+                }
+                else if (collision.gameObject.tag == "EnemySpawner")
+                {
+                    if (collision.gameObject.GetComponent<AI_Spawner>().m_spawnerType == m_type)
+                    {
+                        collision.gameObject.GetComponent<Health>().SetFireState();
+                    }
+                }
+            }
+
+            ObjectPooler.instance.ReturnToPool(gameObject);
+        }
+    }
 }
