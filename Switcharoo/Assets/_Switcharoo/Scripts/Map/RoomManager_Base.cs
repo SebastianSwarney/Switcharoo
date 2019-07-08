@@ -68,6 +68,7 @@ public abstract class RoomManager_Base : MonoBehaviour
                 m_resetableObjects.Add(activateMe);
             }
         }
+        
 
 
 

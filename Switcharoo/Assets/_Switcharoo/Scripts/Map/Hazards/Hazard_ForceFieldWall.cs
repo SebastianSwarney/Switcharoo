@@ -117,7 +117,7 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
                 else
                 {
                     field.transform.eulerAngles = new Vector3(0, 0, 90);
-                    if (y == 0 || y == m_wallDimensions.x - 1)
+                    if (y == 0 || y == m_wallDimensions.y - 1)
                     {
                         GameObject emitterPiece = null;
                         if (x == 0)
@@ -154,7 +154,7 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
             Collider2D playerCollided = Physics2D.OverlapBox(m_triggerOffset + (Vector2)transform.position, m_triggerDimensions, 0f, m_playerLayers);
             if (playerCollided != null)
             {
-                print("Activate");
+                
                 m_activated = true;
                 BarrierActive(true);
             }
@@ -184,5 +184,10 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
         {
             BarrierActive(true);
         }
+    }
+
+    public void ChangeStartActive()
+    {
+        m_startActive = false;
     }
 }

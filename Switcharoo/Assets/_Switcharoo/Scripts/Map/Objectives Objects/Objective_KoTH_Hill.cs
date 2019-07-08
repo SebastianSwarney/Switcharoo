@@ -83,7 +83,7 @@ public class Objective_KoTH_Hill : MonoBehaviour, IPauseable
             if (m_currentTime >= m_targetTime)
             {
                 m_hillComplete = true;
-                //this.gameObject.SetActive(false);
+                m_hillFieldRender.color = Color.clear;
                 StartCoroutine(ColorChangeDelay());
 
 

@@ -15,11 +15,16 @@ public class DungeonManager : MonoBehaviour
     public CameraController_Base m_cameraController;
     PlayerController m_playerCont;
     public GameObject m_currentLoadedTilemap;
+    
+    public List<RoomManager_Base> m_allRooms;
+    public ActivateEvent m_allRoomsCompleteEvent;
+    bool m_allRoomsCompleted;
 
     [Header("Room Transition")]
     public float m_roomTransitionTime;
     Coroutine m_roomTransitionCoroutine;
     public RoomManager_Base m_currentRoom;
+    
 
     [Header("Cavas Objects")]
     public GameObject m_deathCanvas;
@@ -70,6 +75,29 @@ public class DungeonManager : MonoBehaviour
     private void Update()
     {
         CheckPlayerHealth();
+        if (!m_allRoomsCompleted)
+        {
+            CheckRoomCompletion();
+        }
+        
+    }
+
+    private void CheckRoomCompletion()
+    {
+        bool allRoomsComplete = true;
+        foreach (RoomManager_Base room in m_allRooms)
+        {
+            if (!room.m_roomTaskComplete)
+            {
+                allRoomsComplete = false;
+            }
+        }
+        if (allRoomsComplete)
+        {
+            m_allRoomsCompleted = true;
+            m_allRoomsCompleteEvent.Invoke();
+        }
+
     }
     void CheckPlayerHealth()
     {
