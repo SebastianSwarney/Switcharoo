@@ -18,6 +18,7 @@ MonoBehaviour:
   m_playerMoveDistanceReaction: 3
   m_distanceFromPlayer: 6
   m_bulletsPerPattern: 3
+  m_aimUpPercent: 15
   m_shootBreakTime: 2
   m_shootTriggerTime: 1
   m_shootingMovement: {fileID: 11400000, guid: 8fa5da3ea9435ea42b846ae8dffcd6e6, type: 2}

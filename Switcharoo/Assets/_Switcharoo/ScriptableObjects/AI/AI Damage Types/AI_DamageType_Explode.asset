@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AI_DamageType_Explode
   m_EditorClassIdentifier: 
   m_uiSprite: {fileID: 0}
-  m_explosionVisual: {fileID: 658332429810894688, guid: 9eb391405a534b341b84c050df0d0c07,
+  m_explosionVisual: {fileID: 6793366156147123112, guid: 145c1470b7ee6b8478d006bcbcd7b2aa,
     type: 3}
   m_explosionRadius: 2
   m_explosionDamage: 10

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,8 @@ public class ParticleSelfDestruct : MonoBehaviour
 {
 	private ParticleSystem m_attachedParticalSystem;
 
-	private float m_destructTime;
+    [HideInInspector]
+	public float m_destructTime;
 	private float m_destructTimer;
 
 	private void Start()
