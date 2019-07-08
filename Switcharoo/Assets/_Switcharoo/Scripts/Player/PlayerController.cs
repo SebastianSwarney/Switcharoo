@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour, IPauseable
 
 	void Update()
     {
-        HandleWallSliding();
+        
         InputBuffering();
         GunnerAim();
 		UpdatePlayerStates();
@@ -191,6 +191,8 @@ public class PlayerController : MonoBehaviour, IPauseable
 		{
 			m_spriteTarget.transform.localPosition = new Vector2(Mathf.Sign(m_spriteTarget.transform.localPosition.x) > 0 ? m_spriteTarget.transform.localPosition.x * -controller.collisions.faceDir : m_spriteTarget.transform.localPosition.x * controller.collisions.faceDir, m_spriteTarget.transform.localPosition.y);
 		}
+
+		HandleWallSliding();
 
 		controller.Move(m_velocity * Time.deltaTime, m_directionalInput);
 
@@ -415,7 +417,7 @@ public class PlayerController : MonoBehaviour, IPauseable
                 if (m_directionalInput.x != m_wallDirX && m_directionalInput.x != 0)
                 {
                     m_timeToWallUnstick -= Time.deltaTime;
-                }
+				}
                 else
                 {
                     m_timeToWallUnstick = m_wallStickTime;
