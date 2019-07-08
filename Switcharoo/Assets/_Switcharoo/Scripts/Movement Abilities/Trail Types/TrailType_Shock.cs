@@ -48,7 +48,7 @@ public class TrailType_Shock : TrailType_Base
 		GameObject newDropObject = ObjectPooler.instance.NewObject(m_dropObject.gameObject, p_spawnPoint, true);
 		newDropObject.GetComponent<TrailObject_Shock>().m_trailType = this;
 		newDropObject.GetComponent<TrailObject_Shock>().m_damageTargetMask = p_damageTargetMask;
-		newDropObject.GetComponent<TrailObject_Ice>().m_type = p_playerRefrence.m_currentRunnerType;
+		newDropObject.GetComponent<TrailObject_Shock>().m_type = p_playerRefrence.m_currentRunnerType;
 	}
 
 	public void ShockBlast(Vector3 p_shockOrigin, LayerMask p_damageTargetMask, PlayerController.PlayerType m_type)
