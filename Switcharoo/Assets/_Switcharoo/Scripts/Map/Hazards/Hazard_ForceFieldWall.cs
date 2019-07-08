@@ -154,6 +154,7 @@ public class Hazard_ForceFieldWall : MonoBehaviour, IActivatable
             Collider2D playerCollided = Physics2D.OverlapBox(m_triggerOffset + (Vector2)transform.position, m_triggerDimensions, 0f, m_playerLayers);
             if (playerCollided != null)
             {
+                print("Activate");
                 m_activated = true;
                 BarrierActive(true);
             }

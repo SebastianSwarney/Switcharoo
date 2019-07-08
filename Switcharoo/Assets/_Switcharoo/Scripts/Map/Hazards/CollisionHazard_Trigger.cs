@@ -9,6 +9,8 @@ public class CollisionHazard_Trigger : CollisionHazard_Base, IActivatable
 	public float m_triggerDelay;
 	public bool m_drawBoundsInWorldSpace;
 
+    public ActivateEvent m_triggerEvent;
+
 	private bool m_isTriggered;
 
     Coroutine m_hazardStartCoroutine;
@@ -43,7 +45,8 @@ public class CollisionHazard_Trigger : CollisionHazard_Base, IActivatable
 
 		if (collider)
 		{
-			m_isTriggered = true;
+            m_triggerEvent.Invoke();
+            m_isTriggered = true;
 			m_hazardStartCoroutine = StartCoroutine(PopOut());
 		}
 	}

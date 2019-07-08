@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_displayGizmos: 1
   m_wallDimensions: {x: 3, y: 2, z: 0}
+  m_rotateZ: 0
   m_triggerActivated: 0
   m_triggerOffset: {x: 0, y: 0}
   m_triggerDimensions: {x: 0, y: 0}
@@ -91,7 +92,7 @@ MonoBehaviour:
     type: 3}
   m_playerLayers:
     serializedVersion: 2
-    m_Bits: 49152
+    m_Bits: 12288
   m_startActive: 0
 --- !u!61 &-304500834879016473
 BoxCollider2D:
