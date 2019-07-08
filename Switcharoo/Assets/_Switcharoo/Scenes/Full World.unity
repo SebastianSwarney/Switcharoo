@@ -1414,25 +1414,25 @@ PrefabInstance:
         type: 3}
       propertyPath: m_players.Array.data[0].m_weaponComposition.m_damageType
       value: 
-      objectReference: {fileID: 11400000, guid: a2a4a771a38738b40a4b1995ec450d4e,
+      objectReference: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76,
         type: 2}
     - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_players.Array.data[0].m_movementAbilityComposition.m_trailType
       value: 
-      objectReference: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323,
+      objectReference: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf,
         type: 2}
     - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_players.Array.data[1].m_weaponComposition.m_damageType
       value: 
-      objectReference: {fileID: 11400000, guid: a2a4a771a38738b40a4b1995ec450d4e,
+      objectReference: {fileID: 11400000, guid: 08760db1f20e34048a479ad8dfc41c76,
         type: 2}
     - target: {fileID: 288033317153994160, guid: 2f9219e412522404b8a390537fdbe7e2,
         type: 3}
       propertyPath: m_players.Array.data[1].m_movementAbilityComposition.m_trailType
       value: 
-      objectReference: {fileID: 11400000, guid: f25a03e73e1348d4181ebded37c15323,
+      objectReference: {fileID: 11400000, guid: 2e83236abb45c8142b2c88feaaa15ebf,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9219e412522404b8a390537fdbe7e2, type: 3}
