@@ -3206,6 +3206,16 @@ PrefabInstance:
       propertyPath: m_nextRoom
       value: 
       objectReference: {fileID: 2146279469}
+    - target: {fileID: 5948296370654993683, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_maxEnemyFromThis
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948296371330130946, guid: 67455a7d00abab04dbb98f329d9b2d17,
+        type: 3}
+      propertyPath: m_maxEnemyFromThis
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67455a7d00abab04dbb98f329d9b2d17, type: 3}
 --- !u!114 &1194838525 stripped
@@ -3488,6 +3498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room 004 - Arena Survival
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039646113027517888, guid: d7f52cda2897e854ba27d7be02e1b6e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7039646113027517891, guid: d7f52cda2897e854ba27d7be02e1b6e7,
         type: 3}
