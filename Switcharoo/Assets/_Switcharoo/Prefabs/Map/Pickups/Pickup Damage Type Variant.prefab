@@ -31,6 +31,7 @@ MonoBehaviour:
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 12288
+  m_regenerationTime: 30
   m_itemIconRenderer: {fileID: 5891234172624307983}
   m_switchItemTime: 6
   m_currentItem: 0
