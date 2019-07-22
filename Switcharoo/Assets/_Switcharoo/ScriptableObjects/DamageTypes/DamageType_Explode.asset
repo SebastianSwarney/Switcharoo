@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9384fb053d26f0419ec5addde9faa51, type: 3}
   m_Name: DamageType_Explode
   m_EditorClassIdentifier: 
-  m_uiSprite: {fileID: 21300000, guid: afd90cfc2d063b34594ea6a185661ccf, type: 3}
+  m_uiSprite: {fileID: 21300000, guid: d94d2d53c99a5ad41ab83f4a5225d6e3, type: 3}
   m_explosionVisual: {fileID: 658332429810894688, guid: 9eb391405a534b341b84c050df0d0c07,
     type: 3}
   m_explosionRadius: 2.5
