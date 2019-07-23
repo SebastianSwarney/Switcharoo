@@ -135,8 +135,9 @@ public class AiController : MonoBehaviour, IPauseable
 	public Transform m_shootAltOrigin;
 	[HideInInspector]
 	public bool m_fireAlt;
-	[HideInInspector]
-	public bool m_canSwitchToAlt;
+    [HideInInspector]
+    public bool m_canSwitchToAlt;
+
 	#endregion
 
 	#region respawn Variables

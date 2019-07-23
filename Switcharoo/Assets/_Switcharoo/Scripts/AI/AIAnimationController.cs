@@ -98,12 +98,15 @@ public class AIAnimationController : MonoBehaviour
 
     public void SwitchToAltFire()
     {
+        
         m_aiCont.m_canSwitchToAlt = true;
     }
     public void StopSwitchToAltFire()
     {
         m_aiCont.m_canSwitchToAlt = false;
     }
+
+
 
     #endregion
 

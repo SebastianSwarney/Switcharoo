@@ -22,12 +22,13 @@ public class Bullet_Homing : Bullet_Base
         base.OnEnable();
         if (m_currentTrail == null && m_trailParticle != null)
         {
-            m_currentTrail = ObjectPooler.instance.NewObject(m_trailParticle, m_trailEmitterPosition.position, Quaternion.identity);
+            m_currentTrail = ObjectPooler.instance.NewObject(m_trailParticle, m_trailEmitterPosition.position, Quaternion.identity,false);
             m_particleMain = m_currentTrail.GetComponent<ParticleSystem>().main;
             m_selfDestruct = m_currentTrail.GetComponent<ParticleSelfDestruct>();
             m_selfDestruct.m_destructTime = Mathf.Infinity;
             m_particleMain.duration = Mathf.Infinity;
             m_currentTime = 0;
+            m_currentTrail.SetActive(true);
         }
     }
     public override void Update()
