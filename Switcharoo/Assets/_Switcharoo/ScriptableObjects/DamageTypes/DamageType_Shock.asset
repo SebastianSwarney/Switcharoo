@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd378aff8dbc052458806a758513aa57, type: 3}
   m_Name: DamageType_Shock
   m_EditorClassIdentifier: 
-  m_uiSprite: {fileID: 21300000, guid: 0b29c4bdfd41b754a92bc8c8d3e3e0af, type: 3}
+  m_uiSprite: {fileID: 21300000, guid: ca2ac5e99ed1de44ab3d2c0e3820b2bc, type: 3}
   m_shockRadius: 6
   m_shockChainAmount: 6
   m_shockDamage: 4.5

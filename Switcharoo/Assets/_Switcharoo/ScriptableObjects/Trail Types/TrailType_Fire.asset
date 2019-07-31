@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5d5e5d13bc02a4d835d56c15f09a7b, type: 3}
   m_Name: TrailType_Fire
   m_EditorClassIdentifier: 
-  m_uiSprite: {fileID: 21300000, guid: ff9f72b63601b114c88768d22d1003a9, type: 3}
+  m_uiSprite: {fileID: 21300000, guid: 65ae2ec4709a1b340854d5e7dc15c724, type: 3}
   m_trailDamageAmount: 18
   m_dropObject: {fileID: 8982904590746901947, guid: 6d1f8bc3c399f394a8628f00ea68011c,
     type: 3}

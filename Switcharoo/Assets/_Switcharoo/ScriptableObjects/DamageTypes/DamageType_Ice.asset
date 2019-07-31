@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fec5bdd5b43e3845bc3918e92f195ff, type: 3}
   m_Name: DamageType_Ice
   m_EditorClassIdentifier: 
-  m_uiSprite: {fileID: 21300000, guid: 97410f81f062a614f8bb06d5a27a391d, type: 3}
+  m_uiSprite: {fileID: 21300000, guid: 458e23f618eb3b7439dbf0f862f098c5, type: 3}

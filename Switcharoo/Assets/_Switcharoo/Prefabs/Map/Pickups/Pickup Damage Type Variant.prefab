@@ -31,7 +31,7 @@ MonoBehaviour:
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 12288
-  m_regenerationTime: 30
+  m_regenerationTime: 9
   m_itemIconRenderer: {fileID: 5891234172624307983}
   m_switchItemTime: 6
   m_currentItem: 0
@@ -130,6 +130,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059891, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059891, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366323573321059891, guid: 0a815910d33de8748a023630906e713f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.29803923
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a815910d33de8748a023630906e713f, type: 3}
