@@ -1,44 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5230235322247738925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442600645968664260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2062fcc0c702946adb4229fba2add2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_startColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
-  m_endColorOrange: {r: 1, g: 0.57254905, b: 0, a: 1}
-  m_endColorBlue: {r: 0, g: 0.6857805, b: 1, a: 1}
-  m_images:
-  - {fileID: 7317119991634084315}
-  - {fileID: 6225472702901749205}
-  m_blinkTime: 0.5
-  m_targetGameObject: {fileID: 6698336794093962298}
-  m_startScale: {x: 2, y: 0, z: 0}
-  m_targetScale: {x: 1, y: 1, z: 1}
-  m_sizeChangeTime: 0.3
-  m_switchRequest:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5739264196185096536}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: EventActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &4780569422165709507
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +133,12 @@ MonoBehaviour:
   m_playerGameObject: {fileID: 0}
   m_cameraController: {fileID: 0}
   m_currentLoadedTilemap: {fileID: 0}
+  m_allRooms: []
+  m_allRoomsCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ActivateEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_roomTransitionTime: 0
   m_currentRoom: {fileID: 0}
   m_deathCanvas: {fileID: 5321094756911247890}
@@ -179,6 +146,7 @@ MonoBehaviour:
   m_eventSystem: {fileID: 1569780004333432040}
   m_deathScreenButton: {fileID: 5321094758216854395}
   m_pauseScreenButton: {fileID: 3485593307851558809}
+  m_inTransition: 0
 --- !u!156049354 &2799149234755152723
 Grid:
   m_ObjectHideFlags: 0
@@ -191,29 +159,6 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &5739264196185096536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6698336794093962298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/UI/SwitchRequest
-  PlayEvent: 0
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &7023437397360296670
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,16 +646,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7200610427041235771, guid: 3ae2eaf700fffa145b4c66efe533d25b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 623948055536863999, guid: 3ae2eaf700fffa145b4c66efe533d25b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae2eaf700fffa145b4c66efe533d25b, type: 3}
 --- !u!1 &1442600645968664260 stripped
@@ -725,36 +660,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6079279643304939205}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6698336794093962298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 623948055536863999, guid: 3ae2eaf700fffa145b4c66efe533d25b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6079279643304939205}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7317119991634084315 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3591147350543175454, guid: 3ae2eaf700fffa145b4c66efe533d25b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6079279643304939205}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6225472702901749205 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 160056801984629520, guid: 3ae2eaf700fffa145b4c66efe533d25b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6079279643304939205}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7496186334494334574
 PrefabInstance:
   m_ObjectHideFlags: 0

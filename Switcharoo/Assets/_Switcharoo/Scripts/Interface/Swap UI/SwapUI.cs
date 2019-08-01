@@ -65,7 +65,6 @@ public class SwapUI : MonoBehaviour
     IEnumerator StartChange()
     {
         m_switchRequest.Invoke();
-        print("Switch request");
         m_targetGameObject.SetActive(true);
         float percent = 0, currentTime = 0;
         m_images[0].color = m_startColor;
@@ -106,7 +105,6 @@ public class SwapUI : MonoBehaviour
                 flip = !flip;
                 currentTime = 0;
             }
-            print("Running");
             yield return null;
         }
     }
@@ -114,7 +112,6 @@ public class SwapUI : MonoBehaviour
 
     IEnumerator EndChange()
     {
-        print("Oi");
         float percent = 0, currentTime = 0;
 
         Color startLerpColor = debugColor;

@@ -40,7 +40,7 @@ public abstract class RoomManager_Base : MonoBehaviour
     public PlatformerNavigation m_navGrid;
 
 
-
+    public ActivateEvent m_roomComplete;
 
     void Awake()
     {
@@ -176,6 +176,7 @@ public abstract class RoomManager_Base : MonoBehaviour
             {
                 currentDoor.ChangeLockOnDoor(false);
             }
+            m_roomComplete.Invoke();
 
 
             m_roomAlreadyComplete = true;
