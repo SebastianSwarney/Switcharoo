@@ -119,6 +119,12 @@ public class AIAnimationController : MonoBehaviour
         }
         if (!p_pause)
         {
+            if(m_aiCont == null)
+            {
+                m_aiCont = transform.parent.GetComponent<AiController>();
+
+                
+            }
             if (m_aiCont.m_isFrozen) return;
         }
         m_animCont.enabled = !p_pause;
